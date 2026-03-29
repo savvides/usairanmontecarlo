@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
 interface PhaseProgressProps {
@@ -63,6 +64,15 @@ export function PhaseProgress({
           </button>
         );
       })}
+      <div className="ml-auto">
+        <Link
+          href="/methodology"
+          className="flex h-5 w-5 items-center justify-center rounded-full bg-surface-elevated text-text-muted text-[10px] font-mono hover:text-text-secondary transition-colors"
+          title="Methodology"
+        >
+          ?
+        </Link>
+      </div>
     </div>
   );
 }

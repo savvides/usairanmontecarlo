@@ -43,6 +43,10 @@ export default function Home() {
           <span>Research-backed parameters</span>
           <span className="h-3 w-px bg-border" />
           <span>Open source</span>
+          <span className="h-3 w-px bg-border" />
+          <Link href="/methodology" className="hover:text-text-secondary transition-colors">
+            Methodology
+          </Link>
         </div>
       </div>
     </main>
