@@ -1,0 +1,466 @@
+[
+  {
+    "id": "precision-conflict-limited-civilian-impact",
+    "phase": 6,
+    "title": "Precision Conflict with Limited Civilian Impact",
+    "description": "The conflict remains a short-duration, high-precision air and naval campaign targeting only military facilities and IRGC assets, with strict rules of engagement that minimize dual-use infrastructure strikes. This scenario requires a combination of favorable conditions rarely achieved simultaneously: a brief conflict window (under two weeks), US restraint on infrastructure targeting, effective US strategic communications, and a functioning UN humanitarian response channel. The US conducts surgical strikes on Natanz, Fordow, and IRGC command nodes using B-2 penetrating munitions and Tomahawk barrages. Iranian air defenses are suppressed in the first 72 hours. Iranian ballistic missile salvos at Al-Udeid and Ain Al-Asad produce under 100 US fatalities from a combination of PAC-3 interception and hardened shelters. Iran's civilian population in Tehran and Isfahan does not face direct strike risk — the IRGC's deliberate co-location with civilian areas is documented but not targeted due to IHL constraints. Power and water infrastructure remain largely intact. UNHCR pre-positions supplies in Turkey and Iraq before hostilities begin; WHO activates its Emergency Medical Teams framework. Civilian displacement is concentrated near Khuzestan province (oil infrastructure zone) and Bushehr; total IDP count stays below 500,000. International media narrative remains contested, with US able to demonstrate precision through battle damage assessment releases. The ceasefire is negotiated within three weeks through Qatari mediation, before cascading health and displacement effects materialize. This is the 'best-case' humanitarian trajectory — achievable but dependent on US political will to accept sub-optimal military outcomes in exchange for minimized civilian harm.",
+    "overrides": [
+      {
+        "nodeId": "iranian_military_casualties",
+        "overrideProbabilities": {
+          "under_1000": 0.45,
+          "1000_to_10000": 0.45,
+          "10000_to_50000": 0.09,
+          "over_50000": 0.01
+        }
+      },
+      {
+        "nodeId": "us_military_casualties",
+        "overrideProbabilities": {
+          "under_100": 0.62,
+          "100_to_1000": 0.30,
+          "1000_to_5000": 0.07,
+          "over_5000": 0.01
+        }
+      },
+      {
+        "nodeId": "iranian_civilian_casualties",
+        "overrideProbabilities": {
+          "under_1000": 0.60,
+          "1000_to_10000": 0.32,
+          "10000_to_100000": 0.07,
+          "over_100000": 0.01
+        }
+      },
+      {
+        "nodeId": "refugee_displacement_scale",
+        "overrideProbabilities": {
+          "under_500k": 0.62,
+          "500k_to_2m": 0.28,
+          "2m_to_5m": 0.08,
+          "over_5m": 0.02
+        }
+      },
+      {
+        "nodeId": "critical_infrastructure_destruction",
+        "overrideProbabilities": {
+          "minimal_damage": 0.50,
+          "significant_partial": 0.38,
+          "severe_widespread": 0.10,
+          "near_total_collapse": 0.02
+        }
+      },
+      {
+        "nodeId": "environmental_damage_severity",
+        "overrideProbabilities": {
+          "minimal": 0.45,
+          "localized_moderate": 0.40,
+          "regional_significant": 0.13,
+          "catastrophic_gulf_wide": 0.02
+        }
+      },
+      {
+        "nodeId": "humanitarian_aid_access",
+        "overrideProbabilities": {
+          "full_access": 0.42,
+          "partial_constrained": 0.42,
+          "severely_limited": 0.13,
+          "effectively_blocked": 0.03
+        }
+      },
+      {
+        "nodeId": "public_health_crisis_severity",
+        "overrideProbabilities": {
+          "contained_manageable": 0.58,
+          "significant_outbreak": 0.30,
+          "severe_multi_disease": 0.10,
+          "catastrophic_mass_mortality": 0.02
+        }
+      },
+      {
+        "nodeId": "regional_refugee_destabilization",
+        "overrideProbabilities": {
+          "stable_absorption": 0.52,
+          "strained_no_destabilization": 0.35,
+          "one_neighbor_destabilized": 0.10,
+          "multiple_states_destabilized": 0.03
+        }
+      },
+      {
+        "nodeId": "global_media_information_impact",
+        "overrideProbabilities": {
+          "us_narrative_dominant": 0.38,
+          "contested_mixed": 0.42,
+          "iran_sympathetic_dominant": 0.16,
+          "global_anti_us_consensus": 0.04
+        }
+      },
+      {
+        "nodeId": "icc_war_crimes_proceedings",
+        "overrideProbabilities": {
+          "no_proceedings": 0.52,
+          "preliminary_inquiries_only": 0.33,
+          "formal_investigation_opened": 0.12,
+          "indictments_or_rulings": 0.03
+        }
+      },
+      {
+        "nodeId": "humanitarian_cost_index",
+        "overrideProbabilities": {
+          "limited": 0.55,
+          "moderate": 0.35,
+          "severe": 0.08,
+          "catastrophic": 0.02
+        }
+      }
+    ]
+  },
+  {
+    "id": "urban-warfare-escalation",
+    "phase": 6,
+    "title": "Urban Warfare Escalation",
+    "description": "The conflict expands beyond stand-off strike operations into contested urban environments — driven by Iranian resistance hardening in population centers, Iranian deployment of human shields around strategic infrastructure, and US/allied ground force incursions into border zones or, in the most extreme variant, movement toward Tehran. Urban warfare is the signature catastrophe of modern conflict: Mosul 2016–2017 (1.5M displaced, 10,000+ civilian deaths), Mariupol 2022 (90% of buildings damaged), Fallujah 2004, and Raqqa 2017 all demonstrate the disproportionate civilian toll when major militaries fight in dense urban terrain. Iran's major cities are exceptionally dense: Tehran has 28,000 people/km² in central districts. IRGC doctrine explicitly calls for urban guerrilla warfare as a deterrent to US ground operations — dispersed weapons caches, IED networks, militia mobilization, and fighter concentration in mosques and hospitals deliberately exploiting IHL protections. If US forces engage in urban combat, casualty rates spike dramatically on both sides: the battle of Fallujah in 2004 cost 95 US KIA and an estimated 1,200–2,000 civilian deaths in a city of 300,000 — scaling to Tehran would be orders of magnitude more lethal. Hospitals in combat zones face dual targeting dilemma: military use of medical facilities strips IHL protection while civilian patients remain. International media access to urban destruction drives rapid narrative shift against US operations. Ceasefire becomes more difficult as urban warfare creates facts on the ground that both sides cannot easily de-escalate.",
+    "overrides": [
+      {
+        "nodeId": "iranian_military_casualties",
+        "overrideProbabilities": {
+          "under_1000": 0.04,
+          "1000_to_10000": 0.22,
+          "10000_to_50000": 0.48,
+          "over_50000": 0.26
+        }
+      },
+      {
+        "nodeId": "us_military_casualties",
+        "overrideProbabilities": {
+          "under_100": 0.06,
+          "100_to_1000": 0.30,
+          "1000_to_5000": 0.45,
+          "over_5000": 0.19
+        }
+      },
+      {
+        "nodeId": "iranian_civilian_casualties",
+        "overrideProbabilities": {
+          "under_1000": 0.02,
+          "1000_to_10000": 0.12,
+          "10000_to_100000": 0.50,
+          "over_100000": 0.36
+        }
+      },
+      {
+        "nodeId": "refugee_displacement_scale",
+        "overrideProbabilities": {
+          "under_500k": 0.03,
+          "500k_to_2m": 0.15,
+          "2m_to_5m": 0.42,
+          "over_5m": 0.40
+        }
+      },
+      {
+        "nodeId": "critical_infrastructure_destruction",
+        "overrideProbabilities": {
+          "minimal_damage": 0.02,
+          "significant_partial": 0.12,
+          "severe_widespread": 0.48,
+          "near_total_collapse": 0.38
+        }
+      },
+      {
+        "nodeId": "environmental_damage_severity",
+        "overrideProbabilities": {
+          "minimal": 0.04,
+          "localized_moderate": 0.20,
+          "regional_significant": 0.48,
+          "catastrophic_gulf_wide": 0.28
+        }
+      },
+      {
+        "nodeId": "humanitarian_aid_access",
+        "overrideProbabilities": {
+          "full_access": 0.02,
+          "partial_constrained": 0.18,
+          "severely_limited": 0.45,
+          "effectively_blocked": 0.35
+        }
+      },
+      {
+        "nodeId": "public_health_crisis_severity",
+        "overrideProbabilities": {
+          "contained_manageable": 0.02,
+          "significant_outbreak": 0.12,
+          "severe_multi_disease": 0.48,
+          "catastrophic_mass_mortality": 0.38
+        }
+      },
+      {
+        "nodeId": "regional_refugee_destabilization",
+        "overrideProbabilities": {
+          "stable_absorption": 0.03,
+          "strained_no_destabilization": 0.15,
+          "one_neighbor_destabilized": 0.40,
+          "multiple_states_destabilized": 0.42
+        }
+      },
+      {
+        "nodeId": "global_media_information_impact",
+        "overrideProbabilities": {
+          "us_narrative_dominant": 0.04,
+          "contested_mixed": 0.20,
+          "iran_sympathetic_dominant": 0.42,
+          "global_anti_us_consensus": 0.34
+        }
+      },
+      {
+        "nodeId": "icc_war_crimes_proceedings",
+        "overrideProbabilities": {
+          "no_proceedings": 0.05,
+          "preliminary_inquiries_only": 0.18,
+          "formal_investigation_opened": 0.45,
+          "indictments_or_rulings": 0.32
+        }
+      },
+      {
+        "nodeId": "humanitarian_cost_index",
+        "overrideProbabilities": {
+          "limited": 0.02,
+          "moderate": 0.12,
+          "severe": 0.48,
+          "catastrophic": 0.38
+        }
+      }
+    ]
+  },
+  {
+    "id": "infrastructure-collapse",
+    "phase": 6,
+    "title": "Infrastructure Collapse",
+    "description": "The deliberate or inadvertent destruction of Iran's critical civilian infrastructure — electrical grid, water treatment, fuel distribution, and hospital supply chains — becomes the dominant humanitarian driver, exceeding direct strike casualties in total human cost. This scenario does not require urban ground combat: sustained air and missile strikes on power generation plants, switching stations, and fuel depots disable the grid within 2–4 weeks. Without electricity, water pumping stations fail within 72 hours in most Iranian cities; hospital backup generators run out of fuel within days. The cascading health effects unfold over months: waterborne disease outbreaks (cholera, typhoid) emerge in displaced populations and damaged urban areas; neonatal mortality spikes from lack of obstetric care; cancer and dialysis patients die from treatment interruption; cold chain collapse spoils insulin and vaccines. This pattern was documented in Iraq 1991 (post-Desert Storm infrastructure destruction killed an estimated 100,000–500,000 children under 5 from disease over the following decade, per UNICEF). The US Air Force's doctrine on 'effects-based operations' includes electrical grid targeting as a legitimate military objective for degrading command and control — but the deferred civilian mortality is catastrophic and legally contested. International humanitarian law experts widely regard systematic civilian grid attacks as violations of Additional Protocol I, Article 54. The WHO Health Cluster activates but faces severe access constraints. UNHCR struggles to provision displaced populations with water purification tablets and emergency rations. The global media and information environment shifts sharply against the US as documentary footage of empty hospitals and dying patients circulates on social media. This scenario is the most legally consequential: it creates the strongest basis for ICC preliminary inquiry and potentially formal investigation under the Rome Statute's 'attacking objects indispensable to civilian survival' provision.",
+    "overrides": [
+      {
+        "nodeId": "iranian_military_casualties",
+        "overrideProbabilities": {
+          "under_1000": 0.12,
+          "1000_to_10000": 0.42,
+          "10000_to_50000": 0.35,
+          "over_50000": 0.11
+        }
+      },
+      {
+        "nodeId": "us_military_casualties",
+        "overrideProbabilities": {
+          "under_100": 0.28,
+          "100_to_1000": 0.45,
+          "1000_to_5000": 0.22,
+          "over_5000": 0.05
+        }
+      },
+      {
+        "nodeId": "iranian_civilian_casualties",
+        "overrideProbabilities": {
+          "under_1000": 0.04,
+          "1000_to_10000": 0.20,
+          "10000_to_100000": 0.48,
+          "over_100000": 0.28
+        }
+      },
+      {
+        "nodeId": "refugee_displacement_scale",
+        "overrideProbabilities": {
+          "under_500k": 0.05,
+          "500k_to_2m": 0.22,
+          "2m_to_5m": 0.45,
+          "over_5m": 0.28
+        }
+      },
+      {
+        "nodeId": "critical_infrastructure_destruction",
+        "overrideProbabilities": {
+          "minimal_damage": 0.01,
+          "significant_partial": 0.10,
+          "severe_widespread": 0.42,
+          "near_total_collapse": 0.47
+        }
+      },
+      {
+        "nodeId": "environmental_damage_severity",
+        "overrideProbabilities": {
+          "minimal": 0.06,
+          "localized_moderate": 0.28,
+          "regional_significant": 0.45,
+          "catastrophic_gulf_wide": 0.21
+        }
+      },
+      {
+        "nodeId": "humanitarian_aid_access",
+        "overrideProbabilities": {
+          "full_access": 0.03,
+          "partial_constrained": 0.22,
+          "severely_limited": 0.45,
+          "effectively_blocked": 0.30
+        }
+      },
+      {
+        "nodeId": "public_health_crisis_severity",
+        "overrideProbabilities": {
+          "contained_manageable": 0.01,
+          "significant_outbreak": 0.08,
+          "severe_multi_disease": 0.40,
+          "catastrophic_mass_mortality": 0.51
+        }
+      },
+      {
+        "nodeId": "regional_refugee_destabilization",
+        "overrideProbabilities": {
+          "stable_absorption": 0.04,
+          "strained_no_destabilization": 0.20,
+          "one_neighbor_destabilized": 0.42,
+          "multiple_states_destabilized": 0.34
+        }
+      },
+      {
+        "nodeId": "global_media_information_impact",
+        "overrideProbabilities": {
+          "us_narrative_dominant": 0.03,
+          "contested_mixed": 0.18,
+          "iran_sympathetic_dominant": 0.45,
+          "global_anti_us_consensus": 0.34
+        }
+      },
+      {
+        "nodeId": "icc_war_crimes_proceedings",
+        "overrideProbabilities": {
+          "no_proceedings": 0.04,
+          "preliminary_inquiries_only": 0.15,
+          "formal_investigation_opened": 0.42,
+          "indictments_or_rulings": 0.39
+        }
+      },
+      {
+        "nodeId": "humanitarian_cost_index",
+        "overrideProbabilities": {
+          "limited": 0.01,
+          "moderate": 0.10,
+          "severe": 0.42,
+          "catastrophic": 0.47
+        }
+      }
+    ]
+  },
+  {
+    "id": "refugee-crisis-destabilizes-neighbors",
+    "phase": 6,
+    "title": "Refugee Crisis Destabilizes Neighbors",
+    "description": "Large-scale Iranian refugee outflows — driven by a combination of active conflict, economic collapse, and infrastructure failure — overwhelm receiving states and trigger political, social, and security crises in Turkey, Iraq, and Pakistan. The trigger conditions are: a prolonged conflict (months to over 3 months), severe Iranian economic collapse, and at least partial aid access failure. Iran's demographics are conducive to large-scale displacement: 88 million people, 75% urban, with a large educated middle class with foreign ties (2–5 million Iranians in diaspora already), creating a combination of 'crisis-flight' and 'opportunity-exit' motivations. Three distinct displacement streams emerge simultaneously: (1) direct conflict zone refugees from Khuzestan, Bushehr, and border regions (200k–500k rapidly); (2) economic collapse-driven secondary displacement from major cities as currency, food, and medicine shortages hit (potentially millions over 3–6 months); (3) regime-associated flight risk — regime opponents, ethnic minorities (Kurds, Baluchis, Arabs, Azeris), and LGBTQ+ individuals facing heightened persecution under wartime nationalist mobilization. Turkey faces the most acute political stress: with 85 million citizens, it already hosts the world's largest refugee population (3.6M Syrians). Adding 500k–2M Iranians would push total refugees past 5.5M — approximately 6% of the population — reaching a threshold associated with government collapse in fragile democracies. President Erdogan's successor would face nationalist backlash, anti-refugee violence, and potential border closure. A Turkish border closure would funnel flows into Iraq (already hosting 200k Syrians and 1.2M Iraqi IDPs) and Azerbaijan (10M population), both with limited absorption capacity. Iraq's fragile coalition government could fracture over Iranian refugee flows that carry sectarian complexity: Shia Iranian refugees may be welcomed by Iraqi Shia parties but resented by Sunni and Kurdish communities. Pakistan's Balochistan province, already economically marginal with a large Baloch diaspora-Iran border crossing community, could absorb significant irregular migration, adding to the existing 1.7M Afghan refugee burden. UNHCR's operational capacity is systemically overwhelmed: its entire 2023 annual budget was $10 billion for 117 million displaced globally — a new Iranian emergency of 3–5M would require $3–5 billion in new emergency resources that donor states, themselves economically stressed by oil price spikes, are unlikely to mobilize quickly. The refugee crisis thus becomes a 'second-order conflict' — generating regional instability that outlasts the original military engagement by years and potentially decades.",
+    "overrides": [
+      {
+        "nodeId": "iranian_military_casualties",
+        "overrideProbabilities": {
+          "under_1000": 0.08,
+          "1000_to_10000": 0.30,
+          "10000_to_50000": 0.42,
+          "over_50000": 0.20
+        }
+      },
+      {
+        "nodeId": "us_military_casualties",
+        "overrideProbabilities": {
+          "under_100": 0.18,
+          "100_to_1000": 0.42,
+          "1000_to_5000": 0.32,
+          "over_5000": 0.08
+        }
+      },
+      {
+        "nodeId": "iranian_civilian_casualties",
+        "overrideProbabilities": {
+          "under_1000": 0.05,
+          "1000_to_10000": 0.22,
+          "10000_to_100000": 0.48,
+          "over_100000": 0.25
+        }
+      },
+      {
+        "nodeId": "refugee_displacement_scale",
+        "overrideProbabilities": {
+          "under_500k": 0.02,
+          "500k_to_2m": 0.12,
+          "2m_to_5m": 0.38,
+          "over_5m": 0.48
+        }
+      },
+      {
+        "nodeId": "critical_infrastructure_destruction",
+        "overrideProbabilities": {
+          "minimal_damage": 0.03,
+          "significant_partial": 0.20,
+          "severe_widespread": 0.48,
+          "near_total_collapse": 0.29
+        }
+      },
+      {
+        "nodeId": "environmental_damage_severity",
+        "overrideProbabilities": {
+          "minimal": 0.05,
+          "localized_moderate": 0.25,
+          "regional_significant": 0.48,
+          "catastrophic_gulf_wide": 0.22
+        }
+      },
+      {
+        "nodeId": "humanitarian_aid_access",
+        "overrideProbabilities": {
+          "full_access": 0.04,
+          "partial_constrained": 0.20,
+          "severely_limited": 0.42,
+          "effectively_blocked": 0.34
+        }
+      },
+      {
+        "nodeId": "public_health_crisis_severity",
+        "overrideProbabilities": {
+          "contained_manageable": 0.03,
+          "significant_outbreak": 0.18,
+          "severe_multi_disease": 0.48,
+          "catastrophic_mass_mortality": 0.31
+        }
+      },
+      {
+        "nodeId": "regional_refugee_destabilization",
+        "overrideProbabilities": {
+          "stable_absorption": 0.02,
+          "strained_no_destabilization": 0.10,
+          "one_neighbor_destabilized": 0.32,
+          "multiple_states_destabilized": 0.56
+        }
+      },
+      {
+        "nodeId": "global_media_information_impact",
+        "overrideProbabilities": {
+          "us_narrative_dominant": 0.04,
+          "contested_mixed": 0.22,
+          "iran_sympathetic_dominant": 0.44,
+          "global_anti_us_consensus": 0.30
+        }
+      },
+      {
+        "nodeId": "icc_war_crimes_proceedings",
+        "overrideProbabilities": {
+          "no_proceedings": 0.08,
+          "preliminary_inquiries_only": 0.25,
+          "formal_investigation_opened": 0.42,
+          "indictments_or_rulings": 0.25
+        }
+      },
+      {
+        "nodeId": "humanitarian_cost_index",
+        "overrideProbabilities": {
+          "limited": 0.02,
+          "moderate": 0.15,
+          "severe": 0.45,
+          "catastrophic": 0.38
+        }
+      }
+    ]
+  }
+]

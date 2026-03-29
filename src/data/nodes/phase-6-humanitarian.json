@@ -1,0 +1,590 @@
+[
+  {
+    "id": "iranian_military_casualties",
+    "phase": 6,
+    "type": "categorical",
+    "label": "Iranian Military Casualties (KIA + WIA)",
+    "description": "Total Iranian Armed Forces and IRGC killed and wounded in action over the conflict duration. Iran fields approximately 525,000 active-duty personnel plus 350,000 IRGC. Historical analogs: Iraq-Iran War (1980–1988) produced 500,000–1,000,000 Iranian casualties across 8 years. Modern US air dominance and precision strike capability compress lethality timelines dramatically. IRGC ground force density around key strategic sites (Fordow, Natanz, Isfahan) creates concentrated targeting opportunities. Naval casualties from USN anti-ship engagements add to total. Casualties are highly sensitive to whether the conflict remains an air campaign or includes ground force contact.",
+    "parents": ["escalation_ladder_position", "conflict_duration_estimate", "overall_military_balance"],
+    "categories": ["under_1000", "1000_to_10000", "10000_to_50000", "over_50000"],
+    "cpt": [
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "under_1_week", "overall_military_balance": "decisive_us_advantage" },
+        "categoryProbabilities": { "under_1000": 0.65, "1000_to_10000": 0.28, "10000_to_50000": 0.06, "over_50000": 0.01 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "weeks", "overall_military_balance": "us_advantage" },
+        "categoryProbabilities": { "under_1000": 0.22, "1000_to_10000": 0.52, "10000_to_50000": 0.22, "over_50000": 0.04 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "months", "overall_military_balance": "us_advantage" },
+        "categoryProbabilities": { "under_1000": 0.08, "1000_to_10000": 0.38, "10000_to_50000": 0.42, "over_50000": 0.12 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "months", "overall_military_balance": "contested" },
+        "categoryProbabilities": { "under_1000": 0.03, "1000_to_10000": 0.18, "10000_to_50000": 0.45, "over_50000": 0.34 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "over_3_months", "overall_military_balance": "stalemate" },
+        "categoryProbabilities": { "under_1000": 0.02, "1000_to_10000": 0.10, "10000_to_50000": 0.35, "over_50000": 0.53 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "conflict_duration_estimate": "over_3_months", "overall_military_balance": "decisive_us_advantage" },
+        "categoryProbabilities": { "under_1000": 0.02, "1000_to_10000": 0.08, "10000_to_50000": 0.28, "over_50000": 0.62 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "weeks", "overall_military_balance": "us_advantage" },
+        "categoryProbabilities": { "under_1000": 0.42, "1000_to_10000": 0.42, "10000_to_50000": 0.14, "over_50000": 0.02 }
+      }
+    ],
+    "defaultProbabilities": {
+      "under_1000": 0.20,
+      "1000_to_10000": 0.38,
+      "10000_to_50000": 0.30,
+      "over_50000": 0.12
+    },
+    "source": {
+      "citation": "Watson Institute 'Costs of War' 2024; IISS Military Balance 2024; RAND 'US Military Options Against Iran' 2022; ACLED Armed Conflict Database 2024",
+      "url": "https://watson.brown.edu/costsofwar/",
+      "confidence": "low-medium"
+    }
+  },
+  {
+    "id": "us_military_casualties",
+    "phase": 6,
+    "type": "categorical",
+    "label": "US Military Casualties (KIA + WIA)",
+    "description": "Total US military killed and wounded in action. The US benefits from stand-off precision strike capability, stealth platforms, and superior ISR — meaning most casualties come from Iranian asymmetric responses (ballistic missiles against bases, drone swarms, IED networks activated through proxy forces) rather than conventional force-on-force engagement. Reference points: Operation Desert Storm (1991) produced 148 US KIA; OIF/OEF combined ~7,000 KIA over two decades. A short air campaign carries IED/drone risk; prolonged ground engagement dramatically increases exposure. Anti-ship missile threat to USN vessels (Kh-35, Chinese-supplied C-802 derivatives) is the most acute concentrated-casualty risk.",
+    "parents": ["escalation_ladder_position", "conflict_duration_estimate", "us_total_casualty_trajectory"],
+    "categories": ["under_100", "100_to_1000", "1000_to_5000", "over_5000"],
+    "cpt": [
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "under_1_week", "us_total_casualty_trajectory": "minimal" },
+        "categoryProbabilities": { "under_100": 0.75, "100_to_1000": 0.20, "1000_to_5000": 0.04, "over_5000": 0.01 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "weeks", "us_total_casualty_trajectory": "light" },
+        "categoryProbabilities": { "under_100": 0.40, "100_to_1000": 0.45, "1000_to_5000": 0.13, "over_5000": 0.02 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "months", "us_total_casualty_trajectory": "moderate" },
+        "categoryProbabilities": { "under_100": 0.12, "100_to_1000": 0.48, "1000_to_5000": 0.32, "over_5000": 0.08 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "months", "us_total_casualty_trajectory": "heavy" },
+        "categoryProbabilities": { "under_100": 0.04, "100_to_1000": 0.22, "1000_to_5000": 0.48, "over_5000": 0.26 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "over_3_months", "us_total_casualty_trajectory": "heavy" },
+        "categoryProbabilities": { "under_100": 0.02, "100_to_1000": 0.12, "1000_to_5000": 0.40, "over_5000": 0.46 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "conflict_duration_estimate": "over_3_months", "us_total_casualty_trajectory": "heavy" },
+        "categoryProbabilities": { "under_100": 0.01, "100_to_1000": 0.08, "1000_to_5000": 0.32, "over_5000": 0.59 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "weeks", "us_total_casualty_trajectory": "light" },
+        "categoryProbabilities": { "under_100": 0.55, "100_to_1000": 0.35, "1000_to_5000": 0.09, "over_5000": 0.01 }
+      }
+    ],
+    "defaultProbabilities": {
+      "under_100": 0.32,
+      "100_to_1000": 0.38,
+      "1000_to_5000": 0.22,
+      "over_5000": 0.08
+    },
+    "source": {
+      "citation": "Watson Institute 'Costs of War' 2024; Congressional Research Service 'US Military Casualties in Iraq and Afghanistan' 2024; RAND 'Casualties and US Military Operations' 2023; DIA open-source threat assessments",
+      "url": "https://watson.brown.edu/costsofwar/data/us",
+      "confidence": "low-medium"
+    }
+  },
+  {
+    "id": "iranian_civilian_casualties",
+    "phase": 6,
+    "type": "categorical",
+    "label": "Iranian Civilian Casualties (Killed)",
+    "description": "Iranian non-combatant fatalities from direct strike effects (collateral damage, target misidentification, infrastructure failure), secondary effects (health system collapse, unsafe evacuation), and proxy-theater spillover. Iran's population is ~88 million; major population centers (Tehran 15M, Mashhad 3.5M, Isfahan 2.2M) are near strategic targets. US precision munitions reduce direct strike collateral damage relative to Cold War-era air campaigns, but dual-use infrastructure targeting (power grids, fuel depots) creates deferred civilian mortality through health system disruption. ICRC documentation from Iraq 2003 and Yemen 2015–present provides key reference distributions. Civilian casualties are the primary driver of international humanitarian law assessments and post-conflict accountability proceedings.",
+    "parents": ["escalation_ladder_position", "conflict_duration_estimate", "israel_direct_involvement_level"],
+    "categories": ["under_1000", "1000_to_10000", "10000_to_100000", "over_100000"],
+    "cpt": [
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "under_1_week", "israel_direct_involvement_level": "intelligence_only" },
+        "categoryProbabilities": { "under_1000": 0.60, "1000_to_10000": 0.30, "10000_to_100000": 0.08, "over_100000": 0.02 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "weeks", "israel_direct_involvement_level": "limited_strikes" },
+        "categoryProbabilities": { "under_1000": 0.28, "1000_to_10000": 0.48, "10000_to_100000": 0.20, "over_100000": 0.04 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "months", "israel_direct_involvement_level": "active_combat" },
+        "categoryProbabilities": { "under_1000": 0.10, "1000_to_10000": 0.35, "10000_to_100000": 0.42, "over_100000": 0.13 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "months", "israel_direct_involvement_level": "active_combat" },
+        "categoryProbabilities": { "under_1000": 0.04, "1000_to_10000": 0.18, "10000_to_100000": 0.48, "over_100000": 0.30 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "over_3_months", "israel_direct_involvement_level": "full_war" },
+        "categoryProbabilities": { "under_1000": 0.02, "1000_to_10000": 0.08, "10000_to_100000": 0.35, "over_100000": 0.55 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "conflict_duration_estimate": "over_3_months", "israel_direct_involvement_level": "full_war" },
+        "categoryProbabilities": { "under_1000": 0.01, "1000_to_10000": 0.04, "10000_to_100000": 0.20, "over_100000": 0.75 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "weeks", "israel_direct_involvement_level": "intelligence_only" },
+        "categoryProbabilities": { "under_1000": 0.45, "1000_to_10000": 0.40, "10000_to_100000": 0.13, "over_100000": 0.02 }
+      }
+    ],
+    "defaultProbabilities": {
+      "under_1000": 0.22,
+      "1000_to_10000": 0.35,
+      "10000_to_100000": 0.30,
+      "over_100000": 0.13
+    },
+    "source": {
+      "citation": "ICRC 'IHL and Civilian Protection in Urban Warfare' 2023; Airwaves/ACLED 'Civilian Harm Monitoring' 2024; Watson Institute 'Civilian Deaths in US Wars' 2024; UN OCHA Casualty Tracking Framework",
+      "url": "https://www.icrc.org/en/document/urban-warfare-protecting-civilians",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "refugee_displacement_scale",
+    "phase": 6,
+    "type": "categorical",
+    "label": "Iranian Refugee and IDP Displacement Scale",
+    "description": "Total persons displaced — both internally displaced persons (IDPs) within Iran and cross-border refugees. Iran hosts 3.4M existing Afghan and Iraqi refugees pre-conflict; outflows would layer on top of existing regional displacement burden. Key displacement corridors: Turkey (1,800km shared border), Iraq (1,599km), Afghanistan (945km), Azerbaijan, Armenia, and Turkmenistan. Turkey has already absorbed 3.6M Syrian refugees; additional large-scale Iranian flows would create acute political and logistical stress. UNHCR historical analogs: Syria 2011–present generated 6.6M refugees; Iraq 2003 generated ~2M in the first year. The 88M Iranian population and urban concentration (75% urban) means urban conflict rapidly displaces millions. Infrastructure destruction and economic collapse accelerate displacement even without active combat in specific areas.",
+    "parents": ["escalation_ladder_position", "conflict_duration_estimate", "iranian_civilian_casualties", "iranian_economic_collapse_severity"],
+    "categories": ["under_500k", "500k_to_2m", "2m_to_5m", "over_5m"],
+    "cpt": [
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "under_1_week", "iranian_economic_collapse_severity": "contained" },
+        "categoryProbabilities": { "under_500k": 0.62, "500k_to_2m": 0.28, "2m_to_5m": 0.08, "over_5m": 0.02 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "weeks", "iranian_economic_collapse_severity": "moderate" },
+        "categoryProbabilities": { "under_500k": 0.28, "500k_to_2m": 0.45, "2m_to_5m": 0.22, "over_5m": 0.05 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "months", "iranian_economic_collapse_severity": "severe" },
+        "categoryProbabilities": { "under_500k": 0.10, "500k_to_2m": 0.30, "2m_to_5m": 0.42, "over_5m": 0.18 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "months", "iranian_economic_collapse_severity": "severe" },
+        "categoryProbabilities": { "under_500k": 0.04, "500k_to_2m": 0.18, "2m_to_5m": 0.42, "over_5m": 0.36 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "over_3_months", "iranian_economic_collapse_severity": "catastrophic" },
+        "categoryProbabilities": { "under_500k": 0.02, "500k_to_2m": 0.08, "2m_to_5m": 0.28, "over_5m": 0.62 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "conflict_duration_estimate": "over_3_months", "iranian_economic_collapse_severity": "catastrophic" },
+        "categoryProbabilities": { "under_500k": 0.01, "500k_to_2m": 0.04, "2m_to_5m": 0.15, "over_5m": 0.80 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "weeks", "iranian_economic_collapse_severity": "moderate" },
+        "categoryProbabilities": { "under_500k": 0.42, "500k_to_2m": 0.40, "2m_to_5m": 0.15, "over_5m": 0.03 }
+      }
+    ],
+    "defaultProbabilities": {
+      "under_500k": 0.22,
+      "500k_to_2m": 0.35,
+      "2m_to_5m": 0.28,
+      "over_5m": 0.15
+    },
+    "source": {
+      "citation": "UNHCR 'Global Trends: Forced Displacement 2023'; UNHCR 'Iran Country Profile 2024'; Crisis Group 'Iran's Refugee Crisis' 2024; Mixed Migration Centre 'Displacement from Iran' 2023",
+      "url": "https://www.unhcr.org/global-trends",
+      "confidence": "low-medium"
+    }
+  },
+  {
+    "id": "critical_infrastructure_destruction",
+    "phase": 6,
+    "type": "categorical",
+    "label": "Critical Infrastructure Destruction Level (Power/Water/Hospitals)",
+    "description": "Degree of damage to Iran's civilian-critical infrastructure: power generation and grid, water treatment and distribution, hospital networks, and fuel supply chains. Dual-use infrastructure targeting is legally contested under Additional Protocol I (Art. 54) but commonly practiced in modern air campaigns. Iran's power grid is centralized, with 62% of generation capacity in large plants (thermal: Bandar Abbas, Shazand; hydroelectric: Karun cascade). Water treatment in major cities relies on continuous electricity. The 2020 Beirut port explosion killed 218 and destroyed 15 hospitals — illustrating secondary infrastructure collapse effects. WHO documents that infrastructure destruction typically kills 3–10 times more civilians through health system collapse than direct strike effects over a 6-month horizon. Yemen 2015–2022: 70% of healthcare facilities damaged/destroyed; 21.1M requiring humanitarian assistance.",
+    "parents": ["escalation_ladder_position", "conflict_duration_estimate", "overall_military_balance"],
+    "categories": ["minimal_damage", "significant_partial", "severe_widespread", "near_total_collapse"],
+    "cpt": [
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "under_1_week", "overall_military_balance": "decisive_us_advantage" },
+        "categoryProbabilities": { "minimal_damage": 0.55, "significant_partial": 0.32, "severe_widespread": 0.11, "near_total_collapse": 0.02 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "weeks", "overall_military_balance": "us_advantage" },
+        "categoryProbabilities": { "minimal_damage": 0.18, "significant_partial": 0.48, "severe_widespread": 0.28, "near_total_collapse": 0.06 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "months", "overall_military_balance": "us_advantage" },
+        "categoryProbabilities": { "minimal_damage": 0.08, "significant_partial": 0.32, "severe_widespread": 0.45, "near_total_collapse": 0.15 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "months", "overall_military_balance": "contested" },
+        "categoryProbabilities": { "minimal_damage": 0.03, "significant_partial": 0.18, "severe_widespread": 0.48, "near_total_collapse": 0.31 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "over_3_months", "overall_military_balance": "stalemate" },
+        "categoryProbabilities": { "minimal_damage": 0.02, "significant_partial": 0.10, "severe_widespread": 0.38, "near_total_collapse": 0.50 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "conflict_duration_estimate": "over_3_months", "overall_military_balance": "decisive_us_advantage" },
+        "categoryProbabilities": { "minimal_damage": 0.01, "significant_partial": 0.06, "severe_widespread": 0.28, "near_total_collapse": 0.65 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "weeks", "overall_military_balance": "us_advantage" },
+        "categoryProbabilities": { "minimal_damage": 0.32, "significant_partial": 0.45, "severe_widespread": 0.20, "near_total_collapse": 0.03 }
+      }
+    ],
+    "defaultProbabilities": {
+      "minimal_damage": 0.18,
+      "significant_partial": 0.35,
+      "severe_widespread": 0.32,
+      "near_total_collapse": 0.15
+    },
+    "source": {
+      "citation": "WHO 'Health in Emergencies: Infrastructure Attacks' 2024; ICRC 'Protecting Healthcare in Armed Conflict' 2023; Airwaves/ACLED 'Infrastructure Strikes Database' 2024; Yale School of Public Health 'Yemen Health System Impact' 2022",
+      "url": "https://www.who.int/publications/i/item/health-emergencies-infrastructure",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "environmental_damage_severity",
+    "phase": 6,
+    "type": "categorical",
+    "label": "Environmental Damage Severity (Oil Fires, Gulf Contamination)",
+    "description": "Environmental harm from oil facility fires, tanker strikes, and industrial contamination in the Persian Gulf and Iranian interior. The 1991 Gulf War produced the largest oil spill in history (estimated 4–8 million barrels) and 600+ oil well fires burning for 9 months, generating SO2 and particulate health impacts across the Gulf region. Iran's key vulnerability: Kharg Island processes 90% of Iran's oil exports; strike-induced fires are likely in any major campaign. Persian Gulf contamination threatens desalination plants supplying 70%+ of drinking water in Qatar, UAE, Bahrain, Kuwait, and parts of Saudi Arabia. Bandar Imam Khomeini petrochemical complex and Abadan refinery are high-risk secondary contamination sites. Particulate fallout from oil fires documented to increase respiratory mortality within 500km radius.",
+    "parents": ["escalation_ladder_position", "conflict_duration_estimate", "iranian_economic_collapse_severity"],
+    "categories": ["minimal", "localized_moderate", "regional_significant", "catastrophic_gulf_wide"],
+    "cpt": [
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "under_1_week", "iranian_economic_collapse_severity": "contained" },
+        "categoryProbabilities": { "minimal": 0.50, "localized_moderate": 0.35, "regional_significant": 0.12, "catastrophic_gulf_wide": 0.03 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "weeks", "iranian_economic_collapse_severity": "moderate" },
+        "categoryProbabilities": { "minimal": 0.20, "localized_moderate": 0.42, "regional_significant": 0.30, "catastrophic_gulf_wide": 0.08 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "months", "iranian_economic_collapse_severity": "severe" },
+        "categoryProbabilities": { "minimal": 0.08, "localized_moderate": 0.28, "regional_significant": 0.45, "catastrophic_gulf_wide": 0.19 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "months", "iranian_economic_collapse_severity": "severe" },
+        "categoryProbabilities": { "minimal": 0.03, "localized_moderate": 0.15, "regional_significant": 0.45, "catastrophic_gulf_wide": 0.37 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "over_3_months", "iranian_economic_collapse_severity": "catastrophic" },
+        "categoryProbabilities": { "minimal": 0.01, "localized_moderate": 0.08, "regional_significant": 0.32, "catastrophic_gulf_wide": 0.59 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "conflict_duration_estimate": "over_3_months", "iranian_economic_collapse_severity": "catastrophic" },
+        "categoryProbabilities": { "minimal": 0.01, "localized_moderate": 0.04, "regional_significant": 0.20, "catastrophic_gulf_wide": 0.75 }
+      }
+    ],
+    "defaultProbabilities": {
+      "minimal": 0.18,
+      "localized_moderate": 0.32,
+      "regional_significant": 0.32,
+      "catastrophic_gulf_wide": 0.18
+    },
+    "source": {
+      "citation": "UNEP 'Environmental Consequences of Gulf War I' reprint 2024; IUCN 'Persian Gulf Ecosystem Status' 2023; WHO 'Health Effects of Oil Fires: Kuwait 1991' archival; NOAA Gulf Environmental Monitoring 2024",
+      "url": "https://wedocs.unep.org/bitstream/handle/20.500.11822/25021/gulf_war.pdf",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "humanitarian_aid_access",
+    "phase": 6,
+    "type": "categorical",
+    "label": "Humanitarian Aid Access to Affected Populations",
+    "description": "The operational capacity of humanitarian organizations (ICRC, UNHCR, WFP, MSF, UN OCHA) to deliver food, water, medicine, and protection to conflict-affected populations inside Iran and in receiving countries. Access is shaped by: (1) Iranian government willingness to grant visas and operational space; (2) active hostilities restricting movement corridors; (3) UN Security Council mandate enabling or obstructing cross-border operations; (4) donor funding mobilization. Historical baseline: ICRC maintains resident delegations in Tehran and operates during active conflict under IHL; access has been restricted in previous Gulf crises. Syria 2011–2023 provides the most comparable access-denial scenario: cross-border operations required UNSC Resolution 2165 (2014) and were repeatedly contested by Russia-China vetoes. Yemen illustrates a near-complete blockade scenario.",
+    "parents": ["un_humanitarian_response", "escalation_ladder_position", "conflict_duration_estimate"],
+    "categories": ["full_access", "partial_constrained", "severely_limited", "effectively_blocked"],
+    "cpt": [
+      {
+        "parentValues": { "un_humanitarian_response": "full_mobilization", "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "under_1_week" },
+        "categoryProbabilities": { "full_access": 0.55, "partial_constrained": 0.35, "severely_limited": 0.08, "effectively_blocked": 0.02 }
+      },
+      {
+        "parentValues": { "un_humanitarian_response": "full_mobilization", "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "weeks" },
+        "categoryProbabilities": { "full_access": 0.28, "partial_constrained": 0.48, "severely_limited": 0.18, "effectively_blocked": 0.06 }
+      },
+      {
+        "parentValues": { "un_humanitarian_response": "partial_response", "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "months" },
+        "categoryProbabilities": { "full_access": 0.10, "partial_constrained": 0.40, "severely_limited": 0.38, "effectively_blocked": 0.12 }
+      },
+      {
+        "parentValues": { "un_humanitarian_response": "obstructed", "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "months" },
+        "categoryProbabilities": { "full_access": 0.03, "partial_constrained": 0.20, "severely_limited": 0.45, "effectively_blocked": 0.32 }
+      },
+      {
+        "parentValues": { "un_humanitarian_response": "failed", "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "over_3_months" },
+        "categoryProbabilities": { "full_access": 0.01, "partial_constrained": 0.08, "severely_limited": 0.30, "effectively_blocked": 0.61 }
+      },
+      {
+        "parentValues": { "un_humanitarian_response": "failed", "escalation_ladder_position": "nuclear_threshold", "conflict_duration_estimate": "over_3_months" },
+        "categoryProbabilities": { "full_access": 0.01, "partial_constrained": 0.04, "severely_limited": 0.20, "effectively_blocked": 0.75 }
+      },
+      {
+        "parentValues": { "un_humanitarian_response": "partial_response", "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "weeks" },
+        "categoryProbabilities": { "full_access": 0.30, "partial_constrained": 0.48, "severely_limited": 0.18, "effectively_blocked": 0.04 }
+      }
+    ],
+    "defaultProbabilities": {
+      "full_access": 0.18,
+      "partial_constrained": 0.38,
+      "severely_limited": 0.30,
+      "effectively_blocked": 0.14
+    },
+    "source": {
+      "citation": "ICRC 'Access in Armed Conflict' 2024; UN OCHA 'Humanitarian Access Report: Middle East' 2024; MSF 'Access Denied' annual report 2023; UNHCR 'Operational Access Framework' 2023",
+      "url": "https://www.icrc.org/en/document/access-armed-conflict-challenges",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "public_health_crisis_severity",
+    "phase": 6,
+    "type": "categorical",
+    "label": "Public Health Crisis Severity",
+    "description": "The severity of the public health emergency arising from conflict-related infrastructure destruction, displacement, disrupted supply chains, and health system collapse. Key transmission pathways: (1) Water system damage enabling cholera and typhoid outbreaks — Iraq 2003 saw a 10-fold increase in waterborne disease within 6 months; (2) Hospital destruction and staff flight degrade trauma care, obstetric services, and chronic disease management; (3) Displacement camps create crowded conditions enabling respiratory illness, skin disease, and COVID-variant transmission; (4) Pharmaceutical supply collapse affects Iran's 5M+ diabetes patients (insulin dependency) and cancer treatment programs. WHO's health cluster activation threshold is 'significant public health emergency.' Yemen 2016–2019 produced the world's largest cholera outbreak: 2.4M suspected cases. Iran has a notably sophisticated health infrastructure (ranked 58th globally pre-conflict, WHO) that will degrade sharply under sustained attack.",
+    "parents": ["critical_infrastructure_destruction", "humanitarian_aid_access", "conflict_duration_estimate"],
+    "categories": ["contained_manageable", "significant_outbreak", "severe_multi_disease", "catastrophic_mass_mortality"],
+    "cpt": [
+      {
+        "parentValues": { "critical_infrastructure_destruction": "minimal_damage", "humanitarian_aid_access": "full_access", "conflict_duration_estimate": "under_1_week" },
+        "categoryProbabilities": { "contained_manageable": 0.70, "significant_outbreak": 0.22, "severe_multi_disease": 0.07, "catastrophic_mass_mortality": 0.01 }
+      },
+      {
+        "parentValues": { "critical_infrastructure_destruction": "significant_partial", "humanitarian_aid_access": "partial_constrained", "conflict_duration_estimate": "weeks" },
+        "categoryProbabilities": { "contained_manageable": 0.35, "significant_outbreak": 0.45, "severe_multi_disease": 0.17, "catastrophic_mass_mortality": 0.03 }
+      },
+      {
+        "parentValues": { "critical_infrastructure_destruction": "severe_widespread", "humanitarian_aid_access": "severely_limited", "conflict_duration_estimate": "months" },
+        "categoryProbabilities": { "contained_manageable": 0.08, "significant_outbreak": 0.28, "severe_multi_disease": 0.48, "catastrophic_mass_mortality": 0.16 }
+      },
+      {
+        "parentValues": { "critical_infrastructure_destruction": "near_total_collapse", "humanitarian_aid_access": "effectively_blocked", "conflict_duration_estimate": "months" },
+        "categoryProbabilities": { "contained_manageable": 0.02, "significant_outbreak": 0.10, "severe_multi_disease": 0.38, "catastrophic_mass_mortality": 0.50 }
+      },
+      {
+        "parentValues": { "critical_infrastructure_destruction": "near_total_collapse", "humanitarian_aid_access": "effectively_blocked", "conflict_duration_estimate": "over_3_months" },
+        "categoryProbabilities": { "contained_manageable": 0.01, "significant_outbreak": 0.05, "severe_multi_disease": 0.24, "catastrophic_mass_mortality": 0.70 }
+      },
+      {
+        "parentValues": { "critical_infrastructure_destruction": "minimal_damage", "humanitarian_aid_access": "partial_constrained", "conflict_duration_estimate": "weeks" },
+        "categoryProbabilities": { "contained_manageable": 0.50, "significant_outbreak": 0.35, "severe_multi_disease": 0.13, "catastrophic_mass_mortality": 0.02 }
+      },
+      {
+        "parentValues": { "critical_infrastructure_destruction": "significant_partial", "humanitarian_aid_access": "severely_limited", "conflict_duration_estimate": "months" },
+        "categoryProbabilities": { "contained_manageable": 0.12, "significant_outbreak": 0.38, "severe_multi_disease": 0.38, "catastrophic_mass_mortality": 0.12 }
+      }
+    ],
+    "defaultProbabilities": {
+      "contained_manageable": 0.22,
+      "significant_outbreak": 0.35,
+      "severe_multi_disease": 0.28,
+      "catastrophic_mass_mortality": 0.15
+    },
+    "source": {
+      "citation": "WHO 'Health Cluster Activation Framework' 2023; ICRC 'Health Care in Danger' 2024; Lancet 'War and Health System Collapse in MENA' 2023; Johns Hopkins Bloomberg School 'Conflict and Epidemic Disease' 2024",
+      "url": "https://www.who.int/publications/i/item/health-cluster-activation",
+      "confidence": "low-medium"
+    }
+  },
+  {
+    "id": "regional_refugee_destabilization",
+    "phase": 6,
+    "type": "categorical",
+    "label": "Refugee Flows — Destabilization of Neighboring States",
+    "description": "Whether large-scale refugee outflows from Iran destabilize neighboring states' domestic politics, economies, or security environments. Turkey: already hosting 3.6M Syrians and facing acute political backlash — additional 500k+ Iranians could trigger government collapse or anti-refugee violence. Iraq: hosts 250k+ existing refugees, has fragile coalition government, and could face Shia-Sunni tensions from mixed Iranian displacement. Pakistan: porous 900km border; existing 1.7M Afghan refugees; economic crisis limits absorption. Azerbaijan: small population (10M) with a complex Azerbaijan-Iran relationship; Shia political dynamics sensitive. Destabilization threshold is operationalized as: government change, major civil unrest, border militarization, or significant domestic violence within 12 months of displacement onset. Analog: Syrian refugee crisis destabilized Lebanon's cabinet in 2013 and drove Jordan's debt-to-GDP above 95%.",
+    "parents": ["refugee_displacement_scale", "un_humanitarian_response", "conflict_duration_estimate"],
+    "categories": ["stable_absorption", "strained_no_destabilization", "one_neighbor_destabilized", "multiple_states_destabilized"],
+    "cpt": [
+      {
+        "parentValues": { "refugee_displacement_scale": "under_500k", "un_humanitarian_response": "full_mobilization", "conflict_duration_estimate": "under_1_week" },
+        "categoryProbabilities": { "stable_absorption": 0.60, "strained_no_destabilization": 0.30, "one_neighbor_destabilized": 0.08, "multiple_states_destabilized": 0.02 }
+      },
+      {
+        "parentValues": { "refugee_displacement_scale": "500k_to_2m", "un_humanitarian_response": "partial_response", "conflict_duration_estimate": "weeks" },
+        "categoryProbabilities": { "stable_absorption": 0.25, "strained_no_destabilization": 0.48, "one_neighbor_destabilized": 0.22, "multiple_states_destabilized": 0.05 }
+      },
+      {
+        "parentValues": { "refugee_displacement_scale": "2m_to_5m", "un_humanitarian_response": "partial_response", "conflict_duration_estimate": "months" },
+        "categoryProbabilities": { "stable_absorption": 0.08, "strained_no_destabilization": 0.30, "one_neighbor_destabilized": 0.42, "multiple_states_destabilized": 0.20 }
+      },
+      {
+        "parentValues": { "refugee_displacement_scale": "over_5m", "un_humanitarian_response": "obstructed", "conflict_duration_estimate": "months" },
+        "categoryProbabilities": { "stable_absorption": 0.02, "strained_no_destabilization": 0.12, "one_neighbor_destabilized": 0.38, "multiple_states_destabilized": 0.48 }
+      },
+      {
+        "parentValues": { "refugee_displacement_scale": "over_5m", "un_humanitarian_response": "failed", "conflict_duration_estimate": "over_3_months" },
+        "categoryProbabilities": { "stable_absorption": 0.01, "strained_no_destabilization": 0.06, "one_neighbor_destabilized": 0.25, "multiple_states_destabilized": 0.68 }
+      },
+      {
+        "parentValues": { "refugee_displacement_scale": "500k_to_2m", "un_humanitarian_response": "full_mobilization", "conflict_duration_estimate": "weeks" },
+        "categoryProbabilities": { "stable_absorption": 0.38, "strained_no_destabilization": 0.45, "one_neighbor_destabilized": 0.14, "multiple_states_destabilized": 0.03 }
+      }
+    ],
+    "defaultProbabilities": {
+      "stable_absorption": 0.20,
+      "strained_no_destabilization": 0.38,
+      "one_neighbor_destabilized": 0.28,
+      "multiple_states_destabilized": 0.14
+    },
+    "source": {
+      "citation": "UNHCR 'Refugees and Regional Stability' 2024; Crisis Group 'Iran's Neighbors and a War Scenario' 2024; World Bank 'Refugee Hosting and Economic Stress in MENA' 2023; Brookings 'Turkey Refugee Capacity' 2024",
+      "url": "https://www.unhcr.org/globaltrends",
+      "confidence": "low-medium"
+    }
+  },
+  {
+    "id": "global_media_information_impact",
+    "phase": 6,
+    "type": "categorical",
+    "label": "Global Media and Information Environment Impact on Conflict Perception",
+    "description": "How the global media and information ecosystem shapes international public opinion, domestic political constraints, and legitimacy of US operations. Modern conflict is fundamentally shaped by information warfare: social media distributes imagery of civilian casualties within minutes; state-aligned media (RT, PRESS TV, CCTV) amplifies counter-narratives; TikTok and Telegram carry unverified footage that influences publics faster than official statements. Key dynamics: (1) Iran operates a sophisticated information operation capability (2020 interference assessments, CISA); (2) Civilian casualty footage from precision strike 'collateral damage' rapidly drives international opposition; (3) US strategic communication capability has improved but remains reactive; (4) Israeli involvement amplifies Arab world opposition and creates coalition stress. Historical analog: 2003 Al Jazeera footage of civilian casualties dramatically shifted Arab opinion; 2023 Gaza hospital explosion demonstrates how mis-attribution drives narrative even when later corrected. 'Narrative dominance' operationalized as: whose framing prevails in G20 media, UN statements, and global protest levels.",
+    "parents": ["escalation_ladder_position", "iranian_civilian_casualties", "un_humanitarian_response"],
+    "categories": ["us_narrative_dominant", "contested_mixed", "iran_sympathetic_dominant", "global_anti_us_consensus"],
+    "cpt": [
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "iranian_civilian_casualties": "under_1000", "un_humanitarian_response": "full_mobilization" },
+        "categoryProbabilities": { "us_narrative_dominant": 0.40, "contested_mixed": 0.40, "iran_sympathetic_dominant": 0.16, "global_anti_us_consensus": 0.04 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "iranian_civilian_casualties": "1000_to_10000", "un_humanitarian_response": "partial_response" },
+        "categoryProbabilities": { "us_narrative_dominant": 0.18, "contested_mixed": 0.42, "iran_sympathetic_dominant": 0.30, "global_anti_us_consensus": 0.10 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "iranian_civilian_casualties": "10000_to_100000", "un_humanitarian_response": "obstructed" },
+        "categoryProbabilities": { "us_narrative_dominant": 0.06, "contested_mixed": 0.24, "iran_sympathetic_dominant": 0.42, "global_anti_us_consensus": 0.28 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "iranian_civilian_casualties": "over_100000", "un_humanitarian_response": "failed" },
+        "categoryProbabilities": { "us_narrative_dominant": 0.02, "contested_mixed": 0.10, "iran_sympathetic_dominant": 0.38, "global_anti_us_consensus": 0.50 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "iranian_civilian_casualties": "over_100000", "un_humanitarian_response": "failed" },
+        "categoryProbabilities": { "us_narrative_dominant": 0.01, "contested_mixed": 0.06, "iran_sympathetic_dominant": 0.28, "global_anti_us_consensus": 0.65 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "iranian_civilian_casualties": "under_1000", "un_humanitarian_response": "partial_response" },
+        "categoryProbabilities": { "us_narrative_dominant": 0.30, "contested_mixed": 0.45, "iran_sympathetic_dominant": 0.20, "global_anti_us_consensus": 0.05 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "iranian_civilian_casualties": "10000_to_100000", "un_humanitarian_response": "obstructed" },
+        "categoryProbabilities": { "us_narrative_dominant": 0.06, "contested_mixed": 0.28, "iran_sympathetic_dominant": 0.42, "global_anti_us_consensus": 0.24 }
+      }
+    ],
+    "defaultProbabilities": {
+      "us_narrative_dominant": 0.18,
+      "contested_mixed": 0.38,
+      "iran_sympathetic_dominant": 0.30,
+      "global_anti_us_consensus": 0.14
+    },
+    "source": {
+      "citation": "Freedom House 'Media Freedom in War Zones' 2024; RAND 'Information Operations and Modern Conflict' 2023; Reuters Institute 'Digital News Report 2024'; Crisis Group 'Information War in Iran Conflict Scenarios' 2024",
+      "url": "https://freedomhouse.org/report/freedom-press",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "icc_war_crimes_proceedings",
+    "phase": 6,
+    "type": "categorical",
+    "label": "International Criminal Court / IHL Accountability Proceedings",
+    "description": "Whether formal international legal accountability proceedings are initiated — at the ICC, ICJ, or through UN Special Rapporteur mechanisms — for alleged war crimes, crimes against humanity, or serious violations of international humanitarian law. Relevant triggers: deliberate infrastructure attacks, disproportionate civilian casualties, use of certain weapons categories, siege-like denial of aid. The US is not an ICC signatory but ICC jurisdiction could apply over Iranian territory and nationals of signatory states. The ICJ could receive inter-state applications (Iran vs. USA, as in 1980 hostages case). Post-2023 Gaza precedent has significantly lowered the political threshold for initiating ICC and ICJ proceedings against Western states. Russia-China vetoes would block UNSC referral but ICC Prosecutor has proprio motu authority. Domestic Congressional and allied-nation judicial proceedings provide additional vectors.",
+    "parents": ["iranian_civilian_casualties", "critical_infrastructure_destruction", "global_media_information_impact"],
+    "categories": ["no_proceedings", "preliminary_inquiries_only", "formal_investigation_opened", "indictments_or_rulings"],
+    "cpt": [
+      {
+        "parentValues": { "iranian_civilian_casualties": "under_1000", "critical_infrastructure_destruction": "minimal_damage", "global_media_information_impact": "us_narrative_dominant" },
+        "categoryProbabilities": { "no_proceedings": 0.62, "preliminary_inquiries_only": 0.28, "formal_investigation_opened": 0.08, "indictments_or_rulings": 0.02 }
+      },
+      {
+        "parentValues": { "iranian_civilian_casualties": "1000_to_10000", "critical_infrastructure_destruction": "significant_partial", "global_media_information_impact": "contested_mixed" },
+        "categoryProbabilities": { "no_proceedings": 0.30, "preliminary_inquiries_only": 0.42, "formal_investigation_opened": 0.22, "indictments_or_rulings": 0.06 }
+      },
+      {
+        "parentValues": { "iranian_civilian_casualties": "10000_to_100000", "critical_infrastructure_destruction": "severe_widespread", "global_media_information_impact": "iran_sympathetic_dominant" },
+        "categoryProbabilities": { "no_proceedings": 0.10, "preliminary_inquiries_only": 0.30, "formal_investigation_opened": 0.42, "indictments_or_rulings": 0.18 }
+      },
+      {
+        "parentValues": { "iranian_civilian_casualties": "over_100000", "critical_infrastructure_destruction": "near_total_collapse", "global_media_information_impact": "global_anti_us_consensus" },
+        "categoryProbabilities": { "no_proceedings": 0.03, "preliminary_inquiries_only": 0.12, "formal_investigation_opened": 0.38, "indictments_or_rulings": 0.47 }
+      },
+      {
+        "parentValues": { "iranian_civilian_casualties": "1000_to_10000", "critical_infrastructure_destruction": "minimal_damage", "global_media_information_impact": "us_narrative_dominant" },
+        "categoryProbabilities": { "no_proceedings": 0.48, "preliminary_inquiries_only": 0.35, "formal_investigation_opened": 0.14, "indictments_or_rulings": 0.03 }
+      },
+      {
+        "parentValues": { "iranian_civilian_casualties": "10000_to_100000", "critical_infrastructure_destruction": "significant_partial", "global_media_information_impact": "iran_sympathetic_dominant" },
+        "categoryProbabilities": { "no_proceedings": 0.08, "preliminary_inquiries_only": 0.30, "formal_investigation_opened": 0.45, "indictments_or_rulings": 0.17 }
+      }
+    ],
+    "defaultProbabilities": {
+      "no_proceedings": 0.28,
+      "preliminary_inquiries_only": 0.35,
+      "formal_investigation_opened": 0.25,
+      "indictments_or_rulings": 0.12
+    },
+    "source": {
+      "citation": "ICC 'Jurisdiction and Complementarity Framework' 2024; ICJ 'Application of Genocide Convention: Interim Measures' 2024; Human Rights Watch 'IHL Accountability in Modern Warfare' 2024; Amnesty International 'War Crimes Accountability' 2024",
+      "url": "https://www.icc-cpi.int/about/how-the-court-works/legal-texts",
+      "confidence": "low-medium"
+    }
+  },
+  {
+    "id": "humanitarian_cost_index",
+    "phase": 6,
+    "type": "categorical",
+    "label": "Composite Humanitarian Cost Index",
+    "description": "A synthesizing node aggregating the overall humanitarian toll across all Phase 6 dimensions into a single severity rating for use in Phase 7 (post-conflict) and scenario comparison. Draws on military casualties (both sides), civilian death toll, displacement scale, infrastructure destruction, public health outcomes, and aid access. Calibrated against the ICRC Humanitarian Impact Scale and Crisis Group's Conflict Severity Index. 'Limited' = primary costs are military with contained civilian harm; 'Moderate' = significant civilian casualties and displacement, partial infrastructure damage; 'Severe' = mass civilian casualties, major displacement wave, infrastructure collapse, health crisis; 'Catastrophic' = civilizational-scale harm with regional destabilization and potential mass atrocity.",
+    "parents": ["iranian_civilian_casualties", "critical_infrastructure_destruction", "public_health_crisis_severity", "refugee_displacement_scale"],
+    "categories": ["limited", "moderate", "severe", "catastrophic"],
+    "cpt": [
+      {
+        "parentValues": { "iranian_civilian_casualties": "under_1000", "critical_infrastructure_destruction": "minimal_damage", "public_health_crisis_severity": "contained_manageable", "refugee_displacement_scale": "under_500k" },
+        "categoryProbabilities": { "limited": 0.72, "moderate": 0.22, "severe": 0.05, "catastrophic": 0.01 }
+      },
+      {
+        "parentValues": { "iranian_civilian_casualties": "1000_to_10000", "critical_infrastructure_destruction": "significant_partial", "public_health_crisis_severity": "significant_outbreak", "refugee_displacement_scale": "500k_to_2m" },
+        "categoryProbabilities": { "limited": 0.12, "moderate": 0.58, "severe": 0.25, "catastrophic": 0.05 }
+      },
+      {
+        "parentValues": { "iranian_civilian_casualties": "10000_to_100000", "critical_infrastructure_destruction": "severe_widespread", "public_health_crisis_severity": "severe_multi_disease", "refugee_displacement_scale": "2m_to_5m" },
+        "categoryProbabilities": { "limited": 0.02, "moderate": 0.15, "severe": 0.58, "catastrophic": 0.25 }
+      },
+      {
+        "parentValues": { "iranian_civilian_casualties": "over_100000", "critical_infrastructure_destruction": "near_total_collapse", "public_health_crisis_severity": "catastrophic_mass_mortality", "refugee_displacement_scale": "over_5m" },
+        "categoryProbabilities": { "limited": 0.01, "moderate": 0.04, "severe": 0.20, "catastrophic": 0.75 }
+      },
+      {
+        "parentValues": { "iranian_civilian_casualties": "1000_to_10000", "critical_infrastructure_destruction": "minimal_damage", "public_health_crisis_severity": "contained_manageable", "refugee_displacement_scale": "under_500k" },
+        "categoryProbabilities": { "limited": 0.45, "moderate": 0.42, "severe": 0.11, "catastrophic": 0.02 }
+      },
+      {
+        "parentValues": { "iranian_civilian_casualties": "10000_to_100000", "critical_infrastructure_destruction": "significant_partial", "public_health_crisis_severity": "significant_outbreak", "refugee_displacement_scale": "500k_to_2m" },
+        "categoryProbabilities": { "limited": 0.04, "moderate": 0.28, "severe": 0.50, "catastrophic": 0.18 }
+      },
+      {
+        "parentValues": { "iranian_civilian_casualties": "under_1000", "critical_infrastructure_destruction": "significant_partial", "public_health_crisis_severity": "significant_outbreak", "refugee_displacement_scale": "500k_to_2m" },
+        "categoryProbabilities": { "limited": 0.28, "moderate": 0.50, "severe": 0.18, "catastrophic": 0.04 }
+      }
+    ],
+    "defaultProbabilities": {
+      "limited": 0.20,
+      "moderate": 0.35,
+      "severe": 0.30,
+      "catastrophic": 0.15
+    },
+    "source": {
+      "citation": "ICRC 'Humanitarian Impact Assessment Framework' 2024; Crisis Group 'Conflict Severity Index' 2024; Watson Institute 'Costs of War Composite Methodology' 2024; UNOCHA 'Humanitarian Response Plan Severity Scale' 2023",
+      "url": "https://www.icrc.org/en/publication/humanitarian-impact-assessment-armed-conflict",
+      "confidence": "medium"
+    }
+  }
+]
