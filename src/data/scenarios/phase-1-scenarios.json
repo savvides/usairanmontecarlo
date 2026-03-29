@@ -1,0 +1,141 @@
+[
+  {
+    "id": "nuclear-breakout-detected",
+    "phase": 1,
+    "title": "Nuclear Breakout Detected",
+    "description": "IAEA inspectors confirm Iran has enriched uranium to weapons-grade (90%+) levels sufficient for one or more warheads. Breakout timeline estimated at weeks.",
+    "overrides": [
+      {
+        "nodeId": "iran_nuclear_status",
+        "overrideProbabilities": {
+          "jcpoa_compliant": 0.0,
+          "advanced_enrichment": 0.0,
+          "breakout_threshold": 0.10,
+          "weaponization": 0.90
+        }
+      },
+      {
+        "nodeId": "diplomatic_channel_status",
+        "overrideProbabilities": {
+          "active_negotiations": 0.05,
+          "backchannel_only": 0.15,
+          "frozen": 0.30,
+          "severed": 0.50
+        }
+      },
+      {
+        "nodeId": "us_force_posture_gulf",
+        "overrideProbabilities": {
+          "reduced": 0.0,
+          "baseline": 0.05,
+          "elevated": 0.35,
+          "surge": 0.60
+        }
+      }
+    ]
+  },
+  {
+    "id": "proxy-attack-kills-us-personnel",
+    "phase": 1,
+    "title": "Proxy Attack Kills US Personnel",
+    "description": "An Iran-backed militia launches a drone or rocket attack on a US military installation in Iraq or Syria, killing multiple US service members.",
+    "overrides": [
+      {
+        "nodeId": "proxy_activity_level",
+        "overrideProbabilities": {
+          "dormant": 0.0,
+          "low_level": 0.0,
+          "escalatory": 0.30,
+          "coordinated_campaign": 0.70
+        }
+      },
+      {
+        "nodeId": "us_force_posture_gulf",
+        "overrideProbabilities": {
+          "reduced": 0.0,
+          "baseline": 0.05,
+          "elevated": 0.45,
+          "surge": 0.50
+        }
+      },
+      {
+        "nodeId": "escalation_trigger_probability",
+        "overridePTrue": 0.85
+      }
+    ]
+  },
+  {
+    "id": "diplomatic-collapse-iaea",
+    "phase": 1,
+    "title": "Diplomatic Collapse at IAEA",
+    "description": "Iran expels IAEA inspectors and withdraws from the Non-Proliferation Treaty, ending all international oversight of its nuclear program.",
+    "overrides": [
+      {
+        "nodeId": "diplomatic_channel_status",
+        "overrideProbabilities": {
+          "active_negotiations": 0.0,
+          "backchannel_only": 0.10,
+          "frozen": 0.20,
+          "severed": 0.70
+        }
+      },
+      {
+        "nodeId": "iran_nuclear_status",
+        "overrideProbabilities": {
+          "jcpoa_compliant": 0.0,
+          "advanced_enrichment": 0.10,
+          "breakout_threshold": 0.50,
+          "weaponization": 0.40
+        }
+      },
+      {
+        "nodeId": "sanctions_pressure",
+        "overrideProbabilities": {
+          "relaxed": 0.0,
+          "moderate": 0.05,
+          "maximum_pressure": 0.35,
+          "total_embargo": 0.60
+        }
+      }
+    ]
+  },
+  {
+    "id": "assassination-sabotage-event",
+    "phase": 1,
+    "title": "Assassination or Sabotage Event",
+    "description": "A covert operation — attributed to Israel or the US — assassinates a senior IRGC commander or damages a key nuclear facility, prompting Iranian vows of retaliation.",
+    "overrides": [
+      {
+        "nodeId": "iran_irgc_readiness",
+        "overrideProbabilities": {
+          "low": 0.0,
+          "moderate": 0.05,
+          "high": 0.35,
+          "maximum": 0.60
+        }
+      },
+      {
+        "nodeId": "proxy_activity_level",
+        "overrideProbabilities": {
+          "dormant": 0.0,
+          "low_level": 0.05,
+          "escalatory": 0.35,
+          "coordinated_campaign": 0.60
+        }
+      },
+      {
+        "nodeId": "diplomatic_channel_status",
+        "overrideProbabilities": {
+          "active_negotiations": 0.0,
+          "backchannel_only": 0.10,
+          "frozen": 0.40,
+          "severed": 0.50
+        }
+      },
+      {
+        "nodeId": "escalation_trigger_probability",
+        "overridePTrue": 0.70
+      }
+    ]
+  }
+]
