@@ -8,6 +8,7 @@ import { ContextPanel } from './ContextPanel';
 import { InteractionPanel } from './InteractionPanel';
 import { ResultsPanel } from './ResultsPanel';
 import { getPhaseContent } from '@/lib/phase-content';
+import { CascadeStrip } from './CascadeStrip';
 import type { SimNode, ScenarioCard as ScenarioCardType } from '@engine/types';
 
 interface SimulationShellProps {
@@ -91,6 +92,12 @@ export function SimulationShell({ nodes, scenarios }: SimulationShellProps) {
           />
         </div>
       </div>
+
+      <CascadeStrip
+        graph={simulation.activeGraph}
+        result={simulation.result}
+        currentPhase={phase.currentPhase}
+      />
     </div>
   );
 }
