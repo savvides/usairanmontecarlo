@@ -32,7 +32,7 @@ self.onmessage = (event: MessageEvent<WorkerRequest>) => {
   // Serialize results for transfer
   const response: WorkerResponse = {
     type: 'result',
-    runs: result.runs.map((run) => run.buffer),
+    runs: result.runs.map((run) => run.buffer as ArrayBuffer),
     nodeIndexMap: Array.from(result.nodeIndexMap.entries()),
   };
 
