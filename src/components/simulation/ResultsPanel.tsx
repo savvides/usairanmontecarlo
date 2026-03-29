@@ -64,17 +64,24 @@ export function ResultsPanel({ nodes, phaseResults, phase, isRunning }: ResultsP
                         : node.description}
                     </p>
                   </div>
-                  <span
-                    className={`text-[9px] font-mono px-1.5 py-0.5 rounded ${
-                      node.source.confidence === 'high'
-                        ? 'bg-success/10 text-success'
-                        : node.source.confidence === 'medium'
-                        ? 'bg-warning/10 text-warning'
-                        : 'bg-danger/10 text-danger'
-                    }`}
-                  >
-                    {node.source.confidence}
-                  </span>
+                  {(() => {
+                    const conf = phaseResults.confidence.get(node.id);
+                    const tier = conf?.tier ?? 'low';
+                    return (
+                      <span
+                        className={`text-[9px] font-mono px-1.5 py-0.5 rounded whitespace-nowrap ${
+                          tier === 'high'
+                            ? 'bg-success/10 text-success'
+                            : tier === 'medium'
+                            ? 'bg-warning/10 text-warning'
+                            : 'bg-danger/10 text-danger'
+                        }`}
+                        title={conf ? `Confidence: ${(conf.score * 100).toFixed(0)}%` : ''}
+                      >
+                        {tier} conf.
+                      </span>
+                    );
+                  })()}
                 </div>
 
                 {node.type === 'continuous' ? (
@@ -85,7 +92,7 @@ export function ResultsPanel({ nodes, phaseResults, phase, isRunning }: ResultsP
                     height={120}
                   />
                 ) : (
-                  <ProbabilityBar node={node} values={values} width={260} height={100} />
+                  <ProbabilityBar node={node} values={values} width={260} />
                 )}
 
                 {stats && (

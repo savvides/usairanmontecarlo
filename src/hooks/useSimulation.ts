@@ -3,10 +3,12 @@
 import { useState, useCallback, useMemo, useRef } from 'react';
 import { buildGraph, runSimulation, applyScenario } from '@engine/index';
 import type { SimNode, SimGraph, SimulationResult, ScenarioCard } from '@engine/types';
+import { computeNodeConfidence, getConfidenceTier, type ConfidenceTier } from '@/lib/confidence';
 
 export interface PhaseResults {
   distributions: Map<string, number[]>;
   stats: Map<string, { mean: number; min: number; max: number; p10: number; p90: number }>;
+  confidence: Map<string, { score: number; tier: ConfidenceTier }>;
 }
 
 function computeStats(values: number[]): { mean: number; min: number; max: number; p10: number; p90: number } {
@@ -29,18 +31,41 @@ function extractPhaseResults(
   const phaseNodeIds = graph.phaseNodes.get(phase) ?? [];
   const distributions = new Map<string, number[]>();
   const stats = new Map<string, { mean: number; min: number; max: number; p10: number; p90: number }>();
+  const confidence = new Map<string, { score: number; tier: ConfidenceTier }>();
 
   for (const nodeId of phaseNodeIds) {
     const idx = result.nodeIndexMap.get(nodeId)!;
+    const node = graph.nodes.get(nodeId)!;
     const values: number[] = [];
     for (let i = 0; i < result.runCount; i++) {
       values.push(result.runs[i][idx]);
     }
     distributions.set(nodeId, values);
-    stats.set(nodeId, computeStats(values));
+    const nodeStats = computeStats(values);
+    stats.set(nodeId, nodeStats);
+
+    const diag = result.diagnostics.nodes.get(nodeId);
+    if (diag) {
+      let minCategoryCount: number | undefined;
+      if (node.type === 'categorical') {
+        const catCounts = node.categories.map((_, catIdx) =>
+          values.filter((v) => v === catIdx).length
+        );
+        minCategoryCount = Math.min(...catCounts);
+      }
+      const score = computeNodeConfidence(
+        diag,
+        result.runCount,
+        node.type,
+        nodeStats.mean,
+        node.source,
+        minCategoryCount
+      );
+      confidence.set(nodeId, { score, tier: getConfidenceTier(score) });
+    }
   }
 
-  return { distributions, stats };
+  return { distributions, stats, confidence };
 }
 
 export function useSimulation(nodes: SimNode[]) {
