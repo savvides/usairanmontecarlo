@@ -1,0 +1,264 @@
+[
+  {
+    "id": "sustained-air-campaign",
+    "phase": 3,
+    "title": "Sustained Air Campaign",
+    "description": "The United States executes a sustained, multi-week precision air campaign modeled on OIF 2003 and Allied Force 1999. Waves of B-2 stealth bombers, F-35A/Cs, and submarine-launched TLAMs systematically target Iranian air defense nodes, IRGC command facilities, missile storage sites, and nuclear infrastructure over 21+ days. SEAD/DEAD packages clear corridors, enabling non-stealthy strike packages in later waves. The objective is the systematic destruction of Iran's military capacity without a ground invasion. Iran responds with intermittent ballistic missile salvos against Gulf bases and activates Hezbollah and Houthi proxy forces, extending the battlespace.",
+    "overrides": [
+      {
+        "nodeId": "us_air_superiority_timeline",
+        "overrideProbabilities": {
+          "within_72_hours": 0.15,
+          "4_to_7_days": 0.40,
+          "8_to_21_days": 0.38,
+          "contested_indefinitely": 0.07
+        }
+      },
+      {
+        "nodeId": "iran_air_defense_survivability",
+        "overrideProbabilities": {
+          "largely_intact": 0.05,
+          "partially_intact": 0.25,
+          "degraded": 0.52,
+          "collapsed": 0.18
+        }
+      },
+      {
+        "nodeId": "ballistic_missile_exchange_intensity",
+        "overrideProbabilities": {
+          "single_salvo": 0.05,
+          "limited_salvos": 0.20,
+          "sustained_missile_campaign": 0.55,
+          "mass_saturation": 0.20
+        }
+      },
+      {
+        "nodeId": "conflict_duration_estimate",
+        "overrideProbabilities": {
+          "under_1_week": 0.05,
+          "1_to_4_weeks": 0.30,
+          "1_to_3_months": 0.50,
+          "over_3_months": 0.15
+        }
+      },
+      {
+        "nodeId": "overall_military_balance",
+        "overrideProbabilities": {
+          "decisive_us_advantage": 0.20,
+          "significant_us_advantage": 0.50,
+          "contested_attrition": 0.25,
+          "us_bogged_down": 0.05
+        }
+      },
+      {
+        "nodeId": "proxy_network_activation",
+        "overrideProbabilities": {
+          "dormant": 0.05,
+          "localized_attacks": 0.25,
+          "coordinated_regional": 0.50,
+          "full_activation": 0.20
+        }
+      }
+    ]
+  },
+  {
+    "id": "limited-tit-for-tat",
+    "phase": 3,
+    "title": "Limited Tit-for-Tat Exchanges",
+    "description": "Neither side escalates to full-scale war. Instead, the conflict remains locked in a carefully managed cycle of retaliatory strikes: US destroys a missile battery, Iran fires a limited cruise missile salvo at a Gulf base, US strikes an IRGC naval facility, Iran activates proxies in Iraq for a limited ground attack. Both leaderships signal restraint through back-channels — Oman and Qatar — while preserving domestic political narratives of resolve. Oil markets spike but stabilize. The exchange resembles the 2020 Soleimani/Ain al-Assad cycle but sustained over several weeks. Diplomatic pressure from China and EU creates eventual off-ramp.",
+    "overrides": [
+      {
+        "nodeId": "us_air_superiority_timeline",
+        "overrideProbabilities": {
+          "within_72_hours": 0.30,
+          "4_to_7_days": 0.40,
+          "8_to_21_days": 0.22,
+          "contested_indefinitely": 0.08
+        }
+      },
+      {
+        "nodeId": "ballistic_missile_exchange_intensity",
+        "overrideProbabilities": {
+          "single_salvo": 0.38,
+          "limited_salvos": 0.48,
+          "sustained_missile_campaign": 0.12,
+          "mass_saturation": 0.02
+        }
+      },
+      {
+        "nodeId": "naval_engagement_intensity",
+        "overrideProbabilities": {
+          "no_naval_combat": 0.25,
+          "isolated_incidents": 0.55,
+          "sustained_skirmishes": 0.17,
+          "fleet_battle": 0.03
+        }
+      },
+      {
+        "nodeId": "conflict_duration_estimate",
+        "overrideProbabilities": {
+          "under_1_week": 0.30,
+          "1_to_4_weeks": 0.50,
+          "1_to_3_months": 0.16,
+          "over_3_months": 0.04
+        }
+      },
+      {
+        "nodeId": "ceasefire_opportunity",
+        "overrideProbabilities": {
+          "no_credible_opening": 0.10,
+          "backchannel_oman_qatar": 0.60,
+          "un_sc_resolution": 0.18,
+          "us_unilateral_ceasefire": 0.12
+        }
+      },
+      {
+        "nodeId": "us_total_casualty_trajectory",
+        "overrideProbabilities": {
+          "minimal_under_100": 0.50,
+          "limited_100_to_500": 0.38,
+          "significant_500_to_2000": 0.10,
+          "severe_2000_plus": 0.02
+        }
+      },
+      {
+        "nodeId": "nuclear_escalation_risk_phase3",
+        "overrideProbabilities": {
+          "true": 0.03,
+          "false": 0.97
+        }
+      }
+    ]
+  },
+  {
+    "id": "full-naval-blockade",
+    "phase": 3,
+    "title": "Full Naval Blockade",
+    "description": "Iran executes its doctrine of Hormuz denial at full scale. IRGC Navy deploys thousands of naval mines across the 34-kilometer-wide strait, activates shore-based anti-ship missile batteries along the Iranian coast, and deploys fast-attack craft in swarm formations. Tanker traffic halts within 48 hours. The US 5th Fleet conducts sustained mine-clearing operations under fire while carrier aircraft strike IRGC coastal facilities. Iran simultaneously targets Saudi Aramco terminals and UAE port infrastructure with Shahed drones and Qader cruise missiles. Global oil prices spike to $150-180/barrel within days. The campaign tests the limits of US mine warfare doctrine, a capability that atrophied since the 1980s.",
+    "overrides": [
+      {
+        "nodeId": "naval_engagement_intensity",
+        "overrideProbabilities": {
+          "no_naval_combat": 0.02,
+          "isolated_incidents": 0.08,
+          "sustained_skirmishes": 0.40,
+          "fleet_battle": 0.50
+        }
+      },
+      {
+        "nodeId": "iran_anti_ship_capability",
+        "overrideProbabilities": {
+          "degraded_low": 0.08,
+          "moderate": 0.30,
+          "high": 0.42,
+          "overwhelming": 0.20
+        }
+      },
+      {
+        "nodeId": "us_ship_loss_probability",
+        "overrideProbabilities": {
+          "true": 0.52,
+          "false": 0.48
+        }
+      },
+      {
+        "nodeId": "conflict_duration_estimate",
+        "overrideProbabilities": {
+          "under_1_week": 0.05,
+          "1_to_4_weeks": 0.30,
+          "1_to_3_months": 0.45,
+          "over_3_months": 0.20
+        }
+      },
+      {
+        "nodeId": "overall_military_balance",
+        "overrideProbabilities": {
+          "decisive_us_advantage": 0.10,
+          "significant_us_advantage": 0.30,
+          "contested_attrition": 0.42,
+          "us_bogged_down": 0.18
+        }
+      },
+      {
+        "nodeId": "us_air_superiority_timeline",
+        "overrideProbabilities": {
+          "within_72_hours": 0.18,
+          "4_to_7_days": 0.38,
+          "8_to_21_days": 0.32,
+          "contested_indefinitely": 0.12
+        }
+      }
+    ]
+  },
+  {
+    "id": "cyber-dominant-conflict",
+    "phase": 3,
+    "title": "Cyber-Dominant Conflict",
+    "description": "Both sides prioritize cyber and electronic warfare over kinetic operations, reflecting a political preference on the US side for plausibly deniable disruption and an Iranian calculation that kinetic escalation risks regime destruction. US Cyber Command and NSA execute a multi-vector campaign blinding Iran's air defense C2 networks, disrupting oil ministry SCADA systems, and corrupting IRGC logistics databases. Iran retaliates via APT33/34 operations targeting US financial clearing networks, Gulf pipeline SCADA, and the SWIFT messaging infrastructure for regional banks. Kinetic strikes are limited and targeted. The conflict unfolds largely in the electromagnetic and digital domains, with civilian populations experiencing cascading infrastructure failures rather than direct military violence. This is the hardest scenario to model — cyber effect estimation carries the lowest analytical confidence.",
+    "overrides": [
+      {
+        "nodeId": "us_cyber_ops_effectiveness",
+        "overrideProbabilities": {
+          "minimal_effect": 0.05,
+          "limited_disruption": 0.20,
+          "significant_degradation": 0.50,
+          "critical_infrastructure_crippled": 0.25
+        }
+      },
+      {
+        "nodeId": "iran_counter_cyber_impact",
+        "overrideProbabilities": {
+          "negligible": 0.08,
+          "disruptive_limited": 0.32,
+          "significant_economic_damage": 0.42,
+          "critical_systems_compromised": 0.18
+        }
+      },
+      {
+        "nodeId": "ballistic_missile_exchange_intensity",
+        "overrideProbabilities": {
+          "single_salvo": 0.55,
+          "limited_salvos": 0.32,
+          "sustained_missile_campaign": 0.10,
+          "mass_saturation": 0.03
+        }
+      },
+      {
+        "nodeId": "naval_engagement_intensity",
+        "overrideProbabilities": {
+          "no_naval_combat": 0.42,
+          "isolated_incidents": 0.38,
+          "sustained_skirmishes": 0.15,
+          "fleet_battle": 0.05
+        }
+      },
+      {
+        "nodeId": "conflict_duration_estimate",
+        "overrideProbabilities": {
+          "under_1_week": 0.10,
+          "1_to_4_weeks": 0.35,
+          "1_to_3_months": 0.40,
+          "over_3_months": 0.15
+        }
+      },
+      {
+        "nodeId": "us_total_casualty_trajectory",
+        "overrideProbabilities": {
+          "minimal_under_100": 0.60,
+          "limited_100_to_500": 0.28,
+          "significant_500_to_2000": 0.10,
+          "severe_2000_plus": 0.02
+        }
+      },
+      {
+        "nodeId": "information_warfare_advantage",
+        "overrideProbabilities": {
+          "us_coalition_dominant": 0.35,
+          "contested_roughly_equal": 0.38,
+          "iran_advantage_regional": 0.17,
+          "iran_advantage_global_narrative": 0.10
+        }
+      }
+    ]
+  }
+]

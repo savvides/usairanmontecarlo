@@ -1,0 +1,643 @@
+[
+  {
+    "id": "us_air_superiority_timeline",
+    "phase": 3,
+    "type": "categorical",
+    "label": "US Air Superiority Timeline",
+    "description": "Estimated time for US/coalition forces to establish effective air superiority over Iranian airspace and suppress IRGC Air Force and SAM networks sufficient to conduct sustained strike operations with reduced attrition",
+    "parents": ["escalation_ladder_position", "us_strike_method", "iran_air_defense_survivability"],
+    "categories": ["within_72_hours", "4_to_7_days", "8_to_21_days", "contested_indefinitely"],
+    "cpt": [
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "us_strike_method": "stealth_air", "iran_air_defense_survivability": "degraded" },
+        "categoryProbabilities": { "within_72_hours": 0.40, "4_to_7_days": 0.38, "8_to_21_days": 0.17, "contested_indefinitely": 0.05 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "us_strike_method": "combined_air_sea", "iran_air_defense_survivability": "partially_intact" },
+        "categoryProbabilities": { "within_72_hours": 0.20, "4_to_7_days": 0.40, "8_to_21_days": 0.30, "contested_indefinitely": 0.10 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "us_strike_method": "cruise_missiles", "iran_air_defense_survivability": "degraded" },
+        "categoryProbabilities": { "within_72_hours": 0.25, "4_to_7_days": 0.42, "8_to_21_days": 0.25, "contested_indefinitely": 0.08 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "us_strike_method": "cyber_only", "iran_air_defense_survivability": "largely_intact" },
+        "categoryProbabilities": { "within_72_hours": 0.05, "4_to_7_days": 0.15, "8_to_21_days": 0.35, "contested_indefinitely": 0.45 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "us_strike_method": "combined_air_sea", "iran_air_defense_survivability": "degraded" },
+        "categoryProbabilities": { "within_72_hours": 0.35, "4_to_7_days": 0.38, "8_to_21_days": 0.20, "contested_indefinitely": 0.07 }
+      }
+    ],
+    "defaultProbabilities": {
+      "within_72_hours": 0.22,
+      "4_to_7_days": 0.38,
+      "8_to_21_days": 0.28,
+      "contested_indefinitely": 0.12
+    },
+    "source": {
+      "citation": "CSBA 'Air Superiority in Anti-Access Environments' 2019; RAND 'Iranian Air Defense Capabilities and US Strike Options' 2023; IISS Military Balance 2025",
+      "url": "https://www.csbaonline.org/research/publications/air-superiority-in-a-contested-environment",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "iran_air_defense_survivability",
+    "phase": 3,
+    "type": "categorical",
+    "label": "Iranian Air Defense Survivability",
+    "description": "Residual operational capability of Iran's integrated air defense system — including S-300PMU-2, Bavar-373, Khordad-15, and shorter-range networks — after the opening exchange of strikes and SEAD/DEAD operations",
+    "parents": ["us_strike_method", "first_strike_actor", "us_strike_bda"],
+    "categories": ["largely_intact", "partially_intact", "degraded", "collapsed"],
+    "cpt": [
+      {
+        "parentValues": { "us_strike_method": "stealth_air", "first_strike_actor": "united_states", "us_strike_bda": "mission_kill_success" },
+        "categoryProbabilities": { "largely_intact": 0.05, "partially_intact": 0.20, "degraded": 0.50, "collapsed": 0.25 }
+      },
+      {
+        "parentValues": { "us_strike_method": "combined_air_sea", "first_strike_actor": "united_states", "us_strike_bda": "partial_damage" },
+        "categoryProbabilities": { "largely_intact": 0.10, "partially_intact": 0.40, "degraded": 0.38, "collapsed": 0.12 }
+      },
+      {
+        "parentValues": { "us_strike_method": "cruise_missiles", "first_strike_actor": "israel", "us_strike_bda": "partial_damage" },
+        "categoryProbabilities": { "largely_intact": 0.20, "partially_intact": 0.45, "degraded": 0.28, "collapsed": 0.07 }
+      },
+      {
+        "parentValues": { "us_strike_method": "cyber_only", "first_strike_actor": "iran", "us_strike_bda": "minimal_effect" },
+        "categoryProbabilities": { "largely_intact": 0.65, "partially_intact": 0.25, "degraded": 0.08, "collapsed": 0.02 }
+      },
+      {
+        "parentValues": { "us_strike_method": "stealth_air", "first_strike_actor": "united_states", "us_strike_bda": "hardened_sites_survive" },
+        "categoryProbabilities": { "largely_intact": 0.15, "partially_intact": 0.38, "degraded": 0.37, "collapsed": 0.10 }
+      }
+    ],
+    "defaultProbabilities": {
+      "largely_intact": 0.15,
+      "partially_intact": 0.35,
+      "degraded": 0.38,
+      "collapsed": 0.12
+    },
+    "source": {
+      "citation": "IISS 'Iran's Air Defence Modernisation' 2024; CSIS 'Iranian S-300 and Bavar-373 Capabilities' 2024; CRS 'Iran: Armed Forces and the State' 2024",
+      "url": "https://www.csis.org/analysis/irans-air-defenses",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "naval_engagement_intensity",
+    "phase": 3,
+    "type": "categorical",
+    "label": "Naval Engagement Intensity in the Persian Gulf",
+    "description": "Level of surface and subsurface naval combat between US 5th Fleet/coalition and IRGC Navy/IRIN in the Persian Gulf and Gulf of Oman, ranging from isolated incidents to sustained fleet combat",
+    "parents": ["hormuz_closure_probability", "iran_retaliation_method", "escalation_ladder_position"],
+    "categories": ["no_naval_combat", "isolated_incidents", "sustained_skirmishes", "fleet_battle"],
+    "cpt": [
+      {
+        "parentValues": { "hormuz_closure_probability": "true", "iran_retaliation_method": "asymmetric_naval", "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "no_naval_combat": 0.02, "isolated_incidents": 0.10, "sustained_skirmishes": 0.38, "fleet_battle": 0.50 }
+      },
+      {
+        "parentValues": { "hormuz_closure_probability": "true", "iran_retaliation_method": "ballistic_missiles", "escalation_ladder_position": "sustained_campaign" },
+        "categoryProbabilities": { "no_naval_combat": 0.05, "isolated_incidents": 0.30, "sustained_skirmishes": 0.45, "fleet_battle": 0.20 }
+      },
+      {
+        "parentValues": { "hormuz_closure_probability": "false", "iran_retaliation_method": "proxy_activation", "escalation_ladder_position": "limited_exchange" },
+        "categoryProbabilities": { "no_naval_combat": 0.40, "isolated_incidents": 0.40, "sustained_skirmishes": 0.15, "fleet_battle": 0.05 }
+      },
+      {
+        "parentValues": { "hormuz_closure_probability": "false", "iran_retaliation_method": "cruise_and_drones", "escalation_ladder_position": "sustained_campaign" },
+        "categoryProbabilities": { "no_naval_combat": 0.15, "isolated_incidents": 0.45, "sustained_skirmishes": 0.32, "fleet_battle": 0.08 }
+      }
+    ],
+    "defaultProbabilities": {
+      "no_naval_combat": 0.12,
+      "isolated_incidents": 0.35,
+      "sustained_skirmishes": 0.35,
+      "fleet_battle": 0.18
+    },
+    "source": {
+      "citation": "IISS 'Naval Forces in the Persian Gulf' 2024; CNA 'IRGC Naval Doctrine and Asymmetric Tactics' 2023; CSIS 'Maritime Security in the Gulf' 2024",
+      "url": "https://www.csis.org/analysis/maritime-security-persian-gulf",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "us_ship_loss_probability",
+    "phase": 3,
+    "type": "binary",
+    "label": "US Warship Lost or Mission-Killed",
+    "description": "Whether at least one US Navy surface combatant (destroyer, cruiser, or carrier) is sunk or rendered non-operational as a result of Iranian anti-ship missiles, torpedo attacks, or mine strikes during the conflict",
+    "parents": ["naval_engagement_intensity", "iran_anti_ship_capability"],
+    "cpt": [
+      { "parentValues": { "naval_engagement_intensity": "fleet_battle", "iran_anti_ship_capability": "high" }, "pTrue": 0.65 },
+      { "parentValues": { "naval_engagement_intensity": "fleet_battle", "iran_anti_ship_capability": "moderate" }, "pTrue": 0.38 },
+      { "parentValues": { "naval_engagement_intensity": "sustained_skirmishes", "iran_anti_ship_capability": "high" }, "pTrue": 0.28 },
+      { "parentValues": { "naval_engagement_intensity": "sustained_skirmishes", "iran_anti_ship_capability": "moderate" }, "pTrue": 0.12 },
+      { "parentValues": { "naval_engagement_intensity": "isolated_incidents", "iran_anti_ship_capability": "high" }, "pTrue": 0.08 },
+      { "parentValues": { "naval_engagement_intensity": "no_naval_combat", "iran_anti_ship_capability": "moderate" }, "pTrue": 0.01 }
+    ],
+    "defaultPTrue": 0.18,
+    "source": {
+      "citation": "CSBA 'Survivability of US Surface Combatants in Anti-Access Environments' 2022; CNA 'Iranian Anti-Ship Missile Capabilities' 2024; Naval War College Review 2023",
+      "url": "https://www.csbaonline.org/research/publications/maritime-strategy-anti-access-environments",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "iran_anti_ship_capability",
+    "phase": 3,
+    "type": "categorical",
+    "label": "Iranian Anti-Ship Missile Effectiveness",
+    "description": "Operational effectiveness of Iran's anti-ship arsenal — including Noor, Qader, Khalij Fars ballistic anti-ship missiles, and IRGC fast-boat swarms — against US/coalition surface combatants after initial attrition from strikes",
+    "parents": ["us_strike_method", "us_air_superiority_timeline", "iran_air_defense_survivability"],
+    "categories": ["degraded_low", "moderate", "high", "overwhelming"],
+    "cpt": [
+      {
+        "parentValues": { "us_strike_method": "combined_air_sea", "us_air_superiority_timeline": "within_72_hours", "iran_air_defense_survivability": "collapsed" },
+        "categoryProbabilities": { "degraded_low": 0.45, "moderate": 0.38, "high": 0.12, "overwhelming": 0.05 }
+      },
+      {
+        "parentValues": { "us_strike_method": "stealth_air", "us_air_superiority_timeline": "4_to_7_days", "iran_air_defense_survivability": "degraded" },
+        "categoryProbabilities": { "degraded_low": 0.20, "moderate": 0.45, "high": 0.28, "overwhelming": 0.07 }
+      },
+      {
+        "parentValues": { "us_strike_method": "cruise_missiles", "us_air_superiority_timeline": "8_to_21_days", "iran_air_defense_survivability": "partially_intact" },
+        "categoryProbabilities": { "degraded_low": 0.12, "moderate": 0.35, "high": 0.38, "overwhelming": 0.15 }
+      },
+      {
+        "parentValues": { "us_strike_method": "cyber_only", "us_air_superiority_timeline": "contested_indefinitely", "iran_air_defense_survivability": "largely_intact" },
+        "categoryProbabilities": { "degraded_low": 0.05, "moderate": 0.20, "high": 0.42, "overwhelming": 0.33 }
+      }
+    ],
+    "defaultProbabilities": {
+      "degraded_low": 0.20,
+      "moderate": 0.38,
+      "high": 0.30,
+      "overwhelming": 0.12
+    },
+    "source": {
+      "citation": "RAND 'Iranian Anti-Ship Capabilities' 2023; IISS Military Balance 2025; CRS 'Iran's Military Forces and Doctrine' 2024",
+      "url": "https://www.rand.org/pubs/research_reports/RR3063.html",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "ballistic_missile_exchange_intensity",
+    "phase": 3,
+    "type": "categorical",
+    "label": "Ballistic and Cruise Missile Exchange Intensity",
+    "description": "Cumulative scale of the ballistic and cruise missile exchange across the conflict: single salvos (< 50 missiles total), limited salvos (50-200), sustained campaign (200-800), or mass saturation (800+)",
+    "parents": ["escalation_ladder_position", "iran_retaliation_method", "us_casualties_first_exchange"],
+    "categories": ["single_salvo", "limited_salvos", "sustained_missile_campaign", "mass_saturation"],
+    "cpt": [
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "iran_retaliation_method": "ballistic_missiles", "us_casualties_first_exchange": "light" },
+        "categoryProbabilities": { "single_salvo": 0.40, "limited_salvos": 0.42, "sustained_missile_campaign": 0.15, "mass_saturation": 0.03 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "iran_retaliation_method": "cruise_and_drones", "us_casualties_first_exchange": "moderate" },
+        "categoryProbabilities": { "single_salvo": 0.05, "limited_salvos": 0.30, "sustained_missile_campaign": 0.50, "mass_saturation": 0.15 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "iran_retaliation_method": "ballistic_missiles", "us_casualties_first_exchange": "heavy" },
+        "categoryProbabilities": { "single_salvo": 0.02, "limited_salvos": 0.13, "sustained_missile_campaign": 0.45, "mass_saturation": 0.40 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "iran_retaliation_method": "ballistic_missiles", "us_casualties_first_exchange": "heavy" },
+        "categoryProbabilities": { "single_salvo": 0.02, "limited_salvos": 0.08, "sustained_missile_campaign": 0.35, "mass_saturation": 0.55 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "iran_retaliation_method": "proxy_activation", "us_casualties_first_exchange": "none" },
+        "categoryProbabilities": { "single_salvo": 0.60, "limited_salvos": 0.30, "sustained_missile_campaign": 0.08, "mass_saturation": 0.02 }
+      }
+    ],
+    "defaultProbabilities": {
+      "single_salvo": 0.20,
+      "limited_salvos": 0.35,
+      "sustained_missile_campaign": 0.32,
+      "mass_saturation": 0.13
+    },
+    "source": {
+      "citation": "IISS 'Iran's Ballistic Missile Arsenal' 2025; CSIS 'Missile Defense in the Gulf' 2024; RAND 'Escalation Dynamics in a US-Iran War' 2023",
+      "url": "https://www.iiss.org/blogs/military-balance/2024/04/irans-ballistic-missile-programme",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "us_cyber_ops_effectiveness",
+    "phase": 3,
+    "type": "categorical",
+    "label": "US Cyber Operations Effectiveness Against Iran",
+    "description": "Operational impact of US Cyber Command and NSA offensive operations against Iranian critical infrastructure — power grid, oil and gas SCADA, financial system, air defense C2 networks — measured in terms of functional disruption achieved",
+    "parents": ["us_strike_method", "escalation_ladder_position"],
+    "categories": ["minimal_effect", "limited_disruption", "significant_degradation", "critical_infrastructure_crippled"],
+    "cpt": [
+      {
+        "parentValues": { "us_strike_method": "cyber_only", "escalation_ladder_position": "limited_exchange" },
+        "categoryProbabilities": { "minimal_effect": 0.15, "limited_disruption": 0.38, "significant_degradation": 0.35, "critical_infrastructure_crippled": 0.12 }
+      },
+      {
+        "parentValues": { "us_strike_method": "cyber_only", "escalation_ladder_position": "sustained_campaign" },
+        "categoryProbabilities": { "minimal_effect": 0.10, "limited_disruption": 0.28, "significant_degradation": 0.42, "critical_infrastructure_crippled": 0.20 }
+      },
+      {
+        "parentValues": { "us_strike_method": "combined_air_sea", "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "minimal_effect": 0.08, "limited_disruption": 0.25, "significant_degradation": 0.45, "critical_infrastructure_crippled": 0.22 }
+      },
+      {
+        "parentValues": { "us_strike_method": "stealth_air", "escalation_ladder_position": "sustained_campaign" },
+        "categoryProbabilities": { "minimal_effect": 0.18, "limited_disruption": 0.40, "significant_degradation": 0.32, "critical_infrastructure_crippled": 0.10 }
+      },
+      {
+        "parentValues": { "us_strike_method": "cruise_missiles", "escalation_ladder_position": "limited_exchange" },
+        "categoryProbabilities": { "minimal_effect": 0.28, "limited_disruption": 0.42, "significant_degradation": 0.22, "critical_infrastructure_crippled": 0.08 }
+      }
+    ],
+    "defaultProbabilities": {
+      "minimal_effect": 0.18,
+      "limited_disruption": 0.35,
+      "significant_degradation": 0.35,
+      "critical_infrastructure_crippled": 0.12
+    },
+    "source": {
+      "citation": "CSIS 'Offensive Cyber Operations Against Iran' 2024; Belfer Center 'Cyber Operations in US-Iran Conflict' 2023; NSA/CYBERCOM public statements",
+      "url": "https://www.belfercenter.org/publication/cyber-operations-iran",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "iran_counter_cyber_impact",
+    "phase": 3,
+    "type": "categorical",
+    "label": "Iranian Cyber Retaliation Impact on US/Allied Infrastructure",
+    "description": "Assessed impact of Iranian offensive cyber operations — by IRGC Cyber Command and affiliated threat groups — against US financial systems, Gulf energy terminals, and regional logistics networks during the conflict",
+    "parents": ["us_cyber_ops_effectiveness", "escalation_ladder_position"],
+    "categories": ["negligible", "disruptive_limited", "significant_economic_damage", "critical_systems_compromised"],
+    "cpt": [
+      {
+        "parentValues": { "us_cyber_ops_effectiveness": "critical_infrastructure_crippled", "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "negligible": 0.10, "disruptive_limited": 0.30, "significant_economic_damage": 0.38, "critical_systems_compromised": 0.22 }
+      },
+      {
+        "parentValues": { "us_cyber_ops_effectiveness": "significant_degradation", "escalation_ladder_position": "sustained_campaign" },
+        "categoryProbabilities": { "negligible": 0.15, "disruptive_limited": 0.40, "significant_economic_damage": 0.35, "critical_systems_compromised": 0.10 }
+      },
+      {
+        "parentValues": { "us_cyber_ops_effectiveness": "limited_disruption", "escalation_ladder_position": "limited_exchange" },
+        "categoryProbabilities": { "negligible": 0.30, "disruptive_limited": 0.45, "significant_economic_damage": 0.20, "critical_systems_compromised": 0.05 }
+      },
+      {
+        "parentValues": { "us_cyber_ops_effectiveness": "minimal_effect", "escalation_ladder_position": "limited_exchange" },
+        "categoryProbabilities": { "negligible": 0.50, "disruptive_limited": 0.35, "significant_economic_damage": 0.12, "critical_systems_compromised": 0.03 }
+      }
+    ],
+    "defaultProbabilities": {
+      "negligible": 0.25,
+      "disruptive_limited": 0.40,
+      "significant_economic_damage": 0.25,
+      "critical_systems_compromised": 0.10
+    },
+    "source": {
+      "citation": "CISA 'Iranian Cyber Threat to US Critical Infrastructure' 2024; Mandiant 'APT33/34 Capabilities' 2024; IISS Cyber Capabilities and National Power 2023",
+      "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-320a",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "socom_special_ops_activity",
+    "phase": 3,
+    "type": "categorical",
+    "label": "SOCOM Special Operations Activity Level",
+    "description": "Scope of US special operations forces activities inside Iran or supporting resistance networks: no engagement, limited reconnaissance/intelligence operations, active direct-action raids on high-value targets, or sustained deep-penetration operations",
+    "parents": ["escalation_ladder_position", "us_air_superiority_timeline"],
+    "categories": ["no_engagement", "intel_recon_only", "direct_action_raids", "sustained_deep_ops"],
+    "cpt": [
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "us_air_superiority_timeline": "within_72_hours" },
+        "categoryProbabilities": { "no_engagement": 0.05, "intel_recon_only": 0.20, "direct_action_raids": 0.45, "sustained_deep_ops": 0.30 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "us_air_superiority_timeline": "4_to_7_days" },
+        "categoryProbabilities": { "no_engagement": 0.08, "intel_recon_only": 0.35, "direct_action_raids": 0.42, "sustained_deep_ops": 0.15 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "us_air_superiority_timeline": "8_to_21_days" },
+        "categoryProbabilities": { "no_engagement": 0.25, "intel_recon_only": 0.50, "direct_action_raids": 0.20, "sustained_deep_ops": 0.05 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "us_air_superiority_timeline": "within_72_hours" },
+        "categoryProbabilities": { "no_engagement": 0.03, "intel_recon_only": 0.12, "direct_action_raids": 0.40, "sustained_deep_ops": 0.45 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "us_air_superiority_timeline": "contested_indefinitely" },
+        "categoryProbabilities": { "no_engagement": 0.40, "intel_recon_only": 0.45, "direct_action_raids": 0.12, "sustained_deep_ops": 0.03 }
+      }
+    ],
+    "defaultProbabilities": {
+      "no_engagement": 0.12,
+      "intel_recon_only": 0.35,
+      "direct_action_raids": 0.37,
+      "sustained_deep_ops": 0.16
+    },
+    "source": {
+      "citation": "CRS 'US Special Operations Forces' 2024; RAND 'Special Operations in Anti-Access Environments' 2022; Long War Journal operational data",
+      "url": "https://www.crs.gov/Reports/RL33395",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "information_warfare_advantage",
+    "phase": 3,
+    "type": "categorical",
+    "label": "Information Warfare / IO Advantage",
+    "description": "Which side holds the dominant information warfare advantage — controlling the strategic narrative, suppressing adversary communications, and degrading adversary command decision-making through information operations — over the first 30 days of active conflict",
+    "parents": ["us_cyber_ops_effectiveness", "escalation_ladder_position"],
+    "categories": ["us_coalition_dominant", "contested_roughly_equal", "iran_advantage_regional", "iran_advantage_global_narrative"],
+    "cpt": [
+      {
+        "parentValues": { "us_cyber_ops_effectiveness": "critical_infrastructure_crippled", "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "us_coalition_dominant": 0.55, "contested_roughly_equal": 0.30, "iran_advantage_regional": 0.10, "iran_advantage_global_narrative": 0.05 }
+      },
+      {
+        "parentValues": { "us_cyber_ops_effectiveness": "significant_degradation", "escalation_ladder_position": "sustained_campaign" },
+        "categoryProbabilities": { "us_coalition_dominant": 0.42, "contested_roughly_equal": 0.38, "iran_advantage_regional": 0.13, "iran_advantage_global_narrative": 0.07 }
+      },
+      {
+        "parentValues": { "us_cyber_ops_effectiveness": "minimal_effect", "escalation_ladder_position": "limited_exchange" },
+        "categoryProbabilities": { "us_coalition_dominant": 0.20, "contested_roughly_equal": 0.35, "iran_advantage_regional": 0.28, "iran_advantage_global_narrative": 0.17 }
+      },
+      {
+        "parentValues": { "us_cyber_ops_effectiveness": "limited_disruption", "escalation_ladder_position": "nuclear_threshold" },
+        "categoryProbabilities": { "us_coalition_dominant": 0.30, "contested_roughly_equal": 0.32, "iran_advantage_regional": 0.22, "iran_advantage_global_narrative": 0.16 }
+      }
+    ],
+    "defaultProbabilities": {
+      "us_coalition_dominant": 0.38,
+      "contested_roughly_equal": 0.35,
+      "iran_advantage_regional": 0.17,
+      "iran_advantage_global_narrative": 0.10
+    },
+    "source": {
+      "citation": "RAND 'Information Operations in Great Power Competition' 2023; CSIS 'Iran's Information Warfare Capabilities' 2024; IISS Strategic Survey 2024",
+      "url": "https://www.rand.org/pubs/research_reports/RRA537-1.html",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "proxy_network_activation",
+    "phase": 3,
+    "type": "categorical",
+    "label": "Iranian Proxy Network Activation Level",
+    "description": "Scale of coordinated attacks by Iran's proxy network — Hezbollah in Lebanon, Houthi forces in Yemen, Kata'ib Hezbollah and PMF factions in Iraq — against US forces, Israel, and Gulf state infrastructure during active conflict",
+    "parents": ["iran_retaliation_method", "escalation_ladder_position", "ballistic_missile_exchange_intensity"],
+    "categories": ["dormant", "localized_attacks", "coordinated_regional", "full_activation"],
+    "cpt": [
+      {
+        "parentValues": { "iran_retaliation_method": "proxy_activation", "escalation_ladder_position": "full_scale_war", "ballistic_missile_exchange_intensity": "mass_saturation" },
+        "categoryProbabilities": { "dormant": 0.02, "localized_attacks": 0.08, "coordinated_regional": 0.35, "full_activation": 0.55 }
+      },
+      {
+        "parentValues": { "iran_retaliation_method": "proxy_activation", "escalation_ladder_position": "sustained_campaign", "ballistic_missile_exchange_intensity": "sustained_missile_campaign" },
+        "categoryProbabilities": { "dormant": 0.05, "localized_attacks": 0.20, "coordinated_regional": 0.50, "full_activation": 0.25 }
+      },
+      {
+        "parentValues": { "iran_retaliation_method": "ballistic_missiles", "escalation_ladder_position": "limited_exchange", "ballistic_missile_exchange_intensity": "single_salvo" },
+        "categoryProbabilities": { "dormant": 0.25, "localized_attacks": 0.50, "coordinated_regional": 0.20, "full_activation": 0.05 }
+      },
+      {
+        "parentValues": { "iran_retaliation_method": "cruise_and_drones", "escalation_ladder_position": "sustained_campaign", "ballistic_missile_exchange_intensity": "limited_salvos" },
+        "categoryProbabilities": { "dormant": 0.10, "localized_attacks": 0.40, "coordinated_regional": 0.38, "full_activation": 0.12 }
+      },
+      {
+        "parentValues": { "iran_retaliation_method": "asymmetric_naval", "escalation_ladder_position": "limited_exchange", "ballistic_missile_exchange_intensity": "single_salvo" },
+        "categoryProbabilities": { "dormant": 0.35, "localized_attacks": 0.45, "coordinated_regional": 0.15, "full_activation": 0.05 }
+      }
+    ],
+    "defaultProbabilities": {
+      "dormant": 0.10,
+      "localized_attacks": 0.35,
+      "coordinated_regional": 0.38,
+      "full_activation": 0.17
+    },
+    "source": {
+      "citation": "CSIS 'Iran's Axis of Resistance' 2024; RAND 'Hezbollah's Military Capabilities' 2024; CRS 'Iran's Foreign and Defense Policies' 2025",
+      "url": "https://www.csis.org/analysis/irans-axis-of-resistance",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "iranian_ground_force_response",
+    "phase": 3,
+    "type": "categorical",
+    "label": "Iranian Ground Force Mobilization and Response",
+    "description": "Level of Iranian Army and IRGC Ground Forces mobilization in response to active conflict: no ground mobilization (air/missile/naval only), defensive mobilization and border hardening, limited ground incursions into neighboring states, or broad conventional ground offensive",
+    "parents": ["escalation_ladder_position", "socom_special_ops_activity"],
+    "categories": ["no_ground_mobilization", "defensive_posture", "limited_incursions", "broad_conventional_offensive"],
+    "cpt": [
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "socom_special_ops_activity": "sustained_deep_ops" },
+        "categoryProbabilities": { "no_ground_mobilization": 0.03, "defensive_posture": 0.25, "limited_incursions": 0.42, "broad_conventional_offensive": 0.30 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "socom_special_ops_activity": "direct_action_raids" },
+        "categoryProbabilities": { "no_ground_mobilization": 0.10, "defensive_posture": 0.50, "limited_incursions": 0.32, "broad_conventional_offensive": 0.08 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "socom_special_ops_activity": "intel_recon_only" },
+        "categoryProbabilities": { "no_ground_mobilization": 0.30, "defensive_posture": 0.55, "limited_incursions": 0.12, "broad_conventional_offensive": 0.03 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "socom_special_ops_activity": "sustained_deep_ops" },
+        "categoryProbabilities": { "no_ground_mobilization": 0.02, "defensive_posture": 0.18, "limited_incursions": 0.40, "broad_conventional_offensive": 0.40 }
+      }
+    ],
+    "defaultProbabilities": {
+      "no_ground_mobilization": 0.15,
+      "defensive_posture": 0.42,
+      "limited_incursions": 0.30,
+      "broad_conventional_offensive": 0.13
+    },
+    "source": {
+      "citation": "IISS Military Balance 2025; RAND 'Iranian Ground Forces Capabilities' 2022; CSIS 'IRGC Ground Forces' 2024",
+      "url": "https://www.iiss.org/publications/the-military-balance",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "conflict_duration_estimate",
+    "phase": 3,
+    "type": "categorical",
+    "label": "Estimated Active Conflict Duration",
+    "description": "Estimated duration of active major combat operations between US/coalition and Iran before a ceasefire, negotiated pause, or unilateral stand-down occurs; does not include subsequent low-intensity or occupation phases",
+    "parents": ["escalation_ladder_position", "us_air_superiority_timeline", "proxy_network_activation"],
+    "categories": ["under_1_week", "1_to_4_weeks", "1_to_3_months", "over_3_months"],
+    "cpt": [
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "us_air_superiority_timeline": "within_72_hours", "proxy_network_activation": "dormant" },
+        "categoryProbabilities": { "under_1_week": 0.55, "1_to_4_weeks": 0.32, "1_to_3_months": 0.10, "over_3_months": 0.03 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "us_air_superiority_timeline": "4_to_7_days", "proxy_network_activation": "localized_attacks" },
+        "categoryProbabilities": { "under_1_week": 0.10, "1_to_4_weeks": 0.45, "1_to_3_months": 0.35, "over_3_months": 0.10 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "us_air_superiority_timeline": "8_to_21_days", "proxy_network_activation": "coordinated_regional" },
+        "categoryProbabilities": { "under_1_week": 0.03, "1_to_4_weeks": 0.20, "1_to_3_months": 0.47, "over_3_months": 0.30 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "us_air_superiority_timeline": "contested_indefinitely", "proxy_network_activation": "full_activation" },
+        "categoryProbabilities": { "under_1_week": 0.02, "1_to_4_weeks": 0.08, "1_to_3_months": 0.35, "over_3_months": 0.55 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "us_air_superiority_timeline": "within_72_hours", "proxy_network_activation": "full_activation" },
+        "categoryProbabilities": { "under_1_week": 0.15, "1_to_4_weeks": 0.30, "1_to_3_months": 0.35, "over_3_months": 0.20 }
+      }
+    ],
+    "defaultProbabilities": {
+      "under_1_week": 0.18,
+      "1_to_4_weeks": 0.35,
+      "1_to_3_months": 0.32,
+      "over_3_months": 0.15
+    },
+    "source": {
+      "citation": "RAND 'War Duration Estimation in Limited Wars' 2021; CSIS 'Historical Analogies for US-Iran Conflict' 2024; Quincy Institute 'Iran War Cost Assessment' 2024",
+      "url": "https://www.rand.org/pubs/research_reports/RR2964.html",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "overall_military_balance",
+    "phase": 3,
+    "type": "categorical",
+    "label": "Overall Military Balance Assessment",
+    "description": "Net assessment of military advantage over the course of the active conflict, accounting for US conventional dominance versus Iranian asymmetric denial capabilities, geography, and proxy force multipliers",
+    "parents": ["us_air_superiority_timeline", "naval_engagement_intensity", "proxy_network_activation", "us_cyber_ops_effectiveness"],
+    "categories": ["decisive_us_advantage", "significant_us_advantage", "contested_attrition", "us_bogged_down"],
+    "cpt": [
+      {
+        "parentValues": { "us_air_superiority_timeline": "within_72_hours", "naval_engagement_intensity": "no_naval_combat", "proxy_network_activation": "dormant", "us_cyber_ops_effectiveness": "critical_infrastructure_crippled" },
+        "categoryProbabilities": { "decisive_us_advantage": 0.60, "significant_us_advantage": 0.30, "contested_attrition": 0.08, "us_bogged_down": 0.02 }
+      },
+      {
+        "parentValues": { "us_air_superiority_timeline": "4_to_7_days", "naval_engagement_intensity": "sustained_skirmishes", "proxy_network_activation": "localized_attacks", "us_cyber_ops_effectiveness": "significant_degradation" },
+        "categoryProbabilities": { "decisive_us_advantage": 0.25, "significant_us_advantage": 0.45, "contested_attrition": 0.22, "us_bogged_down": 0.08 }
+      },
+      {
+        "parentValues": { "us_air_superiority_timeline": "8_to_21_days", "naval_engagement_intensity": "fleet_battle", "proxy_network_activation": "coordinated_regional", "us_cyber_ops_effectiveness": "limited_disruption" },
+        "categoryProbabilities": { "decisive_us_advantage": 0.08, "significant_us_advantage": 0.27, "contested_attrition": 0.42, "us_bogged_down": 0.23 }
+      },
+      {
+        "parentValues": { "us_air_superiority_timeline": "contested_indefinitely", "naval_engagement_intensity": "fleet_battle", "proxy_network_activation": "full_activation", "us_cyber_ops_effectiveness": "minimal_effect" },
+        "categoryProbabilities": { "decisive_us_advantage": 0.03, "significant_us_advantage": 0.12, "contested_attrition": 0.40, "us_bogged_down": 0.45 }
+      }
+    ],
+    "defaultProbabilities": {
+      "decisive_us_advantage": 0.22,
+      "significant_us_advantage": 0.38,
+      "contested_attrition": 0.28,
+      "us_bogged_down": 0.12
+    },
+    "source": {
+      "citation": "IISS Military Balance 2025; RAND 'US-Iran Military Net Assessment' 2023; CSIS 'Offset Strategy and Iranian A2/AD' 2024",
+      "url": "https://www.iiss.org/publications/the-military-balance",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "us_total_casualty_trajectory",
+    "phase": 3,
+    "type": "categorical",
+    "label": "US Total Casualty Trajectory Over Conflict",
+    "description": "Cumulative US military casualties (killed and wounded in action) over the full course of major combat operations: minimal (<100 KIA), limited (100-500 KIA), significant (500-2000 KIA), or severe (2000+ KIA)",
+    "parents": ["conflict_duration_estimate", "overall_military_balance", "ballistic_missile_exchange_intensity"],
+    "categories": ["minimal_under_100", "limited_100_to_500", "significant_500_to_2000", "severe_2000_plus"],
+    "cpt": [
+      {
+        "parentValues": { "conflict_duration_estimate": "under_1_week", "overall_military_balance": "decisive_us_advantage", "ballistic_missile_exchange_intensity": "single_salvo" },
+        "categoryProbabilities": { "minimal_under_100": 0.65, "limited_100_to_500": 0.28, "significant_500_to_2000": 0.06, "severe_2000_plus": 0.01 }
+      },
+      {
+        "parentValues": { "conflict_duration_estimate": "1_to_4_weeks", "overall_military_balance": "significant_us_advantage", "ballistic_missile_exchange_intensity": "limited_salvos" },
+        "categoryProbabilities": { "minimal_under_100": 0.25, "limited_100_to_500": 0.48, "significant_500_to_2000": 0.22, "severe_2000_plus": 0.05 }
+      },
+      {
+        "parentValues": { "conflict_duration_estimate": "1_to_3_months", "overall_military_balance": "contested_attrition", "ballistic_missile_exchange_intensity": "sustained_missile_campaign" },
+        "categoryProbabilities": { "minimal_under_100": 0.05, "limited_100_to_500": 0.25, "significant_500_to_2000": 0.48, "severe_2000_plus": 0.22 }
+      },
+      {
+        "parentValues": { "conflict_duration_estimate": "over_3_months", "overall_military_balance": "us_bogged_down", "ballistic_missile_exchange_intensity": "mass_saturation" },
+        "categoryProbabilities": { "minimal_under_100": 0.02, "limited_100_to_500": 0.10, "significant_500_to_2000": 0.33, "severe_2000_plus": 0.55 }
+      }
+    ],
+    "defaultProbabilities": {
+      "minimal_under_100": 0.22,
+      "limited_100_to_500": 0.38,
+      "significant_500_to_2000": 0.28,
+      "severe_2000_plus": 0.12
+    },
+    "source": {
+      "citation": "RAND 'Cost of US Military Operations in the Middle East' 2023; CBO 'Casualties in a Potential US-Iran Conflict' 2024; Brown University Costs of War Project 2024",
+      "url": "https://www.rand.org/pubs/research_reports/RR3063.html",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "nuclear_escalation_risk_phase3",
+    "phase": 3,
+    "type": "binary",
+    "label": "Nuclear Escalation Risk Materializes in Phase 3",
+    "description": "Whether the active conflict generates concrete indicators of nuclear escalation — Iranian leadership signaling nuclear use, acceleration of weapons assembly, or movement of nuclear-capable delivery systems — beyond the pre-conflict nuclear signal from Phase 2",
+    "parents": ["nuclear_escalation_signal", "escalation_ladder_position", "ballistic_missile_exchange_intensity", "overall_military_balance"],
+    "cpt": [
+      { "parentValues": { "nuclear_escalation_signal": "true", "escalation_ladder_position": "nuclear_threshold", "ballistic_missile_exchange_intensity": "mass_saturation", "overall_military_balance": "decisive_us_advantage" }, "pTrue": 0.45 },
+      { "parentValues": { "nuclear_escalation_signal": "true", "escalation_ladder_position": "nuclear_threshold", "ballistic_missile_exchange_intensity": "sustained_missile_campaign", "overall_military_balance": "significant_us_advantage" }, "pTrue": 0.25 },
+      { "parentValues": { "nuclear_escalation_signal": "false", "escalation_ladder_position": "full_scale_war", "ballistic_missile_exchange_intensity": "mass_saturation", "overall_military_balance": "us_bogged_down" }, "pTrue": 0.12 },
+      { "parentValues": { "nuclear_escalation_signal": "false", "escalation_ladder_position": "sustained_campaign", "ballistic_missile_exchange_intensity": "limited_salvos", "overall_military_balance": "significant_us_advantage" }, "pTrue": 0.03 },
+      { "parentValues": { "nuclear_escalation_signal": "false", "escalation_ladder_position": "limited_exchange", "ballistic_missile_exchange_intensity": "single_salvo", "overall_military_balance": "decisive_us_advantage" }, "pTrue": 0.01 }
+    ],
+    "defaultPTrue": 0.08,
+    "source": {
+      "citation": "RAND 'Nuclear Escalation Pathways in a US-Iran War' 2023; CSIS 'Iranian Nuclear Doctrine' 2024; IISS Nuclear Deterrence and Conventional War 2024",
+      "url": "https://www.rand.org/pubs/research_reports/RRA2111-1.html",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "ceasefire_opportunity",
+    "phase": 3,
+    "type": "categorical",
+    "label": "Ceasefire / Negotiated Pause Opportunity",
+    "description": "Assessment of whether a credible ceasefire or negotiated stand-down opportunity emerges during active conflict, and what channel facilitates it: no credible opening, back-channel via Oman or Qatar, UN Security Council resolution, or US unilateral declaration of cessation",
+    "parents": ["conflict_duration_estimate", "overall_military_balance", "information_warfare_advantage"],
+    "categories": ["no_credible_opening", "backchannel_oman_qatar", "un_sc_resolution", "us_unilateral_ceasefire"],
+    "cpt": [
+      {
+        "parentValues": { "conflict_duration_estimate": "under_1_week", "overall_military_balance": "decisive_us_advantage", "information_warfare_advantage": "us_coalition_dominant" },
+        "categoryProbabilities": { "no_credible_opening": 0.25, "backchannel_oman_qatar": 0.30, "un_sc_resolution": 0.15, "us_unilateral_ceasefire": 0.30 }
+      },
+      {
+        "parentValues": { "conflict_duration_estimate": "1_to_4_weeks", "overall_military_balance": "significant_us_advantage", "information_warfare_advantage": "contested_roughly_equal" },
+        "categoryProbabilities": { "no_credible_opening": 0.20, "backchannel_oman_qatar": 0.45, "un_sc_resolution": 0.20, "us_unilateral_ceasefire": 0.15 }
+      },
+      {
+        "parentValues": { "conflict_duration_estimate": "1_to_3_months", "overall_military_balance": "contested_attrition", "information_warfare_advantage": "iran_advantage_regional" },
+        "categoryProbabilities": { "no_credible_opening": 0.35, "backchannel_oman_qatar": 0.38, "un_sc_resolution": 0.18, "us_unilateral_ceasefire": 0.09 }
+      },
+      {
+        "parentValues": { "conflict_duration_estimate": "over_3_months", "overall_military_balance": "us_bogged_down", "information_warfare_advantage": "iran_advantage_global_narrative" },
+        "categoryProbabilities": { "no_credible_opening": 0.40, "backchannel_oman_qatar": 0.30, "un_sc_resolution": 0.22, "us_unilateral_ceasefire": 0.08 }
+      }
+    ],
+    "defaultProbabilities": {
+      "no_credible_opening": 0.28,
+      "backchannel_oman_qatar": 0.38,
+      "un_sc_resolution": 0.20,
+      "us_unilateral_ceasefire": 0.14
+    },
+    "source": {
+      "citation": "Crisis Group 'Oman's Role in US-Iran Diplomacy' 2024; RAND 'Negotiated Outcomes in Middle East Conflicts' 2022; CSIS 'Ceasefire Dynamics in Asymmetric War' 2023",
+      "url": "https://www.crisisgroup.org/middle-east-north-africa/gulf-and-arabian-peninsula/iran",
+      "confidence": "low"
+    }
+  }
+]
