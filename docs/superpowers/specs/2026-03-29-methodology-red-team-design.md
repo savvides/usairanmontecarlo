@@ -31,7 +31,7 @@ Replace exact-match CPT lookup with weighted nearest-neighbor interpolation in `
 6. Blend distributions:
    - Binary: weighted average of `pTrue` values
    - Categorical: weighted average of probability vectors (element-wise)
-   - Continuous: weighted average of distribution parameters (mean, stddev for normal; min, max for uniform; min, mode, max for triangular)
+   - Continuous: weighted average of distribution parameters. All continuous CPT rows are converted to normal(mean, stddev) for blending — uniform(a,b) becomes normal((a+b)/2, (b-a)/3.46), triangular(min,mode,max) becomes normal(mode, (max-min)/4.9). The blended normal is then sampled.
 7. Zero matches → fall back to defaults (track as diagnostic)
 
 **Match quality tracking:**
