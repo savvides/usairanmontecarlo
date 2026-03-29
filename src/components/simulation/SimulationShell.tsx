@@ -23,7 +23,7 @@ export function SimulationShell({ nodes, scenarios }: SimulationShellProps) {
 
   // Run simulation on mount and whenever scenarios change
   useEffect(() => {
-    simulation.run(1000);
+    simulation.run(5000);
   }, [simulation.run]);
 
   const content = getPhaseContent(phase.currentPhase);
@@ -49,7 +49,7 @@ export function SimulationShell({ nodes, scenarios }: SimulationShellProps) {
     } else {
       simulation.selectScenario(scenario);
     }
-    setTimeout(() => simulation.run(1000), 0);
+    setTimeout(() => simulation.run(5000), 0);
   };
 
   if (!content) {
