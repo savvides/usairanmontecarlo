@@ -76,10 +76,26 @@ export interface SimGraph {
 // One value per node per run. Binary: 0 or 1. Continuous: number. Categorical: index into categories array.
 export type RunResult = Float32Array;
 
+// --- Diagnostics ---
+
+export type MatchQuality = 'exact' | 'interpolated' | 'default';
+
+export interface NodeDiagnostics {
+  exact: number;
+  interpolated: number;
+  default: number;
+}
+
+export interface SimulationDiagnostics {
+  /** Per-node CPT match quality counts across all runs */
+  nodes: Map<string, NodeDiagnostics>;
+}
+
 export interface SimulationResult {
   runs: RunResult[]; // array of runs, each run is a Float32Array indexed by node position in sortedIds
   nodeIndexMap: Map<string, number>; // node ID -> index in RunResult
   runCount: number;
+  diagnostics: SimulationDiagnostics;
 }
 
 // --- Scenario Cards ---
