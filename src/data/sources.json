@@ -1,0 +1,84 @@
+{
+  "sources": [
+    {
+      "id": "iiss-military-balance",
+      "title": "The Military Balance 2025",
+      "publisher": "International Institute for Strategic Studies (IISS)",
+      "url": "https://www.iiss.org/publications/the-military-balance",
+      "type": "military",
+      "usedFor": ["Force dispositions", "Military capabilities", "Defense spending"]
+    },
+    {
+      "id": "crs-iran-military",
+      "title": "U.S. Military Presence in the Middle East",
+      "publisher": "Congressional Research Service",
+      "url": "https://sgp.fas.org/crs/mideast/",
+      "type": "military",
+      "usedFor": ["US force posture", "Basing agreements", "Deployment history"]
+    },
+    {
+      "id": "iaea-iran",
+      "title": "IAEA Board of Governors Reports on Iran",
+      "publisher": "International Atomic Energy Agency",
+      "url": "https://www.iaea.org/newscenter/focus/iran",
+      "type": "primary",
+      "usedFor": ["Nuclear enrichment levels", "Inspections compliance", "Breakout estimates"]
+    },
+    {
+      "id": "csis-iran-threats",
+      "title": "Iran's Evolving Military Threat",
+      "publisher": "Center for Strategic and International Studies",
+      "url": "https://www.csis.org/analysis/irans-military-forces",
+      "type": "primary",
+      "usedFor": ["IRGC capabilities", "Proxy force analysis", "Missile inventory"]
+    },
+    {
+      "id": "crisis-group-iran",
+      "title": "The Iran-US Standoff",
+      "publisher": "International Crisis Group",
+      "url": "https://www.crisisgroup.org/middle-east-north-africa/gulf-and-arabian-peninsula/iran",
+      "type": "geopolitical",
+      "usedFor": ["Diplomatic status", "Escalation dynamics", "Regional proxy activity"]
+    },
+    {
+      "id": "rand-iran-escalation",
+      "title": "Escalation Dynamics in the Middle East",
+      "publisher": "RAND Corporation",
+      "url": "https://www.rand.org/topics/iran.html",
+      "type": "primary",
+      "usedFor": ["Escalation probability modeling", "Conflict scenario analysis", "Historical base rates"]
+    },
+    {
+      "id": "sipri-arms",
+      "title": "SIPRI Arms Transfers Database",
+      "publisher": "Stockholm International Peace Research Institute",
+      "url": "https://www.sipri.org/databases/armstransfers",
+      "type": "primary",
+      "usedFor": ["Iranian arms acquisitions", "Regional arms flows", "Military modernization"]
+    },
+    {
+      "id": "acled-conflict",
+      "title": "Armed Conflict Location & Event Data (ACLED)",
+      "publisher": "ACLED",
+      "url": "https://acleddata.com/middle-east/",
+      "type": "osint",
+      "usedFor": ["Proxy conflict events", "Regional tension indicators", "Attack frequency data"]
+    },
+    {
+      "id": "chicago-council-surveys",
+      "title": "Chicago Council on Global Affairs Public Opinion Surveys",
+      "publisher": "Chicago Council on Global Affairs",
+      "url": "https://www.thechicagocouncil.org/research/public-opinion-survey",
+      "type": "geopolitical",
+      "usedFor": ["US public opinion on military action", "Foreign policy attitudes"]
+    },
+    {
+      "id": "chatham-house-iran",
+      "title": "Iran Programme Reports",
+      "publisher": "Chatham House",
+      "url": "https://www.chathamhouse.org/regions/middle-east-and-north-africa/iran",
+      "type": "geopolitical",
+      "usedFor": ["Iranian domestic politics", "Regime stability analysis", "Diplomatic dynamics"]
+    }
+  ]
+}

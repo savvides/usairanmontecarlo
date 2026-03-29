@@ -1,0 +1,257 @@
+[
+  {
+    "id": "us_force_posture_gulf",
+    "phase": 1,
+    "type": "categorical",
+    "label": "US Force Posture in Persian Gulf",
+    "description": "Current level of US military deployment in the CENTCOM AOR, including carrier strike groups, air wings, and ground forces in the region",
+    "parents": [],
+    "categories": ["reduced", "baseline", "elevated", "surge"],
+    "cpt": [],
+    "defaultProbabilities": {
+      "reduced": 0.05,
+      "baseline": 0.30,
+      "elevated": 0.50,
+      "surge": 0.15
+    },
+    "source": {
+      "citation": "IISS Military Balance 2025; CRS 'U.S. Military Presence in the Middle East'",
+      "url": "https://www.iiss.org/publications/the-military-balance",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "iran_nuclear_status",
+    "phase": 1,
+    "type": "categorical",
+    "label": "Iranian Nuclear Program Status",
+    "description": "Current state of Iran's nuclear enrichment program relative to weapons-grade capability",
+    "parents": [],
+    "categories": ["jcpoa_compliant", "advanced_enrichment", "breakout_threshold", "weaponization"],
+    "cpt": [],
+    "defaultProbabilities": {
+      "jcpoa_compliant": 0.05,
+      "advanced_enrichment": 0.25,
+      "breakout_threshold": 0.50,
+      "weaponization": 0.20
+    },
+    "source": {
+      "citation": "IAEA Board of Governors Reports 2025; ISIS Nuclear Iran Reports",
+      "url": "https://www.iaea.org/newscenter/focus/iran",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "proxy_activity_level",
+    "phase": 1,
+    "type": "categorical",
+    "label": "Iranian Proxy Activity Level",
+    "description": "Aggregate activity level of Iran-backed proxy forces including Hezbollah, Houthis, and Iraqi Shia militias",
+    "parents": [],
+    "categories": ["dormant", "low_level", "escalatory", "coordinated_campaign"],
+    "cpt": [],
+    "defaultProbabilities": {
+      "dormant": 0.05,
+      "low_level": 0.30,
+      "escalatory": 0.45,
+      "coordinated_campaign": 0.20
+    },
+    "source": {
+      "citation": "CSIS 'Tracking Iranian Proxy Forces', 2025; Crisis Group Middle East Reports",
+      "url": "https://www.csis.org/programs/transnational-threats-project",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "diplomatic_channel_status",
+    "phase": 1,
+    "type": "categorical",
+    "label": "Diplomatic Channel Status",
+    "description": "State of diplomatic engagement between the US and Iran, including backchannel communications",
+    "parents": [],
+    "categories": ["active_negotiations", "backchannel_only", "frozen", "severed"],
+    "cpt": [],
+    "defaultProbabilities": {
+      "active_negotiations": 0.10,
+      "backchannel_only": 0.30,
+      "frozen": 0.40,
+      "severed": 0.20
+    },
+    "source": {
+      "citation": "Crisis Group 'The Iran-US Standoff', 2025; Chatham House Iran Programme",
+      "url": "https://www.crisisgroup.org/middle-east-north-africa/gulf-and-arabian-peninsula/iran",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "sanctions_pressure",
+    "phase": 1,
+    "type": "categorical",
+    "label": "Sanctions Pressure Level",
+    "description": "Intensity of US-led economic sanctions on Iran and degree of international enforcement",
+    "parents": [],
+    "categories": ["relaxed", "moderate", "maximum_pressure", "total_embargo"],
+    "cpt": [],
+    "defaultProbabilities": {
+      "relaxed": 0.05,
+      "moderate": 0.20,
+      "maximum_pressure": 0.55,
+      "total_embargo": 0.20
+    },
+    "source": {
+      "citation": "CRS 'Iran Sanctions', 2025; Treasury OFAC Iran Program",
+      "url": "https://sgp.fas.org/crs/mideast/RS20871.pdf",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "iran_domestic_stability",
+    "phase": 1,
+    "type": "categorical",
+    "label": "Iranian Domestic Stability",
+    "description": "Internal stability of the Iranian regime, including protest movements, economic conditions, and elite cohesion",
+    "parents": ["sanctions_pressure"],
+    "categories": ["stable", "strained", "protests", "crisis"],
+    "cpt": [
+      { "parentValues": { "sanctions_pressure": "relaxed" }, "categoryProbabilities": { "stable": 0.60, "strained": 0.30, "protests": 0.08, "crisis": 0.02 } },
+      { "parentValues": { "sanctions_pressure": "moderate" }, "categoryProbabilities": { "stable": 0.40, "strained": 0.40, "protests": 0.15, "crisis": 0.05 } },
+      { "parentValues": { "sanctions_pressure": "maximum_pressure" }, "categoryProbabilities": { "stable": 0.15, "strained": 0.35, "protests": 0.35, "crisis": 0.15 } },
+      { "parentValues": { "sanctions_pressure": "total_embargo" }, "categoryProbabilities": { "stable": 0.05, "strained": 0.20, "protests": 0.40, "crisis": 0.35 } }
+    ],
+    "defaultProbabilities": {
+      "stable": 0.20,
+      "strained": 0.35,
+      "protests": 0.30,
+      "crisis": 0.15
+    },
+    "source": {
+      "citation": "Chatham House 'Iran's Political Landscape', 2025; RAND 'Iran's Internal Dynamics'",
+      "url": "https://www.chathamhouse.org/regions/middle-east-and-north-africa/iran",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "us_domestic_appetite",
+    "phase": 1,
+    "type": "categorical",
+    "label": "US Domestic Appetite for Military Action",
+    "description": "Level of US public and Congressional support for military engagement with Iran",
+    "parents": ["proxy_activity_level"],
+    "categories": ["opposed", "reluctant", "conditional_support", "strong_support"],
+    "cpt": [
+      { "parentValues": { "proxy_activity_level": "dormant" }, "categoryProbabilities": { "opposed": 0.50, "reluctant": 0.35, "conditional_support": 0.12, "strong_support": 0.03 } },
+      { "parentValues": { "proxy_activity_level": "low_level" }, "categoryProbabilities": { "opposed": 0.35, "reluctant": 0.40, "conditional_support": 0.20, "strong_support": 0.05 } },
+      { "parentValues": { "proxy_activity_level": "escalatory" }, "categoryProbabilities": { "opposed": 0.15, "reluctant": 0.30, "conditional_support": 0.40, "strong_support": 0.15 } },
+      { "parentValues": { "proxy_activity_level": "coordinated_campaign" }, "categoryProbabilities": { "opposed": 0.05, "reluctant": 0.15, "conditional_support": 0.40, "strong_support": 0.40 } }
+    ],
+    "defaultProbabilities": {
+      "opposed": 0.25,
+      "reluctant": 0.35,
+      "conditional_support": 0.30,
+      "strong_support": 0.10
+    },
+    "source": {
+      "citation": "Chicago Council on Global Affairs Survey 2025; Gallup Foreign Policy Polls",
+      "url": "https://www.thechicagocouncil.org/research/public-opinion-survey",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "iran_irgc_readiness",
+    "phase": 1,
+    "type": "categorical",
+    "label": "IRGC Military Readiness",
+    "description": "Operational readiness level of Iran's Islamic Revolutionary Guard Corps and its conventional and asymmetric capabilities",
+    "parents": ["iran_domestic_stability"],
+    "categories": ["low", "moderate", "high", "maximum"],
+    "cpt": [
+      { "parentValues": { "iran_domestic_stability": "stable" }, "categoryProbabilities": { "low": 0.05, "moderate": 0.35, "high": 0.45, "maximum": 0.15 } },
+      { "parentValues": { "iran_domestic_stability": "strained" }, "categoryProbabilities": { "low": 0.05, "moderate": 0.30, "high": 0.45, "maximum": 0.20 } },
+      { "parentValues": { "iran_domestic_stability": "protests" }, "categoryProbabilities": { "low": 0.10, "moderate": 0.30, "high": 0.35, "maximum": 0.25 } },
+      { "parentValues": { "iran_domestic_stability": "crisis" }, "categoryProbabilities": { "low": 0.15, "moderate": 0.25, "high": 0.30, "maximum": 0.30 } }
+    ],
+    "defaultProbabilities": {
+      "low": 0.05,
+      "moderate": 0.30,
+      "high": 0.45,
+      "maximum": 0.20
+    },
+    "source": {
+      "citation": "IISS Military Balance 2025; CSIS 'Iran's Military Forces' Report",
+      "url": "https://www.csis.org/analysis/irans-military-forces",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "regional_tension_index",
+    "phase": 1,
+    "type": "continuous",
+    "label": "Regional Tension Index",
+    "description": "Composite index (0-100) measuring overall Persian Gulf regional tension based on military activity, diplomatic signals, and economic indicators",
+    "parents": ["us_force_posture_gulf", "proxy_activity_level", "diplomatic_channel_status"],
+    "cpt": [
+      { "parentValues": { "us_force_posture_gulf": "reduced", "proxy_activity_level": "dormant", "diplomatic_channel_status": "active_negotiations" }, "distribution": { "type": "normal", "params": [15, 8] } },
+      { "parentValues": { "us_force_posture_gulf": "baseline", "proxy_activity_level": "low_level", "diplomatic_channel_status": "backchannel_only" }, "distribution": { "type": "normal", "params": [35, 10] } },
+      { "parentValues": { "us_force_posture_gulf": "elevated", "proxy_activity_level": "escalatory", "diplomatic_channel_status": "frozen" }, "distribution": { "type": "normal", "params": [65, 10] } },
+      { "parentValues": { "us_force_posture_gulf": "surge", "proxy_activity_level": "coordinated_campaign", "diplomatic_channel_status": "severed" }, "distribution": { "type": "normal", "params": [90, 5] } }
+    ],
+    "defaultDistribution": { "type": "normal", "params": [50, 15] },
+    "unit": "index (0-100)",
+    "min": 0,
+    "max": 100,
+    "source": {
+      "citation": "Composite index derived from ACLED conflict data, SIPRI arms transfers, and diplomatic event coding",
+      "url": "https://acleddata.com/middle-east/",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "escalation_trigger_probability",
+    "phase": 1,
+    "type": "binary",
+    "label": "Escalation Trigger Event Occurs",
+    "description": "Whether a specific event occurs that could trigger direct military escalation between the US and Iran",
+    "parents": ["regional_tension_index", "iran_nuclear_status", "iran_irgc_readiness"],
+    "cpt": [
+      { "parentValues": { "regional_tension_index": "low", "iran_nuclear_status": "jcpoa_compliant", "iran_irgc_readiness": "low" }, "pTrue": 0.02 },
+      { "parentValues": { "regional_tension_index": "low", "iran_nuclear_status": "jcpoa_compliant", "iran_irgc_readiness": "moderate" }, "pTrue": 0.03 },
+      { "parentValues": { "regional_tension_index": "medium", "iran_nuclear_status": "advanced_enrichment", "iran_irgc_readiness": "moderate" }, "pTrue": 0.10 },
+      { "parentValues": { "regional_tension_index": "medium", "iran_nuclear_status": "breakout_threshold", "iran_irgc_readiness": "high" }, "pTrue": 0.25 },
+      { "parentValues": { "regional_tension_index": "high", "iran_nuclear_status": "breakout_threshold", "iran_irgc_readiness": "high" }, "pTrue": 0.45 },
+      { "parentValues": { "regional_tension_index": "high", "iran_nuclear_status": "weaponization", "iran_irgc_readiness": "maximum" }, "pTrue": 0.75 }
+    ],
+    "defaultPTrue": 0.15,
+    "source": {
+      "citation": "Historical base rate derived from RAND 'Escalation Dynamics in the Middle East', 2024; Brookings 'Iran Crisis Scenarios'",
+      "url": "https://www.rand.org/topics/iran.html",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "crisis_type",
+    "phase": 1,
+    "type": "categorical",
+    "label": "Type of Crisis Trigger",
+    "description": "If an escalation trigger occurs, what type of event precipitates the crisis",
+    "parents": ["escalation_trigger_probability", "iran_nuclear_status", "proxy_activity_level"],
+    "categories": ["nuclear_provocation", "proxy_attack_us_casualties", "maritime_incident", "cyber_attack", "assassination_sabotage"],
+    "cpt": [
+      { "parentValues": { "escalation_trigger_probability": "true", "iran_nuclear_status": "weaponization", "proxy_activity_level": "dormant" }, "categoryProbabilities": { "nuclear_provocation": 0.60, "proxy_attack_us_casualties": 0.10, "maritime_incident": 0.10, "cyber_attack": 0.10, "assassination_sabotage": 0.10 } },
+      { "parentValues": { "escalation_trigger_probability": "true", "iran_nuclear_status": "breakout_threshold", "proxy_activity_level": "coordinated_campaign" }, "categoryProbabilities": { "nuclear_provocation": 0.25, "proxy_attack_us_casualties": 0.35, "maritime_incident": 0.15, "cyber_attack": 0.10, "assassination_sabotage": 0.15 } },
+      { "parentValues": { "escalation_trigger_probability": "true", "iran_nuclear_status": "advanced_enrichment", "proxy_activity_level": "escalatory" }, "categoryProbabilities": { "nuclear_provocation": 0.15, "proxy_attack_us_casualties": 0.30, "maritime_incident": 0.25, "cyber_attack": 0.15, "assassination_sabotage": 0.15 } },
+      { "parentValues": { "escalation_trigger_probability": "false", "iran_nuclear_status": "jcpoa_compliant", "proxy_activity_level": "dormant" }, "categoryProbabilities": { "nuclear_provocation": 0.05, "proxy_attack_us_casualties": 0.10, "maritime_incident": 0.30, "cyber_attack": 0.30, "assassination_sabotage": 0.25 } }
+    ],
+    "defaultProbabilities": {
+      "nuclear_provocation": 0.20,
+      "proxy_attack_us_casualties": 0.25,
+      "maritime_incident": 0.25,
+      "cyber_attack": 0.15,
+      "assassination_sabotage": 0.15
+    },
+    "source": {
+      "citation": "CSIS 'Scenarios for US-Iran Conflict', 2024; CRS 'Iran: Escalation Pathways'",
+      "url": "https://www.csis.org/analysis/scenarios-us-iran-conflict",
+      "confidence": "medium"
+    }
+  }
+]
