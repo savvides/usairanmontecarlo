@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useSimulation } from '@/hooks/useSimulation';
 import { usePhase } from '@/hooks/usePhase';
 import { PhaseProgress } from './PhaseProgress';
@@ -9,6 +9,7 @@ import { InteractionPanel } from './InteractionPanel';
 import { ResultsPanel } from './ResultsPanel';
 import { getPhaseContent } from '@/lib/phase-content';
 import { CascadeStrip } from './CascadeStrip';
+import { cn } from '@/lib/utils';
 import type { SimNode, ScenarioCard as ScenarioCardType } from '@engine/types';
 
 interface SimulationShellProps {
@@ -40,6 +41,8 @@ export function SimulationShell({ nodes, scenarios }: SimulationShellProps) {
       .filter((n): n is SimNode => n !== undefined);
   }, [simulation.activeGraph, phase.currentPhase]);
 
+  const [mobileView, setMobileView] = useState<'cards' | 'results'>('cards');
+
   const handleSelectScenario = (scenario: ScenarioCardType) => {
     if (selectedScenario?.id === scenario.id) {
       simulation.clearScenario(phase.currentPhase);
@@ -67,12 +70,40 @@ export function SimulationShell({ nodes, scenarios }: SimulationShellProps) {
         onPhaseClick={phase.goToPhase}
       />
 
+      {/* Mobile view toggle */}
+      <div className="flex md:hidden border-b border-border">
+        <button
+          onClick={() => setMobileView('cards')}
+          className={cn(
+            'flex-1 py-2 text-xs font-medium transition-colors',
+            mobileView === 'cards' ? 'text-accent border-b-2 border-accent' : 'text-text-muted'
+          )}
+        >
+          Scenarios
+        </button>
+        <button
+          onClick={() => setMobileView('results')}
+          className={cn(
+            'flex-1 py-2 text-xs font-medium transition-colors',
+            mobileView === 'results' ? 'text-accent border-b-2 border-accent' : 'text-text-muted'
+          )}
+        >
+          Results
+        </button>
+      </div>
+
+      {/* Three-panel layout — responsive */}
       <div className="flex flex-1 overflow-hidden">
-        <div className="w-[320px] border-r border-border flex-shrink-0">
+        {/* Left: Context — hidden below lg */}
+        <div className="hidden lg:block w-[320px] border-r border-border flex-shrink-0">
           <ContextPanel content={content} />
         </div>
 
-        <div className="w-[320px] border-r border-border flex-shrink-0">
+        {/* Center: Interaction — shows on mobile when 'cards' selected */}
+        <div className={cn(
+          'md:w-[280px] lg:w-[320px] md:border-r border-border flex-shrink-0',
+          mobileView === 'cards' ? 'block w-full' : 'hidden md:block'
+        )}>
           <InteractionPanel
             scenarios={phaseScenarios}
             selectedScenarioId={selectedScenario?.id ?? null}
@@ -83,7 +114,11 @@ export function SimulationShell({ nodes, scenarios }: SimulationShellProps) {
           />
         </div>
 
-        <div className="flex-1">
+        {/* Right: Results — shows on mobile when 'results' selected */}
+        <div className={cn(
+          'flex-1',
+          mobileView === 'results' ? 'block' : 'hidden md:block'
+        )}>
           <ResultsPanel
             nodes={phaseNodes}
             phaseResults={phaseResults}
