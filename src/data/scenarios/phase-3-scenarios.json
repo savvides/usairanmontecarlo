@@ -1,262 +1,277 @@
 [
   {
-    "id": "sustained-air-campaign",
+    "id": "conflict-winds-down-april",
     "phase": 3,
-    "title": "Sustained Air Campaign",
-    "description": "The United States executes a sustained, multi-week precision air campaign modeled on OIF 2003 and Allied Force 1999. Waves of B-2 stealth bombers, F-35A/Cs, and submarine-launched TLAMs systematically target Iranian air defense nodes, IRGC command facilities, missile storage sites, and nuclear infrastructure over 21+ days. SEAD/DEAD packages clear corridors, enabling non-stealthy strike packages in later waves. The objective is the systematic destruction of Iran's military capacity without a ground invasion. Iran responds with intermittent ballistic missile salvos against Gulf bases and activates Hezbollah and Houthi proxy forces, extending the battlespace.",
+    "title": "Conflict Winds Down (April)",
+    "description": "The combination of devastating US air strikes and the economic pain of Hormuz closure creates pressure on both sides. Iran's remaining leadership — with C2 severely degraded and military capacity collapsing — signals through Omani back-channels a willingness to accept a ceasefire framework. Trump, facing the April 6 energy-strike deadline and rising US gasoline prices, finds a face-saving off-ramp. The air campaign tapers to occasional enforcement strikes by mid-April. Houthis are pressured by the Saudis to halt attacks. Hezbollah, already weakened from the 2024 war, scales back. The conflict enters a 'frozen' state — no formal peace deal, but active combat largely ends within 6-8 weeks of the February 28 start. The critical question becomes how fast Hormuz can be reopened once hostilities cease.",
     "overrides": [
       {
-        "nodeId": "us_air_superiority_timeline",
+        "nodeId": "conflict_duration_projection",
         "overrideProbabilities": {
-          "within_72_hours": 0.15,
-          "4_to_7_days": 0.40,
-          "8_to_21_days": 0.38,
-          "contested_indefinitely": 0.07
+          "weeks": 0.35,
+          "1_3_months": 0.50,
+          "3_6_months": 0.12,
+          "prolonged_over_6_months": 0.03
         }
       },
       {
-        "nodeId": "iran_air_defense_survivability",
+        "nodeId": "ceasefire_window",
         "overrideProbabilities": {
-          "largely_intact": 0.05,
-          "partially_intact": 0.25,
-          "degraded": 0.52,
-          "collapsed": 0.18
+          "none": 0.05,
+          "narrow": 0.25,
+          "moderate": 0.50,
+          "strong": 0.20
         }
       },
       {
-        "nodeId": "ballistic_missile_exchange_intensity",
+        "nodeId": "us_air_campaign_scale",
         "overrideProbabilities": {
-          "single_salvo": 0.05,
-          "limited_salvos": 0.20,
-          "sustained_missile_campaign": 0.55,
-          "mass_saturation": 0.20
-        }
-      },
-      {
-        "nodeId": "conflict_duration_estimate",
-        "overrideProbabilities": {
-          "under_1_week": 0.05,
-          "1_to_4_weeks": 0.30,
-          "1_to_3_months": 0.50,
-          "over_3_months": 0.15
+          "paused": 0.08,
+          "limited": 0.42,
+          "sustained": 0.45,
+          "escalating": 0.05
         }
       },
       {
         "nodeId": "overall_military_balance",
         "overrideProbabilities": {
-          "decisive_us_advantage": 0.20,
-          "significant_us_advantage": 0.50,
-          "contested_attrition": 0.25,
-          "us_bogged_down": 0.05
+          "decisive_us": 0.85,
+          "us_advantage": 0.12,
+          "contested": 0.03,
+          "stalemate": 0.00
         }
       },
       {
-        "nodeId": "proxy_network_activation",
+        "nodeId": "us_military_casualties",
         "overrideProbabilities": {
-          "dormant": 0.05,
-          "localized_attacks": 0.25,
-          "coordinated_regional": 0.50,
-          "full_activation": 0.20
+          "minimal": 0.40,
+          "light": 0.48,
+          "moderate": 0.10,
+          "heavy": 0.02
+        }
+      },
+      {
+        "nodeId": "nuclear_escalation_risk",
+        "overridePTrue": 0.02
+      },
+      {
+        "nodeId": "hezbollah_attack_intensity",
+        "overrideProbabilities": {
+          "ceasefire": 0.10,
+          "sporadic": 0.50,
+          "sustained": 0.35,
+          "all_out": 0.05
         }
       }
     ]
   },
   {
-    "id": "limited-tit-for-tat",
+    "id": "sustained-campaign-through-summer",
     "phase": 3,
-    "title": "Limited Tit-for-Tat Exchanges",
-    "description": "Neither side escalates to full-scale war. Instead, the conflict remains locked in a carefully managed cycle of retaliatory strikes: US destroys a missile battery, Iran fires a limited cruise missile salvo at a Gulf base, US strikes an IRGC naval facility, Iran activates proxies in Iraq for a limited ground attack. Both leaderships signal restraint through back-channels — Oman and Qatar — while preserving domestic political narratives of resolve. Oil markets spike but stabilize. The exchange resembles the 2020 Soleimani/Ain al-Assad cycle but sustained over several weeks. Diplomatic pressure from China and EU creates eventual off-ramp.",
+    "title": "Sustained Campaign Through Summer",
+    "description": "No ceasefire materializes. Iran's fragmented leadership refuses to surrender sovereignty demands, and Trump lifts the energy-strike pause on April 6, expanding targeting to Iranian oil and gas infrastructure. The air campaign grinds on — 11,000+ targets in the first month becomes 25,000+ by June. Iranian military capacity is systematically destroyed, but the country's dispersed geography (1.6M sq km) and mountainous terrain mean pockets of resistance persist. Houthis maintain Red Sea attacks. Hezbollah keeps up sporadic rocket fire on northern Israel. Hormuz remains closed. The conflict becomes the defining global crisis of 2026, with cascading economic effects deepening by the month. Domestic US political debate intensifies — 'mission creep' comparisons to Iraq/Afghanistan emerge, but no US ground troops are deployed.",
     "overrides": [
       {
-        "nodeId": "us_air_superiority_timeline",
+        "nodeId": "conflict_duration_projection",
         "overrideProbabilities": {
-          "within_72_hours": 0.30,
-          "4_to_7_days": 0.40,
-          "8_to_21_days": 0.22,
-          "contested_indefinitely": 0.08
+          "weeks": 0.02,
+          "1_3_months": 0.15,
+          "3_6_months": 0.58,
+          "prolonged_over_6_months": 0.25
         }
       },
       {
-        "nodeId": "ballistic_missile_exchange_intensity",
+        "nodeId": "ceasefire_window",
         "overrideProbabilities": {
-          "single_salvo": 0.38,
-          "limited_salvos": 0.48,
-          "sustained_missile_campaign": 0.12,
-          "mass_saturation": 0.02
+          "none": 0.55,
+          "narrow": 0.32,
+          "moderate": 0.10,
+          "strong": 0.03
         }
       },
       {
-        "nodeId": "naval_engagement_intensity",
+        "nodeId": "us_air_campaign_scale",
         "overrideProbabilities": {
-          "no_naval_combat": 0.25,
-          "isolated_incidents": 0.55,
-          "sustained_skirmishes": 0.17,
-          "fleet_battle": 0.03
+          "paused": 0.01,
+          "limited": 0.04,
+          "sustained": 0.75,
+          "escalating": 0.20
         }
       },
       {
-        "nodeId": "conflict_duration_estimate",
+        "nodeId": "iranian_military_casualties",
         "overrideProbabilities": {
-          "under_1_week": 0.30,
-          "1_to_4_weeks": 0.50,
-          "1_to_3_months": 0.16,
-          "over_3_months": 0.04
+          "light": 0.00,
+          "moderate": 0.02,
+          "heavy": 0.38,
+          "devastating": 0.60
         }
       },
       {
-        "nodeId": "ceasefire_opportunity",
+        "nodeId": "us_military_casualties",
         "overrideProbabilities": {
-          "no_credible_opening": 0.10,
-          "backchannel_oman_qatar": 0.60,
-          "un_sc_resolution": 0.18,
-          "us_unilateral_ceasefire": 0.12
+          "minimal": 0.08,
+          "light": 0.35,
+          "moderate": 0.42,
+          "heavy": 0.15
         }
       },
       {
-        "nodeId": "us_total_casualty_trajectory",
-        "overrideProbabilities": {
-          "minimal_under_100": 0.50,
-          "limited_100_to_500": 0.38,
-          "significant_500_to_2000": 0.10,
-          "severe_2000_plus": 0.02
-        }
+        "nodeId": "nuclear_escalation_risk",
+        "overridePTrue": 0.08
       },
       {
-        "nodeId": "nuclear_escalation_risk_phase3",
+        "nodeId": "iranian_air_defense_status",
         "overrideProbabilities": {
-          "true": 0.03,
-          "false": 0.97
+          "operational": 0.00,
+          "degraded": 0.02,
+          "largely_destroyed": 0.48,
+          "collapsed": 0.50
         }
       }
     ]
   },
   {
-    "id": "full-naval-blockade",
+    "id": "regional-escalation",
     "phase": 3,
-    "title": "Full Naval Blockade",
-    "description": "Iran executes its doctrine of Hormuz denial at full scale. IRGC Navy deploys thousands of naval mines across the 34-kilometer-wide strait, activates shore-based anti-ship missile batteries along the Iranian coast, and deploys fast-attack craft in swarm formations. Tanker traffic halts within 48 hours. The US 5th Fleet conducts sustained mine-clearing operations under fire while carrier aircraft strike IRGC coastal facilities. Iran simultaneously targets Saudi Aramco terminals and UAE port infrastructure with Shahed drones and Qader cruise missiles. Global oil prices spike to $150-180/barrel within days. The campaign tests the limits of US mine warfare doctrine, a capability that atrophied since the 1980s.",
+    "title": "Regional Escalation",
+    "description": "Houthi entry on March 28 proves to be the trigger for broader regional escalation. Within days, Iraqi PMF factions (Kata'ib Hezbollah, Asa'ib Ahl al-Haq) escalate attacks on US bases in Iraq from harassment to organized assaults. Hezbollah shifts from sustained to all-out rocket barrages on northern Israel, forcing large-scale civilian evacuations. Syrian militia groups attack US positions at al-Tanf. The conflict metastasizes from a bilateral US-Iran air campaign into a genuine multi-front regional war. The US is forced to split forces — carrier assets must cover the Red Sea (Houthis), Eastern Mediterranean (Hezbollah), and Persian Gulf simultaneously. Israel faces a two-front war against Hezbollah and Houthis. The 'unity of fronts' doctrine that Iran built over two decades activates despite C2 degradation — each proxy has enough autonomy to sustain operations independently.",
     "overrides": [
       {
-        "nodeId": "naval_engagement_intensity",
+        "nodeId": "houthi_war_entry",
+        "overridePTrue": 0.98
+      },
+      {
+        "nodeId": "hezbollah_attack_intensity",
         "overrideProbabilities": {
-          "no_naval_combat": 0.02,
-          "isolated_incidents": 0.08,
-          "sustained_skirmishes": 0.40,
-          "fleet_battle": 0.50
+          "ceasefire": 0.00,
+          "sporadic": 0.05,
+          "sustained": 0.35,
+          "all_out": 0.60
         }
       },
       {
-        "nodeId": "iran_anti_ship_capability",
+        "nodeId": "iran_proxy_coordination",
         "overrideProbabilities": {
-          "degraded_low": 0.08,
-          "moderate": 0.30,
-          "high": 0.42,
-          "overwhelming": 0.20
+          "fragmented": 0.10,
+          "limited": 0.25,
+          "coordinated": 0.45,
+          "fully_synchronized": 0.20
         }
       },
       {
-        "nodeId": "us_ship_loss_probability",
+        "nodeId": "conflict_duration_projection",
         "overrideProbabilities": {
-          "true": 0.52,
-          "false": 0.48
+          "weeks": 0.02,
+          "1_3_months": 0.12,
+          "3_6_months": 0.48,
+          "prolonged_over_6_months": 0.38
         }
       },
       {
-        "nodeId": "conflict_duration_estimate",
+        "nodeId": "us_military_casualties",
         "overrideProbabilities": {
-          "under_1_week": 0.05,
-          "1_to_4_weeks": 0.30,
-          "1_to_3_months": 0.45,
-          "over_3_months": 0.20
+          "minimal": 0.03,
+          "light": 0.15,
+          "moderate": 0.45,
+          "heavy": 0.37
+        }
+      },
+      {
+        "nodeId": "ceasefire_window",
+        "overrideProbabilities": {
+          "none": 0.65,
+          "narrow": 0.25,
+          "moderate": 0.08,
+          "strong": 0.02
+        }
+      },
+      {
+        "nodeId": "nuclear_escalation_risk",
+        "overridePTrue": 0.10
+      },
+      {
+        "nodeId": "cyber_warfare_intensity",
+        "overrideProbabilities": {
+          "minimal": 0.02,
+          "targeted": 0.12,
+          "widespread": 0.46,
+          "critical_infrastructure_attacks": 0.40
+        }
+      }
+    ]
+  },
+  {
+    "id": "ground-incursion",
+    "phase": 3,
+    "title": "Ground Incursion",
+    "description": "The air campaign alone fails to achieve US political objectives — Iran's leadership, despite catastrophic military losses, refuses to capitulate. Trump, frustrated by the lack of a decisive outcome and pressured by hawks in the administration, authorizes a limited ground incursion. USMC forces from the ARG/MEU seize Kharg Island (Iran's primary oil export terminal) and establish a beachhead. The 82nd Airborne deploys to secure Bandar Abbas and the Iranian side of the Strait of Hormuz. US Army heavy forces (1st Armored Division elements) push into Khuzestan from Iraq. This is not a full-scale invasion — the objective is seizure of key strategic points to force capitulation, not occupation of the entire country. However, it transforms the conflict from standoff to direct ground combat, dramatically increasing casualty risk and commitment.",
+    "overrides": [
+      {
+        "nodeId": "us_special_operations",
+        "overrideProbabilities": {
+          "none": 0.00,
+          "intelligence_only": 0.02,
+          "limited_raids": 0.18,
+          "sustained_operations": 0.80
+        }
+      },
+      {
+        "nodeId": "conflict_duration_projection",
+        "overrideProbabilities": {
+          "weeks": 0.01,
+          "1_3_months": 0.10,
+          "3_6_months": 0.42,
+          "prolonged_over_6_months": 0.47
+        }
+      },
+      {
+        "nodeId": "us_military_casualties",
+        "overrideProbabilities": {
+          "minimal": 0.01,
+          "light": 0.08,
+          "moderate": 0.35,
+          "heavy": 0.56
+        }
+      },
+      {
+        "nodeId": "iranian_military_casualties",
+        "overrideProbabilities": {
+          "light": 0.00,
+          "moderate": 0.01,
+          "heavy": 0.24,
+          "devastating": 0.75
         }
       },
       {
         "nodeId": "overall_military_balance",
         "overrideProbabilities": {
-          "decisive_us_advantage": 0.10,
-          "significant_us_advantage": 0.30,
-          "contested_attrition": 0.42,
-          "us_bogged_down": 0.18
+          "decisive_us": 0.55,
+          "us_advantage": 0.30,
+          "contested": 0.12,
+          "stalemate": 0.03
         }
       },
       {
-        "nodeId": "us_air_superiority_timeline",
-        "overrideProbabilities": {
-          "within_72_hours": 0.18,
-          "4_to_7_days": 0.38,
-          "8_to_21_days": 0.32,
-          "contested_indefinitely": 0.12
-        }
-      }
-    ]
-  },
-  {
-    "id": "cyber-dominant-conflict",
-    "phase": 3,
-    "title": "Cyber-Dominant Conflict",
-    "description": "Both sides prioritize cyber and electronic warfare over kinetic operations, reflecting a political preference on the US side for plausibly deniable disruption and an Iranian calculation that kinetic escalation risks regime destruction. US Cyber Command and NSA execute a multi-vector campaign blinding Iran's air defense C2 networks, disrupting oil ministry SCADA systems, and corrupting IRGC logistics databases. Iran retaliates via APT33/34 operations targeting US financial clearing networks, Gulf pipeline SCADA, and the SWIFT messaging infrastructure for regional banks. Kinetic strikes are limited and targeted. The conflict unfolds largely in the electromagnetic and digital domains, with civilian populations experiencing cascading infrastructure failures rather than direct military violence. This is the hardest scenario to model — cyber effect estimation carries the lowest analytical confidence.",
-    "overrides": [
+        "nodeId": "nuclear_escalation_risk",
+        "overridePTrue": 0.15
+      },
       {
-        "nodeId": "us_cyber_ops_effectiveness",
+        "nodeId": "ceasefire_window",
         "overrideProbabilities": {
-          "minimal_effect": 0.05,
-          "limited_disruption": 0.20,
-          "significant_degradation": 0.50,
-          "critical_infrastructure_crippled": 0.25
+          "none": 0.50,
+          "narrow": 0.30,
+          "moderate": 0.15,
+          "strong": 0.05
         }
       },
       {
-        "nodeId": "iran_counter_cyber_impact",
+        "nodeId": "us_air_campaign_scale",
         "overrideProbabilities": {
-          "negligible": 0.08,
-          "disruptive_limited": 0.32,
-          "significant_economic_damage": 0.42,
-          "critical_systems_compromised": 0.18
-        }
-      },
-      {
-        "nodeId": "ballistic_missile_exchange_intensity",
-        "overrideProbabilities": {
-          "single_salvo": 0.55,
-          "limited_salvos": 0.32,
-          "sustained_missile_campaign": 0.10,
-          "mass_saturation": 0.03
-        }
-      },
-      {
-        "nodeId": "naval_engagement_intensity",
-        "overrideProbabilities": {
-          "no_naval_combat": 0.42,
-          "isolated_incidents": 0.38,
-          "sustained_skirmishes": 0.15,
-          "fleet_battle": 0.05
-        }
-      },
-      {
-        "nodeId": "conflict_duration_estimate",
-        "overrideProbabilities": {
-          "under_1_week": 0.10,
-          "1_to_4_weeks": 0.35,
-          "1_to_3_months": 0.40,
-          "over_3_months": 0.15
-        }
-      },
-      {
-        "nodeId": "us_total_casualty_trajectory",
-        "overrideProbabilities": {
-          "minimal_under_100": 0.60,
-          "limited_100_to_500": 0.28,
-          "significant_500_to_2000": 0.10,
-          "severe_2000_plus": 0.02
-        }
-      },
-      {
-        "nodeId": "information_warfare_advantage",
-        "overrideProbabilities": {
-          "us_coalition_dominant": 0.35,
-          "contested_roughly_equal": 0.38,
-          "iran_advantage_regional": 0.17,
-          "iran_advantage_global_narrative": 0.10
+          "paused": 0.00,
+          "limited": 0.02,
+          "sustained": 0.38,
+          "escalating": 0.60
         }
       }
     ]

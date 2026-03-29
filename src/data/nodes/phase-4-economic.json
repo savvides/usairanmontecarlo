@@ -1,91 +1,504 @@
 [
   {
-    "id": "oil_price_sustained_spike",
+    "id": "oil_price_current",
     "phase": 4,
     "type": "continuous",
-    "label": "Sustained Oil Price Spike ($/bbl above baseline)",
-    "description": "Brent crude price elevation sustained over 30+ days above pre-conflict baseline, accounting for initial panic premium fading but structural supply disruption persisting. Distinct from Phase 2 oil_price_shock, which captures the immediate spike. This node models the sustained equilibrium as markets reprice supply risk, Strategic Petroleum Reserve releases take effect, and alternative routing emerges or fails to emerge.",
-    "parents": ["hormuz_closure_probability", "oil_price_shock", "escalation_ladder_position", "conflict_duration_estimate"],
+    "label": "Current Oil Price ($/barrel)",
+    "description": "Brent crude benchmark price as of late March 2026. Observed: paper Brent at $113/bbl (+36% from pre-conflict ~$83), with Dubai physical crude trading at a massive $126/bbl premium reflecting actual delivery scarcity. The spread between paper and physical prices indicates severe supply dislocation. Pre-conflict Brent was ~$83/bbl. The current price reflects both war risk premium and actual supply loss from Hormuz closure.",
+    "parents": ["escalation_ladder_position", "strait_of_hormuz_closure"],
     "cpt": [
       {
-        "parentValues": { "hormuz_closure_probability": "true", "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "over_3_months" },
-        "distribution": { "type": "normal", "params": [95, 25] }
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "strait_of_hormuz_closure": "true" },
+        "distribution": { "type": "normal", "params": [120, 15] }
       },
       {
-        "parentValues": { "hormuz_closure_probability": "true", "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "months" },
-        "distribution": { "type": "normal", "params": [65, 20] }
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "strait_of_hormuz_closure": "false" },
+        "distribution": { "type": "normal", "params": [95, 12] }
       },
       {
-        "parentValues": { "hormuz_closure_probability": "true", "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "weeks" },
-        "distribution": { "type": "normal", "params": [35, 15] }
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "strait_of_hormuz_closure": "true" },
+        "distribution": { "type": "normal", "params": [110, 14] }
       },
       {
-        "parentValues": { "hormuz_closure_probability": "false", "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "months" },
-        "distribution": { "type": "normal", "params": [30, 12] }
-      },
-      {
-        "parentValues": { "hormuz_closure_probability": "false", "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "under_1_week" },
-        "distribution": { "type": "normal", "params": [12, 6] }
-      },
-      {
-        "parentValues": { "hormuz_closure_probability": "true", "escalation_ladder_position": "nuclear_threshold", "conflict_duration_estimate": "over_3_months" },
-        "distribution": { "type": "normal", "params": [130, 35] }
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "strait_of_hormuz_closure": "false" },
+        "distribution": { "type": "normal", "params": [88, 8] }
       }
     ],
-    "defaultDistribution": { "type": "normal", "params": [42, 22] },
-    "unit": "$/barrel above baseline",
-    "min": 0,
+    "defaultDistribution": { "type": "normal", "params": [120, 15] },
+    "unit": "$/barrel",
+    "min": 80,
     "max": 200,
     "source": {
-      "citation": "EIA 'Energy Market Implications of a Conflict Involving Iran' 2024; IEA 'Oil Market Report' Nov 2024; IMF World Economic Outlook Oct 2024; BP Energy Outlook 2024",
-      "url": "https://www.eia.gov/analysis/special/2024/iran/",
+      "citation": "ICE Brent futures March 28, 2026; Dubai Mercantile Exchange physical crude settlement; Bloomberg Energy 'Gulf War Premium Analysis' March 2026; Reuters 'Oil markets react to Iran conflict' tracking",
+      "url": "https://www.reuters.com/business/energy/",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "hormuz_closure_status",
+    "phase": 4,
+    "type": "categorical",
+    "label": "Strait of Hormuz Closure Status",
+    "description": "Current operational status of the Strait of Hormuz for commercial shipping. Observed: the strait has been effectively closed since March 4, 2026. Near-zero tanker traffic through the main shipping lanes. Some limited negotiated transits for non-combatant-flagged vessels (primarily Chinese and Indian) have been reported but at vastly reduced volume (<5% of normal). Iran deployed mines in the navigable channels; US MCM operations are ongoing but clearing is slow under contested conditions.",
+    "parents": ["strait_of_hormuz_closure", "escalation_ladder_position"],
+    "categories": ["open", "partial", "closed_selective_passage", "fully_closed"],
+    "cpt": [
+      {
+        "parentValues": { "strait_of_hormuz_closure": "true", "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "open": 0.01, "partial": 0.04, "closed_selective_passage": 0.90, "fully_closed": 0.05 }
+      },
+      {
+        "parentValues": { "strait_of_hormuz_closure": "true", "escalation_ladder_position": "sustained_campaign" },
+        "categoryProbabilities": { "open": 0.02, "partial": 0.10, "closed_selective_passage": 0.78, "fully_closed": 0.10 }
+      },
+      {
+        "parentValues": { "strait_of_hormuz_closure": "true", "escalation_ladder_position": "limited_exchange" },
+        "categoryProbabilities": { "open": 0.10, "partial": 0.35, "closed_selective_passage": 0.48, "fully_closed": 0.07 }
+      },
+      {
+        "parentValues": { "strait_of_hormuz_closure": "false", "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "open": 0.15, "partial": 0.55, "closed_selective_passage": 0.25, "fully_closed": 0.05 }
+      },
+      {
+        "parentValues": { "strait_of_hormuz_closure": "false", "escalation_ladder_position": "limited_exchange" },
+        "categoryProbabilities": { "open": 0.65, "partial": 0.28, "closed_selective_passage": 0.06, "fully_closed": 0.01 }
+      }
+    ],
+    "defaultProbabilities": {
+      "open": 0.01,
+      "partial": 0.04,
+      "closed_selective_passage": 0.92,
+      "fully_closed": 0.03
+    },
+    "source": {
+      "citation": "MarineTraffic AIS data Strait of Hormuz March 2026; Lloyd's List 'Hormuz transit tracker' daily updates; CENTCOM maritime corridor advisories; Reuters 'Strait of Hormuz effectively closed since March 4'",
+      "url": "https://www.lloydslist.com/",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "oil_production_loss",
+    "phase": 4,
+    "type": "categorical",
+    "label": "Global Oil Production Loss",
+    "description": "Net reduction in global oil production/supply reaching market due to the conflict. Observed: over 10 million barrels per day lost as of March 12 — comprising Iran's own ~3.2 Mb/d (fully offline), plus ~7-8 Mb/d of Gulf state exports trapped behind Hormuz closure (Saudi, UAE, Kuwait, Qatar, Iraq southern exports). IEA has called this the 'greatest global energy security challenge in history.' SPR releases from the US (announced 30M barrel drawdown) and IEA coordinated releases partially offset but cover only weeks of the shortfall.",
+    "parents": ["hormuz_closure_status", "escalation_ladder_position"],
+    "categories": ["under_3m_bpd", "3_7m_bpd", "7_10m_bpd", "over_10m_bpd"],
+    "cpt": [
+      {
+        "parentValues": { "hormuz_closure_status": "closed_selective_passage", "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "under_3m_bpd": 0.01, "3_7m_bpd": 0.04, "7_10m_bpd": 0.05, "over_10m_bpd": 0.90 }
+      },
+      {
+        "parentValues": { "hormuz_closure_status": "fully_closed", "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "under_3m_bpd": 0.00, "3_7m_bpd": 0.01, "7_10m_bpd": 0.04, "over_10m_bpd": 0.95 }
+      },
+      {
+        "parentValues": { "hormuz_closure_status": "partial", "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "under_3m_bpd": 0.05, "3_7m_bpd": 0.25, "7_10m_bpd": 0.50, "over_10m_bpd": 0.20 }
+      },
+      {
+        "parentValues": { "hormuz_closure_status": "open", "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "under_3m_bpd": 0.30, "3_7m_bpd": 0.50, "7_10m_bpd": 0.15, "over_10m_bpd": 0.05 }
+      },
+      {
+        "parentValues": { "hormuz_closure_status": "closed_selective_passage", "escalation_ladder_position": "sustained_campaign" },
+        "categoryProbabilities": { "under_3m_bpd": 0.02, "3_7m_bpd": 0.08, "7_10m_bpd": 0.15, "over_10m_bpd": 0.75 }
+      }
+    ],
+    "defaultProbabilities": {
+      "under_3m_bpd": 0.01,
+      "3_7m_bpd": 0.04,
+      "7_10m_bpd": 0.05,
+      "over_10m_bpd": 0.90
+    },
+    "source": {
+      "citation": "IEA Oil Market Report March 2026 emergency edition; EIA 'Global Oil Supply Disruption Assessment' March 12, 2026; OPEC+ emergency meeting communique; Bloomberg 'Over 10M bpd lost from global market'",
+      "url": "https://www.iea.org/reports/oil-market-report",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "gcc_food_crisis",
+    "phase": 4,
+    "type": "categorical",
+    "label": "GCC Food Security Crisis",
+    "description": "Severity of food security disruption in Gulf Cooperation Council states. GCC countries import 80-90% of their food, primarily through ports now affected by Hormuz closure and regional shipping disruptions. Observed: GCC food imports disrupted by approximately 70% as of late March, with consumer food prices up 40-120% depending on category. UAE and Saudi have activated strategic grain reserves (60-90 day supply). Qatar is worst affected due to single-point-of-entry vulnerability. Emergency airlifts of essential goods have begun.",
+    "parents": ["hormuz_closure_status", "oil_production_loss"],
+    "categories": ["normal", "stressed", "crisis", "emergency"],
+    "cpt": [
+      {
+        "parentValues": { "hormuz_closure_status": "closed_selective_passage", "oil_production_loss": "over_10m_bpd" },
+        "categoryProbabilities": { "normal": 0.00, "stressed": 0.02, "crisis": 0.05, "emergency": 0.93 }
+      },
+      {
+        "parentValues": { "hormuz_closure_status": "fully_closed", "oil_production_loss": "over_10m_bpd" },
+        "categoryProbabilities": { "normal": 0.00, "stressed": 0.01, "crisis": 0.04, "emergency": 0.95 }
+      },
+      {
+        "parentValues": { "hormuz_closure_status": "partial", "oil_production_loss": "7_10m_bpd" },
+        "categoryProbabilities": { "normal": 0.02, "stressed": 0.18, "crisis": 0.55, "emergency": 0.25 }
+      },
+      {
+        "parentValues": { "hormuz_closure_status": "open", "oil_production_loss": "3_7m_bpd" },
+        "categoryProbabilities": { "normal": 0.20, "stressed": 0.50, "crisis": 0.25, "emergency": 0.05 }
+      },
+      {
+        "parentValues": { "hormuz_closure_status": "open", "oil_production_loss": "under_3m_bpd" },
+        "categoryProbabilities": { "normal": 0.60, "stressed": 0.30, "crisis": 0.08, "emergency": 0.02 }
+      }
+    ],
+    "defaultProbabilities": {
+      "normal": 0.00,
+      "stressed": 0.02,
+      "crisis": 0.05,
+      "emergency": 0.93
+    },
+    "source": {
+      "citation": "FAO 'Gulf Region Food Security Emergency Assessment' March 2026; GCC food reserve status reports; Reuters 'GCC food imports disrupted 70%' March 22, 2026; WFP emergency brief on Gulf food supply chains",
+      "url": "https://www.fao.org/giews/",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "shipping_insurance_market",
+    "phase": 4,
+    "type": "categorical",
+    "label": "Shipping Insurance Market Status",
+    "description": "Status of the war-risk insurance market for commercial shipping in the Persian Gulf, Gulf of Oman, and Arabian Sea. Observed: the market is effectively frozen for Gulf transits. Lloyd's and the International Group of P&I Clubs have designated the Persian Gulf, Strait of Hormuz, and Gulf of Oman as excluded war-risk zones. Premiums for any remaining coverage have risen to 5-10% of hull value per transit (vs. 0.01% pre-conflict). Most shipowners cannot obtain coverage at any price, halting commercial transits entirely.",
+    "parents": ["hormuz_closure_status", "escalation_ladder_position"],
+    "categories": ["normal", "elevated", "restricted", "frozen"],
+    "cpt": [
+      {
+        "parentValues": { "hormuz_closure_status": "closed_selective_passage", "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "normal": 0.00, "elevated": 0.01, "restricted": 0.04, "frozen": 0.95 }
+      },
+      {
+        "parentValues": { "hormuz_closure_status": "fully_closed", "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "normal": 0.00, "elevated": 0.00, "restricted": 0.02, "frozen": 0.98 }
+      },
+      {
+        "parentValues": { "hormuz_closure_status": "partial", "escalation_ladder_position": "sustained_campaign" },
+        "categoryProbabilities": { "normal": 0.01, "elevated": 0.08, "restricted": 0.51, "frozen": 0.40 }
+      },
+      {
+        "parentValues": { "hormuz_closure_status": "open", "escalation_ladder_position": "limited_exchange" },
+        "categoryProbabilities": { "normal": 0.10, "elevated": 0.50, "restricted": 0.35, "frozen": 0.05 }
+      },
+      {
+        "parentValues": { "hormuz_closure_status": "open", "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "normal": 0.02, "elevated": 0.25, "restricted": 0.53, "frozen": 0.20 }
+      }
+    ],
+    "defaultProbabilities": {
+      "normal": 0.00,
+      "elevated": 0.01,
+      "restricted": 0.04,
+      "frozen": 0.95
+    },
+    "source": {
+      "citation": "Lloyd's Market Association Joint War Committee circulars March 2026; International Group of P&I Clubs exclusion notices; S&P Global 'War risk premiums make Gulf transit uneconomic' March 2026; Hellenic Shipping News",
+      "url": "https://www.lloydslist.com/",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "hormuz_reopening_timeline",
+    "phase": 4,
+    "type": "categorical",
+    "label": "Hormuz Reopening Timeline",
+    "description": "Projected timeline for resumption of commercial shipping through the Strait of Hormuz. Key variables: (1) Trump's April 6 energy-strike deadline — if the pause is lifted and US strikes Iranian oil infrastructure, the conflict widens and reopening delays further; (2) mine-clearing timeline — the USN's 4 Avenger-class MCM ships plus allied MCM assets need weeks-to-months to clear Iranian mines under contested conditions; (3) ceasefire negotiations — a deal could enable faster reopening; (4) Iranian willingness to permit transit under duress.",
+    "parents": ["hormuz_closure_status", "conflict_duration_projection", "ceasefire_window"],
+    "categories": ["within_weeks", "1_3_months", "3_6_months", "indefinite"],
+    "cpt": [
+      {
+        "parentValues": { "hormuz_closure_status": "closed_selective_passage", "conflict_duration_projection": "1_3_months", "ceasefire_window": "narrow" },
+        "categoryProbabilities": { "within_weeks": 0.08, "1_3_months": 0.42, "3_6_months": 0.38, "indefinite": 0.12 }
+      },
+      {
+        "parentValues": { "hormuz_closure_status": "closed_selective_passage", "conflict_duration_projection": "3_6_months", "ceasefire_window": "none" },
+        "categoryProbabilities": { "within_weeks": 0.02, "1_3_months": 0.12, "3_6_months": 0.46, "indefinite": 0.40 }
+      },
+      {
+        "parentValues": { "hormuz_closure_status": "closed_selective_passage", "conflict_duration_projection": "weeks", "ceasefire_window": "moderate" },
+        "categoryProbabilities": { "within_weeks": 0.25, "1_3_months": 0.50, "3_6_months": 0.20, "indefinite": 0.05 }
+      },
+      {
+        "parentValues": { "hormuz_closure_status": "partial", "conflict_duration_projection": "1_3_months", "ceasefire_window": "moderate" },
+        "categoryProbabilities": { "within_weeks": 0.20, "1_3_months": 0.50, "3_6_months": 0.25, "indefinite": 0.05 }
+      },
+      {
+        "parentValues": { "hormuz_closure_status": "fully_closed", "conflict_duration_projection": "prolonged_over_6_months", "ceasefire_window": "none" },
+        "categoryProbabilities": { "within_weeks": 0.01, "1_3_months": 0.05, "3_6_months": 0.24, "indefinite": 0.70 }
+      },
+      {
+        "parentValues": { "hormuz_closure_status": "open", "conflict_duration_projection": "weeks", "ceasefire_window": "strong" },
+        "categoryProbabilities": { "within_weeks": 0.75, "1_3_months": 0.20, "3_6_months": 0.04, "indefinite": 0.01 }
+      }
+    ],
+    "defaultProbabilities": {
+      "within_weeks": 0.05,
+      "1_3_months": 0.30,
+      "3_6_months": 0.42,
+      "indefinite": 0.23
+    },
+    "source": {
+      "citation": "CENTCOM MCM operational timeline estimates; Trump April 6 deadline statement; historical mine-clearing timelines (Persian Gulf 1988: 3+ months, Red Sea 2024: ongoing); IEA 'Hormuz Reopening Scenarios' March 2026",
+      "url": "https://www.centcom.mil/",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "oil_price_trajectory_6mo",
+    "phase": 4,
+    "type": "continuous",
+    "label": "Oil Price 6-Month Forward Trajectory ($/barrel)",
+    "description": "Projected Brent crude price 6 months forward (approximately September 2026). This captures the medium-term equilibrium after initial panic subsides but structural supply disruption persists. Key drivers: Hormuz reopening timeline, SPR/IEA reserve drawdown rates (US SPR at ~350M barrels, enough for ~50 days of shortfall at current loss rates), demand destruction in Asia and Europe, Saudi/UAE ability to reroute exports via Red Sea pipelines (East-West Pipeline: 5 Mb/d capacity, ADNOC pipeline bypassing Hormuz: 1.5 Mb/d), and global recession effects dampening demand.",
+    "parents": ["hormuz_reopening_timeline", "oil_production_loss", "oil_price_current"],
+    "cpt": [
+      {
+        "parentValues": { "hormuz_reopening_timeline": "indefinite", "oil_production_loss": "over_10m_bpd" },
+        "distribution": { "type": "normal", "params": [180, 30] }
+      },
+      {
+        "parentValues": { "hormuz_reopening_timeline": "3_6_months", "oil_production_loss": "over_10m_bpd" },
+        "distribution": { "type": "normal", "params": [145, 25] }
+      },
+      {
+        "parentValues": { "hormuz_reopening_timeline": "1_3_months", "oil_production_loss": "over_10m_bpd" },
+        "distribution": { "type": "normal", "params": [115, 20] }
+      },
+      {
+        "parentValues": { "hormuz_reopening_timeline": "within_weeks", "oil_production_loss": "7_10m_bpd" },
+        "distribution": { "type": "normal", "params": [95, 12] }
+      },
+      {
+        "parentValues": { "hormuz_reopening_timeline": "1_3_months", "oil_production_loss": "7_10m_bpd" },
+        "distribution": { "type": "normal", "params": [110, 18] }
+      },
+      {
+        "parentValues": { "hormuz_reopening_timeline": "within_weeks", "oil_production_loss": "3_7m_bpd" },
+        "distribution": { "type": "normal", "params": [88, 10] }
+      }
+    ],
+    "defaultDistribution": { "type": "normal", "params": [140, 28] },
+    "unit": "$/barrel",
+    "min": 80,
+    "max": 250,
+    "source": {
+      "citation": "ICE Brent futures curve March 28, 2026; Goldman Sachs 'Oil price scenarios under sustained Gulf disruption' March 2026; IEA 'Medium-term Oil Market Outlook' emergency update; historical 1973/1979/1990 oil shock recovery trajectories",
+      "url": "https://www.iea.org/",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "global_gdp_impact",
+    "phase": 4,
+    "type": "categorical",
+    "label": "Global GDP Impact",
+    "description": "Estimated impact on global GDP growth from the conflict and energy supply disruption. IEA has warned this is the 'greatest global energy security challenge in history.' Historical analogues: 1973 oil embargo caused ~3% global GDP contraction; 1979 Iranian revolution contributed to 1980-82 recession. Current shock is larger in absolute terms (10M+ bpd vs. 4.3 Mb/d in 1973) but the global economy is less oil-intensive per unit of GDP. IMF and World Bank models suggest 1-2% global GDP reduction per $30/bbl sustained oil price increase.",
+    "parents": ["oil_price_trajectory_6mo", "hormuz_reopening_timeline", "conflict_duration_projection"],
+    "categories": ["minimal", "mild_slowdown", "moderate_recession", "severe_recession", "depression"],
+    "cpt": [
+      {
+        "parentValues": { "hormuz_reopening_timeline": "indefinite", "conflict_duration_projection": "3_6_months" },
+        "categoryProbabilities": { "minimal": 0.00, "mild_slowdown": 0.02, "moderate_recession": 0.15, "severe_recession": 0.53, "depression": 0.30 }
+      },
+      {
+        "parentValues": { "hormuz_reopening_timeline": "3_6_months", "conflict_duration_projection": "3_6_months" },
+        "categoryProbabilities": { "minimal": 0.01, "mild_slowdown": 0.05, "moderate_recession": 0.35, "severe_recession": 0.45, "depression": 0.14 }
+      },
+      {
+        "parentValues": { "hormuz_reopening_timeline": "1_3_months", "conflict_duration_projection": "1_3_months" },
+        "categoryProbabilities": { "minimal": 0.05, "mild_slowdown": 0.22, "moderate_recession": 0.45, "severe_recession": 0.23, "depression": 0.05 }
+      },
+      {
+        "parentValues": { "hormuz_reopening_timeline": "within_weeks", "conflict_duration_projection": "weeks" },
+        "categoryProbabilities": { "minimal": 0.25, "mild_slowdown": 0.45, "moderate_recession": 0.23, "severe_recession": 0.06, "depression": 0.01 }
+      },
+      {
+        "parentValues": { "hormuz_reopening_timeline": "indefinite", "conflict_duration_projection": "prolonged_over_6_months" },
+        "categoryProbabilities": { "minimal": 0.00, "mild_slowdown": 0.01, "moderate_recession": 0.08, "severe_recession": 0.41, "depression": 0.50 }
+      }
+    ],
+    "defaultProbabilities": {
+      "minimal": 0.02,
+      "mild_slowdown": 0.08,
+      "moderate_recession": 0.32,
+      "severe_recession": 0.42,
+      "depression": 0.16
+    },
+    "source": {
+      "citation": "IEA 'greatest global energy security challenge in history' statement March 2026; IMF 'Oil Price Shocks and Global Growth' WP/24/52; World Bank commodity shock modeling; Hamilton (2003) 'What is an oil shock?'; Blanchard-Gali (2010) oil-macro transmission",
+      "url": "https://www.imf.org/en/Publications/WP",
       "confidence": "medium"
     }
   },
   {
-    "id": "hormuz_closure_duration",
+    "id": "us_inflation_impact",
     "phase": 4,
     "type": "categorical",
-    "label": "Strait of Hormuz Closure Duration",
-    "description": "Duration over which the Strait of Hormuz is effectively closed to commercial tanker traffic — defined as >50% reduction in transit volume. The strait carries approximately 20–21 million barrels per day, roughly 20% of global oil supply. Historical closure threats have never materialized into full closures; this node models a realized closure event feeding from Phase 2 hormuz_closure_probability.",
-    "parents": ["hormuz_closure_probability", "naval_engagement_intensity", "conflict_duration_estimate", "escalation_ladder_position"],
-    "categories": ["no_closure", "under_2_weeks", "2_to_6_weeks", "6_weeks_to_3_months", "over_3_months"],
+    "label": "US Inflation Impact",
+    "description": "Projected US CPI inflation rate over the next 12 months factoring in energy price pass-through. Pre-conflict US inflation was running ~2.5-2.8%. Forecast: >3% based on gasoline price transmission alone. Energy accounts for ~7% of CPI directly but has larger indirect effects through transportation, manufacturing, and food costs. US gasoline prices have risen from ~$3.20/gal to ~$4.50/gal, with further increases likely. The Fed faces a painful dilemma: rate cuts risk inflation spiral, rate holds risk recession deepening.",
+    "parents": ["oil_price_current", "hormuz_reopening_timeline"],
+    "categories": ["under_3pct", "3_4pct", "4_6pct", "over_6pct"],
     "cpt": [
       {
-        "parentValues": { "hormuz_closure_probability": "true", "naval_engagement_intensity": "fleet_battle", "escalation_ladder_position": "full_scale_war" },
-        "categoryProbabilities": { "no_closure": 0.02, "under_2_weeks": 0.10, "2_to_6_weeks": 0.30, "6_weeks_to_3_months": 0.38, "over_3_months": 0.20 }
+        "parentValues": { "hormuz_reopening_timeline": "indefinite" },
+        "categoryProbabilities": { "under_3pct": 0.01, "3_4pct": 0.05, "4_6pct": 0.40, "over_6pct": 0.54 }
       },
       {
-        "parentValues": { "hormuz_closure_probability": "true", "naval_engagement_intensity": "major_engagement", "escalation_ladder_position": "sustained_campaign" },
-        "categoryProbabilities": { "no_closure": 0.05, "under_2_weeks": 0.22, "2_to_6_weeks": 0.42, "6_weeks_to_3_months": 0.24, "over_3_months": 0.07 }
+        "parentValues": { "hormuz_reopening_timeline": "3_6_months" },
+        "categoryProbabilities": { "under_3pct": 0.03, "3_4pct": 0.15, "4_6pct": 0.52, "over_6pct": 0.30 }
       },
       {
-        "parentValues": { "hormuz_closure_probability": "true", "naval_engagement_intensity": "skirmishes", "escalation_ladder_position": "limited_exchange" },
-        "categoryProbabilities": { "no_closure": 0.15, "under_2_weeks": 0.45, "2_to_6_weeks": 0.30, "6_weeks_to_3_months": 0.08, "over_3_months": 0.02 }
+        "parentValues": { "hormuz_reopening_timeline": "1_3_months" },
+        "categoryProbabilities": { "under_3pct": 0.10, "3_4pct": 0.42, "4_6pct": 0.38, "over_6pct": 0.10 }
       },
       {
-        "parentValues": { "hormuz_closure_probability": "false", "naval_engagement_intensity": "skirmishes", "escalation_ladder_position": "limited_exchange" },
-        "categoryProbabilities": { "no_closure": 0.80, "under_2_weeks": 0.14, "2_to_6_weeks": 0.05, "6_weeks_to_3_months": 0.01, "over_3_months": 0.00 }
-      },
-      {
-        "parentValues": { "hormuz_closure_probability": "false", "naval_engagement_intensity": "no_naval_combat", "escalation_ladder_position": "limited_exchange" },
-        "categoryProbabilities": { "no_closure": 0.95, "under_2_weeks": 0.04, "2_to_6_weeks": 0.01, "6_weeks_to_3_months": 0.00, "over_3_months": 0.00 }
-      },
-      {
-        "parentValues": { "hormuz_closure_probability": "true", "naval_engagement_intensity": "fleet_battle", "escalation_ladder_position": "nuclear_threshold" },
-        "categoryProbabilities": { "no_closure": 0.01, "under_2_weeks": 0.05, "2_to_6_weeks": 0.20, "6_weeks_to_3_months": 0.34, "over_3_months": 0.40 }
+        "parentValues": { "hormuz_reopening_timeline": "within_weeks" },
+        "categoryProbabilities": { "under_3pct": 0.35, "3_4pct": 0.45, "4_6pct": 0.17, "over_6pct": 0.03 }
       }
     ],
     "defaultProbabilities": {
-      "no_closure": 0.30,
-      "under_2_weeks": 0.22,
-      "2_to_6_weeks": 0.28,
-      "6_weeks_to_3_months": 0.14,
-      "over_3_months": 0.06
+      "under_3pct": 0.05,
+      "3_4pct": 0.20,
+      "4_6pct": 0.48,
+      "over_6pct": 0.27
     },
     "source": {
-      "citation": "EIA 'Strait of Hormuz: World's Most Important Oil Chokepoint' 2023; RAND 'Chokepoints and Vulnerabilities in Global Food Trade' applied to energy 2024; CNA 'Mine Warfare and Hormuz' 2022",
-      "url": "https://www.eia.gov/todayinenergy/detail.php?id=56919",
+      "citation": "BLS CPI data through February 2026; Fed FOMC minutes March 2026; Goldman Sachs 'US Inflation Under Oil Shock Scenarios' March 2026; historical pass-through estimates: ~2-4% CPI increase per $30/bbl sustained oil price rise (Kilian 2008)",
+      "url": "https://www.bls.gov/cpi/",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "us_war_cost_estimate",
+    "phase": 4,
+    "type": "categorical",
+    "label": "US War Cost Estimate",
+    "description": "Projected total direct US military cost of operations. The air campaign alone is estimated at $2-5 billion per week based on munitions expenditure (TLAMs at $2M each, JDAMs at $25K, B-2 sortie costs), carrier operations ($6.5M/day per CSG), deployed force sustainment, and intelligence/surveillance. If sustained for 3+ months, total costs could approach OIF-scale spending. Excludes indirect costs (VA healthcare, economic losses, interest on debt financing).",
+    "parents": ["conflict_duration_projection", "us_air_campaign_scale"],
+    "categories": ["under_50b", "50_200b", "200_500b", "over_500b"],
+    "cpt": [
+      {
+        "parentValues": { "conflict_duration_projection": "weeks", "us_air_campaign_scale": "sustained" },
+        "categoryProbabilities": { "under_50b": 0.55, "50_200b": 0.38, "200_500b": 0.06, "over_500b": 0.01 }
+      },
+      {
+        "parentValues": { "conflict_duration_projection": "1_3_months", "us_air_campaign_scale": "sustained" },
+        "categoryProbabilities": { "under_50b": 0.10, "50_200b": 0.55, "200_500b": 0.30, "over_500b": 0.05 }
+      },
+      {
+        "parentValues": { "conflict_duration_projection": "3_6_months", "us_air_campaign_scale": "sustained" },
+        "categoryProbabilities": { "under_50b": 0.02, "50_200b": 0.18, "200_500b": 0.52, "over_500b": 0.28 }
+      },
+      {
+        "parentValues": { "conflict_duration_projection": "prolonged_over_6_months", "us_air_campaign_scale": "sustained" },
+        "categoryProbabilities": { "under_50b": 0.01, "50_200b": 0.05, "200_500b": 0.30, "over_500b": 0.64 }
+      },
+      {
+        "parentValues": { "conflict_duration_projection": "3_6_months", "us_air_campaign_scale": "escalating" },
+        "categoryProbabilities": { "under_50b": 0.01, "50_200b": 0.08, "200_500b": 0.36, "over_500b": 0.55 }
+      }
+    ],
+    "defaultProbabilities": {
+      "under_50b": 0.08,
+      "50_200b": 0.35,
+      "200_500b": 0.38,
+      "over_500b": 0.19
+    },
+    "source": {
+      "citation": "CBO 'Estimated Costs of US Military Operations Against Iran' rapid assessment March 2026; CRS 'Costs of Major US Wars' historical baseline; DoD comptroller munitions expenditure rates; Stimson Center cost projections",
+      "url": "https://www.cbo.gov/",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "iranian_economic_collapse",
+    "phase": 4,
+    "type": "categorical",
+    "label": "Iranian Economic Collapse",
+    "description": "Severity of Iran's economic collapse. Iran's economy is being crushed from both sides: US strikes are destroying military and dual-use infrastructure, while Hormuz closure has cut off Iran's own oil exports (its primary revenue source — ~60% of government revenue). The rial has collapsed on unofficial markets. Food and medicine shortages are reported in major cities. Iran's pre-war GDP was ~$400B; current trajectory suggests catastrophic contraction. Humanitarian crisis is developing in urban centers.",
+    "parents": ["conflict_duration_projection", "hormuz_closure_status", "us_air_campaign_scale"],
+    "categories": ["managed", "severe", "near_total", "failed_state"],
+    "cpt": [
+      {
+        "parentValues": { "conflict_duration_projection": "1_3_months", "hormuz_closure_status": "closed_selective_passage", "us_air_campaign_scale": "sustained" },
+        "categoryProbabilities": { "managed": 0.02, "severe": 0.38, "near_total": 0.48, "failed_state": 0.12 }
+      },
+      {
+        "parentValues": { "conflict_duration_projection": "3_6_months", "hormuz_closure_status": "closed_selective_passage", "us_air_campaign_scale": "sustained" },
+        "categoryProbabilities": { "managed": 0.01, "severe": 0.12, "near_total": 0.47, "failed_state": 0.40 }
+      },
+      {
+        "parentValues": { "conflict_duration_projection": "weeks", "hormuz_closure_status": "closed_selective_passage", "us_air_campaign_scale": "sustained" },
+        "categoryProbabilities": { "managed": 0.08, "severe": 0.55, "near_total": 0.32, "failed_state": 0.05 }
+      },
+      {
+        "parentValues": { "conflict_duration_projection": "prolonged_over_6_months", "hormuz_closure_status": "fully_closed", "us_air_campaign_scale": "escalating" },
+        "categoryProbabilities": { "managed": 0.00, "severe": 0.03, "near_total": 0.27, "failed_state": 0.70 }
+      },
+      {
+        "parentValues": { "conflict_duration_projection": "weeks", "hormuz_closure_status": "partial", "us_air_campaign_scale": "limited" },
+        "categoryProbabilities": { "managed": 0.25, "severe": 0.50, "near_total": 0.20, "failed_state": 0.05 }
+      }
+    ],
+    "defaultProbabilities": {
+      "managed": 0.03,
+      "severe": 0.32,
+      "near_total": 0.48,
+      "failed_state": 0.17
+    },
+    "source": {
+      "citation": "World Bank 'Iran Economic Monitor' emergency update March 2026; IMF Article IV consultation data; Tehran Times reporting on rial collapse; OCHA humanitarian situation reports; historical precedent: Iraq 1991 post-war economic collapse",
+      "url": "https://www.worldbank.org/en/country/iran",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "energy_market_substitution",
+    "phase": 4,
+    "type": "categorical",
+    "label": "Energy Market Substitution",
+    "description": "Speed and effectiveness of global energy market adaptation to Gulf supply loss. Key substitution channels: (1) US SPR release (~350M barrels available, drawdown rate ~4.4 Mb/d max); (2) IEA coordinated emergency stocks (1.2B barrels total member reserves); (3) Saudi East-West Pipeline (5 Mb/d to Yanbu on Red Sea, partially activated); (4) ADNOC Habshan-Fujairah pipeline (1.5 Mb/d bypassing Hormuz); (5) Russian/Kazakh/Nigerian production increases; (6) demand destruction. Combined, these can offset ~5-7 Mb/d, leaving a 3-5 Mb/d structural gap.",
+    "parents": ["oil_production_loss", "hormuz_reopening_timeline"],
+    "categories": ["rapid", "moderate", "slow", "minimal"],
+    "cpt": [
+      {
+        "parentValues": { "oil_production_loss": "over_10m_bpd", "hormuz_reopening_timeline": "indefinite" },
+        "categoryProbabilities": { "rapid": 0.01, "moderate": 0.08, "slow": 0.41, "minimal": 0.50 }
+      },
+      {
+        "parentValues": { "oil_production_loss": "over_10m_bpd", "hormuz_reopening_timeline": "3_6_months" },
+        "categoryProbabilities": { "rapid": 0.02, "moderate": 0.15, "slow": 0.53, "minimal": 0.30 }
+      },
+      {
+        "parentValues": { "oil_production_loss": "over_10m_bpd", "hormuz_reopening_timeline": "1_3_months" },
+        "categoryProbabilities": { "rapid": 0.05, "moderate": 0.35, "slow": 0.45, "minimal": 0.15 }
+      },
+      {
+        "parentValues": { "oil_production_loss": "7_10m_bpd", "hormuz_reopening_timeline": "1_3_months" },
+        "categoryProbabilities": { "rapid": 0.10, "moderate": 0.45, "slow": 0.35, "minimal": 0.10 }
+      },
+      {
+        "parentValues": { "oil_production_loss": "3_7m_bpd", "hormuz_reopening_timeline": "within_weeks" },
+        "categoryProbabilities": { "rapid": 0.35, "moderate": 0.45, "slow": 0.15, "minimal": 0.05 }
+      },
+      {
+        "parentValues": { "oil_production_loss": "under_3m_bpd", "hormuz_reopening_timeline": "within_weeks" },
+        "categoryProbabilities": { "rapid": 0.60, "moderate": 0.30, "slow": 0.08, "minimal": 0.02 }
+      }
+    ],
+    "defaultProbabilities": {
+      "rapid": 0.03,
+      "moderate": 0.17,
+      "slow": 0.48,
+      "minimal": 0.32
+    },
+    "source": {
+      "citation": "IEA Emergency Response Review 2025; US DOE SPR operational readiness assessment; Saudi Aramco East-West Pipeline capacity data; ADNOC Habshan-Fujairah pipeline status; EIA 'Global Oil Supply Substitution Analysis' March 2026",
+      "url": "https://www.iea.org/areas-of-work/ensuring-energy-security",
       "confidence": "medium"
     }
   },
@@ -93,513 +506,42 @@
     "id": "global_supply_chain_disruption",
     "phase": 4,
     "type": "categorical",
-    "label": "Global Supply Chain Disruption Severity",
-    "description": "Severity of cascading supply chain disruptions beyond oil markets — including container shipping rerouting, insurance-driven port avoidance, petrochemical input shortages, and Gulf manufacturing disruption. Captures second-order effects on automotive, electronics, and consumer goods supply chains dependent on Gulf-sourced energy inputs or Suez Canal transit.",
-    "parents": ["hormuz_closure_duration", "oil_price_sustained_spike", "escalation_ladder_position"],
-    "categories": ["minimal", "moderate_sector_specific", "significant_broad_based", "severe_global_cascading"],
+    "label": "Global Supply Chain Disruption",
+    "description": "Severity of cascading supply chain disruptions beyond the energy sector. Observed: severe and worsening as of March 29. Container shipping rerouting around the Cape of Good Hope (already underway from Houthi Red Sea attacks since 2024) has intensified. Petrochemical feedstock shortages are hitting manufacturing in Asia. Gulf-based aluminum, fertilizer, and plastics production is halted. Automotive manufacturers report parts shortages. Air cargo rates from Asia to Europe up 300%. Port congestion at alternative routing hubs (Jebel Ali via overland, Salalah, Mumbai).",
+    "parents": ["hormuz_closure_status", "oil_production_loss", "shipping_insurance_market"],
+    "categories": ["contained", "moderate", "severe", "systemic"],
     "cpt": [
       {
-        "parentValues": { "hormuz_closure_duration": "over_3_months", "escalation_ladder_position": "full_scale_war" },
-        "categoryProbabilities": { "minimal": 0.02, "moderate_sector_specific": 0.12, "significant_broad_based": 0.40, "severe_global_cascading": 0.46 }
+        "parentValues": { "hormuz_closure_status": "closed_selective_passage", "oil_production_loss": "over_10m_bpd", "shipping_insurance_market": "frozen" },
+        "categoryProbabilities": { "contained": 0.01, "moderate": 0.04, "severe": 0.90, "systemic": 0.05 }
       },
       {
-        "parentValues": { "hormuz_closure_duration": "6_weeks_to_3_months", "escalation_ladder_position": "sustained_campaign" },
-        "categoryProbabilities": { "minimal": 0.05, "moderate_sector_specific": 0.25, "significant_broad_based": 0.48, "severe_global_cascading": 0.22 }
+        "parentValues": { "hormuz_closure_status": "fully_closed", "oil_production_loss": "over_10m_bpd", "shipping_insurance_market": "frozen" },
+        "categoryProbabilities": { "contained": 0.00, "moderate": 0.02, "severe": 0.48, "systemic": 0.50 }
       },
       {
-        "parentValues": { "hormuz_closure_duration": "2_to_6_weeks", "escalation_ladder_position": "sustained_campaign" },
-        "categoryProbabilities": { "minimal": 0.10, "moderate_sector_specific": 0.40, "significant_broad_based": 0.38, "severe_global_cascading": 0.12 }
+        "parentValues": { "hormuz_closure_status": "partial", "oil_production_loss": "7_10m_bpd", "shipping_insurance_market": "restricted" },
+        "categoryProbabilities": { "contained": 0.05, "moderate": 0.25, "severe": 0.55, "systemic": 0.15 }
       },
       {
-        "parentValues": { "hormuz_closure_duration": "under_2_weeks", "escalation_ladder_position": "limited_exchange" },
-        "categoryProbabilities": { "minimal": 0.35, "moderate_sector_specific": 0.45, "significant_broad_based": 0.16, "severe_global_cascading": 0.04 }
+        "parentValues": { "hormuz_closure_status": "open", "oil_production_loss": "3_7m_bpd", "shipping_insurance_market": "elevated" },
+        "categoryProbabilities": { "contained": 0.25, "moderate": 0.50, "severe": 0.22, "systemic": 0.03 }
       },
       {
-        "parentValues": { "hormuz_closure_duration": "no_closure", "escalation_ladder_position": "limited_exchange" },
-        "categoryProbabilities": { "minimal": 0.72, "moderate_sector_specific": 0.22, "significant_broad_based": 0.05, "severe_global_cascading": 0.01 }
-      },
-      {
-        "parentValues": { "hormuz_closure_duration": "over_3_months", "escalation_ladder_position": "nuclear_threshold" },
-        "categoryProbabilities": { "minimal": 0.00, "moderate_sector_specific": 0.05, "significant_broad_based": 0.25, "severe_global_cascading": 0.70 }
+        "parentValues": { "hormuz_closure_status": "open", "oil_production_loss": "under_3m_bpd", "shipping_insurance_market": "normal" },
+        "categoryProbabilities": { "contained": 0.60, "moderate": 0.30, "severe": 0.08, "systemic": 0.02 }
       }
     ],
     "defaultProbabilities": {
-      "minimal": 0.20,
-      "moderate_sector_specific": 0.35,
-      "significant_broad_based": 0.30,
-      "severe_global_cascading": 0.15
+      "contained": 0.01,
+      "moderate": 0.04,
+      "severe": 0.90,
+      "systemic": 0.05
     },
     "source": {
-      "citation": "World Bank 'Ripple Effects of Geopolitical Shocks' 2024; IMF 'Trade Disruptions and Economic Costs' WP/24/52; OECD 'Supply Chain Vulnerabilities' 2024; JP Morgan Global Research 'Strait of Hormuz Closure Scenarios' 2024",
-      "url": "https://www.worldbank.org/en/research/publication/ripple-effects-geopolitical-shocks",
-      "confidence": "low-medium"
-    }
-  },
-  {
-    "id": "sanctions_escalation_scope",
-    "phase": 4,
-    "type": "categorical",
-    "label": "Sanctions Escalation Scope",
-    "description": "Expansion of economic sanctions beyond pre-conflict baseline — including secondary sanctions on Iranian oil buyers (primarily China, India, Turkey), SWIFT exclusions, asset freezes, and sector-specific measures. Iran was already under extensive US sanctions prior to conflict; this node captures the marginal escalation and the degree to which secondary sanctions compel third-party compliance.",
-    "parents": ["escalation_ladder_position", "conflict_duration_estimate", "us_cyber_ops_effectiveness"],
-    "categories": ["existing_framework_unchanged", "targeted_expansion", "full_secondary_sanctions", "global_financial_isolation"],
-    "cpt": [
-      {
-        "parentValues": { "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "over_3_months" },
-        "categoryProbabilities": { "existing_framework_unchanged": 0.02, "targeted_expansion": 0.15, "full_secondary_sanctions": 0.53, "global_financial_isolation": 0.30 }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "months" },
-        "categoryProbabilities": { "existing_framework_unchanged": 0.05, "targeted_expansion": 0.30, "full_secondary_sanctions": 0.48, "global_financial_isolation": 0.17 }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "weeks" },
-        "categoryProbabilities": { "existing_framework_unchanged": 0.15, "targeted_expansion": 0.55, "full_secondary_sanctions": 0.25, "global_financial_isolation": 0.05 }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "under_1_week" },
-        "categoryProbabilities": { "existing_framework_unchanged": 0.40, "targeted_expansion": 0.45, "full_secondary_sanctions": 0.13, "global_financial_isolation": 0.02 }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "conflict_duration_estimate": "over_3_months" },
-        "categoryProbabilities": { "existing_framework_unchanged": 0.00, "targeted_expansion": 0.05, "full_secondary_sanctions": 0.30, "global_financial_isolation": 0.65 }
-      }
-    ],
-    "defaultProbabilities": {
-      "existing_framework_unchanged": 0.12,
-      "targeted_expansion": 0.38,
-      "full_secondary_sanctions": 0.35,
-      "global_financial_isolation": 0.15
-    },
-    "source": {
-      "citation": "Treasury OFAC 'Iran Sanctions Overview' 2024; Atlantic Council 'Secondary Sanctions Effectiveness' 2024; CSIS 'Iran Sanctions and Escalation Dynamics' 2024",
-      "url": "https://home.treasury.gov/policy-issues/financial-sanctions/sanctions-programs-and-country-information/iran-sanctions",
-      "confidence": "medium-high"
-    }
-  },
-  {
-    "id": "financial_market_impact",
-    "phase": 4,
-    "type": "categorical",
-    "label": "Financial Market Impact (S&P 500 Drawdown)",
-    "description": "Peak-to-trough S&P 500 drawdown attributable primarily to the conflict and its economic fallout. Historical analogues: Gulf War I initial shock ~10%, 9/11 ~12%, 2003 Iraq War pre-invasion uncertainty ~15%. A prolonged Hormuz closure combined with global supply disruption could exceed prior geopolitical shock drawdowns, potentially triggering credit market stress.",
-    "parents": ["oil_price_sustained_spike", "global_supply_chain_disruption", "escalation_ladder_position", "conflict_duration_estimate"],
-    "categories": ["under_5pct", "5_to_10pct", "10_to_20pct", "20_to_35pct", "over_35pct"],
-    "cpt": [
-      {
-        "parentValues": { "global_supply_chain_disruption": "severe_global_cascading", "escalation_ladder_position": "full_scale_war" },
-        "categoryProbabilities": { "under_5pct": 0.02, "5_to_10pct": 0.08, "10_to_20pct": 0.28, "20_to_35pct": 0.40, "over_35pct": 0.22 }
-      },
-      {
-        "parentValues": { "global_supply_chain_disruption": "significant_broad_based", "escalation_ladder_position": "sustained_campaign" },
-        "categoryProbabilities": { "under_5pct": 0.05, "5_to_10pct": 0.22, "10_to_20pct": 0.42, "20_to_35pct": 0.25, "over_35pct": 0.06 }
-      },
-      {
-        "parentValues": { "global_supply_chain_disruption": "moderate_sector_specific", "escalation_ladder_position": "limited_exchange" },
-        "categoryProbabilities": { "under_5pct": 0.15, "5_to_10pct": 0.48, "10_to_20pct": 0.30, "20_to_35pct": 0.06, "over_35pct": 0.01 }
-      },
-      {
-        "parentValues": { "global_supply_chain_disruption": "minimal", "escalation_ladder_position": "limited_exchange" },
-        "categoryProbabilities": { "under_5pct": 0.55, "5_to_10pct": 0.35, "10_to_20pct": 0.08, "20_to_35pct": 0.02, "over_35pct": 0.00 }
-      },
-      {
-        "parentValues": { "global_supply_chain_disruption": "severe_global_cascading", "escalation_ladder_position": "nuclear_threshold" },
-        "categoryProbabilities": { "under_5pct": 0.00, "5_to_10pct": 0.03, "10_to_20pct": 0.12, "20_to_35pct": 0.35, "over_35pct": 0.50 }
-      }
-    ],
-    "defaultProbabilities": {
-      "under_5pct": 0.15,
-      "5_to_10pct": 0.30,
-      "10_to_20pct": 0.32,
-      "20_to_35pct": 0.17,
-      "over_35pct": 0.06
-    },
-    "source": {
-      "citation": "Federal Reserve 'Geopolitical Risk and Asset Prices' FEDS 2024-012; Goldman Sachs Global Investment Research 'Oil and Equities' 2024; CSIS 'Financial Contagion from Middle East Conflict' 2024; IMF GFSR Oct 2024",
-      "url": "https://www.federalreserve.gov/pubs/feds/2024/",
-      "confidence": "low-medium"
-    }
-  },
-  {
-    "id": "us_war_daily_burn_rate",
-    "phase": 4,
-    "type": "continuous",
-    "label": "US War Daily Burn Rate ($M/day)",
-    "description": "Estimated daily direct US military expenditure attributable to active operations — including munitions expenditure, sortie costs, logistics, personnel overtime, and forward deployment costs. Excludes long-term veteran care and reconstruction. Historical comparanda: OIF peak ~$720M/day; OEF (Afghanistan) ~$300M/day; Kosovo air campaign ~$100M/day. Iran's advanced air defenses and anti-ship threat would drive sortie and munitions costs above Iraqi equivalents.",
-    "parents": ["escalation_ladder_position", "conflict_duration_estimate", "naval_engagement_intensity"],
-    "cpt": [
-      {
-        "parentValues": { "escalation_ladder_position": "full_scale_war", "naval_engagement_intensity": "fleet_battle" },
-        "distribution": { "type": "normal", "params": [850, 200] }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "full_scale_war", "naval_engagement_intensity": "major_engagement" },
-        "distribution": { "type": "normal", "params": [620, 160] }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "sustained_campaign", "naval_engagement_intensity": "major_engagement" },
-        "distribution": { "type": "normal", "params": [380, 110] }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "sustained_campaign", "naval_engagement_intensity": "skirmishes" },
-        "distribution": { "type": "normal", "params": [220, 70] }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "limited_exchange", "naval_engagement_intensity": "skirmishes" },
-        "distribution": { "type": "normal", "params": [95, 35] }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "limited_exchange", "naval_engagement_intensity": "no_naval_combat" },
-        "distribution": { "type": "normal", "params": [55, 20] }
-      }
-    ],
-    "defaultDistribution": { "type": "normal", "params": [290, 180] },
-    "unit": "$M USD per day",
-    "min": 20,
-    "max": 1500,
-    "source": {
-      "citation": "CRS 'Costs of Major US Wars' R42738 2023; Stiglitz & Bilmes 'Three Trillion Dollar War' methodology; CBO 'Estimated Costs of Potential Military Conflict with Iran' 2024; DoD Comptroller historical data",
-      "url": "https://sgp.fas.org/crs/natsec/R42738.pdf",
-      "confidence": "low-medium"
-    }
-  },
-  {
-    "id": "iranian_economic_collapse_severity",
-    "phase": 4,
-    "type": "categorical",
-    "label": "Iranian Economic Collapse Severity",
-    "description": "Severity of economic collapse within Iran driven by the combination of pre-existing sanctions, war damage to infrastructure, oil export disruption, currency collapse, and capital flight. Iran's GDP was approximately $400B nominal in 2024, already under significant sanctions pressure. A major conflict would compound pre-existing vulnerabilities — inflation running above 40%, rial already severely devalued — potentially pushing toward state failure thresholds.",
-    "parents": ["escalation_ladder_position", "conflict_duration_estimate", "sanctions_escalation_scope", "us_cyber_ops_effectiveness"],
-    "categories": ["managed_recession", "severe_contraction_15to30pct", "economic_collapse_over30pct", "state_failure_indicators"],
-    "cpt": [
-      {
-        "parentValues": { "escalation_ladder_position": "full_scale_war", "sanctions_escalation_scope": "global_financial_isolation", "conflict_duration_estimate": "over_3_months" },
-        "categoryProbabilities": { "managed_recession": 0.03, "severe_contraction_15to30pct": 0.17, "economic_collapse_over30pct": 0.48, "state_failure_indicators": 0.32 }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "sustained_campaign", "sanctions_escalation_scope": "full_secondary_sanctions", "conflict_duration_estimate": "months" },
-        "categoryProbabilities": { "managed_recession": 0.08, "severe_contraction_15to30pct": 0.35, "economic_collapse_over30pct": 0.42, "state_failure_indicators": 0.15 }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "limited_exchange", "sanctions_escalation_scope": "targeted_expansion", "conflict_duration_estimate": "weeks" },
-        "categoryProbabilities": { "managed_recession": 0.30, "severe_contraction_15to30pct": 0.48, "economic_collapse_over30pct": 0.18, "state_failure_indicators": 0.04 }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "limited_exchange", "sanctions_escalation_scope": "existing_framework_unchanged", "conflict_duration_estimate": "under_1_week" },
-        "categoryProbabilities": { "managed_recession": 0.60, "severe_contraction_15to30pct": 0.32, "economic_collapse_over30pct": 0.07, "state_failure_indicators": 0.01 }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "sanctions_escalation_scope": "global_financial_isolation", "conflict_duration_estimate": "over_3_months" },
-        "categoryProbabilities": { "managed_recession": 0.00, "severe_contraction_15to30pct": 0.05, "economic_collapse_over30pct": 0.35, "state_failure_indicators": 0.60 }
-      }
-    ],
-    "defaultProbabilities": {
-      "managed_recession": 0.18,
-      "severe_contraction_15to30pct": 0.38,
-      "economic_collapse_over30pct": 0.30,
-      "state_failure_indicators": 0.14
-    },
-    "source": {
-      "citation": "IMF Article IV Consultation Iran 2024; World Bank MENA Economic Monitor 2024; UNODC Iran Economic Vulnerability 2024; Wilson Center 'Iran's Economic Fragility Under Conflict' 2024",
-      "url": "https://www.imf.org/en/Publications/CR/Issues/2024/04/iran",
-      "confidence": "low-medium"
-    }
-  },
-  {
-    "id": "energy_market_substitution_speed",
-    "phase": 4,
-    "type": "categorical",
-    "label": "Energy Market Substitution Speed",
-    "description": "Speed at which global energy markets substitute for disrupted Persian Gulf supply through: Saudi/UAE spare capacity activation, US SPR release and production ramp, Russian and Central Asian re-routing, LNG market adjustment, and demand destruction. Saudi Arabia holds approximately 2–3 Mb/d spare capacity; the US SPR is at historically low levels (~350 Mb) following COVID-era releases. Substitution speed critically determines how long elevated prices persist.",
-    "parents": ["hormuz_closure_duration", "oil_price_sustained_spike", "global_supply_chain_disruption"],
-    "categories": ["rapid_within_2_weeks", "moderate_2_to_8_weeks", "slow_2_to_6_months", "inadequate_sustained_shortage"],
-    "cpt": [
-      {
-        "parentValues": { "hormuz_closure_duration": "no_closure" },
-        "categoryProbabilities": { "rapid_within_2_weeks": 0.70, "moderate_2_to_8_weeks": 0.22, "slow_2_to_6_months": 0.07, "inadequate_sustained_shortage": 0.01 }
-      },
-      {
-        "parentValues": { "hormuz_closure_duration": "under_2_weeks" },
-        "categoryProbabilities": { "rapid_within_2_weeks": 0.35, "moderate_2_to_8_weeks": 0.45, "slow_2_to_6_months": 0.16, "inadequate_sustained_shortage": 0.04 }
-      },
-      {
-        "parentValues": { "hormuz_closure_duration": "2_to_6_weeks" },
-        "categoryProbabilities": { "rapid_within_2_weeks": 0.10, "moderate_2_to_8_weeks": 0.38, "slow_2_to_6_months": 0.40, "inadequate_sustained_shortage": 0.12 }
-      },
-      {
-        "parentValues": { "hormuz_closure_duration": "6_weeks_to_3_months" },
-        "categoryProbabilities": { "rapid_within_2_weeks": 0.03, "moderate_2_to_8_weeks": 0.17, "slow_2_to_6_months": 0.45, "inadequate_sustained_shortage": 0.35 }
-      },
-      {
-        "parentValues": { "hormuz_closure_duration": "over_3_months" },
-        "categoryProbabilities": { "rapid_within_2_weeks": 0.01, "moderate_2_to_8_weeks": 0.07, "slow_2_to_6_months": 0.32, "inadequate_sustained_shortage": 0.60 }
-      }
-    ],
-    "defaultProbabilities": {
-      "rapid_within_2_weeks": 0.20,
-      "moderate_2_to_8_weeks": 0.35,
-      "slow_2_to_6_months": 0.30,
-      "inadequate_sustained_shortage": 0.15
-    },
-    "source": {
-      "citation": "IEA 'Oil Supply Security and Emergency Response' 2023; EIA 'Strategic Petroleum Reserve: Overview' 2024; Saudi Aramco Annual Report 2024; IEA Monthly Oil Market Report Dec 2024",
-      "url": "https://www.iea.org/reports/oil-supply-security-2023",
-      "confidence": "medium"
-    }
-  },
-  {
-    "id": "global_gdp_impact",
-    "phase": 4,
-    "type": "categorical",
-    "label": "Global GDP Impact (% deviation from baseline forecast)",
-    "description": "Estimated deviation of global real GDP growth from pre-conflict IMF baseline forecast, attributable primarily to energy price shock, trade disruption, financial market tightening, and confidence effects. For reference: the 1990 Gulf War oil shock shaved ~0.5% from global growth; 2022 Russia-Ukraine energy shock cost Europe roughly 1.5–2% GDP. A prolonged Hormuz closure would be substantially larger in scope given the strait's critical role in global energy flows.",
-    "parents": ["global_supply_chain_disruption", "financial_market_impact", "oil_price_sustained_spike", "energy_market_substitution_speed"],
-    "categories": ["minimal_under_0.5pct", "moderate_0.5_to_1.5pct", "significant_1.5_to_3pct", "severe_3_to_5pct", "catastrophic_over_5pct"],
-    "cpt": [
-      {
-        "parentValues": { "global_supply_chain_disruption": "severe_global_cascading", "financial_market_impact": "over_35pct", "energy_market_substitution_speed": "inadequate_sustained_shortage" },
-        "categoryProbabilities": { "minimal_under_0.5pct": 0.00, "moderate_0.5_to_1.5pct": 0.03, "significant_1.5_to_3pct": 0.17, "severe_3_to_5pct": 0.42, "catastrophic_over_5pct": 0.38 }
-      },
-      {
-        "parentValues": { "global_supply_chain_disruption": "severe_global_cascading", "financial_market_impact": "20_to_35pct", "energy_market_substitution_speed": "slow_2_to_6_months" },
-        "categoryProbabilities": { "minimal_under_0.5pct": 0.01, "moderate_0.5_to_1.5pct": 0.09, "significant_1.5_to_3pct": 0.35, "severe_3_to_5pct": 0.40, "catastrophic_over_5pct": 0.15 }
-      },
-      {
-        "parentValues": { "global_supply_chain_disruption": "significant_broad_based", "financial_market_impact": "10_to_20pct", "energy_market_substitution_speed": "moderate_2_to_8_weeks" },
-        "categoryProbabilities": { "minimal_under_0.5pct": 0.05, "moderate_0.5_to_1.5pct": 0.30, "significant_1.5_to_3pct": 0.42, "severe_3_to_5pct": 0.18, "catastrophic_over_5pct": 0.05 }
-      },
-      {
-        "parentValues": { "global_supply_chain_disruption": "moderate_sector_specific", "financial_market_impact": "5_to_10pct", "energy_market_substitution_speed": "moderate_2_to_8_weeks" },
-        "categoryProbabilities": { "minimal_under_0.5pct": 0.18, "moderate_0.5_to_1.5pct": 0.50, "significant_1.5_to_3pct": 0.25, "severe_3_to_5pct": 0.06, "catastrophic_over_5pct": 0.01 }
-      },
-      {
-        "parentValues": { "global_supply_chain_disruption": "minimal", "financial_market_impact": "under_5pct", "energy_market_substitution_speed": "rapid_within_2_weeks" },
-        "categoryProbabilities": { "minimal_under_0.5pct": 0.58, "moderate_0.5_to_1.5pct": 0.32, "significant_1.5_to_3pct": 0.08, "severe_3_to_5pct": 0.02, "catastrophic_over_5pct": 0.00 }
-      }
-    ],
-    "defaultProbabilities": {
-      "minimal_under_0.5pct": 0.12,
-      "moderate_0.5_to_1.5pct": 0.30,
-      "significant_1.5_to_3pct": 0.32,
-      "severe_3_to_5pct": 0.18,
-      "catastrophic_over_5pct": 0.08
-    },
-    "source": {
-      "citation": "IMF World Economic Outlook Oct 2024; World Bank 'Commodity Markets Outlook' Oct 2024; Federal Reserve 'Geopolitical Shocks and Global Growth' 2024; ECB 'Energy Crisis Economic Impact' 2024",
-      "url": "https://www.imf.org/en/Publications/WEO/Issues/2024/10/world-economic-outlook",
-      "confidence": "low"
-    }
-  },
-  {
-    "id": "tanker_insurance_cost_spike",
-    "phase": 4,
-    "type": "continuous",
-    "label": "Tanker War Risk Insurance Spike (% of vessel value/voyage)",
-    "description": "War risk insurance premium as a percentage of vessel value per voyage, above normal peacetime rates (~0.05–0.1%). Historical comparanda: 1988 Tanker War (Iran-Iraq) reached 0.5–2% per voyage for Gulf transits; 2024 Red Sea Houthi attacks pushed rates to 0.5–1.5% for Red Sea transits. A full Hormuz closure event with active mine threat and anti-ship missiles would exceed Tanker War peaks. At elevated rates, many smaller operators exit the route entirely, amplifying effective supply loss beyond the physical closure.",
-    "parents": ["hormuz_closure_duration", "naval_engagement_intensity", "oil_price_sustained_spike"],
-    "cpt": [
-      {
-        "parentValues": { "hormuz_closure_duration": "over_3_months", "naval_engagement_intensity": "fleet_battle" },
-        "distribution": { "type": "normal", "params": [2.8, 0.8] }
-      },
-      {
-        "parentValues": { "hormuz_closure_duration": "6_weeks_to_3_months", "naval_engagement_intensity": "major_engagement" },
-        "distribution": { "type": "normal", "params": [1.6, 0.5] }
-      },
-      {
-        "parentValues": { "hormuz_closure_duration": "2_to_6_weeks", "naval_engagement_intensity": "major_engagement" },
-        "distribution": { "type": "normal", "params": [0.90, 0.30] }
-      },
-      {
-        "parentValues": { "hormuz_closure_duration": "under_2_weeks", "naval_engagement_intensity": "skirmishes" },
-        "distribution": { "type": "normal", "params": [0.40, 0.15] }
-      },
-      {
-        "parentValues": { "hormuz_closure_duration": "no_closure", "naval_engagement_intensity": "skirmishes" },
-        "distribution": { "type": "normal", "params": [0.20, 0.08] }
-      },
-      {
-        "parentValues": { "hormuz_closure_duration": "no_closure", "naval_engagement_intensity": "no_naval_combat" },
-        "distribution": { "type": "normal", "params": [0.08, 0.03] }
-      }
-    ],
-    "defaultDistribution": { "type": "normal", "params": [0.65, 0.55] },
-    "unit": "% of vessel value per voyage",
-    "min": 0.05,
-    "max": 5.0,
-    "source": {
-      "citation": "Lloyd's Market Association 'Joint War Risk Committee Areas' 2024; BIMCO 'War Risk Insurance Gulf of Oman' 2024; UNCTAD 'Maritime Transport and Geopolitical Risk' 2024; Clarksons Research 'Tanker War 1984-1988 Data'",
-      "url": "https://www.lma.org.uk/Underwriting-and-Technical/Joint-War-Risks-Clauses",
-      "confidence": "medium"
-    }
-  },
-  {
-    "id": "us_total_war_cost_estimate",
-    "phase": 4,
-    "type": "categorical",
-    "label": "Estimated Total US War Cost (direct + indirect, $B)",
-    "description": "Total estimated direct and near-term indirect US economic cost of the conflict: military operations, emergency supplemental spending, increased fuel costs for military logistics, allied burden-sharing gaps, and macroeconomic drag on US GDP. Excludes long-term veteran healthcare, reconstruction, and occupation costs. CBO estimated a major Iran conflict at $500B–$1.5T depending on scope and duration. OIF cost approximately $2.4T over 20 years; direct operations alone exceeded $800B.",
-    "parents": ["escalation_ladder_position", "conflict_duration_estimate", "us_war_daily_burn_rate"],
-    "categories": ["under_100B", "100B_to_300B", "300B_to_800B", "800B_to_2T", "over_2T"],
-    "cpt": [
-      {
-        "parentValues": { "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "under_1_week" },
-        "categoryProbabilities": { "under_100B": 0.65, "100B_to_300B": 0.28, "300B_to_800B": 0.06, "800B_to_2T": 0.01, "over_2T": 0.00 }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "weeks" },
-        "categoryProbabilities": { "under_100B": 0.30, "100B_to_300B": 0.48, "300B_to_800B": 0.18, "800B_to_2T": 0.04, "over_2T": 0.00 }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "months" },
-        "categoryProbabilities": { "under_100B": 0.05, "100B_to_300B": 0.22, "300B_to_800B": 0.45, "800B_to_2T": 0.24, "over_2T": 0.04 }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "over_3_months" },
-        "categoryProbabilities": { "under_100B": 0.01, "100B_to_300B": 0.07, "300B_to_800B": 0.28, "800B_to_2T": 0.42, "over_2T": 0.22 }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "conflict_duration_estimate": "over_3_months" },
-        "categoryProbabilities": { "under_100B": 0.00, "100B_to_300B": 0.02, "300B_to_800B": 0.10, "800B_to_2T": 0.30, "over_2T": 0.58 }
-      }
-    ],
-    "defaultProbabilities": {
-      "under_100B": 0.18,
-      "100B_to_300B": 0.30,
-      "300B_to_800B": 0.28,
-      "800B_to_2T": 0.17,
-      "over_2T": 0.07
-    },
-    "source": {
-      "citation": "CBO 'Estimated Costs of Potential Conflict with Iran' 2024; Stiglitz & Bilmes 'True Cost of the Iraq War' 2008 methodology; CRS R43376 'The Cost of Iraq, Afghanistan' 2021; Watson Institute 'Costs of War' 2024",
-      "url": "https://www.cbo.gov/publication/60038",
-      "confidence": "low"
-    }
-  },
-  {
-    "id": "gulf_petrodollar_recycling_disruption",
-    "phase": 4,
-    "type": "categorical",
-    "label": "Gulf Petrodollar Recycling Disruption",
-    "description": "Degree to which conflict disrupts the Gulf Cooperation Council's sovereign wealth fund flows, US Treasury holdings, and petrodollar recycling mechanisms that have historically underpinned dollar demand. Saudi Arabia holds ~$450B in US Treasuries (directly and indirectly); UAE sovereign wealth funds exceed $1.5T. Conflict-driven uncertainty and potential Saudi/UAE infrastructure targeting could cause significant portfolio reallocation, with knock-on effects on US bond yields.",
-    "parents": ["escalation_ladder_position", "sanctions_escalation_scope", "hormuz_closure_duration"],
-    "categories": ["minimal_business_as_usual", "moderate_portfolio_adjustment", "significant_us_asset_selloff", "systemic_dollar_pressure"],
-    "cpt": [
-      {
-        "parentValues": { "escalation_ladder_position": "full_scale_war", "hormuz_closure_duration": "over_3_months" },
-        "categoryProbabilities": { "minimal_business_as_usual": 0.05, "moderate_portfolio_adjustment": 0.22, "significant_us_asset_selloff": 0.45, "systemic_dollar_pressure": 0.28 }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "sustained_campaign", "hormuz_closure_duration": "2_to_6_weeks" },
-        "categoryProbabilities": { "minimal_business_as_usual": 0.15, "moderate_portfolio_adjustment": 0.45, "significant_us_asset_selloff": 0.32, "systemic_dollar_pressure": 0.08 }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "limited_exchange", "hormuz_closure_duration": "under_2_weeks" },
-        "categoryProbabilities": { "minimal_business_as_usual": 0.45, "moderate_portfolio_adjustment": 0.40, "significant_us_asset_selloff": 0.13, "systemic_dollar_pressure": 0.02 }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "limited_exchange", "hormuz_closure_duration": "no_closure" },
-        "categoryProbabilities": { "minimal_business_as_usual": 0.70, "moderate_portfolio_adjustment": 0.24, "significant_us_asset_selloff": 0.05, "systemic_dollar_pressure": 0.01 }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "hormuz_closure_duration": "over_3_months" },
-        "categoryProbabilities": { "minimal_business_as_usual": 0.01, "moderate_portfolio_adjustment": 0.09, "significant_us_asset_selloff": 0.35, "systemic_dollar_pressure": 0.55 }
-      }
-    ],
-    "defaultProbabilities": {
-      "minimal_business_as_usual": 0.28,
-      "moderate_portfolio_adjustment": 0.38,
-      "significant_us_asset_selloff": 0.24,
-      "systemic_dollar_pressure": 0.10
-    },
-    "source": {
-      "citation": "US Treasury TIC Data 2024; Atlantic Council 'The Petrodollar System Under Stress' 2024; BIS Working Paper 'Oil Revenues and Sovereign Wealth' 2023; IMF 'GCC Financial Interconnections' 2024",
-      "url": "https://home.treasury.gov/data/treasury-international-capital-tic-system",
-      "confidence": "low"
-    }
-  },
-  {
-    "id": "us_recession_probability",
-    "phase": 4,
-    "type": "categorical",
-    "label": "US Recession Probability (within 18 months of conflict onset)",
-    "description": "Probability that the United States enters a NBER-defined recession within 18 months of the conflict's outbreak, driven by the combined shock of energy prices, financial market disruption, defense spending crowding out, and consumer confidence collapse. Every major oil shock since 1973 has been followed by a US recession, though the transmission lag and severity vary significantly based on the initial state of the economy and substitution capacity.",
-    "parents": ["oil_price_sustained_spike", "financial_market_impact", "global_gdp_impact", "us_total_war_cost_estimate"],
-    "categories": ["recession_avoided", "mild_recession_under_2_quarters", "moderate_recession_2_to_4_quarters", "severe_prolonged_recession"],
-    "cpt": [
-      {
-        "parentValues": { "financial_market_impact": "over_35pct", "global_gdp_impact": "catastrophic_over_5pct" },
-        "categoryProbabilities": { "recession_avoided": 0.02, "mild_recession_under_2_quarters": 0.08, "moderate_recession_2_to_4_quarters": 0.30, "severe_prolonged_recession": 0.60 }
-      },
-      {
-        "parentValues": { "financial_market_impact": "20_to_35pct", "global_gdp_impact": "severe_3_to_5pct" },
-        "categoryProbabilities": { "recession_avoided": 0.05, "mild_recession_under_2_quarters": 0.18, "moderate_recession_2_to_4_quarters": 0.47, "severe_prolonged_recession": 0.30 }
-      },
-      {
-        "parentValues": { "financial_market_impact": "10_to_20pct", "global_gdp_impact": "significant_1.5_to_3pct" },
-        "categoryProbabilities": { "recession_avoided": 0.18, "mild_recession_under_2_quarters": 0.35, "moderate_recession_2_to_4_quarters": 0.35, "severe_prolonged_recession": 0.12 }
-      },
-      {
-        "parentValues": { "financial_market_impact": "5_to_10pct", "global_gdp_impact": "moderate_0.5_to_1.5pct" },
-        "categoryProbabilities": { "recession_avoided": 0.42, "mild_recession_under_2_quarters": 0.38, "moderate_recession_2_to_4_quarters": 0.16, "severe_prolonged_recession": 0.04 }
-      },
-      {
-        "parentValues": { "financial_market_impact": "under_5pct", "global_gdp_impact": "minimal_under_0.5pct" },
-        "categoryProbabilities": { "recession_avoided": 0.72, "mild_recession_under_2_quarters": 0.22, "moderate_recession_2_to_4_quarters": 0.05, "severe_prolonged_recession": 0.01 }
-      }
-    ],
-    "defaultProbabilities": {
-      "recession_avoided": 0.25,
-      "mild_recession_under_2_quarters": 0.30,
-      "moderate_recession_2_to_4_quarters": 0.30,
-      "severe_prolonged_recession": 0.15
-    },
-    "source": {
-      "citation": "Hamilton (1983) 'Oil and the Macroeconomy since World War II'; Federal Reserve Bank of Dallas 'Oil Shocks and Recession' 2022; Blanchard & Gali 'The Macroeconomic Effects of Oil Shocks' 2010; CBO Economic Outlook 2025",
-      "url": "https://www.dallasfed.org/research/papers/2022/wp2201",
-      "confidence": "medium"
-    }
-  },
-  {
-    "id": "emerging_market_contagion",
-    "phase": 4,
-    "type": "categorical",
-    "label": "Emerging Market Contagion Severity",
-    "description": "Severity of financial and economic contagion spreading to oil-importing emerging market economies — primarily South Asia (Pakistan, India, Sri Lanka), Sub-Saharan Africa, and Southeast Asia. These economies are most exposed to oil price passthrough given weaker fiscal positions, higher energy import bills as a share of GDP, and lower domestic production capacity. Currency crises, sovereign debt stress, and political instability can cascade from oil shocks in ways that create additional geopolitical instability.",
-    "parents": ["oil_price_sustained_spike", "global_gdp_impact", "energy_market_substitution_speed"],
-    "categories": ["contained", "moderate_regional_stress", "significant_multi_country_crises", "systemic_em_crisis"],
-    "cpt": [
-      {
-        "parentValues": { "oil_price_sustained_spike": "severe", "global_gdp_impact": "catastrophic_over_5pct", "energy_market_substitution_speed": "inadequate_sustained_shortage" },
-        "categoryProbabilities": { "contained": 0.02, "moderate_regional_stress": 0.13, "significant_multi_country_crises": 0.40, "systemic_em_crisis": 0.45 }
-      },
-      {
-        "parentValues": { "global_gdp_impact": "severe_3_to_5pct", "energy_market_substitution_speed": "slow_2_to_6_months" },
-        "categoryProbabilities": { "contained": 0.05, "moderate_regional_stress": 0.28, "significant_multi_country_crises": 0.45, "systemic_em_crisis": 0.22 }
-      },
-      {
-        "parentValues": { "global_gdp_impact": "significant_1.5_to_3pct", "energy_market_substitution_speed": "moderate_2_to_8_weeks" },
-        "categoryProbabilities": { "contained": 0.18, "moderate_regional_stress": 0.45, "significant_multi_country_crises": 0.30, "systemic_em_crisis": 0.07 }
-      },
-      {
-        "parentValues": { "global_gdp_impact": "moderate_0.5_to_1.5pct", "energy_market_substitution_speed": "rapid_within_2_weeks" },
-        "categoryProbabilities": { "contained": 0.50, "moderate_regional_stress": 0.37, "significant_multi_country_crises": 0.11, "systemic_em_crisis": 0.02 }
-      },
-      {
-        "parentValues": { "global_gdp_impact": "minimal_under_0.5pct", "energy_market_substitution_speed": "rapid_within_2_weeks" },
-        "categoryProbabilities": { "contained": 0.75, "moderate_regional_stress": 0.20, "significant_multi_country_crises": 0.04, "systemic_em_crisis": 0.01 }
-      }
-    ],
-    "defaultProbabilities": {
-      "contained": 0.22,
-      "moderate_regional_stress": 0.38,
-      "significant_multi_country_crises": 0.28,
-      "systemic_em_crisis": 0.12
-    },
-    "source": {
-      "citation": "World Bank 'Commodity Shocks and Developing Economies' 2024; IMF GFSR Ch.2 'Emerging Market Vulnerabilities' Oct 2024; UN DESA 'Global Economic Situation and Prospects 2025'; OECD Development Outlook 2024",
-      "url": "https://www.imf.org/en/Publications/GFSR/Issues/2024/10/global-financial-stability-report",
-      "confidence": "low"
+      "citation": "Drewry Container Shipping Index March 2026; Freightos Baltic Index; WTO 'Trade Disruption Assessment' March 2026; McKinsey Global Supply Chain Pulse March 2026; observed port congestion data from Marine Traffic",
+      "url": "https://www.wto.org/",
+      "confidence": "high"
     }
   }
 ]
