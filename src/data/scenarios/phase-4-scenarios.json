@@ -1,0 +1,377 @@
+[
+  {
+    "id": "full-strait-closure",
+    "phase": 4,
+    "title": "Full Strait Closure",
+    "description": "Iran executes full Hormuz denial doctrine: thousands of naval mines deployed across the strait's navigable channels, shore-based Noor and Qader anti-ship missiles active along the Makran coast and Qeshm Island, and IRGC fast-attack swarms contesting mine-clearing operations. Commercial tanker transit collapses within 72 hours. The 20–21 million barrels per day that normally flow through the strait — roughly 20% of global oil supply — is halted. Saudi Arabia and UAE's export terminals on the Gulf side are similarly cut off, negating most OPEC spare capacity. US 5th Fleet conducts sustained minesweeping under fire; the operation is expected to take 6–12 weeks minimum given degraded US mine warfare capabilities since the Cold War. Oil prices spike to $180–220/barrel. SPR releases are announced but cover only weeks of the shortfall. Energy-importing economies in Asia and Europe face acute fuel rationing pressure within 30 days.",
+    "overrides": [
+      {
+        "nodeId": "hormuz_closure_duration",
+        "overrideProbabilities": {
+          "no_closure": 0.00,
+          "under_2_weeks": 0.05,
+          "2_to_6_weeks": 0.22,
+          "6_weeks_to_3_months": 0.45,
+          "over_3_months": 0.28
+        }
+      },
+      {
+        "nodeId": "oil_price_sustained_spike",
+        "overrideDistribution": { "type": "normal", "params": [110, 30] }
+      },
+      {
+        "nodeId": "global_supply_chain_disruption",
+        "overrideProbabilities": {
+          "minimal": 0.01,
+          "moderate_sector_specific": 0.09,
+          "significant_broad_based": 0.38,
+          "severe_global_cascading": 0.52
+        }
+      },
+      {
+        "nodeId": "energy_market_substitution_speed",
+        "overrideProbabilities": {
+          "rapid_within_2_weeks": 0.03,
+          "moderate_2_to_8_weeks": 0.15,
+          "slow_2_to_6_months": 0.42,
+          "inadequate_sustained_shortage": 0.40
+        }
+      },
+      {
+        "nodeId": "financial_market_impact",
+        "overrideProbabilities": {
+          "under_5pct": 0.01,
+          "5_to_10pct": 0.06,
+          "10_to_20pct": 0.25,
+          "20_to_35pct": 0.42,
+          "over_35pct": 0.26
+        }
+      },
+      {
+        "nodeId": "tanker_insurance_cost_spike",
+        "overrideDistribution": { "type": "normal", "params": [2.2, 0.7] }
+      },
+      {
+        "nodeId": "global_gdp_impact",
+        "overrideProbabilities": {
+          "minimal_under_0.5pct": 0.01,
+          "moderate_0.5_to_1.5pct": 0.06,
+          "significant_1.5_to_3pct": 0.22,
+          "severe_3_to_5pct": 0.40,
+          "catastrophic_over_5pct": 0.31
+        }
+      },
+      {
+        "nodeId": "us_recession_probability",
+        "overrideProbabilities": {
+          "recession_avoided": 0.04,
+          "mild_recession_under_2_quarters": 0.14,
+          "moderate_recession_2_to_4_quarters": 0.38,
+          "severe_prolonged_recession": 0.44
+        }
+      },
+      {
+        "nodeId": "emerging_market_contagion",
+        "overrideProbabilities": {
+          "contained": 0.02,
+          "moderate_regional_stress": 0.15,
+          "significant_multi_country_crises": 0.42,
+          "systemic_em_crisis": 0.41
+        }
+      },
+      {
+        "nodeId": "iranian_economic_collapse_severity",
+        "overrideProbabilities": {
+          "managed_recession": 0.03,
+          "severe_contraction_15to30pct": 0.20,
+          "economic_collapse_over30pct": 0.47,
+          "state_failure_indicators": 0.30
+        }
+      }
+    ]
+  },
+  {
+    "id": "partial-disruption-tanker-attacks",
+    "phase": 4,
+    "title": "Partial Disruption + Tanker Attacks",
+    "description": "Iran does not attempt a full Hormuz closure — judged too escalatory given the certain US military response — but instead conducts a sustained campaign of tanker harassment: limpet mines on hulls, IRGC speedboat seizures, drone strikes on specific tankers carrying US-allied nation cargoes, and occasional anti-ship missile shots that force commercial operators into extended Cape of Good Hope rerouting. The strait technically remains open but commercially unusable for most operators. Insurance rates render Gulf transits economically unviable except for sanctioned operators (Russia, China's shadow fleet). Effective throughput drops 40–60%. Saudi and UAE export volumes reroute through Red Sea pipelines and Fujairah but at reduced capacity. Prices settle at $30–60/barrel above baseline — painful but not catastrophic. Diplomatic off-ramps remain credible. This mirrors the 1987–1988 Tanker War dynamics but with more capable Iranian anti-ship weapons.",
+    "overrides": [
+      {
+        "nodeId": "hormuz_closure_duration",
+        "overrideProbabilities": {
+          "no_closure": 0.12,
+          "under_2_weeks": 0.30,
+          "2_to_6_weeks": 0.38,
+          "6_weeks_to_3_months": 0.16,
+          "over_3_months": 0.04
+        }
+      },
+      {
+        "nodeId": "oil_price_sustained_spike",
+        "overrideDistribution": { "type": "normal", "params": [42, 16] }
+      },
+      {
+        "nodeId": "global_supply_chain_disruption",
+        "overrideProbabilities": {
+          "minimal": 0.08,
+          "moderate_sector_specific": 0.40,
+          "significant_broad_based": 0.40,
+          "severe_global_cascading": 0.12
+        }
+      },
+      {
+        "nodeId": "energy_market_substitution_speed",
+        "overrideProbabilities": {
+          "rapid_within_2_weeks": 0.12,
+          "moderate_2_to_8_weeks": 0.45,
+          "slow_2_to_6_months": 0.35,
+          "inadequate_sustained_shortage": 0.08
+        }
+      },
+      {
+        "nodeId": "financial_market_impact",
+        "overrideProbabilities": {
+          "under_5pct": 0.10,
+          "5_to_10pct": 0.38,
+          "10_to_20pct": 0.38,
+          "20_to_35pct": 0.12,
+          "over_35pct": 0.02
+        }
+      },
+      {
+        "nodeId": "tanker_insurance_cost_spike",
+        "overrideDistribution": { "type": "normal", "params": [0.85, 0.30] }
+      },
+      {
+        "nodeId": "sanctions_escalation_scope",
+        "overrideProbabilities": {
+          "existing_framework_unchanged": 0.08,
+          "targeted_expansion": 0.42,
+          "full_secondary_sanctions": 0.40,
+          "global_financial_isolation": 0.10
+        }
+      },
+      {
+        "nodeId": "global_gdp_impact",
+        "overrideProbabilities": {
+          "minimal_under_0.5pct": 0.10,
+          "moderate_0.5_to_1.5pct": 0.38,
+          "significant_1.5_to_3pct": 0.38,
+          "severe_3_to_5pct": 0.12,
+          "catastrophic_over_5pct": 0.02
+        }
+      },
+      {
+        "nodeId": "us_recession_probability",
+        "overrideProbabilities": {
+          "recession_avoided": 0.28,
+          "mild_recession_under_2_quarters": 0.40,
+          "moderate_recession_2_to_4_quarters": 0.25,
+          "severe_prolonged_recession": 0.07
+        }
+      },
+      {
+        "nodeId": "iranian_economic_collapse_severity",
+        "overrideProbabilities": {
+          "managed_recession": 0.15,
+          "severe_contraction_15to30pct": 0.45,
+          "economic_collapse_over30pct": 0.32,
+          "state_failure_indicators": 0.08
+        }
+      }
+    ]
+  },
+  {
+    "id": "global-recession-trigger",
+    "phase": 4,
+    "title": "Global Recession Trigger",
+    "description": "The conflict tips a global economy already operating near stall speed — high debt loads, persistent inflation, tightening credit conditions in 2025 — into synchronized recession. The oil price shock acts as the classic exogenous demand-destruction trigger studied by Hamilton (1983) and Blanchard-Gali (2010): every major oil shock since 1973 has preceded a recession. This time the transmission is amplified by three factors: (1) financial markets are highly leveraged with thin volatility risk premia; (2) central banks have limited rate-cut capacity without re-igniting inflation; (3) supply chain fragility post-COVID leaves no inventory buffer. A 35%+ equity market drawdown triggers margin calls, credit tightening, and a confidence collapse. Advanced economies enter recession within two quarters; EM economies face currency crises and sovereign debt stress. The IMF estimates global output contracts 3–5% — comparable to the 2008–2009 financial crisis but concentrated in a shorter window.",
+    "overrides": [
+      {
+        "nodeId": "financial_market_impact",
+        "overrideProbabilities": {
+          "under_5pct": 0.01,
+          "5_to_10pct": 0.04,
+          "10_to_20pct": 0.18,
+          "20_to_35pct": 0.42,
+          "over_35pct": 0.35
+        }
+      },
+      {
+        "nodeId": "global_gdp_impact",
+        "overrideProbabilities": {
+          "minimal_under_0.5pct": 0.00,
+          "moderate_0.5_to_1.5pct": 0.05,
+          "significant_1.5_to_3pct": 0.20,
+          "severe_3_to_5pct": 0.45,
+          "catastrophic_over_5pct": 0.30
+        }
+      },
+      {
+        "nodeId": "us_recession_probability",
+        "overrideProbabilities": {
+          "recession_avoided": 0.02,
+          "mild_recession_under_2_quarters": 0.10,
+          "moderate_recession_2_to_4_quarters": 0.38,
+          "severe_prolonged_recession": 0.50
+        }
+      },
+      {
+        "nodeId": "emerging_market_contagion",
+        "overrideProbabilities": {
+          "contained": 0.01,
+          "moderate_regional_stress": 0.10,
+          "significant_multi_country_crises": 0.38,
+          "systemic_em_crisis": 0.51
+        }
+      },
+      {
+        "nodeId": "global_supply_chain_disruption",
+        "overrideProbabilities": {
+          "minimal": 0.01,
+          "moderate_sector_specific": 0.08,
+          "significant_broad_based": 0.35,
+          "severe_global_cascading": 0.56
+        }
+      },
+      {
+        "nodeId": "gulf_petrodollar_recycling_disruption",
+        "overrideProbabilities": {
+          "minimal_business_as_usual": 0.02,
+          "moderate_portfolio_adjustment": 0.15,
+          "significant_us_asset_selloff": 0.45,
+          "systemic_dollar_pressure": 0.38
+        }
+      },
+      {
+        "nodeId": "energy_market_substitution_speed",
+        "overrideProbabilities": {
+          "rapid_within_2_weeks": 0.04,
+          "moderate_2_to_8_weeks": 0.18,
+          "slow_2_to_6_months": 0.42,
+          "inadequate_sustained_shortage": 0.36
+        }
+      },
+      {
+        "nodeId": "us_total_war_cost_estimate",
+        "overrideProbabilities": {
+          "under_100B": 0.02,
+          "100B_to_300B": 0.12,
+          "300B_to_800B": 0.30,
+          "800B_to_2T": 0.38,
+          "over_2T": 0.18
+        }
+      },
+      {
+        "nodeId": "iranian_economic_collapse_severity",
+        "overrideProbabilities": {
+          "managed_recession": 0.02,
+          "severe_contraction_15to30pct": 0.13,
+          "economic_collapse_over30pct": 0.45,
+          "state_failure_indicators": 0.40
+        }
+      }
+    ]
+  },
+  {
+    "id": "oil-market-absorbs-shock",
+    "phase": 4,
+    "title": "Oil Market Absorbs Shock",
+    "description": "The conflict is shorter and more limited than anticipated — a contained tit-for-tat exchange lasting under three weeks — and energy markets demonstrate unexpected resilience. Several factors dampen the shock: (1) Saudi Arabia activates its 2.5 Mb/d spare capacity within days; (2) the US executes a coordinated 60-million-barrel SPR release alongside IEA member drawdowns; (3) the Strait stays open — IRGC mining attempts are interdicted before deployment; (4) US shale producers accelerate drilling programs in response to price signals; (5) demand destruction in Asia (switching to coal, nuclear, LNG) absorbs approximately 1.5 Mb/d of the shortfall. Oil prices spike to $110–120/barrel in the first week then retreat to $85–95 within 30 days as substitution takes hold. Financial markets register a 7–12% drawdown — painful but within normal geopolitical shock ranges — and recover within 3–4 months. Global recession is avoided. This outcome requires a fast resolution and no escalation to Iranian oil infrastructure targeting.",
+    "overrides": [
+      {
+        "nodeId": "hormuz_closure_duration",
+        "overrideProbabilities": {
+          "no_closure": 0.45,
+          "under_2_weeks": 0.38,
+          "2_to_6_weeks": 0.13,
+          "6_weeks_to_3_months": 0.03,
+          "over_3_months": 0.01
+        }
+      },
+      {
+        "nodeId": "oil_price_sustained_spike",
+        "overrideDistribution": { "type": "normal", "params": [18, 10] }
+      },
+      {
+        "nodeId": "energy_market_substitution_speed",
+        "overrideProbabilities": {
+          "rapid_within_2_weeks": 0.45,
+          "moderate_2_to_8_weeks": 0.40,
+          "slow_2_to_6_months": 0.12,
+          "inadequate_sustained_shortage": 0.03
+        }
+      },
+      {
+        "nodeId": "global_supply_chain_disruption",
+        "overrideProbabilities": {
+          "minimal": 0.48,
+          "moderate_sector_specific": 0.40,
+          "significant_broad_based": 0.10,
+          "severe_global_cascading": 0.02
+        }
+      },
+      {
+        "nodeId": "financial_market_impact",
+        "overrideProbabilities": {
+          "under_5pct": 0.22,
+          "5_to_10pct": 0.50,
+          "10_to_20pct": 0.22,
+          "20_to_35pct": 0.05,
+          "over_35pct": 0.01
+        }
+      },
+      {
+        "nodeId": "tanker_insurance_cost_spike",
+        "overrideDistribution": { "type": "normal", "params": [0.22, 0.10] }
+      },
+      {
+        "nodeId": "global_gdp_impact",
+        "overrideProbabilities": {
+          "minimal_under_0.5pct": 0.42,
+          "moderate_0.5_to_1.5pct": 0.40,
+          "significant_1.5_to_3pct": 0.14,
+          "severe_3_to_5pct": 0.03,
+          "catastrophic_over_5pct": 0.01
+        }
+      },
+      {
+        "nodeId": "us_recession_probability",
+        "overrideProbabilities": {
+          "recession_avoided": 0.60,
+          "mild_recession_under_2_quarters": 0.30,
+          "moderate_recession_2_to_4_quarters": 0.08,
+          "severe_prolonged_recession": 0.02
+        }
+      },
+      {
+        "nodeId": "emerging_market_contagion",
+        "overrideProbabilities": {
+          "contained": 0.55,
+          "moderate_regional_stress": 0.35,
+          "significant_multi_country_crises": 0.09,
+          "systemic_em_crisis": 0.01
+        }
+      },
+      {
+        "nodeId": "us_total_war_cost_estimate",
+        "overrideProbabilities": {
+          "under_100B": 0.52,
+          "100B_to_300B": 0.35,
+          "300B_to_800B": 0.11,
+          "800B_to_2T": 0.02,
+          "over_2T": 0.00
+        }
+      },
+      {
+        "nodeId": "sanctions_escalation_scope",
+        "overrideProbabilities": {
+          "existing_framework_unchanged": 0.25,
+          "targeted_expansion": 0.52,
+          "full_secondary_sanctions": 0.20,
+          "global_financial_isolation": 0.03
+        }
+      }
+    ]
+  }
+]
