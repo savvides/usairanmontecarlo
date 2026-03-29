@@ -32,6 +32,7 @@ export class SimulationWorker {
           runs,
           nodeIndexMap,
           runCount: runs.length,
+          diagnostics: { nodes: new Map() },
         });
         this.pendingResolve = null;
       }
