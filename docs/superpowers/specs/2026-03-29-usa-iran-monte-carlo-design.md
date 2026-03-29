@@ -142,8 +142,13 @@ The conflict is modeled as a **directed acyclic graph (DAG)** of ~90-110 nodes a
 - Framer Motion animates result distributions flowing into next phase's inputs — reinforcing causality
 - Cascade summary highlights key cross-phase impacts (e.g., "Your Phase 2 choices shifted Phase 4 oil prices by +$38/barrel")
 
+### Responsive Behavior
+- **Desktop (1024px+):** Full three-panel layout as described above
+- **Tablet (768-1023px):** Two-panel layout — context and interaction stacked on left, results on right
+- **Mobile (<768px):** Single-column stack — context, then scenario cards, then results. The cascade Sankey strip collapses into a simplified phase-to-phase summary. This is a desktop-first experience; mobile is functional but not the primary target.
+
 ### Interaction Details
-- Hover tooltips on any variable: plain-English description, current value, dependencies, source
+- Hover tooltips on any variable: plain-English description, current value, dependencies, source (tap on mobile)
 - Reset to defaults button per phase and globally
 - "Share this scenario" generates URL with encoded parameter state (base64-compressed JSON in query params)
 
