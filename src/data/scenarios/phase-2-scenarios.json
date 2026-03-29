@@ -1,0 +1,178 @@
+[
+  {
+    "id": "us-precision-strike-nuclear",
+    "phase": 2,
+    "title": "US Precision Strike on Nuclear Facilities",
+    "description": "The United States launches a multi-wave precision strike campaign against Iran's principal nuclear facilities — Fordow, Natanz, Parchin, and Arak — using a combination of B-2 bombers with GBU-57 MOPs, submarine-launched TLAMs, and suppression-of-enemy-air-defense packages. The operation is presented as a non-war 'disarmament strike' with explicit intent to avoid Iranian civilian infrastructure.",
+    "overrides": [
+      {
+        "nodeId": "first_strike_actor",
+        "overrideProbabilities": {
+          "us_strikes_first": 0.90,
+          "israel_strikes_first": 0.05,
+          "iran_strikes_first": 0.03,
+          "no_strike": 0.02
+        }
+      },
+      {
+        "nodeId": "us_strike_target_type",
+        "overrideProbabilities": {
+          "nuclear_sites": 0.85,
+          "military_bases": 0.10,
+          "oil_infrastructure": 0.02,
+          "leadership_decapitation": 0.03
+        }
+      },
+      {
+        "nodeId": "us_strike_method",
+        "overrideProbabilities": {
+          "manned_airstrikes": 0.50,
+          "cruise_missiles": 0.40,
+          "ballistic_missiles": 0.05,
+          "cyber_ew": 0.05
+        }
+      },
+      {
+        "nodeId": "us_strike_bda",
+        "overrideProbabilities": {
+          "mission_kill_success": 0.25,
+          "partial_damage": 0.45,
+          "minimal_effect": 0.15,
+          "hardened_sites_survive": 0.15
+        }
+      }
+    ]
+  },
+  {
+    "id": "iranian-ballistic-missile-salvo",
+    "phase": 2,
+    "title": "Iranian Ballistic Missile Salvo on Gulf Bases",
+    "description": "Following a perceived imminent US strike, Iran's IRGC Aerospace Force pre-empts with a saturation ballistic missile salvo targeting US bases at Al Udeid (Qatar), Ali Al Salem (Kuwait), and the 5th Fleet headquarters in Bahrain. Iran fires an estimated 150-200 Shahab-3, Qiam, and Fattah-1 hypersonic missiles simultaneously, aiming to overwhelm Patriot and THAAD batteries through volume.",
+    "overrides": [
+      {
+        "nodeId": "first_strike_actor",
+        "overrideProbabilities": {
+          "us_strikes_first": 0.05,
+          "israel_strikes_first": 0.02,
+          "iran_strikes_first": 0.90,
+          "no_strike": 0.03
+        }
+      },
+      {
+        "nodeId": "iran_retaliation_method",
+        "overrideProbabilities": {
+          "ballistic_missiles": 0.85,
+          "drone_swarms": 0.10,
+          "proxy_militia_attacks": 0.03,
+          "naval_mine_warfare": 0.02
+        }
+      },
+      {
+        "nodeId": "iran_strike_target_type",
+        "overrideProbabilities": {
+          "us_gulf_bases": 0.80,
+          "israeli_cities": 0.05,
+          "gulf_oil_infrastructure": 0.10,
+          "hormuz_closure": 0.05
+        }
+      },
+      {
+        "nodeId": "us_air_defense_performance",
+        "overrideProbabilities": {
+          "high_intercept_rate": 0.15,
+          "moderate_intercept_rate": 0.35,
+          "low_intercept_rate": 0.35,
+          "overwhelmed": 0.15
+        }
+      }
+    ]
+  },
+  {
+    "id": "israeli-unilateral-strike",
+    "phase": 2,
+    "title": "Israeli Unilateral Strike",
+    "description": "Israel launches a unilateral long-range airstrike against Iranian nuclear facilities without explicit US authorization, using F-35I Adirs, F-15Is, and an extended refueling chain through Saudi or Jordanian airspace. Israel calculates the US will be forced to join the resulting war. The strike is timed to a moment of perceived Iranian nuclear breakout.",
+    "overrides": [
+      {
+        "nodeId": "first_strike_actor",
+        "overrideProbabilities": {
+          "us_strikes_first": 0.05,
+          "israel_strikes_first": 0.88,
+          "iran_strikes_first": 0.05,
+          "no_strike": 0.02
+        }
+      },
+      {
+        "nodeId": "us_strike_target_type",
+        "overrideProbabilities": {
+          "nuclear_sites": 0.80,
+          "military_bases": 0.15,
+          "oil_infrastructure": 0.02,
+          "leadership_decapitation": 0.03
+        }
+      },
+      {
+        "nodeId": "us_strike_method",
+        "overrideProbabilities": {
+          "manned_airstrikes": 0.80,
+          "cruise_missiles": 0.15,
+          "ballistic_missiles": 0.03,
+          "cyber_ew": 0.02
+        }
+      },
+      {
+        "nodeId": "international_response",
+        "overrideProbabilities": {
+          "condemn_iran_broad": 0.10,
+          "condemn_us_israel": 0.55,
+          "neutral_divided": 0.25,
+          "us_coalition_support": 0.10
+        }
+      }
+    ]
+  },
+  {
+    "id": "cyber-first-escalation",
+    "phase": 2,
+    "title": "Cyber-First Escalation",
+    "description": "The US Cyber Command and NSA launch a coordinated Stuxnet-class cyberattack against Iran's nuclear centrifuge control systems, air defense networks, and national power grid. Iran responds in-kind with cyberattacks on US financial infrastructure and Gulf oil terminal SCADA systems. Both sides avoid kinetic strikes initially, but the cyber exchange degrades mutual confidence and accelerates physical mobilization.",
+    "overrides": [
+      {
+        "nodeId": "us_strike_method",
+        "overrideProbabilities": {
+          "manned_airstrikes": 0.05,
+          "cruise_missiles": 0.05,
+          "ballistic_missiles": 0.02,
+          "cyber_ew": 0.88
+        }
+      },
+      {
+        "nodeId": "us_strike_bda",
+        "overrideProbabilities": {
+          "mission_kill_success": 0.15,
+          "partial_damage": 0.45,
+          "minimal_effect": 0.30,
+          "hardened_sites_survive": 0.10
+        }
+      },
+      {
+        "nodeId": "us_casualties_first_exchange",
+        "overrideProbabilities": {
+          "none_minimal": 0.65,
+          "limited": 0.28,
+          "significant": 0.06,
+          "mass": 0.01
+        }
+      },
+      {
+        "nodeId": "escalation_ladder_position",
+        "overrideProbabilities": {
+          "de_escalation_opening": 0.20,
+          "limited_war": 0.50,
+          "regional_war": 0.25,
+          "near_nuclear_threshold": 0.05
+        }
+      }
+    ]
+  }
+]
