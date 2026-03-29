@@ -41,7 +41,7 @@ describe('sampleOnce', () => {
   it('samples root binary nodes using defaultPTrue', () => {
     const nodes: SimNode[] = [makeBinaryNode('a', 1, [], 1.0)];
     const graph = buildGraph(nodes);
-    const result = sampleOnce(graph, 'test-seed');
+    const result = sampleOnce(graph, 'test-seed').result;
     const nodeIndex = graph.sortedIds.indexOf('a');
     expect(result[nodeIndex]).toBe(1);
   });
@@ -59,7 +59,7 @@ describe('sampleOnce', () => {
     let bTrueCount = 0;
     const runs = 10000;
     for (let i = 0; i < runs; i++) {
-      const result = sampleOnce(graph, `seed-${i}`);
+      const result = sampleOnce(graph, `seed-${i}`).result;
       const bIdx = graph.sortedIds.indexOf('b');
       if (result[bIdx] === 1) bTrueCount++;
     }
