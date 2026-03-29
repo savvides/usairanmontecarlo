@@ -1,0 +1,540 @@
+[
+  {
+    "id": "nato_coalition_formation",
+    "phase": 5,
+    "type": "categorical",
+    "label": "NATO/Allied Coalition Formation and Scope",
+    "description": "The breadth and depth of formal allied coalition support for US military operations against Iran. Ranges from full Article 5-adjacent burden-sharing (basing rights, logistics, intelligence, direct force contributions) to US operating with only core bilateral partners (UK, Australia, Canada) to near-unilateral action. Historical analog: 2003 Iraq War's 'Coalition of the Willing' versus the 1991 Gulf War's genuine multilateral coalition. NATO invocation of Article 5 is not applicable (Iran has not attacked a NATO member), so this is politically voluntary. European allies face a tension between transatlantic solidarity and economic exposure to an oil price shock.",
+    "parents": ["international_response", "first_strike_actor", "escalation_ladder_position", "un_security_council_action"],
+    "categories": ["full_nato_plus_coalition", "core_anglosphere_plus_gulf", "minimal_bilateral_only", "us_effectively_alone"],
+    "cpt": [
+      {
+        "parentValues": { "international_response": "broad_support", "first_strike_actor": "iran", "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "full_nato_plus_coalition": 0.48, "core_anglosphere_plus_gulf": 0.32, "minimal_bilateral_only": 0.14, "us_effectively_alone": 0.06 }
+      },
+      {
+        "parentValues": { "international_response": "broad_support", "first_strike_actor": "united_states", "escalation_ladder_position": "sustained_campaign" },
+        "categoryProbabilities": { "full_nato_plus_coalition": 0.22, "core_anglosphere_plus_gulf": 0.38, "minimal_bilateral_only": 0.28, "us_effectively_alone": 0.12 }
+      },
+      {
+        "parentValues": { "international_response": "conditional_support", "first_strike_actor": "united_states", "escalation_ladder_position": "sustained_campaign" },
+        "categoryProbabilities": { "full_nato_plus_coalition": 0.10, "core_anglosphere_plus_gulf": 0.35, "minimal_bilateral_only": 0.38, "us_effectively_alone": 0.17 }
+      },
+      {
+        "parentValues": { "international_response": "divided", "first_strike_actor": "united_states", "escalation_ladder_position": "limited_exchange" },
+        "categoryProbabilities": { "full_nato_plus_coalition": 0.04, "core_anglosphere_plus_gulf": 0.22, "minimal_bilateral_only": 0.40, "us_effectively_alone": 0.34 }
+      },
+      {
+        "parentValues": { "international_response": "broad_condemnation", "first_strike_actor": "united_states", "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "full_nato_plus_coalition": 0.02, "core_anglosphere_plus_gulf": 0.10, "minimal_bilateral_only": 0.30, "us_effectively_alone": 0.58 }
+      },
+      {
+        "parentValues": { "international_response": "broad_support", "first_strike_actor": "iran", "escalation_ladder_position": "nuclear_threshold" },
+        "categoryProbabilities": { "full_nato_plus_coalition": 0.55, "core_anglosphere_plus_gulf": 0.28, "minimal_bilateral_only": 0.12, "us_effectively_alone": 0.05 }
+      },
+      {
+        "parentValues": { "international_response": "divided", "first_strike_actor": "israel", "escalation_ladder_position": "sustained_campaign" },
+        "categoryProbabilities": { "full_nato_plus_coalition": 0.06, "core_anglosphere_plus_gulf": 0.25, "minimal_bilateral_only": 0.42, "us_effectively_alone": 0.27 }
+      }
+    ],
+    "defaultProbabilities": {
+      "full_nato_plus_coalition": 0.18,
+      "core_anglosphere_plus_gulf": 0.32,
+      "minimal_bilateral_only": 0.32,
+      "us_effectively_alone": 0.18
+    },
+    "source": {
+      "citation": "CFR 'The Future of NATO' 2024; IISS 'Military Balance 2024'; Chatham House 'European Security and the Middle East' 2024; RAND 'Alliance Management Under Stress' 2023",
+      "url": "https://www.cfr.org/report/future-nato",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "russia_response_posture",
+    "phase": 5,
+    "type": "categorical",
+    "label": "Russia's Strategic Response Posture",
+    "description": "Russia's composite response along military-diplomatic-economic dimensions. Russia has strong incentives to exploit US distraction and benefit from oil price rises (Russia's breakeven oil price is ~$60–70/barrel; sustained spikes above $100 significantly ease sanctions pressure). Moscow's options range from passive opportunism (accelerating Ukraine operations while US attention is divided) to active countermeasures (arms deliveries to Iran, enhanced intelligence sharing, UNSC vetoes, and diplomatic bloc formation with China). Russia pre-positioned advanced air defense systems (S-400 components) with Iran and was Iran's primary fighter jet supplier (Su-35 deliveries discussed 2023). Active interdiction support would be a significant escalation crossing.",
+    "parents": ["escalation_ladder_position", "international_response", "un_security_council_action", "nuclear_escalation_risk_phase3"],
+    "categories": ["passive_opportunism", "diplomatic_obstruction_only", "arms_intelligence_support", "active_counter_intervention"],
+    "cpt": [
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "un_security_council_action": "vetoed" },
+        "categoryProbabilities": { "passive_opportunism": 0.35, "diplomatic_obstruction_only": 0.42, "arms_intelligence_support": 0.18, "active_counter_intervention": 0.05 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "un_security_council_action": "vetoed" },
+        "categoryProbabilities": { "passive_opportunism": 0.20, "diplomatic_obstruction_only": 0.35, "arms_intelligence_support": 0.35, "active_counter_intervention": 0.10 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "un_security_council_action": "deadlocked" },
+        "categoryProbabilities": { "passive_opportunism": 0.12, "diplomatic_obstruction_only": 0.25, "arms_intelligence_support": 0.45, "active_counter_intervention": 0.18 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "nuclear_escalation_risk_phase3": "true" },
+        "categoryProbabilities": { "passive_opportunism": 0.08, "diplomatic_obstruction_only": 0.22, "arms_intelligence_support": 0.40, "active_counter_intervention": 0.30 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "un_security_council_action": "non_binding" },
+        "categoryProbabilities": { "passive_opportunism": 0.45, "diplomatic_obstruction_only": 0.35, "arms_intelligence_support": 0.15, "active_counter_intervention": 0.05 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "nuclear_escalation_risk_phase3": "true" },
+        "categoryProbabilities": { "passive_opportunism": 0.06, "diplomatic_obstruction_only": 0.18, "arms_intelligence_support": 0.44, "active_counter_intervention": 0.32 }
+      }
+    ],
+    "defaultProbabilities": {
+      "passive_opportunism": 0.28,
+      "diplomatic_obstruction_only": 0.35,
+      "arms_intelligence_support": 0.28,
+      "active_counter_intervention": 0.09
+    },
+    "source": {
+      "citation": "IISS 'Russia-Iran Defence Cooperation' 2024; Carnegie Endowment 'The Russia-Iran Axis' 2024; Crisis Group 'Iran and Russia: A Troubled Partnership' 2023; CFR 'Russia's Middle East Strategy' 2024",
+      "url": "https://www.iiss.org/publications/strategic-comments/2024/russia-iran-defence-cooperation",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "russia_ukraine_opportunism",
+    "phase": 5,
+    "type": "binary",
+    "label": "Russia Accelerates Ukraine Operations During US Distraction",
+    "description": "Whether Russia meaningfully escalates or accelerates offensive operations in Ukraine while the United States is engaged militarily with Iran. US distraction would reduce political bandwidth for Ukraine diplomacy, potentially delay weapons transfers, and create a window for Russian gains before the US can refocus. Historical precedent: Russia's February 2022 invasion was timed partly around perceived Western disunity. The effect is conditional on the conflict being sustained (not a quick exchange) and Russia assessing that US surveillance and deterrence bandwidth is genuinely reduced.",
+    "parents": ["russia_response_posture", "conflict_duration_estimate", "nato_coalition_formation"],
+    "cpt": [
+      { "parentValues": { "russia_response_posture": "active_counter_intervention", "conflict_duration_estimate": "over_3_months", "nato_coalition_formation": "us_effectively_alone" }, "pTrue": 0.72 },
+      { "parentValues": { "russia_response_posture": "arms_intelligence_support", "conflict_duration_estimate": "months", "nato_coalition_formation": "minimal_bilateral_only" }, "pTrue": 0.52 },
+      { "parentValues": { "russia_response_posture": "passive_opportunism", "conflict_duration_estimate": "weeks", "nato_coalition_formation": "full_nato_plus_coalition" }, "pTrue": 0.18 },
+      { "parentValues": { "russia_response_posture": "diplomatic_obstruction_only", "conflict_duration_estimate": "under_1_week", "nato_coalition_formation": "full_nato_plus_coalition" }, "pTrue": 0.08 },
+      { "parentValues": { "russia_response_posture": "arms_intelligence_support", "conflict_duration_estimate": "over_3_months", "nato_coalition_formation": "core_anglosphere_plus_gulf" }, "pTrue": 0.60 },
+      { "parentValues": { "russia_response_posture": "active_counter_intervention", "conflict_duration_estimate": "months", "nato_coalition_formation": "minimal_bilateral_only" }, "pTrue": 0.78 }
+    ],
+    "defaultPTrue": 0.32,
+    "source": {
+      "citation": "RAND 'US Distraction and Russian Opportunism in Ukraine' 2024; Chatham House 'Russia's War and Middle East Escalation' 2024; IISS Strategic Survey 2024",
+      "url": "https://www.rand.org/pubs/research_reports/RRA2510.html",
+      "confidence": "low-medium"
+    }
+  },
+  {
+    "id": "china_response_posture",
+    "phase": 5,
+    "type": "categorical",
+    "label": "China's Strategic Response Posture",
+    "description": "China's response vector across economic, diplomatic, and strategic dimensions. China is Iran's largest oil customer (importing ~1 Mb/d pre-conflict), a major investor in the Belt and Road corridor through Iran, and has a stated 25-year Comprehensive Strategic Partnership signed in 2021. China's core calculus: benefit from US distraction and oil price disruption of Western economies, protect bilateral economic interests, avoid being seen as complicit in Iranian aggression (complicating its global economic relationships), and assess whether the Taiwan window has opened. Beijing has historically preferred mediation roles that enhance its international standing while preserving the Iran relationship. Economic retaliation (rare earth export controls, US Treasury sell-off signaling) are leverage tools Beijing has hinted at in Taiwan scenarios and could deploy here.",
+    "parents": ["escalation_ladder_position", "international_response", "global_gdp_impact", "conflict_duration_estimate"],
+    "categories": ["mediation_attempt", "economic_leverage_signaling", "strategic_ambiguity", "overt_iran_backing"],
+    "cpt": [
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "global_gdp_impact": "minimal" },
+        "categoryProbabilities": { "mediation_attempt": 0.42, "economic_leverage_signaling": 0.28, "strategic_ambiguity": 0.25, "overt_iran_backing": 0.05 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "global_gdp_impact": "mild_slowdown" },
+        "categoryProbabilities": { "mediation_attempt": 0.30, "economic_leverage_signaling": 0.35, "strategic_ambiguity": 0.28, "overt_iran_backing": 0.07 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "global_gdp_impact": "moderate_recession" },
+        "categoryProbabilities": { "mediation_attempt": 0.18, "economic_leverage_signaling": 0.38, "strategic_ambiguity": 0.30, "overt_iran_backing": 0.14 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "global_gdp_impact": "severe_recession" },
+        "categoryProbabilities": { "mediation_attempt": 0.12, "economic_leverage_signaling": 0.42, "strategic_ambiguity": 0.28, "overt_iran_backing": 0.18 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "global_gdp_impact": "depression" },
+        "categoryProbabilities": { "mediation_attempt": 0.22, "economic_leverage_signaling": 0.30, "strategic_ambiguity": 0.25, "overt_iran_backing": 0.23 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "global_gdp_impact": "moderate_recession" },
+        "categoryProbabilities": { "mediation_attempt": 0.28, "economic_leverage_signaling": 0.40, "strategic_ambiguity": 0.24, "overt_iran_backing": 0.08 }
+      }
+    ],
+    "defaultProbabilities": {
+      "mediation_attempt": 0.28,
+      "economic_leverage_signaling": 0.35,
+      "strategic_ambiguity": 0.28,
+      "overt_iran_backing": 0.09
+    },
+    "source": {
+      "citation": "CFR 'China and the Middle East' 2024; IISS 'China's Strategic Interests in the Gulf' 2024; Chatham House 'China-Iran Relations: The 25-Year Agreement' 2023; Crisis Group 'China's Mediation Role in the Middle East' 2024",
+      "url": "https://www.cfr.org/backgrounder/china-middle-east",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "taiwan_strait_window_exploitation",
+    "phase": 5,
+    "type": "binary",
+    "label": "China Exploits Taiwan Window During US Engagement",
+    "description": "Whether China assesses the US military engagement with Iran as a strategic window to escalate pressure on Taiwan — through military exercises, ADIZ incursions, naval blockade preparations, or an opportunistic invasion attempt. The US carrier strike group(s) committed to the Persian Gulf would reduce Indo-Pacific naval presence. This is the most consequential tail risk of the geopolitical reaction phase. PLA war-gaming assessments have reportedly identified US multi-theater distraction as a key enabler for a Taiwan operation. The probability is highly sensitive to the scale of US commitment in the Gulf and the perceived duration of distraction.",
+    "parents": ["china_response_posture", "nato_coalition_formation", "escalation_ladder_position", "conflict_duration_estimate"],
+    "cpt": [
+      { "parentValues": { "china_response_posture": "overt_iran_backing", "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "over_3_months", "nato_coalition_formation": "us_effectively_alone" }, "pTrue": 0.35 },
+      { "parentValues": { "china_response_posture": "economic_leverage_signaling", "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "months", "nato_coalition_formation": "minimal_bilateral_only" }, "pTrue": 0.15 },
+      { "parentValues": { "china_response_posture": "strategic_ambiguity", "escalation_ladder_position": "full_scale_war", "conflict_duration_estimate": "over_3_months", "nato_coalition_formation": "core_anglosphere_plus_gulf" }, "pTrue": 0.12 },
+      { "parentValues": { "china_response_posture": "mediation_attempt", "escalation_ladder_position": "limited_exchange", "conflict_duration_estimate": "under_1_week", "nato_coalition_formation": "full_nato_plus_coalition" }, "pTrue": 0.02 },
+      { "parentValues": { "china_response_posture": "overt_iran_backing", "escalation_ladder_position": "nuclear_threshold", "conflict_duration_estimate": "over_3_months", "nato_coalition_formation": "us_effectively_alone" }, "pTrue": 0.42 },
+      { "parentValues": { "china_response_posture": "strategic_ambiguity", "escalation_ladder_position": "sustained_campaign", "conflict_duration_estimate": "months", "nato_coalition_formation": "full_nato_plus_coalition" }, "pTrue": 0.06 }
+    ],
+    "defaultPTrue": 0.10,
+    "source": {
+      "citation": "RAND 'The Taiwan Strait and Middle East Linkage' 2024; IISS 'PLA Readiness and Multi-Theater Risk' 2024; CFR 'China's Taiwan Calculus' 2024; Chatham House 'US Pacific Commitments Under Gulf Stress' 2023",
+      "url": "https://www.rand.org/pubs/research_reports/RRA2847.html",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "israel_direct_involvement_level",
+    "phase": 5,
+    "type": "categorical",
+    "label": "Israel's Direct Military Involvement Level",
+    "description": "Israel's degree of direct participation in offensive or defensive operations against Iran. Israel has conducted hundreds of airstrikes against Iranian targets in Syria (Operation Between the Wars), struck Iranian soil directly in April 2024 in response to the April 13 Iranian drone-missile attack, and maintains that eliminating Iran's nuclear capability is an existential priority. In a US-Iran war, Israel faces a choice between direct participation (maximizing operational impact, deepening the alliance, striking nuclear sites the US may not), restraint to preserve regional relations (as in 1991 Gulf War when US asked Israel not to respond to Scud attacks), or a covert role. Israel's involvement sharply affects Arab coalition willingness — GCC states are reluctant to be seen operationally aligned with Israel.",
+    "parents": ["first_strike_actor", "escalation_ladder_position", "nato_coalition_formation", "nuclear_escalation_risk_phase3"],
+    "categories": ["full_co_belligerent", "limited_direct_strikes", "defensive_only", "formal_restraint"],
+    "cpt": [
+      {
+        "parentValues": { "first_strike_actor": "israel", "escalation_ladder_position": "full_scale_war", "nuclear_escalation_risk_phase3": "true" },
+        "categoryProbabilities": { "full_co_belligerent": 0.62, "limited_direct_strikes": 0.28, "defensive_only": 0.07, "formal_restraint": 0.03 }
+      },
+      {
+        "parentValues": { "first_strike_actor": "israel", "escalation_ladder_position": "limited_exchange", "nuclear_escalation_risk_phase3": "false" },
+        "categoryProbabilities": { "full_co_belligerent": 0.30, "limited_direct_strikes": 0.45, "defensive_only": 0.18, "formal_restraint": 0.07 }
+      },
+      {
+        "parentValues": { "first_strike_actor": "united_states", "escalation_ladder_position": "full_scale_war", "nuclear_escalation_risk_phase3": "true" },
+        "categoryProbabilities": { "full_co_belligerent": 0.35, "limited_direct_strikes": 0.42, "defensive_only": 0.16, "formal_restraint": 0.07 }
+      },
+      {
+        "parentValues": { "first_strike_actor": "united_states", "escalation_ladder_position": "limited_exchange", "nuclear_escalation_risk_phase3": "false" },
+        "categoryProbabilities": { "full_co_belligerent": 0.10, "limited_direct_strikes": 0.25, "defensive_only": 0.38, "formal_restraint": 0.27 }
+      },
+      {
+        "parentValues": { "first_strike_actor": "iran", "escalation_ladder_position": "sustained_campaign", "nuclear_escalation_risk_phase3": "true" },
+        "categoryProbabilities": { "full_co_belligerent": 0.45, "limited_direct_strikes": 0.35, "defensive_only": 0.15, "formal_restraint": 0.05 }
+      },
+      {
+        "parentValues": { "first_strike_actor": "united_states", "escalation_ladder_position": "nuclear_threshold", "nuclear_escalation_risk_phase3": "true" },
+        "categoryProbabilities": { "full_co_belligerent": 0.48, "limited_direct_strikes": 0.35, "defensive_only": 0.12, "formal_restraint": 0.05 }
+      }
+    ],
+    "defaultProbabilities": {
+      "full_co_belligerent": 0.28,
+      "limited_direct_strikes": 0.35,
+      "defensive_only": 0.22,
+      "formal_restraint": 0.15
+    },
+    "source": {
+      "citation": "IISS 'Israel-Iran Military Confrontation' 2024; RAND 'Israeli Strike Options Against Iran' 2023; Crisis Group 'Israel's Iran Policy After October 7' 2024; CFR 'US-Israel Coordination on Iran' 2024",
+      "url": "https://www.iiss.org/publications/strategic-comments/2024/israel-iran-direct-confrontation",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "saudi_gcc_positioning",
+    "phase": 5,
+    "type": "categorical",
+    "label": "Saudi Arabia / GCC Strategic Positioning",
+    "description": "The Gulf Cooperation Council's collective posture, led by Saudi Arabia. The GCC states face contradictory pressures: they share US concern over Iranian hegemony, host critical US bases (Al Udeid in Qatar, Ali Al Salem in Kuwait, NSA Bahrain, Al Dhafra in UAE), and benefit from Iranian military degradation. Yet normalization with Iran (Saudi-Iran Beijing Agreement, March 2023) creates incentives for restraint, and Arab publics are hostile to open alignment with Israel. Saudi Arabia's Vision 2030 requires stable oil revenues and foreign investment — a prolonged war is economically damaging regardless of the price spike. The GCC must also calculate whether to allow basing access to the US (which Iran would target) or formally deny it to maintain plausible neutrality.",
+    "parents": ["nato_coalition_formation", "first_strike_actor", "israel_direct_involvement_level", "oil_price_sustained_spike"],
+    "categories": ["active_coalition_partner", "covert_support_basing_access", "formal_neutrality", "mediation_bloc"],
+    "cpt": [
+      {
+        "parentValues": { "first_strike_actor": "iran", "nato_coalition_formation": "full_nato_plus_coalition", "israel_direct_involvement_level": "formal_restraint" },
+        "categoryProbabilities": { "active_coalition_partner": 0.38, "covert_support_basing_access": 0.42, "formal_neutrality": 0.15, "mediation_bloc": 0.05 }
+      },
+      {
+        "parentValues": { "first_strike_actor": "united_states", "nato_coalition_formation": "us_effectively_alone", "israel_direct_involvement_level": "full_co_belligerent" },
+        "categoryProbabilities": { "active_coalition_partner": 0.06, "covert_support_basing_access": 0.28, "formal_neutrality": 0.42, "mediation_bloc": 0.24 }
+      },
+      {
+        "parentValues": { "first_strike_actor": "iran", "nato_coalition_formation": "core_anglosphere_plus_gulf", "israel_direct_involvement_level": "limited_direct_strikes" },
+        "categoryProbabilities": { "active_coalition_partner": 0.22, "covert_support_basing_access": 0.50, "formal_neutrality": 0.20, "mediation_bloc": 0.08 }
+      },
+      {
+        "parentValues": { "first_strike_actor": "israel", "nato_coalition_formation": "minimal_bilateral_only", "israel_direct_involvement_level": "full_co_belligerent" },
+        "categoryProbabilities": { "active_coalition_partner": 0.05, "covert_support_basing_access": 0.20, "formal_neutrality": 0.50, "mediation_bloc": 0.25 }
+      },
+      {
+        "parentValues": { "first_strike_actor": "united_states", "nato_coalition_formation": "core_anglosphere_plus_gulf", "israel_direct_involvement_level": "formal_restraint" },
+        "categoryProbabilities": { "active_coalition_partner": 0.28, "covert_support_basing_access": 0.45, "formal_neutrality": 0.20, "mediation_bloc": 0.07 }
+      },
+      {
+        "parentValues": { "first_strike_actor": "iran", "nato_coalition_formation": "full_nato_plus_coalition", "israel_direct_involvement_level": "full_co_belligerent" },
+        "categoryProbabilities": { "active_coalition_partner": 0.18, "covert_support_basing_access": 0.45, "formal_neutrality": 0.28, "mediation_bloc": 0.09 }
+      }
+    ],
+    "defaultProbabilities": {
+      "active_coalition_partner": 0.20,
+      "covert_support_basing_access": 0.42,
+      "formal_neutrality": 0.28,
+      "mediation_bloc": 0.10
+    },
+    "source": {
+      "citation": "CFR 'Gulf States and a US-Iran Conflict' 2024; IISS 'Gulf Military Balance' 2024; Crisis Group 'Saudi Arabia Between Washington and Tehran' 2024; Chatham House 'Vision 2030 and Regional Conflict' 2024",
+      "url": "https://www.cfr.org/backgrounder/gulf-states-us-iran-conflict",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "turkey_role",
+    "phase": 5,
+    "type": "categorical",
+    "label": "Turkey's Strategic Role",
+    "description": "Turkey's response as a NATO member with unique equidistance between Washington and Tehran. Turkey maintains significant trade and energy ties with Iran (Iran is a major gas supplier), hosts NATO's Incirlik Air Base and Kürecik radar site, and has pursued an autonomous foreign policy under Erdogan that has included mediating between Russia and Ukraine. Turkey could be a critical swing actor: denying NATO basing access (or conditioning it) would significantly complicate US logistics; facilitating mediation could shorten the conflict; overt neutrality would signal a fracture in NATO cohesion that Russia and China would exploit. Turkey's NATO Article 5 obligations do not apply since no NATO member has been attacked.",
+    "parents": ["nato_coalition_formation", "international_response", "escalation_ladder_position"],
+    "categories": ["nato_solidarity_active_support", "conditional_limited_support", "formal_neutrality_basing_withheld", "mediation_broker"],
+    "cpt": [
+      {
+        "parentValues": { "nato_coalition_formation": "full_nato_plus_coalition", "international_response": "broad_support" },
+        "categoryProbabilities": { "nato_solidarity_active_support": 0.38, "conditional_limited_support": 0.42, "formal_neutrality_basing_withheld": 0.12, "mediation_broker": 0.08 }
+      },
+      {
+        "parentValues": { "nato_coalition_formation": "core_anglosphere_plus_gulf", "international_response": "conditional_support" },
+        "categoryProbabilities": { "nato_solidarity_active_support": 0.15, "conditional_limited_support": 0.40, "formal_neutrality_basing_withheld": 0.25, "mediation_broker": 0.20 }
+      },
+      {
+        "parentValues": { "nato_coalition_formation": "us_effectively_alone", "international_response": "divided" },
+        "categoryProbabilities": { "nato_solidarity_active_support": 0.05, "conditional_limited_support": 0.20, "formal_neutrality_basing_withheld": 0.42, "mediation_broker": 0.33 }
+      },
+      {
+        "parentValues": { "nato_coalition_formation": "minimal_bilateral_only", "international_response": "broad_condemnation" },
+        "categoryProbabilities": { "nato_solidarity_active_support": 0.04, "conditional_limited_support": 0.15, "formal_neutrality_basing_withheld": 0.50, "mediation_broker": 0.31 }
+      },
+      {
+        "parentValues": { "nato_coalition_formation": "full_nato_plus_coalition", "international_response": "conditional_support" },
+        "categoryProbabilities": { "nato_solidarity_active_support": 0.22, "conditional_limited_support": 0.48, "formal_neutrality_basing_withheld": 0.18, "mediation_broker": 0.12 }
+      }
+    ],
+    "defaultProbabilities": {
+      "nato_solidarity_active_support": 0.18,
+      "conditional_limited_support": 0.35,
+      "formal_neutrality_basing_withheld": 0.28,
+      "mediation_broker": 0.19
+    },
+    "source": {
+      "citation": "IISS 'Turkey's Strategic Autonomy' 2024; CFR 'Turkey and NATO: Managing Divergence' 2024; Crisis Group 'Turkey's Iran Policy' 2023; Chatham House 'Erdogan's Foreign Policy Calculus' 2024",
+      "url": "https://www.iiss.org/publications/strategic-comments/2024/turkey-nato-iran",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "iran_proxy_network_activation",
+    "phase": 5,
+    "type": "categorical",
+    "label": "Iran Proxy Network Activation Level",
+    "description": "The degree to which Iran activates its regional proxy network — Hezbollah (Lebanon), Hamas/Palestinian Islamic Jihad (Gaza), Houthis (Yemen), Iraqi Shia militias (Popular Mobilization Forces/Kata'ib Hezbollah), and Syrian regime assets. Full activation creates a multi-front war straining US and allied force allocation. Hezbollah alone possesses an estimated 150,000 rockets and anti-ship missiles. The network's activation depends on Iran's perception of existential threat, the network's own risk calculus (Hezbollah suffered significant degradation in 2024 from Israeli operations), and whether Iran has sufficient command-and-control bandwidth under military pressure.",
+    "parents": ["escalation_ladder_position", "israel_direct_involvement_level", "first_strike_actor"],
+    "categories": ["limited_selected_activation", "moderate_multi_front", "full_network_mobilization", "network_degraded_limited_response"],
+    "cpt": [
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "first_strike_actor": "united_states" },
+        "categoryProbabilities": { "limited_selected_activation": 0.45, "moderate_multi_front": 0.30, "full_network_mobilization": 0.12, "network_degraded_limited_response": 0.13 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "first_strike_actor": "united_states" },
+        "categoryProbabilities": { "limited_selected_activation": 0.22, "moderate_multi_front": 0.45, "full_network_mobilization": 0.25, "network_degraded_limited_response": 0.08 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "first_strike_actor": "united_states" },
+        "categoryProbabilities": { "limited_selected_activation": 0.10, "moderate_multi_front": 0.30, "full_network_mobilization": 0.48, "network_degraded_limited_response": 0.12 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "first_strike_actor": "iran" },
+        "categoryProbabilities": { "limited_selected_activation": 0.12, "moderate_multi_front": 0.28, "full_network_mobilization": 0.45, "network_degraded_limited_response": 0.15 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "first_strike_actor": "united_states" },
+        "categoryProbabilities": { "limited_selected_activation": 0.06, "moderate_multi_front": 0.22, "full_network_mobilization": 0.58, "network_degraded_limited_response": 0.14 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "first_strike_actor": "israel", "israel_direct_involvement_level": "full_co_belligerent" },
+        "categoryProbabilities": { "limited_selected_activation": 0.15, "moderate_multi_front": 0.42, "full_network_mobilization": 0.35, "network_degraded_limited_response": 0.08 }
+      }
+    ],
+    "defaultProbabilities": {
+      "limited_selected_activation": 0.28,
+      "moderate_multi_front": 0.35,
+      "full_network_mobilization": 0.28,
+      "network_degraded_limited_response": 0.09
+    },
+    "source": {
+      "citation": "IISS 'Iran's Proxy Network' 2024; Crisis Group 'The Axis of Resistance Under Pressure' 2024; RAND 'Iran's Gray Zone Capabilities' 2023; Chatham House 'Hezbollah After 2024' 2024",
+      "url": "https://www.iiss.org/publications/strategic-comments/2024/iran-proxy-network",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "regional_power_dynamics_shift",
+    "phase": 5,
+    "type": "categorical",
+    "label": "Regional Power Dynamics Shift Outcome",
+    "description": "The net directional shift in the Middle East regional balance of power following the geopolitical reaction phase. Outcomes range from US-Israel strategic dominance with Iran severely weakened, to a fragmented multipolar region with competing influence zones (Russia-China backing Iran's reconstruction while US allies hold the Gulf), to a scenario where the conflict accelerates Iranian and Shia nationalist resolve creating a long insurgency, to a managed return to pre-conflict equilibrium. This node captures the durable strategic outcome rather than the immediate military result.",
+    "parents": ["nato_coalition_formation", "russia_response_posture", "china_response_posture", "iran_proxy_network_activation", "saudi_gcc_positioning"],
+    "categories": ["us_israel_dominance", "fragmented_multipolar_balance", "iran_regime_collapse_instability", "status_quo_ante_restoration"],
+    "cpt": [
+      {
+        "parentValues": { "nato_coalition_formation": "full_nato_plus_coalition", "russia_response_posture": "passive_opportunism", "china_response_posture": "mediation_attempt", "saudi_gcc_positioning": "active_coalition_partner" },
+        "categoryProbabilities": { "us_israel_dominance": 0.52, "fragmented_multipolar_balance": 0.22, "iran_regime_collapse_instability": 0.18, "status_quo_ante_restoration": 0.08 }
+      },
+      {
+        "parentValues": { "nato_coalition_formation": "us_effectively_alone", "russia_response_posture": "arms_intelligence_support", "china_response_posture": "economic_leverage_signaling", "saudi_gcc_positioning": "formal_neutrality" },
+        "categoryProbabilities": { "us_israel_dominance": 0.12, "fragmented_multipolar_balance": 0.48, "iran_regime_collapse_instability": 0.22, "status_quo_ante_restoration": 0.18 }
+      },
+      {
+        "parentValues": { "nato_coalition_formation": "core_anglosphere_plus_gulf", "russia_response_posture": "diplomatic_obstruction_only", "china_response_posture": "strategic_ambiguity", "saudi_gcc_positioning": "covert_support_basing_access" },
+        "categoryProbabilities": { "us_israel_dominance": 0.30, "fragmented_multipolar_balance": 0.38, "iran_regime_collapse_instability": 0.20, "status_quo_ante_restoration": 0.12 }
+      },
+      {
+        "parentValues": { "nato_coalition_formation": "us_effectively_alone", "russia_response_posture": "active_counter_intervention", "china_response_posture": "overt_iran_backing", "saudi_gcc_positioning": "mediation_bloc" },
+        "categoryProbabilities": { "us_israel_dominance": 0.05, "fragmented_multipolar_balance": 0.38, "iran_regime_collapse_instability": 0.12, "status_quo_ante_restoration": 0.45 }
+      },
+      {
+        "parentValues": { "nato_coalition_formation": "full_nato_plus_coalition", "russia_response_posture": "passive_opportunism", "china_response_posture": "mediation_attempt", "iran_proxy_network_activation": "full_network_mobilization" },
+        "categoryProbabilities": { "us_israel_dominance": 0.25, "fragmented_multipolar_balance": 0.32, "iran_regime_collapse_instability": 0.35, "status_quo_ante_restoration": 0.08 }
+      }
+    ],
+    "defaultProbabilities": {
+      "us_israel_dominance": 0.25,
+      "fragmented_multipolar_balance": 0.38,
+      "iran_regime_collapse_instability": 0.22,
+      "status_quo_ante_restoration": 0.15
+    },
+    "source": {
+      "citation": "RAND 'Post-Conflict Middle East Scenarios' 2024; CFR 'Regional Order After a US-Iran War' 2024; IISS 'Strategic Balance in the Gulf' 2024; Crisis Group 'The Morning After: Iran Post-Conflict' 2024",
+      "url": "https://www.rand.org/pubs/research_reports/RRA3210.html",
+      "confidence": "low-medium"
+    }
+  },
+  {
+    "id": "global_alliance_realignment_signal",
+    "phase": 5,
+    "type": "categorical",
+    "label": "Global Alliance Realignment Signal Strength",
+    "description": "The degree to which the conflict generates durable signals of alliance system realignment — measured by formal institutional changes (new bilateral treaties, BRICS expansion momentum, SCO security declarations, weakening of Western multilateral consensus in G7/NATO) and the formation of explicit counter-coalition structures. A strong realignment signal would indicate the conflict has accelerated the broader global order transition from US-led unipolarity toward multipolarity or bipolarity. A weak signal indicates the existing alliance architecture largely holds despite the shock.",
+    "parents": ["russia_response_posture", "china_response_posture", "nato_coalition_formation", "international_response", "global_gdp_impact"],
+    "categories": ["strong_realignment_toward_multipolarity", "moderate_bloc_hardening", "limited_marginal_shifts", "coalition_holds_minimal_realignment"],
+    "cpt": [
+      {
+        "parentValues": { "russia_response_posture": "active_counter_intervention", "china_response_posture": "overt_iran_backing", "nato_coalition_formation": "us_effectively_alone" },
+        "categoryProbabilities": { "strong_realignment_toward_multipolarity": 0.52, "moderate_bloc_hardening": 0.30, "limited_marginal_shifts": 0.12, "coalition_holds_minimal_realignment": 0.06 }
+      },
+      {
+        "parentValues": { "russia_response_posture": "arms_intelligence_support", "china_response_posture": "economic_leverage_signaling", "nato_coalition_formation": "minimal_bilateral_only" },
+        "categoryProbabilities": { "strong_realignment_toward_multipolarity": 0.28, "moderate_bloc_hardening": 0.42, "limited_marginal_shifts": 0.22, "coalition_holds_minimal_realignment": 0.08 }
+      },
+      {
+        "parentValues": { "russia_response_posture": "diplomatic_obstruction_only", "china_response_posture": "strategic_ambiguity", "nato_coalition_formation": "core_anglosphere_plus_gulf" },
+        "categoryProbabilities": { "strong_realignment_toward_multipolarity": 0.12, "moderate_bloc_hardening": 0.38, "limited_marginal_shifts": 0.35, "coalition_holds_minimal_realignment": 0.15 }
+      },
+      {
+        "parentValues": { "russia_response_posture": "passive_opportunism", "china_response_posture": "mediation_attempt", "nato_coalition_formation": "full_nato_plus_coalition" },
+        "categoryProbabilities": { "strong_realignment_toward_multipolarity": 0.05, "moderate_bloc_hardening": 0.22, "limited_marginal_shifts": 0.40, "coalition_holds_minimal_realignment": 0.33 }
+      },
+      {
+        "parentValues": { "russia_response_posture": "active_counter_intervention", "china_response_posture": "overt_iran_backing", "nato_coalition_formation": "core_anglosphere_plus_gulf" },
+        "categoryProbabilities": { "strong_realignment_toward_multipolarity": 0.38, "moderate_bloc_hardening": 0.38, "limited_marginal_shifts": 0.18, "coalition_holds_minimal_realignment": 0.06 }
+      }
+    ],
+    "defaultProbabilities": {
+      "strong_realignment_toward_multipolarity": 0.22,
+      "moderate_bloc_hardening": 0.38,
+      "limited_marginal_shifts": 0.28,
+      "coalition_holds_minimal_realignment": 0.12
+    },
+    "source": {
+      "citation": "CFR 'The Future of the Liberal Order' 2024; Chatham House 'Alliance Stress Tests' 2024; IISS 'Strategic Survey 2024'; RAND 'Global Order Transitions' 2024",
+      "url": "https://www.cfr.org/report/future-liberal-international-order",
+      "confidence": "low-medium"
+    }
+  },
+  {
+    "id": "un_humanitarian_response",
+    "phase": 5,
+    "type": "categorical",
+    "label": "UN / International Humanitarian Response",
+    "description": "The scope and effectiveness of UN and international humanitarian agency response to conflict-generated displacement, civilian casualties, and infrastructure destruction in Iran and the broader region. Large-scale Iranian civilian casualties (a sustained US bombing campaign would likely cause significant civilian harm given Iranian population density around nuclear and military sites) would generate UNHCR, OCHA, and ICRC mobilization. The response is shaped by Security Council dynamics (Russia/China vetoes limiting binding mandates), donor nation willingness to fund operations, and Iranian government's acceptance of international presence. This affects conflict duration by influencing ceasefire pressure and post-conflict reconstruction dynamics.",
+    "parents": ["un_security_council_action", "escalation_ladder_position", "international_response"],
+    "categories": ["robust_coordinated_response", "partial_fragmented_response", "blocked_politicized_response", "minimal_access_denied"],
+    "cpt": [
+      {
+        "parentValues": { "un_security_council_action": "binding_resolution", "international_response": "broad_support" },
+        "categoryProbabilities": { "robust_coordinated_response": 0.50, "partial_fragmented_response": 0.35, "blocked_politicized_response": 0.10, "minimal_access_denied": 0.05 }
+      },
+      {
+        "parentValues": { "un_security_council_action": "vetoed", "international_response": "broad_condemnation" },
+        "categoryProbabilities": { "robust_coordinated_response": 0.08, "partial_fragmented_response": 0.30, "blocked_politicized_response": 0.45, "minimal_access_denied": 0.17 }
+      },
+      {
+        "parentValues": { "un_security_council_action": "deadlocked", "international_response": "divided" },
+        "categoryProbabilities": { "robust_coordinated_response": 0.10, "partial_fragmented_response": 0.40, "blocked_politicized_response": 0.35, "minimal_access_denied": 0.15 }
+      },
+      {
+        "parentValues": { "un_security_council_action": "non_binding", "international_response": "conditional_support" },
+        "categoryProbabilities": { "robust_coordinated_response": 0.22, "partial_fragmented_response": 0.48, "blocked_politicized_response": 0.22, "minimal_access_denied": 0.08 }
+      },
+      {
+        "parentValues": { "un_security_council_action": "binding_resolution", "international_response": "broad_condemnation" },
+        "categoryProbabilities": { "robust_coordinated_response": 0.30, "partial_fragmented_response": 0.40, "blocked_politicized_response": 0.22, "minimal_access_denied": 0.08 }
+      }
+    ],
+    "defaultProbabilities": {
+      "robust_coordinated_response": 0.22,
+      "partial_fragmented_response": 0.40,
+      "blocked_politicized_response": 0.28,
+      "minimal_access_denied": 0.10
+    },
+    "source": {
+      "citation": "OCHA 'Humanitarian Response Planning' 2024; Crisis Group 'Humanitarian Consequences of a US-Iran War' 2024; Chatham House 'UN Reform and Security Council Dysfunction' 2024",
+      "url": "https://www.unocha.org/publications/report/world/global-humanitarian-overview-2025",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "ceasefire_mediation_viability",
+    "phase": 5,
+    "type": "categorical",
+    "label": "Ceasefire / Mediation Viability",
+    "description": "The likelihood and timeline of a viable ceasefire or mediation process emerging given the geopolitical reaction landscape. Potential mediators include Qatar (which has served as a US-Iran back-channel since 2021), Oman (hosted secret US-Iran nuclear talks), Turkey, China, and UN Secretary-General. The viability depends on whether all parties perceive escalation costs as exceeding further military gains, whether there is a formula that preserves domestic political face for both the US and Iran, and whether Russia and China are willing to facilitate rather than obstruct. A ceasefire's viability also depends on Israel's willingness to halt operations and the GCC's ability to offer post-conflict economic guarantees.",
+    "parents": ["china_response_posture", "turkey_role", "saudi_gcc_positioning", "escalation_ladder_position", "conflict_duration_estimate"],
+    "categories": ["early_ceasefire_within_weeks", "negotiated_halt_months", "prolonged_war_no_mediation", "frozen_conflict"],
+    "cpt": [
+      {
+        "parentValues": { "china_response_posture": "mediation_attempt", "turkey_role": "mediation_broker", "saudi_gcc_positioning": "mediation_bloc", "escalation_ladder_position": "limited_exchange" },
+        "categoryProbabilities": { "early_ceasefire_within_weeks": 0.55, "negotiated_halt_months": 0.30, "prolonged_war_no_mediation": 0.10, "frozen_conflict": 0.05 }
+      },
+      {
+        "parentValues": { "china_response_posture": "economic_leverage_signaling", "turkey_role": "conditional_limited_support", "saudi_gcc_positioning": "covert_support_basing_access", "escalation_ladder_position": "sustained_campaign" },
+        "categoryProbabilities": { "early_ceasefire_within_weeks": 0.18, "negotiated_halt_months": 0.45, "prolonged_war_no_mediation": 0.28, "frozen_conflict": 0.09 }
+      },
+      {
+        "parentValues": { "china_response_posture": "overt_iran_backing", "turkey_role": "formal_neutrality_basing_withheld", "saudi_gcc_positioning": "formal_neutrality", "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "early_ceasefire_within_weeks": 0.05, "negotiated_halt_months": 0.22, "prolonged_war_no_mediation": 0.52, "frozen_conflict": 0.21 }
+      },
+      {
+        "parentValues": { "china_response_posture": "strategic_ambiguity", "turkey_role": "mediation_broker", "saudi_gcc_positioning": "mediation_bloc", "escalation_ladder_position": "sustained_campaign" },
+        "categoryProbabilities": { "early_ceasefire_within_weeks": 0.30, "negotiated_halt_months": 0.42, "prolonged_war_no_mediation": 0.20, "frozen_conflict": 0.08 }
+      },
+      {
+        "parentValues": { "china_response_posture": "mediation_attempt", "turkey_role": "nato_solidarity_active_support", "saudi_gcc_positioning": "active_coalition_partner", "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "early_ceasefire_within_weeks": 0.10, "negotiated_halt_months": 0.35, "prolonged_war_no_mediation": 0.42, "frozen_conflict": 0.13 }
+      },
+      {
+        "parentValues": { "china_response_posture": "mediation_attempt", "turkey_role": "mediation_broker", "saudi_gcc_positioning": "mediation_bloc", "escalation_ladder_position": "nuclear_threshold" },
+        "categoryProbabilities": { "early_ceasefire_within_weeks": 0.32, "negotiated_halt_months": 0.40, "prolonged_war_no_mediation": 0.18, "frozen_conflict": 0.10 }
+      }
+    ],
+    "defaultProbabilities": {
+      "early_ceasefire_within_weeks": 0.22,
+      "negotiated_halt_months": 0.38,
+      "prolonged_war_no_mediation": 0.28,
+      "frozen_conflict": 0.12
+    },
+    "source": {
+      "citation": "Crisis Group 'Mediating a US-Iran Ceasefire' 2024; CFR 'Diplomatic Off-Ramps from a Gulf War' 2024; Chatham House 'Qatar and Oman as Mediators' 2024; RAND 'Conflict Termination in the Middle East' 2023",
+      "url": "https://www.crisisgroup.org/middle-east-north-africa/gulf-and-arabian-peninsula/iran/mediating-us-iran-conflict",
+      "confidence": "low-medium"
+    }
+  }
+]

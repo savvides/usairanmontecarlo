@@ -1,0 +1,477 @@
+[
+  {
+    "id": "broad-us-led-coalition",
+    "phase": 5,
+    "title": "Broad US-Led Coalition",
+    "description": "The United States successfully assembles a broad coalition analogous to the 1991 Gulf War — but with a modern twist. A clear Iranian first move (missile barrages on US assets, Gulf tanker seizures, or a proxy strike killing US service members) crystallizes international opinion. The UN Security Council passes a non-binding condemnation (China abstains rather than vetoing, Russia isolated). NATO allies grant basing and overflight rights; France and the UK contribute air assets. The Gulf states provide active logistical support and quietly offer base access. Turkey, calculating that NATO solidarity outweighs its Iran economic ties, grants Incirlik operations with conditions. Israel formally restrains its direct role at US request — reducing Arab coalition friction — but conducts covert intelligence sharing. China chooses a mediation posture, calculating economic leverage is better deployed through diplomatic positioning than open confrontation. Russia supplies rhetoric and UN obstruction but not arms, fearing secondary sanctions on the Russian energy sector that depend on continued SWIFT access. The coalition's breadth constrains Iran's narrative — it cannot frame the conflict as a US crusade against Islam when the Arab League is acquiescent and Turkey is broadly supportive. Ceasefire mediation through Qatar is viable within weeks of military operations beginning, as Iran faces diplomatic isolation alongside military degradation.",
+    "overrides": [
+      {
+        "nodeId": "nato_coalition_formation",
+        "overrideProbabilities": {
+          "full_nato_plus_coalition": 0.65,
+          "core_anglosphere_plus_gulf": 0.28,
+          "minimal_bilateral_only": 0.05,
+          "us_effectively_alone": 0.02
+        }
+      },
+      {
+        "nodeId": "russia_response_posture",
+        "overrideProbabilities": {
+          "passive_opportunism": 0.45,
+          "diplomatic_obstruction_only": 0.40,
+          "arms_intelligence_support": 0.12,
+          "active_counter_intervention": 0.03
+        }
+      },
+      {
+        "nodeId": "china_response_posture",
+        "overrideProbabilities": {
+          "mediation_attempt": 0.55,
+          "economic_leverage_signaling": 0.28,
+          "strategic_ambiguity": 0.14,
+          "overt_iran_backing": 0.03
+        }
+      },
+      {
+        "nodeId": "israel_direct_involvement_level",
+        "overrideProbabilities": {
+          "full_co_belligerent": 0.08,
+          "limited_direct_strikes": 0.22,
+          "defensive_only": 0.38,
+          "formal_restraint": 0.32
+        }
+      },
+      {
+        "nodeId": "saudi_gcc_positioning",
+        "overrideProbabilities": {
+          "active_coalition_partner": 0.38,
+          "covert_support_basing_access": 0.48,
+          "formal_neutrality": 0.10,
+          "mediation_bloc": 0.04
+        }
+      },
+      {
+        "nodeId": "turkey_role",
+        "overrideProbabilities": {
+          "nato_solidarity_active_support": 0.40,
+          "conditional_limited_support": 0.42,
+          "formal_neutrality_basing_withheld": 0.12,
+          "mediation_broker": 0.06
+        }
+      },
+      {
+        "nodeId": "iran_proxy_network_activation",
+        "overrideProbabilities": {
+          "limited_selected_activation": 0.35,
+          "moderate_multi_front": 0.42,
+          "full_network_mobilization": 0.15,
+          "network_degraded_limited_response": 0.08
+        }
+      },
+      {
+        "nodeId": "russia_ukraine_opportunism",
+        "overrideProbabilities": {
+          "true": 0.18,
+          "false": 0.82
+        }
+      },
+      {
+        "nodeId": "taiwan_strait_window_exploitation",
+        "overrideProbabilities": {
+          "true": 0.04,
+          "false": 0.96
+        }
+      },
+      {
+        "nodeId": "regional_power_dynamics_shift",
+        "overrideProbabilities": {
+          "us_israel_dominance": 0.48,
+          "fragmented_multipolar_balance": 0.28,
+          "iran_regime_collapse_instability": 0.18,
+          "status_quo_ante_restoration": 0.06
+        }
+      },
+      {
+        "nodeId": "global_alliance_realignment_signal",
+        "overrideProbabilities": {
+          "strong_realignment_toward_multipolarity": 0.05,
+          "moderate_bloc_hardening": 0.20,
+          "limited_marginal_shifts": 0.42,
+          "coalition_holds_minimal_realignment": 0.33
+        }
+      },
+      {
+        "nodeId": "ceasefire_mediation_viability",
+        "overrideProbabilities": {
+          "early_ceasefire_within_weeks": 0.40,
+          "negotiated_halt_months": 0.40,
+          "prolonged_war_no_mediation": 0.15,
+          "frozen_conflict": 0.05
+        }
+      }
+    ]
+  },
+  {
+    "id": "us-acts-largely-alone",
+    "phase": 5,
+    "title": "US Acts Largely Alone",
+    "description": "The United States launches military operations without securing meaningful international coalition support — the 2003 Iraq War model, but with even fewer partners and greater international skepticism. The trigger is ambiguous (intelligence disputes about Iranian culpability for a proxy attack, or a US-Israeli preemptive strike that most allies consider unjustified), generating a 'divided' international response. France and Germany publicly oppose operations. The UN Security Council sees a Russian veto of any supporting resolution. Turkey denies Incirlik access for offensive operations. Saudi Arabia and the UAE provide covert basing and logistical access but publicly distance themselves from US action, citing the need to preserve the 2023 Beijing-brokered Saudi-Iran normalization track. Israel joins limited direct strikes but US requests restraint fall on deaf ears. China issues sharp economic warnings — signaling potential rare-earth export restriction, US Treasury bond sales — and explicitly backs calls for an immediate ceasefire. Russia accelerates arms deliveries to Iran and coordinates with Beijing on a diplomatic counter-narrative at the UN and in the Global South. The US military can accomplish tactical objectives but faces political exhaustion rapidly. Congressional opposition mounts as the fiscal and human costs accumulate without visible allied burden-sharing. Iran's narrative gains traction — it presents the conflict as a unilateral imperial aggression — complicating any post-conflict settlement. Global South states rally around a BRICS-sponsored UN resolution. A negotiated halt is eventually possible but requires significant US diplomatic concessions and a face-saving formula for Tehran.",
+    "overrides": [
+      {
+        "nodeId": "nato_coalition_formation",
+        "overrideProbabilities": {
+          "full_nato_plus_coalition": 0.04,
+          "core_anglosphere_plus_gulf": 0.18,
+          "minimal_bilateral_only": 0.40,
+          "us_effectively_alone": 0.38
+        }
+      },
+      {
+        "nodeId": "russia_response_posture",
+        "overrideProbabilities": {
+          "passive_opportunism": 0.12,
+          "diplomatic_obstruction_only": 0.30,
+          "arms_intelligence_support": 0.45,
+          "active_counter_intervention": 0.13
+        }
+      },
+      {
+        "nodeId": "china_response_posture",
+        "overrideProbabilities": {
+          "mediation_attempt": 0.15,
+          "economic_leverage_signaling": 0.52,
+          "strategic_ambiguity": 0.25,
+          "overt_iran_backing": 0.08
+        }
+      },
+      {
+        "nodeId": "israel_direct_involvement_level",
+        "overrideProbabilities": {
+          "full_co_belligerent": 0.32,
+          "limited_direct_strikes": 0.42,
+          "defensive_only": 0.18,
+          "formal_restraint": 0.08
+        }
+      },
+      {
+        "nodeId": "saudi_gcc_positioning",
+        "overrideProbabilities": {
+          "active_coalition_partner": 0.06,
+          "covert_support_basing_access": 0.35,
+          "formal_neutrality": 0.42,
+          "mediation_bloc": 0.17
+        }
+      },
+      {
+        "nodeId": "turkey_role",
+        "overrideProbabilities": {
+          "nato_solidarity_active_support": 0.05,
+          "conditional_limited_support": 0.18,
+          "formal_neutrality_basing_withheld": 0.52,
+          "mediation_broker": 0.25
+        }
+      },
+      {
+        "nodeId": "iran_proxy_network_activation",
+        "overrideProbabilities": {
+          "limited_selected_activation": 0.12,
+          "moderate_multi_front": 0.35,
+          "full_network_mobilization": 0.42,
+          "network_degraded_limited_response": 0.11
+        }
+      },
+      {
+        "nodeId": "russia_ukraine_opportunism",
+        "overrideProbabilities": {
+          "true": 0.52,
+          "false": 0.48
+        }
+      },
+      {
+        "nodeId": "taiwan_strait_window_exploitation",
+        "overrideProbabilities": {
+          "true": 0.16,
+          "false": 0.84
+        }
+      },
+      {
+        "nodeId": "regional_power_dynamics_shift",
+        "overrideProbabilities": {
+          "us_israel_dominance": 0.15,
+          "fragmented_multipolar_balance": 0.45,
+          "iran_regime_collapse_instability": 0.22,
+          "status_quo_ante_restoration": 0.18
+        }
+      },
+      {
+        "nodeId": "global_alliance_realignment_signal",
+        "overrideProbabilities": {
+          "strong_realignment_toward_multipolarity": 0.30,
+          "moderate_bloc_hardening": 0.42,
+          "limited_marginal_shifts": 0.20,
+          "coalition_holds_minimal_realignment": 0.08
+        }
+      },
+      {
+        "nodeId": "un_humanitarian_response",
+        "overrideProbabilities": {
+          "robust_coordinated_response": 0.08,
+          "partial_fragmented_response": 0.32,
+          "blocked_politicized_response": 0.45,
+          "minimal_access_denied": 0.15
+        }
+      },
+      {
+        "nodeId": "ceasefire_mediation_viability",
+        "overrideProbabilities": {
+          "early_ceasefire_within_weeks": 0.10,
+          "negotiated_halt_months": 0.38,
+          "prolonged_war_no_mediation": 0.38,
+          "frozen_conflict": 0.14
+        }
+      }
+    ]
+  },
+  {
+    "id": "russia-china-actively-counter",
+    "phase": 5,
+    "title": "Russia / China Actively Counter",
+    "description": "In this scenario, Moscow and Beijing move beyond diplomatic obstruction to active countermeasures, transforming a bilateral US-Iran conflict into the most dangerous great-power confrontation since the Cold War. The trigger is a prolonged, large-scale US campaign — full-scale war lasting months — with clear escalation toward regime change in Tehran, which both Russia and China view as a red line establishing US precedent for unilateral regime change in any sovereign state. Russia activates an accelerated arms supply pipeline: S-300PMU-2 air defense systems, Kh-35 anti-ship missiles, and drone components transit through the Caspian corridor (circumventing formal export restrictions). Russian technical advisors embedded with IRGC air defense units provide real-time targeting updates on US air operations. China deploys economic leverage instruments: signaling intention to diversify away from dollar-denominated oil trades, conducting ostentatious PLA Navy exercises in the Arabian Sea in coordination with Iranian forces, and deploying export controls on gallium, germanium, and antimony critical to US precision munitions production. Beijing also publicly announces that any US use of financial system coercion against China for maintaining Iran trade will be met with reciprocal measures. The SCO convenes an emergency session issuing a joint statement demanding a ceasefire and labeling US operations a violation of the UN Charter. BRICS member states coordinate abstentions and negative votes across all UN bodies. Taiwan sees escalated PLA pressure — not an invasion but sustained gray-zone operations testing US Pacific deterrence. The US faces a genuine two-front great-power pressure campaign while conducting a major regional war. Ceasefire mediation becomes viable only once the US acknowledges Chinese and Russian interests in any post-conflict settlement.",
+    "overrides": [
+      {
+        "nodeId": "nato_coalition_formation",
+        "overrideProbabilities": {
+          "full_nato_plus_coalition": 0.10,
+          "core_anglosphere_plus_gulf": 0.25,
+          "minimal_bilateral_only": 0.38,
+          "us_effectively_alone": 0.27
+        }
+      },
+      {
+        "nodeId": "russia_response_posture",
+        "overrideProbabilities": {
+          "passive_opportunism": 0.04,
+          "diplomatic_obstruction_only": 0.12,
+          "arms_intelligence_support": 0.48,
+          "active_counter_intervention": 0.36
+        }
+      },
+      {
+        "nodeId": "china_response_posture",
+        "overrideProbabilities": {
+          "mediation_attempt": 0.08,
+          "economic_leverage_signaling": 0.35,
+          "strategic_ambiguity": 0.18,
+          "overt_iran_backing": 0.39
+        }
+      },
+      {
+        "nodeId": "israel_direct_involvement_level",
+        "overrideProbabilities": {
+          "full_co_belligerent": 0.40,
+          "limited_direct_strikes": 0.38,
+          "defensive_only": 0.15,
+          "formal_restraint": 0.07
+        }
+      },
+      {
+        "nodeId": "saudi_gcc_positioning",
+        "overrideProbabilities": {
+          "active_coalition_partner": 0.08,
+          "covert_support_basing_access": 0.25,
+          "formal_neutrality": 0.45,
+          "mediation_bloc": 0.22
+        }
+      },
+      {
+        "nodeId": "turkey_role",
+        "overrideProbabilities": {
+          "nato_solidarity_active_support": 0.06,
+          "conditional_limited_support": 0.18,
+          "formal_neutrality_basing_withheld": 0.48,
+          "mediation_broker": 0.28
+        }
+      },
+      {
+        "nodeId": "iran_proxy_network_activation",
+        "overrideProbabilities": {
+          "limited_selected_activation": 0.05,
+          "moderate_multi_front": 0.22,
+          "full_network_mobilization": 0.62,
+          "network_degraded_limited_response": 0.11
+        }
+      },
+      {
+        "nodeId": "russia_ukraine_opportunism",
+        "overrideProbabilities": {
+          "true": 0.72,
+          "false": 0.28
+        }
+      },
+      {
+        "nodeId": "taiwan_strait_window_exploitation",
+        "overrideProbabilities": {
+          "true": 0.30,
+          "false": 0.70
+        }
+      },
+      {
+        "nodeId": "regional_power_dynamics_shift",
+        "overrideProbabilities": {
+          "us_israel_dominance": 0.08,
+          "fragmented_multipolar_balance": 0.42,
+          "iran_regime_collapse_instability": 0.15,
+          "status_quo_ante_restoration": 0.35
+        }
+      },
+      {
+        "nodeId": "global_alliance_realignment_signal",
+        "overrideProbabilities": {
+          "strong_realignment_toward_multipolarity": 0.55,
+          "moderate_bloc_hardening": 0.30,
+          "limited_marginal_shifts": 0.10,
+          "coalition_holds_minimal_realignment": 0.05
+        }
+      },
+      {
+        "nodeId": "un_humanitarian_response",
+        "overrideProbabilities": {
+          "robust_coordinated_response": 0.05,
+          "partial_fragmented_response": 0.22,
+          "blocked_politicized_response": 0.52,
+          "minimal_access_denied": 0.21
+        }
+      },
+      {
+        "nodeId": "ceasefire_mediation_viability",
+        "overrideProbabilities": {
+          "early_ceasefire_within_weeks": 0.05,
+          "negotiated_halt_months": 0.25,
+          "prolonged_war_no_mediation": 0.52,
+          "frozen_conflict": 0.18
+        }
+      }
+    ]
+  },
+  {
+    "id": "regional-actors-mediate",
+    "phase": 5,
+    "title": "Regional Actors Mediate",
+    "description": "A coalition of regional actors — Qatar, Oman, Turkey, and Saudi Arabia, with Chinese facilitation — orchestrates a ceasefire framework before the conflict escalates beyond a limited exchange. This scenario depends on a specific set of conditions: the initial military exchange is bounded (limited exchange or early sustained campaign), both the US and Iran suffer enough costs to make a pause politically viable, and key regional brokers have maintained back-channel contacts with both parties. Qatar's Al-Udeid Air Base hosting US forces gives Doha unique leverage — it can hint at access complications while simultaneously serving as the communication conduit to Tehran. Oman's Foreign Ministry, which facilitated the 2013–2015 back-channel that led to the JCPOA, activates its network. Turkey offers its good offices while signaling to both Washington and Tehran that a prolonged conflict will destabilize the broader region and drive more migration crises into Europe — a message that resonates with wavering NATO allies. China's mediation offer comes with economic sweeteners: post-ceasefire credits for Iranian reconstruction, continued oil purchases, and a face-saving formula by which Iran agrees to enhanced nuclear monitoring without formally surrendering its position. Saudi Arabia and the GCC pledge post-ceasefire economic assistance to Iran contingent on its acceptance of terms — an incentive structure echoing the Gulf states' role in Lebanon's Ta'if Agreement. The US accepts the framework primarily because congressional and public appetite for sustained operations is limited and the economic costs are mounting. Iran accepts because continued military engagement risks regime survival. The ceasefire produces a 'frozen conflict' dynamic with unresolved nuclear and proxy questions, but prevents the worst-case escalation paths.",
+    "overrides": [
+      {
+        "nodeId": "nato_coalition_formation",
+        "overrideProbabilities": {
+          "full_nato_plus_coalition": 0.08,
+          "core_anglosphere_plus_gulf": 0.30,
+          "minimal_bilateral_only": 0.38,
+          "us_effectively_alone": 0.24
+        }
+      },
+      {
+        "nodeId": "russia_response_posture",
+        "overrideProbabilities": {
+          "passive_opportunism": 0.22,
+          "diplomatic_obstruction_only": 0.42,
+          "arms_intelligence_support": 0.28,
+          "active_counter_intervention": 0.08
+        }
+      },
+      {
+        "nodeId": "china_response_posture",
+        "overrideProbabilities": {
+          "mediation_attempt": 0.65,
+          "economic_leverage_signaling": 0.22,
+          "strategic_ambiguity": 0.10,
+          "overt_iran_backing": 0.03
+        }
+      },
+      {
+        "nodeId": "israel_direct_involvement_level",
+        "overrideProbabilities": {
+          "full_co_belligerent": 0.10,
+          "limited_direct_strikes": 0.28,
+          "defensive_only": 0.35,
+          "formal_restraint": 0.27
+        }
+      },
+      {
+        "nodeId": "saudi_gcc_positioning",
+        "overrideProbabilities": {
+          "active_coalition_partner": 0.08,
+          "covert_support_basing_access": 0.22,
+          "formal_neutrality": 0.28,
+          "mediation_bloc": 0.42
+        }
+      },
+      {
+        "nodeId": "turkey_role",
+        "overrideProbabilities": {
+          "nato_solidarity_active_support": 0.05,
+          "conditional_limited_support": 0.22,
+          "formal_neutrality_basing_withheld": 0.22,
+          "mediation_broker": 0.51
+        }
+      },
+      {
+        "nodeId": "iran_proxy_network_activation",
+        "overrideProbabilities": {
+          "limited_selected_activation": 0.42,
+          "moderate_multi_front": 0.38,
+          "full_network_mobilization": 0.12,
+          "network_degraded_limited_response": 0.08
+        }
+      },
+      {
+        "nodeId": "russia_ukraine_opportunism",
+        "overrideProbabilities": {
+          "true": 0.30,
+          "false": 0.70
+        }
+      },
+      {
+        "nodeId": "taiwan_strait_window_exploitation",
+        "overrideProbabilities": {
+          "true": 0.06,
+          "false": 0.94
+        }
+      },
+      {
+        "nodeId": "regional_power_dynamics_shift",
+        "overrideProbabilities": {
+          "us_israel_dominance": 0.10,
+          "fragmented_multipolar_balance": 0.35,
+          "iran_regime_collapse_instability": 0.08,
+          "status_quo_ante_restoration": 0.47
+        }
+      },
+      {
+        "nodeId": "global_alliance_realignment_signal",
+        "overrideProbabilities": {
+          "strong_realignment_toward_multipolarity": 0.12,
+          "moderate_bloc_hardening": 0.30,
+          "limited_marginal_shifts": 0.38,
+          "coalition_holds_minimal_realignment": 0.20
+        }
+      },
+      {
+        "nodeId": "un_humanitarian_response",
+        "overrideProbabilities": {
+          "robust_coordinated_response": 0.35,
+          "partial_fragmented_response": 0.45,
+          "blocked_politicized_response": 0.15,
+          "minimal_access_denied": 0.05
+        }
+      },
+      {
+        "nodeId": "ceasefire_mediation_viability",
+        "overrideProbabilities": {
+          "early_ceasefire_within_weeks": 0.48,
+          "negotiated_halt_months": 0.38,
+          "prolonged_war_no_mediation": 0.10,
+          "frozen_conflict": 0.04
+        }
+      }
+    ]
+  }
+]
