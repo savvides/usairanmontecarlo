@@ -1,0 +1,434 @@
+[
+  {
+    "id": "quick-ceasefire-weeks",
+    "phase": 7,
+    "title": "Quick Ceasefire (Weeks)",
+    "description": "The conflict terminates within two to eight weeks through third-party mediation — most likely via Qatari or Omani channels — before it can metastasize into a prolonged war of attrition. This scenario requires a convergence of favorable conditions: the US achieves its primary military objectives (assessed destruction of Iran's key enrichment facilities at Natanz and Fordow, degradation of IRGC missile and naval capabilities) within the first 10–14 days; Iranian civilian and military casualties remain below politically catastrophic thresholds; Gulf state mediators pre-position a diplomatic framework that both sides can accept before domestic hardliners on both sides shut the window. The Qatari model is instructive — Doha has simultaneously hosted Hamas political leadership, US Central Command, a US airbase, and backchannel Iran-US communications since at least 2015. Oman has served as the primary US-Iran back-channel since the Obama era, and that diplomatic infrastructure survives regime transitions. The ceasefire is most likely framed as a 'humanitarian pause' initially, then formalized into a UN Security Council Resolution brokered after the fact — allowing both the US (which can claim a UN mandate for its intervention ex post) and Iran (which can claim international legitimacy for its resistance) to present the outcome domestically as a partial success. Key vulnerabilities: Hezbollah's calculus is the primary spoiler — if Hezbollah opens a second front against Israel, Israeli retaliation expands the conflict beyond the US-Iran bilateral framework, potentially pulling in Jordan, Iraq, and Gulf states in unpredictable ways. The ceasefire window is narrow: historical analysis suggests it is most achievable in the first 14–21 days before proxy networks fully activate and institutional momentum builds. Iran's Supreme Leader would need to make a politically dangerous concession — framing it domestically as 'defending the Islamic Republic' rather than 'accepting defeat.' US domestic political support is sustained through the short duration: congressional opposition lacks time to organize, and casualty figures remain below the threshold of political salience. The nuclear outcome in this scenario is a significant setback for Iran — likely 4–7 years of program reconstruction — but not permanent elimination, since deep underground facilities require sustained bombardment or ground inspection to confirm destruction. Post-ceasefire negotiations would begin within months under Qatari or UN auspices, with the nuclear framework as the central agenda item.",
+    "overrides": [
+      {
+        "nodeId": "actual_conflict_duration",
+        "overrideProbabilities": {
+          "under_2_weeks": 0.45,
+          "2_to_8_weeks": 0.48,
+          "2_to_6_months": 0.06,
+          "over_6_months": 0.01
+        }
+      },
+      {
+        "nodeId": "ceasefire_mechanism",
+        "overrideProbabilities": {
+          "un_brokered": 0.22,
+          "third_party_bilateral": 0.58,
+          "unilateral_us_declaration": 0.12,
+          "unilateral_iran_declaration": 0.06,
+          "no_formal_ceasefire": 0.02
+        }
+      },
+      {
+        "nodeId": "negotiation_framework",
+        "overrideProbabilities": {
+          "revived_nuclear_deal": 0.38,
+          "regional_security_compact": 0.28,
+          "bilateral_ad_hoc": 0.24,
+          "no_framework": 0.10
+        }
+      },
+      {
+        "nodeId": "iranian_regime_stability",
+        "overrideProbabilities": {
+          "consolidated_hardline": 0.28,
+          "weakened_but_stable": 0.52,
+          "fragmented_elite_conflict": 0.16,
+          "near_collapse": 0.04
+        }
+      },
+      {
+        "nodeId": "us_domestic_political_pressure",
+        "overrideProbabilities": {
+          "weak_support_continues": 0.52,
+          "moderate_pressure_constrained": 0.35,
+          "strong_pressure_exit_sought": 0.10,
+          "overwhelming_pressure_forced_exit": 0.03
+        }
+      },
+      {
+        "nodeId": "war_fatigue_indicator",
+        "overrideProbabilities": {
+          "low_both_sides_continue": 0.42,
+          "moderate_us_pressured": 0.18,
+          "moderate_iran_pressured": 0.32,
+          "high_both_sides_exhausted": 0.08
+        }
+      },
+      {
+        "nodeId": "face_saving_offramp_availability",
+        "overrideProbabilities": {
+          "strong_offramp_both_sides": 0.48,
+          "offramp_for_us_only": 0.28,
+          "offramp_for_iran_only": 0.16,
+          "no_viable_offramp": 0.08
+        }
+      },
+      {
+        "nodeId": "us_domestic_regime_stability",
+        "overrideProbabilities": {
+          "strong_bipartisan_consensus": 0.45,
+          "presidential_authority_constrained": 0.38,
+          "partisan_fracture": 0.14,
+          "constitutional_crisis": 0.03
+        }
+      },
+      {
+        "nodeId": "iran_nuclear_program_outcome",
+        "overrideProbabilities": {
+          "program_permanently_eliminated": 0.12,
+          "significant_setback_5_plus_years": 0.48,
+          "temporary_setback_2_to_4_years": 0.32,
+          "accelerated_reconstitution": 0.08
+        }
+      },
+      {
+        "nodeId": "regional_war_expansion_risk",
+        "overrideProbabilities": {
+          "contained_bilateral": 0.52,
+          "limited_proxy_expansion": 0.35,
+          "multi_front_regional_war": 0.10,
+          "catastrophic_regional_conflagration": 0.03
+        }
+      },
+      {
+        "nodeId": "resolution_type",
+        "overrideProbabilities": {
+          "decisive_us_victory": 0.28,
+          "negotiated_settlement": 0.50,
+          "frozen_conflict": 0.18,
+          "wider_regional_war": 0.04
+        }
+      }
+    ]
+  },
+  {
+    "id": "negotiated-settlement-months",
+    "phase": 7,
+    "title": "Negotiated Settlement (Months)",
+    "description": "After two to six months of sustained military operations that neither decisively end the conflict nor trigger full regional conflagration, both sides arrive at a negotiated settlement through intensive multilateral diplomacy. This scenario unfolds in three phases: an initial military campaign phase (weeks 1–6) in which the US achieves tactical air dominance and destroys above-ground nuclear and missile infrastructure; a grinding operational phase (weeks 6–16) characterized by Iranian proxy activation, sporadic missile exchanges, and economic attrition on both sides; and a diplomatic resolution phase (months 4–6) in which war fatigue, humanitarian pressure, mounting economic costs, and third-party mediation converge to produce a negotiated exit. The settlement architecture would likely resemble a 'JCPOA+' structure — stricter verification, longer timelines, and broader constraints on Iran's enrichment program than the 2015 deal — in exchange for phased sanction relief and implicit US security guarantees against regime change. Iran's willingness to negotiate is driven by: economic devastation from combined sanctions and war damage; IRGC institutional interests in preserving the Islamic Republic over ideological purity; the mediating influence of China (which has economic leverage over both Iran's reconstruction and its political calculus) and Russia (which has interests in preventing a permanent US military presence near Iran's borders). The US willingness to negotiate is driven by: mounting war costs approaching $200–500 billion; congressional pressure and polling erosion; the absence of a viable path to permanent nuclear elimination without ground forces; and allied pressure from Gulf states and European partners who bear the oil price and refugee burden. The humanitarian cost index is the most significant accelerant of settlement pressure: documented civilian suffering — especially infrastructure collapse — shifts the global media environment against the US and narrows the diplomatic space for continued operations. Key risks: Iran's hardliners may demand conditions the US cannot accept publicly (regime survival guarantees, sanctions relief without adequate verification); US domestic opposition may prevent any deal seen as legitimizing the Islamic Republic; and Hezbollah's parallel military posture may complicate bilateral US-Iran talks by inserting Israeli interests into the negotiating calculus. Chatham House's 2024 analysis suggests that a negotiated settlement is achievable but requires a 'landing zone' narrative on both sides — the US claiming a 'historic constraint on Iran's nuclear weapons capability' and Iran claiming it 'defended sovereignty and extracted concessions from aggression.'",
+    "overrides": [
+      {
+        "nodeId": "actual_conflict_duration",
+        "overrideProbabilities": {
+          "under_2_weeks": 0.04,
+          "2_to_8_weeks": 0.28,
+          "2_to_6_months": 0.55,
+          "over_6_months": 0.13
+        }
+      },
+      {
+        "nodeId": "ceasefire_mechanism",
+        "overrideProbabilities": {
+          "un_brokered": 0.18,
+          "third_party_bilateral": 0.48,
+          "unilateral_us_declaration": 0.18,
+          "unilateral_iran_declaration": 0.10,
+          "no_formal_ceasefire": 0.06
+        }
+      },
+      {
+        "nodeId": "negotiation_framework",
+        "overrideProbabilities": {
+          "revived_nuclear_deal": 0.35,
+          "regional_security_compact": 0.30,
+          "bilateral_ad_hoc": 0.25,
+          "no_framework": 0.10
+        }
+      },
+      {
+        "nodeId": "iranian_regime_stability",
+        "overrideProbabilities": {
+          "consolidated_hardline": 0.20,
+          "weakened_but_stable": 0.48,
+          "fragmented_elite_conflict": 0.25,
+          "near_collapse": 0.07
+        }
+      },
+      {
+        "nodeId": "us_domestic_political_pressure",
+        "overrideProbabilities": {
+          "weak_support_continues": 0.15,
+          "moderate_pressure_constrained": 0.42,
+          "strong_pressure_exit_sought": 0.33,
+          "overwhelming_pressure_forced_exit": 0.10
+        }
+      },
+      {
+        "nodeId": "war_fatigue_indicator",
+        "overrideProbabilities": {
+          "low_both_sides_continue": 0.08,
+          "moderate_us_pressured": 0.30,
+          "moderate_iran_pressured": 0.35,
+          "high_both_sides_exhausted": 0.27
+        }
+      },
+      {
+        "nodeId": "face_saving_offramp_availability",
+        "overrideProbabilities": {
+          "strong_offramp_both_sides": 0.38,
+          "offramp_for_us_only": 0.28,
+          "offramp_for_iran_only": 0.20,
+          "no_viable_offramp": 0.14
+        }
+      },
+      {
+        "nodeId": "us_domestic_regime_stability",
+        "overrideProbabilities": {
+          "strong_bipartisan_consensus": 0.12,
+          "presidential_authority_constrained": 0.42,
+          "partisan_fracture": 0.38,
+          "constitutional_crisis": 0.08
+        }
+      },
+      {
+        "nodeId": "iran_nuclear_program_outcome",
+        "overrideProbabilities": {
+          "program_permanently_eliminated": 0.10,
+          "significant_setback_5_plus_years": 0.42,
+          "temporary_setback_2_to_4_years": 0.35,
+          "accelerated_reconstitution": 0.13
+        }
+      },
+      {
+        "nodeId": "regional_war_expansion_risk",
+        "overrideProbabilities": {
+          "contained_bilateral": 0.28,
+          "limited_proxy_expansion": 0.45,
+          "multi_front_regional_war": 0.22,
+          "catastrophic_regional_conflagration": 0.05
+        }
+      },
+      {
+        "nodeId": "resolution_type",
+        "overrideProbabilities": {
+          "decisive_us_victory": 0.12,
+          "negotiated_settlement": 0.58,
+          "frozen_conflict": 0.24,
+          "wider_regional_war": 0.06
+        }
+      }
+    ]
+  },
+  {
+    "id": "prolonged-stalemate",
+    "phase": 7,
+    "title": "Prolonged Stalemate",
+    "description": "The conflict grinds into a multi-month to multi-year frozen stalemate in which neither side achieves its objectives, active large-scale hostilities cease without formal resolution, and the underlying political and nuclear dispute remains unresolved. This scenario — analogous to the post-2006 Lebanon situation, the Korean post-1953 armistice, or the current US-North Korea dynamic — is characterized by: periodic flare-ups and proxy incidents without return to full-scale war; an intact but politically weakened Islamic Republic that continues nuclear program reconstruction in dispersed hardened facilities; a US domestic political environment too divided to authorize either re-escalation or a formal diplomatic settlement; and a regional status quo significantly less stable than the pre-conflict baseline. The frozen conflict outcome is produced by a specific failure of resolution: both sides are too fatigued and damaged to continue major combat but too politically constrained to make the concessions required for a real settlement. The US has degraded Iran's nuclear program significantly but not permanently; Iran's conventional military is weakened but the IRGC's asymmetric capabilities and proxy networks remain intact. Iran would use the stalemate period to rebuild — dispersing its nuclear program to even deeper facilities, potentially using Chinese technological assistance, and expanding its missile inventory with North Korean cooperation. The stalemate is particularly dangerous because it removes the deterrent pressure that sustained the pre-conflict status quo while leaving the underlying strategic competition unresolved. Iranian nuclear reconstitution in a stalemate scenario occurs on a 3–5 year timeline — potentially shorter than the diplomatic process required to address it. The economic costs of the stalemate are sustained: oil markets price in continued Persian Gulf instability (a $15–30/barrel risk premium), global trade routes remain disrupted, and the $200–500 billion war cost is compounded by ongoing operational expenses of maintaining a combat-ready force in theater. US domestic political dysfunction deepens: the 'no win, no loss' narrative of frozen conflict is the most damaging politically for the executive branch, fueling both anti-war left and 'finish the job' right opposition simultaneously. The frozen conflict is the most likely trajectory given RAND's historical analysis showing that asymmetric wars between great powers and regional states produce formal resolution in under 30% of cases within 5 years — the majority enter prolonged low-level conflict states.",
+    "overrides": [
+      {
+        "nodeId": "actual_conflict_duration",
+        "overrideProbabilities": {
+          "under_2_weeks": 0.04,
+          "2_to_8_weeks": 0.18,
+          "2_to_6_months": 0.42,
+          "over_6_months": 0.36
+        }
+      },
+      {
+        "nodeId": "ceasefire_mechanism",
+        "overrideProbabilities": {
+          "un_brokered": 0.08,
+          "third_party_bilateral": 0.20,
+          "unilateral_us_declaration": 0.32,
+          "unilateral_iran_declaration": 0.12,
+          "no_formal_ceasefire": 0.28
+        }
+      },
+      {
+        "nodeId": "negotiation_framework",
+        "overrideProbabilities": {
+          "revived_nuclear_deal": 0.10,
+          "regional_security_compact": 0.12,
+          "bilateral_ad_hoc": 0.30,
+          "no_framework": 0.48
+        }
+      },
+      {
+        "nodeId": "iranian_regime_stability",
+        "overrideProbabilities": {
+          "consolidated_hardline": 0.35,
+          "weakened_but_stable": 0.38,
+          "fragmented_elite_conflict": 0.22,
+          "near_collapse": 0.05
+        }
+      },
+      {
+        "nodeId": "us_domestic_political_pressure",
+        "overrideProbabilities": {
+          "weak_support_continues": 0.08,
+          "moderate_pressure_constrained": 0.28,
+          "strong_pressure_exit_sought": 0.42,
+          "overwhelming_pressure_forced_exit": 0.22
+        }
+      },
+      {
+        "nodeId": "war_fatigue_indicator",
+        "overrideProbabilities": {
+          "low_both_sides_continue": 0.05,
+          "moderate_us_pressured": 0.30,
+          "moderate_iran_pressured": 0.25,
+          "high_both_sides_exhausted": 0.40
+        }
+      },
+      {
+        "nodeId": "face_saving_offramp_availability",
+        "overrideProbabilities": {
+          "strong_offramp_both_sides": 0.12,
+          "offramp_for_us_only": 0.28,
+          "offramp_for_iran_only": 0.18,
+          "no_viable_offramp": 0.42
+        }
+      },
+      {
+        "nodeId": "us_domestic_regime_stability",
+        "overrideProbabilities": {
+          "strong_bipartisan_consensus": 0.06,
+          "presidential_authority_constrained": 0.28,
+          "partisan_fracture": 0.50,
+          "constitutional_crisis": 0.16
+        }
+      },
+      {
+        "nodeId": "iran_nuclear_program_outcome",
+        "overrideProbabilities": {
+          "program_permanently_eliminated": 0.04,
+          "significant_setback_5_plus_years": 0.20,
+          "temporary_setback_2_to_4_years": 0.42,
+          "accelerated_reconstitution": 0.34
+        }
+      },
+      {
+        "nodeId": "regional_war_expansion_risk",
+        "overrideProbabilities": {
+          "contained_bilateral": 0.18,
+          "limited_proxy_expansion": 0.45,
+          "multi_front_regional_war": 0.30,
+          "catastrophic_regional_conflagration": 0.07
+        }
+      },
+      {
+        "nodeId": "resolution_type",
+        "overrideProbabilities": {
+          "decisive_us_victory": 0.06,
+          "negotiated_settlement": 0.18,
+          "frozen_conflict": 0.62,
+          "wider_regional_war": 0.14
+        }
+      }
+    ]
+  },
+  {
+    "id": "escalation-wider-regional-war",
+    "phase": 7,
+    "title": "Escalation to Wider Regional War",
+    "description": "Resolution attempts fail, and the conflict expands into a multi-front regional conflagration involving Hezbollah in Lebanon, Houthi forces in Yemen, Iraqi Shia militias, potentially direct Israeli military action, and possible Iranian proxy attacks on Gulf state infrastructure. This is the worst-case Phase 7 trajectory — a scenario in which the failure of war termination produces a qualitatively different and far more dangerous conflict than the original bilateral US-Iran exchange. The expansion cascade follows a specific sequence: (1) Iranian conventional military degradation incentivizes the IRGC to activate its proxy network as its primary remaining asymmetric capability — Hezbollah receives direct order to strike Israel; (2) Israeli government, facing domestic political pressure following Hezbollah rocket attacks and existential threat framing, launches massive air strikes on Hezbollah infrastructure in Lebanon and potentially Iranian territory directly; (3) this Israeli escalation draws Lebanon into open war, triggers Houthi intensification of Red Sea disruption and strikes on Saudi Arabia, and activates Iraqi militia attacks on US bases in Iraq; (4) Saudi Arabia, facing Houthi strikes on Aramco infrastructure (repeating and exceeding the 2019 attack), considers direct military action or requests US intervention; (5) the conflict becomes a simultaneous multi-theater war across Yemen, Lebanon, Iraq, Syria, and potentially the Gulf — far exceeding US military and diplomatic bandwidth for management. The nuclear escalation risk in this scenario rises sharply: Iran, facing regime-threatening military pressure with conventional options exhausted, may calculate that nuclear signaling (moving toward weaponization threshold, activating undisclosed enrichment sites) provides a deterrent against regime change. Russia's response becomes more active — intelligence sharing, advanced air defense resupply, and diplomatic blocking in the UNSC prevents any UN ceasefire mechanism from functioning. China shifts from strategic ambiguity toward overt Iran backing as the conflict threatens its Belt and Road investments and oil supply chains. The US faces a fundamental military bandwidth crisis: maintaining operations against Iran while supporting Israel against Hezbollah, protecting Gulf state infrastructure, and suppressing Iraqi militia attacks against US personnel simultaneously exceeds current deployment capacity without full wartime mobilization. Congressional authorization becomes a political crisis: the War Powers clock runs out, and the administration faces a constitutional confrontation over continued operations without a new AUMF. RAND's 2022 analysis of 'escalation dynamics in multi-party conflicts' identifies the transition from bilateral to multilateral conflict as the primary mechanism by which limited wars become catastrophic — and the US-Iran-Israel-proxy nexus in the Levant is precisely the kind of interlocking alliance structure that produces this dynamic. CFR estimates that a full regional war involving Lebanon, Yemen, Iraq, and potential Gulf state attacks could produce 100,000–500,000 casualties across all parties within the first year and generate refugee flows exceeding 10 million — producing the 'catastrophic regional conflagration' outcome that no party can manage diplomatically or militarily.",
+    "overrides": [
+      {
+        "nodeId": "actual_conflict_duration",
+        "overrideProbabilities": {
+          "under_2_weeks": 0.02,
+          "2_to_8_weeks": 0.10,
+          "2_to_6_months": 0.35,
+          "over_6_months": 0.53
+        }
+      },
+      {
+        "nodeId": "ceasefire_mechanism",
+        "overrideProbabilities": {
+          "un_brokered": 0.04,
+          "third_party_bilateral": 0.10,
+          "unilateral_us_declaration": 0.18,
+          "unilateral_iran_declaration": 0.08,
+          "no_formal_ceasefire": 0.60
+        }
+      },
+      {
+        "nodeId": "negotiation_framework",
+        "overrideProbabilities": {
+          "revived_nuclear_deal": 0.04,
+          "regional_security_compact": 0.08,
+          "bilateral_ad_hoc": 0.18,
+          "no_framework": 0.70
+        }
+      },
+      {
+        "nodeId": "iranian_regime_stability",
+        "overrideProbabilities": {
+          "consolidated_hardline": 0.38,
+          "weakened_but_stable": 0.28,
+          "fragmented_elite_conflict": 0.25,
+          "near_collapse": 0.09
+        }
+      },
+      {
+        "nodeId": "us_domestic_political_pressure",
+        "overrideProbabilities": {
+          "weak_support_continues": 0.05,
+          "moderate_pressure_constrained": 0.15,
+          "strong_pressure_exit_sought": 0.40,
+          "overwhelming_pressure_forced_exit": 0.40
+        }
+      },
+      {
+        "nodeId": "war_fatigue_indicator",
+        "overrideProbabilities": {
+          "low_both_sides_continue": 0.12,
+          "moderate_us_pressured": 0.20,
+          "moderate_iran_pressured": 0.15,
+          "high_both_sides_exhausted": 0.53
+        }
+      },
+      {
+        "nodeId": "face_saving_offramp_availability",
+        "overrideProbabilities": {
+          "strong_offramp_both_sides": 0.04,
+          "offramp_for_us_only": 0.14,
+          "offramp_for_iran_only": 0.10,
+          "no_viable_offramp": 0.72
+        }
+      },
+      {
+        "nodeId": "us_domestic_regime_stability",
+        "overrideProbabilities": {
+          "strong_bipartisan_consensus": 0.03,
+          "presidential_authority_constrained": 0.15,
+          "partisan_fracture": 0.45,
+          "constitutional_crisis": 0.37
+        }
+      },
+      {
+        "nodeId": "iran_nuclear_program_outcome",
+        "overrideProbabilities": {
+          "program_permanently_eliminated": 0.03,
+          "significant_setback_5_plus_years": 0.08,
+          "temporary_setback_2_to_4_years": 0.28,
+          "accelerated_reconstitution": 0.61
+        }
+      },
+      {
+        "nodeId": "regional_war_expansion_risk",
+        "overrideProbabilities": {
+          "contained_bilateral": 0.03,
+          "limited_proxy_expansion": 0.12,
+          "multi_front_regional_war": 0.38,
+          "catastrophic_regional_conflagration": 0.47
+        }
+      },
+      {
+        "nodeId": "resolution_type",
+        "overrideProbabilities": {
+          "decisive_us_victory": 0.04,
+          "negotiated_settlement": 0.10,
+          "frozen_conflict": 0.22,
+          "wider_regional_war": 0.64
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,513 @@
+[
+  {
+    "id": "actual_conflict_duration",
+    "phase": 7,
+    "type": "categorical",
+    "label": "Actual Conflict Duration (Refined)",
+    "description": "The realized conflict duration, refining the Phase 3 estimate in light of ceasefire opportunities, military balance, war costs, and humanitarian pressure. Actual duration diverges from initial estimates due to: (1) political will to sustain operations given mounting costs; (2) the emergence or absence of viable ceasefire mechanisms; (3) Iranian domestic resilience or collapse; and (4) third-party diplomatic intervention. Historical reference: the 1991 Gulf War lasted 43 days; Operation Iraqi Freedom's major combat phase was 21 days; the Iran-Iraq War ran 8 years. The distribution skews toward shorter durations for a US-Iran air campaign specifically because Iran lacks the conventional capacity for sustained offensive operations. However, if Iran activates proxy networks and the conflict expands, duration extends substantially. Ceasefire opportunity from Phase 3 is the single strongest predictor of actual duration.",
+    "parents": ["ceasefire_opportunity", "overall_military_balance", "us_total_war_cost_estimate", "humanitarian_cost_index"],
+    "categories": ["under_2_weeks", "2_to_8_weeks", "2_to_6_months", "over_6_months"],
+    "cpt": [
+      {
+        "parentValues": { "ceasefire_opportunity": "strong", "overall_military_balance": "decisive_us_advantage", "us_total_war_cost_estimate": "under_50b", "humanitarian_cost_index": "low" },
+        "categoryProbabilities": { "under_2_weeks": 0.58, "2_to_8_weeks": 0.30, "2_to_6_months": 0.10, "over_6_months": 0.02 }
+      },
+      {
+        "parentValues": { "ceasefire_opportunity": "moderate", "overall_military_balance": "us_advantage", "us_total_war_cost_estimate": "50_200b", "humanitarian_cost_index": "moderate" },
+        "categoryProbabilities": { "under_2_weeks": 0.22, "2_to_8_weeks": 0.45, "2_to_6_months": 0.26, "over_6_months": 0.07 }
+      },
+      {
+        "parentValues": { "ceasefire_opportunity": "weak", "overall_military_balance": "contested", "us_total_war_cost_estimate": "200_500b", "humanitarian_cost_index": "high" },
+        "categoryProbabilities": { "under_2_weeks": 0.08, "2_to_8_weeks": 0.28, "2_to_6_months": 0.42, "over_6_months": 0.22 }
+      },
+      {
+        "parentValues": { "ceasefire_opportunity": "none", "overall_military_balance": "stalemate", "us_total_war_cost_estimate": "500b_1t", "humanitarian_cost_index": "catastrophic" },
+        "categoryProbabilities": { "under_2_weeks": 0.03, "2_to_8_weeks": 0.12, "2_to_6_months": 0.38, "over_6_months": 0.47 }
+      },
+      {
+        "parentValues": { "ceasefire_opportunity": "strong", "overall_military_balance": "us_advantage", "us_total_war_cost_estimate": "50_200b", "humanitarian_cost_index": "moderate" },
+        "categoryProbabilities": { "under_2_weeks": 0.40, "2_to_8_weeks": 0.40, "2_to_6_months": 0.16, "over_6_months": 0.04 }
+      },
+      {
+        "parentValues": { "ceasefire_opportunity": "none", "overall_military_balance": "decisive_us_advantage", "us_total_war_cost_estimate": "over_1t", "humanitarian_cost_index": "catastrophic" },
+        "categoryProbabilities": { "under_2_weeks": 0.05, "2_to_8_weeks": 0.18, "2_to_6_months": 0.45, "over_6_months": 0.32 }
+      },
+      {
+        "parentValues": { "ceasefire_opportunity": "moderate", "overall_military_balance": "stalemate", "us_total_war_cost_estimate": "200_500b", "humanitarian_cost_index": "high" },
+        "categoryProbabilities": { "under_2_weeks": 0.06, "2_to_8_weeks": 0.25, "2_to_6_months": 0.45, "over_6_months": 0.24 }
+      }
+    ],
+    "defaultProbabilities": {
+      "under_2_weeks": 0.22,
+      "2_to_8_weeks": 0.35,
+      "2_to_6_months": 0.30,
+      "over_6_months": 0.13
+    },
+    "source": {
+      "citation": "RAND 'War Termination in US Military Operations' 2022; Brookings 'How Wars End' 2019; Crisis Group 'Conflict Duration and Exit Strategies' 2023; IISS Armed Conflict Survey 2024",
+      "url": "https://www.rand.org/pubs/research_reports/RRA2310.html",
+      "confidence": "low-medium"
+    }
+  },
+  {
+    "id": "ceasefire_mechanism",
+    "phase": 7,
+    "type": "categorical",
+    "label": "Ceasefire Mechanism",
+    "description": "The primary mechanism by which hostilities halt, if at all. UN-brokered ceasefires require UNSC consensus, which Russia and China are likely to block unless the conflict threatens their direct interests — making Qatari, Omani, or Swiss-channel bilateral mediation more realistic. Unilateral ceasefires occur when one party declares a halt to military operations without formal agreement — often used as a diplomatic signal or when military objectives are assessed as achieved. 'No formal ceasefire' characterizes frozen conflicts or situations where fighting gradually subsides without formal legal termination. Historical precedents: the Iran-Iraq War ended via UN Security Council Resolution 598 (1988) after 8 years; the 2006 Lebanon War ended via UNSCR 1701 but with persistent violations; the 1991 Gulf War ended via formal UNSC-supervised process. Qatar and Oman have established backchannel links to both Tehran and Washington, making them the most credible third-party mediators in a US-Iran scenario.",
+    "parents": ["ceasefire_mediation_viability", "ceasefire_opportunity", "actual_conflict_duration", "overall_military_balance"],
+    "categories": ["un_brokered", "third_party_bilateral", "unilateral_us_declaration", "unilateral_iran_declaration", "no_formal_ceasefire"],
+    "cpt": [
+      {
+        "parentValues": { "ceasefire_mediation_viability": "high", "ceasefire_opportunity": "strong", "actual_conflict_duration": "under_2_weeks" },
+        "categoryProbabilities": { "un_brokered": 0.28, "third_party_bilateral": 0.45, "unilateral_us_declaration": 0.14, "unilateral_iran_declaration": 0.08, "no_formal_ceasefire": 0.05 }
+      },
+      {
+        "parentValues": { "ceasefire_mediation_viability": "moderate", "ceasefire_opportunity": "moderate", "actual_conflict_duration": "2_to_8_weeks" },
+        "categoryProbabilities": { "un_brokered": 0.15, "third_party_bilateral": 0.40, "unilateral_us_declaration": 0.22, "unilateral_iran_declaration": 0.12, "no_formal_ceasefire": 0.11 }
+      },
+      {
+        "parentValues": { "ceasefire_mediation_viability": "low", "ceasefire_opportunity": "weak", "actual_conflict_duration": "2_to_6_months" },
+        "categoryProbabilities": { "un_brokered": 0.08, "third_party_bilateral": 0.25, "unilateral_us_declaration": 0.28, "unilateral_iran_declaration": 0.15, "no_formal_ceasefire": 0.24 }
+      },
+      {
+        "parentValues": { "ceasefire_mediation_viability": "none", "ceasefire_opportunity": "none", "actual_conflict_duration": "over_6_months" },
+        "categoryProbabilities": { "un_brokered": 0.03, "third_party_bilateral": 0.12, "unilateral_us_declaration": 0.22, "unilateral_iran_declaration": 0.08, "no_formal_ceasefire": 0.55 }
+      },
+      {
+        "parentValues": { "ceasefire_mediation_viability": "high", "ceasefire_opportunity": "moderate", "actual_conflict_duration": "2_to_8_weeks" },
+        "categoryProbabilities": { "un_brokered": 0.20, "third_party_bilateral": 0.42, "unilateral_us_declaration": 0.20, "unilateral_iran_declaration": 0.10, "no_formal_ceasefire": 0.08 }
+      },
+      {
+        "parentValues": { "ceasefire_mediation_viability": "low", "ceasefire_opportunity": "none", "actual_conflict_duration": "over_6_months" },
+        "categoryProbabilities": { "un_brokered": 0.04, "third_party_bilateral": 0.14, "unilateral_us_declaration": 0.30, "unilateral_iran_declaration": 0.10, "no_formal_ceasefire": 0.42 }
+      }
+    ],
+    "defaultProbabilities": {
+      "un_brokered": 0.14,
+      "third_party_bilateral": 0.32,
+      "unilateral_us_declaration": 0.22,
+      "unilateral_iran_declaration": 0.12,
+      "no_formal_ceasefire": 0.20
+    },
+    "source": {
+      "citation": "Crisis Group 'War Termination and the Role of Mediators' 2024; Chatham House 'Gulf State Mediation in Regional Conflicts' 2024; CFR 'UN Security Council and Ceasefire Mechanisms' 2023; RAND 'Ending Wars: What History Teaches' 2022",
+      "url": "https://www.crisisgroup.org/middle-east-north-africa/gulf-and-arabian-peninsula/iran",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "negotiation_framework",
+    "phase": 7,
+    "type": "categorical",
+    "label": "Post-Conflict Negotiation Framework",
+    "description": "The diplomatic architecture, if any, that emerges to manage the post-conflict relationship and address underlying grievances — principally Iran's nuclear program. Options range from a revived nuclear deal framework (similar to JCPOA but potentially with harder constraints) to a broader regional security compact involving Gulf states, to ad hoc bilateral arrangements without multilateral legitimacy, to no framework at all. The 2015 JCPOA showed both the achievability and fragility of multilateral nuclear agreements with Iran: it required 12 years of prior sanctions pressure, EU3+3 diplomacy, and was abandoned unilaterally by the US in 2018. Post-conflict talks face additional obstacles: Iranian domestic nationalism following military strikes, US domestic politics around 'making deals with adversaries,' and the need for face-saving provisions on both sides. A broader Gulf security compact — potentially including Saudi-Iranian normalization formalized under Chinese auspices — represents the most durable but most politically complex outcome.",
+    "parents": ["ceasefire_mechanism", "actual_conflict_duration", "global_media_information_impact", "ceasefire_mediation_viability"],
+    "categories": ["revived_nuclear_deal", "regional_security_compact", "bilateral_ad_hoc", "no_framework"],
+    "cpt": [
+      {
+        "parentValues": { "ceasefire_mechanism": "un_brokered", "actual_conflict_duration": "under_2_weeks", "ceasefire_mediation_viability": "high" },
+        "categoryProbabilities": { "revived_nuclear_deal": 0.38, "regional_security_compact": 0.30, "bilateral_ad_hoc": 0.22, "no_framework": 0.10 }
+      },
+      {
+        "parentValues": { "ceasefire_mechanism": "third_party_bilateral", "actual_conflict_duration": "2_to_8_weeks", "ceasefire_mediation_viability": "moderate" },
+        "categoryProbabilities": { "revived_nuclear_deal": 0.28, "regional_security_compact": 0.22, "bilateral_ad_hoc": 0.32, "no_framework": 0.18 }
+      },
+      {
+        "parentValues": { "ceasefire_mechanism": "unilateral_us_declaration", "actual_conflict_duration": "2_to_6_months", "ceasefire_mediation_viability": "low" },
+        "categoryProbabilities": { "revived_nuclear_deal": 0.12, "regional_security_compact": 0.12, "bilateral_ad_hoc": 0.35, "no_framework": 0.41 }
+      },
+      {
+        "parentValues": { "ceasefire_mechanism": "no_formal_ceasefire", "actual_conflict_duration": "over_6_months", "ceasefire_mediation_viability": "none" },
+        "categoryProbabilities": { "revived_nuclear_deal": 0.04, "regional_security_compact": 0.06, "bilateral_ad_hoc": 0.18, "no_framework": 0.72 }
+      },
+      {
+        "parentValues": { "ceasefire_mechanism": "third_party_bilateral", "actual_conflict_duration": "under_2_weeks", "ceasefire_mediation_viability": "high" },
+        "categoryProbabilities": { "revived_nuclear_deal": 0.30, "regional_security_compact": 0.28, "bilateral_ad_hoc": 0.28, "no_framework": 0.14 }
+      },
+      {
+        "parentValues": { "ceasefire_mechanism": "unilateral_iran_declaration", "actual_conflict_duration": "2_to_8_weeks", "ceasefire_mediation_viability": "moderate" },
+        "categoryProbabilities": { "revived_nuclear_deal": 0.20, "regional_security_compact": 0.18, "bilateral_ad_hoc": 0.30, "no_framework": 0.32 }
+      }
+    ],
+    "defaultProbabilities": {
+      "revived_nuclear_deal": 0.22,
+      "regional_security_compact": 0.20,
+      "bilateral_ad_hoc": 0.28,
+      "no_framework": 0.30
+    },
+    "source": {
+      "citation": "Brookings 'The Future of the JCPOA' 2024; CFR 'Iran Nuclear Negotiations and Post-Conflict Frameworks' 2024; Chatham House 'Gulf Security Architecture' 2024; Crisis Group 'Beyond the Nuclear Deal: Iran and Regional Security' 2023",
+      "url": "https://www.brookings.edu/research/the-future-of-the-jcpoa/",
+      "confidence": "low-medium"
+    }
+  },
+  {
+    "id": "iranian_regime_stability",
+    "phase": 7,
+    "type": "categorical",
+    "label": "Iranian Regime Stability Post-Conflict",
+    "description": "The stability and cohesion of the Islamic Republic's governing structure — the Supreme Leader's office, the IRGC, the Guardian Council, and the clerical establishment — following the conflict. Military strikes historically generate rally-around-the-flag effects in autocracies in the short term; but sustained warfare, economic collapse, and heavy casualties can erode the regime's legitimacy, fracture elite coalitions, and empower reform or overthrow movements. The 2009 Green Movement, the 2019 November protests (1,500 killed by regime), and the 2022 Mahsa Amini uprising all demonstrated significant domestic opposition capacity — but also the regime's willingness and capacity for brutal suppression. IRGC institutional interests may diverge from clerical leadership under wartime stress. A decisive US military victory that destroys IRGC command infrastructure creates the highest regime fragility scenario. Conversely, an inconclusive conflict with Iran surviving and claiming moral victory may strengthen hardliners.",
+    "parents": ["overall_military_balance", "actual_conflict_duration", "humanitarian_cost_index", "escalation_ladder_position"],
+    "categories": ["consolidated_hardline", "weakened_but_stable", "fragmented_elite_conflict", "near_collapse"],
+    "cpt": [
+      {
+        "parentValues": { "overall_military_balance": "decisive_us_advantage", "actual_conflict_duration": "under_2_weeks", "humanitarian_cost_index": "low" },
+        "categoryProbabilities": { "consolidated_hardline": 0.35, "weakened_but_stable": 0.42, "fragmented_elite_conflict": 0.18, "near_collapse": 0.05 }
+      },
+      {
+        "parentValues": { "overall_military_balance": "us_advantage", "actual_conflict_duration": "2_to_8_weeks", "humanitarian_cost_index": "moderate" },
+        "categoryProbabilities": { "consolidated_hardline": 0.28, "weakened_but_stable": 0.40, "fragmented_elite_conflict": 0.24, "near_collapse": 0.08 }
+      },
+      {
+        "parentValues": { "overall_military_balance": "contested", "actual_conflict_duration": "2_to_6_months", "humanitarian_cost_index": "high" },
+        "categoryProbabilities": { "consolidated_hardline": 0.32, "weakened_but_stable": 0.30, "fragmented_elite_conflict": 0.28, "near_collapse": 0.10 }
+      },
+      {
+        "parentValues": { "overall_military_balance": "stalemate", "actual_conflict_duration": "over_6_months", "humanitarian_cost_index": "catastrophic" },
+        "categoryProbabilities": { "consolidated_hardline": 0.22, "weakened_but_stable": 0.25, "fragmented_elite_conflict": 0.35, "near_collapse": 0.18 }
+      },
+      {
+        "parentValues": { "overall_military_balance": "decisive_us_advantage", "actual_conflict_duration": "2_to_6_months", "humanitarian_cost_index": "catastrophic" },
+        "categoryProbabilities": { "consolidated_hardline": 0.15, "weakened_but_stable": 0.28, "fragmented_elite_conflict": 0.35, "near_collapse": 0.22 }
+      },
+      {
+        "parentValues": { "overall_military_balance": "stalemate", "actual_conflict_duration": "2_to_8_weeks", "humanitarian_cost_index": "moderate" },
+        "categoryProbabilities": { "consolidated_hardline": 0.42, "weakened_but_stable": 0.35, "fragmented_elite_conflict": 0.18, "near_collapse": 0.05 }
+      }
+    ],
+    "defaultProbabilities": {
+      "consolidated_hardline": 0.28,
+      "weakened_but_stable": 0.35,
+      "fragmented_elite_conflict": 0.26,
+      "near_collapse": 0.11
+    },
+    "source": {
+      "citation": "Chatham House 'Iranian Domestic Politics and Military Conflict' 2024; CFR 'Regime Resilience in Iran' 2023; RAND 'What Drives Iranian Elite Cohesion?' 2023; Crisis Group 'Iran After War: Regime Dynamics' 2024",
+      "url": "https://www.chathamhouse.org/regions/middle-east-and-north-africa/iran",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "us_domestic_political_pressure",
+    "phase": 7,
+    "type": "categorical",
+    "label": "US Domestic Political Pressure to End Conflict",
+    "description": "The intensity and political effect of domestic US pressure to terminate hostilities. This aggregates: congressional authorization debates (the 2002 AUMF does not cover Iran; a new war would face significant AUMF controversy), public opinion polling, war-cost political salience, casualty sensitivity, and media/opposition framing. Historical precedents: Vietnam War public pressure took years to materialize into policy shifts; the 1983 Beirut barracks bombing produced rapid withdrawal; the 1993 'Black Hawk Down' episode caused US withdrawal from Somalia within months. Modern US political environment is highly casualty-sensitive. A conflict coinciding with a US election cycle is politically more constrained. The global_media_information_impact variable is a direct input: if the Iran narrative dominates globally, allied and domestic press coverage shifts against the war.",
+    "parents": ["actual_conflict_duration", "us_total_war_cost_estimate", "global_media_information_impact", "humanitarian_cost_index"],
+    "categories": ["weak_support_continues", "moderate_pressure_constrained", "strong_pressure_exit_sought", "overwhelming_pressure_forced_exit"],
+    "cpt": [
+      {
+        "parentValues": { "actual_conflict_duration": "under_2_weeks", "us_total_war_cost_estimate": "under_50b", "global_media_information_impact": "us_narrative_dominance" },
+        "categoryProbabilities": { "weak_support_continues": 0.58, "moderate_pressure_constrained": 0.30, "strong_pressure_exit_sought": 0.09, "overwhelming_pressure_forced_exit": 0.03 }
+      },
+      {
+        "parentValues": { "actual_conflict_duration": "2_to_8_weeks", "us_total_war_cost_estimate": "50_200b", "global_media_information_impact": "contested_narratives" },
+        "categoryProbabilities": { "weak_support_continues": 0.30, "moderate_pressure_constrained": 0.42, "strong_pressure_exit_sought": 0.22, "overwhelming_pressure_forced_exit": 0.06 }
+      },
+      {
+        "parentValues": { "actual_conflict_duration": "2_to_6_months", "us_total_war_cost_estimate": "200_500b", "global_media_information_impact": "iran_sympathy_growing" },
+        "categoryProbabilities": { "weak_support_continues": 0.10, "moderate_pressure_constrained": 0.30, "strong_pressure_exit_sought": 0.42, "overwhelming_pressure_forced_exit": 0.18 }
+      },
+      {
+        "parentValues": { "actual_conflict_duration": "over_6_months", "us_total_war_cost_estimate": "over_1t", "global_media_information_impact": "global_anti_war_pressure" },
+        "categoryProbabilities": { "weak_support_continues": 0.04, "moderate_pressure_constrained": 0.14, "strong_pressure_exit_sought": 0.38, "overwhelming_pressure_forced_exit": 0.44 }
+      },
+      {
+        "parentValues": { "actual_conflict_duration": "2_to_8_weeks", "us_total_war_cost_estimate": "200_500b", "global_media_information_impact": "iran_sympathy_growing" },
+        "categoryProbabilities": { "weak_support_continues": 0.14, "moderate_pressure_constrained": 0.35, "strong_pressure_exit_sought": 0.38, "overwhelming_pressure_forced_exit": 0.13 }
+      },
+      {
+        "parentValues": { "actual_conflict_duration": "2_to_6_months", "us_total_war_cost_estimate": "500b_1t", "global_media_information_impact": "global_anti_war_pressure" },
+        "categoryProbabilities": { "weak_support_continues": 0.05, "moderate_pressure_constrained": 0.18, "strong_pressure_exit_sought": 0.45, "overwhelming_pressure_forced_exit": 0.32 }
+      }
+    ],
+    "defaultProbabilities": {
+      "weak_support_continues": 0.25,
+      "moderate_pressure_constrained": 0.32,
+      "strong_pressure_exit_sought": 0.28,
+      "overwhelming_pressure_forced_exit": 0.15
+    },
+    "source": {
+      "citation": "Chicago Council on Global Affairs Survey 2024; Pew Research 'American Views on Military Action' 2024; Brookings 'War Powers and Congressional Oversight' 2024; RAND 'US Public Opinion and War Termination' 2022",
+      "url": "https://www.thechicagocouncil.org/research/public-opinion-survey",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "war_fatigue_indicator",
+    "phase": 7,
+    "type": "categorical",
+    "label": "War Fatigue Level (Both Sides)",
+    "description": "The aggregate institutional, political, and societal exhaustion with continued operations — a compound variable measuring US military operational tempo constraints, Iranian population and regime endurance, and allied political sustainability. War fatigue is the primary mechanism by which prolonged conflicts generate negotiated exits even when neither party has achieved its objectives. Institutional fatigue in the US military manifests as readiness degradation, deployment cycle stress, and senior officer resistance to open-ended commitments. Iranian societal fatigue compounds existing economic pressure from sanctions with wartime inflation, conscription fear, and displacement. The 1988 UNSCR 598 ceasefire was accepted by Iran largely because economic exhaustion and mounting casualties made continuation intolerable — an analog that warrants attention. Fatigue levels interact with face-saving mechanisms: high fatigue combined with available face-saving options produces the highest probability of negotiated exit.",
+    "parents": ["actual_conflict_duration", "us_total_war_cost_estimate", "overall_military_balance", "humanitarian_cost_index"],
+    "categories": ["low_both_sides_continue", "moderate_us_pressured", "moderate_iran_pressured", "high_both_sides_exhausted"],
+    "cpt": [
+      {
+        "parentValues": { "actual_conflict_duration": "under_2_weeks", "us_total_war_cost_estimate": "under_50b", "overall_military_balance": "decisive_us_advantage" },
+        "categoryProbabilities": { "low_both_sides_continue": 0.60, "moderate_us_pressured": 0.12, "moderate_iran_pressured": 0.22, "high_both_sides_exhausted": 0.06 }
+      },
+      {
+        "parentValues": { "actual_conflict_duration": "2_to_8_weeks", "us_total_war_cost_estimate": "50_200b", "overall_military_balance": "us_advantage" },
+        "categoryProbabilities": { "low_both_sides_continue": 0.28, "moderate_us_pressured": 0.25, "moderate_iran_pressured": 0.35, "high_both_sides_exhausted": 0.12 }
+      },
+      {
+        "parentValues": { "actual_conflict_duration": "2_to_6_months", "us_total_war_cost_estimate": "200_500b", "overall_military_balance": "contested" },
+        "categoryProbabilities": { "low_both_sides_continue": 0.10, "moderate_us_pressured": 0.30, "moderate_iran_pressured": 0.28, "high_both_sides_exhausted": 0.32 }
+      },
+      {
+        "parentValues": { "actual_conflict_duration": "over_6_months", "us_total_war_cost_estimate": "500b_1t", "overall_military_balance": "stalemate" },
+        "categoryProbabilities": { "low_both_sides_continue": 0.04, "moderate_us_pressured": 0.22, "moderate_iran_pressured": 0.18, "high_both_sides_exhausted": 0.56 }
+      },
+      {
+        "parentValues": { "actual_conflict_duration": "2_to_6_months", "us_total_war_cost_estimate": "500b_1t", "overall_military_balance": "decisive_us_advantage" },
+        "categoryProbabilities": { "low_both_sides_continue": 0.08, "moderate_us_pressured": 0.28, "moderate_iran_pressured": 0.42, "high_both_sides_exhausted": 0.22 }
+      },
+      {
+        "parentValues": { "actual_conflict_duration": "over_6_months", "us_total_war_cost_estimate": "over_1t", "overall_military_balance": "stalemate" },
+        "categoryProbabilities": { "low_both_sides_continue": 0.02, "moderate_us_pressured": 0.25, "moderate_iran_pressured": 0.12, "high_both_sides_exhausted": 0.61 }
+      }
+    ],
+    "defaultProbabilities": {
+      "low_both_sides_continue": 0.22,
+      "moderate_us_pressured": 0.25,
+      "moderate_iran_pressured": 0.28,
+      "high_both_sides_exhausted": 0.25
+    },
+    "source": {
+      "citation": "RAND 'War Weariness and Military Policy' 2023; Brookings 'War Fatigue and Democratic Publics' 2022; CFR 'When Wars End: Political Sustainability' 2024; IISS Armed Conflict Survey 2024",
+      "url": "https://www.rand.org/topics/war-termination.html",
+      "confidence": "low-medium"
+    }
+  },
+  {
+    "id": "face_saving_offramp_availability",
+    "phase": 7,
+    "type": "categorical",
+    "label": "Face-Saving Off-Ramp Availability",
+    "description": "Whether credible face-saving diplomatic constructs exist that allow both the US and Iran to exit the conflict without appearing to have capitulated. This is analytically crucial: most wars between asymmetric powers end not when the weaker side is militarily destroyed, but when both sides can claim a domestically acceptable narrative about the outcome. The US needs to claim it achieved its core objective (Iran nuclear program neutralized or severely constrained); Iran needs to claim it resisted aggression and extracted concessions or reputational gains. Historical models: the 1988 Iran-Iraq ceasefire (Khomeini famously called it 'drinking poison' but framed it as strategic necessity); the 2003 Libya model (Gaddafi gave up WMD program and gained sanctions relief, framed domestically as 'principled decision'); the partial US withdrawal framing in Vietnam (Vietnamization as face-saving). Third-party mediators — particularly Qatar and Oman — specialize in constructing face-saving frameworks. The Iran Global Media Impact variable directly affects the domestic Iranian political space for an off-ramp.",
+    "parents": ["ceasefire_mechanism", "negotiation_framework", "iranian_regime_stability", "global_media_information_impact"],
+    "categories": ["strong_offramp_both_sides", "offramp_for_us_only", "offramp_for_iran_only", "no_viable_offramp"],
+    "cpt": [
+      {
+        "parentValues": { "ceasefire_mechanism": "un_brokered", "negotiation_framework": "revived_nuclear_deal", "iranian_regime_stability": "weakened_but_stable" },
+        "categoryProbabilities": { "strong_offramp_both_sides": 0.48, "offramp_for_us_only": 0.28, "offramp_for_iran_only": 0.15, "no_viable_offramp": 0.09 }
+      },
+      {
+        "parentValues": { "ceasefire_mechanism": "third_party_bilateral", "negotiation_framework": "regional_security_compact", "iranian_regime_stability": "weakened_but_stable" },
+        "categoryProbabilities": { "strong_offramp_both_sides": 0.42, "offramp_for_us_only": 0.22, "offramp_for_iran_only": 0.22, "no_viable_offramp": 0.14 }
+      },
+      {
+        "parentValues": { "ceasefire_mechanism": "unilateral_us_declaration", "negotiation_framework": "bilateral_ad_hoc", "iranian_regime_stability": "consolidated_hardline" },
+        "categoryProbabilities": { "strong_offramp_both_sides": 0.20, "offramp_for_us_only": 0.40, "offramp_for_iran_only": 0.20, "no_viable_offramp": 0.20 }
+      },
+      {
+        "parentValues": { "ceasefire_mechanism": "no_formal_ceasefire", "negotiation_framework": "no_framework", "iranian_regime_stability": "fragmented_elite_conflict" },
+        "categoryProbabilities": { "strong_offramp_both_sides": 0.05, "offramp_for_us_only": 0.18, "offramp_for_iran_only": 0.12, "no_viable_offramp": 0.65 }
+      },
+      {
+        "parentValues": { "ceasefire_mechanism": "third_party_bilateral", "negotiation_framework": "bilateral_ad_hoc", "iranian_regime_stability": "weakened_but_stable" },
+        "categoryProbabilities": { "strong_offramp_both_sides": 0.30, "offramp_for_us_only": 0.28, "offramp_for_iran_only": 0.22, "no_viable_offramp": 0.20 }
+      },
+      {
+        "parentValues": { "ceasefire_mechanism": "unilateral_iran_declaration", "negotiation_framework": "no_framework", "iranian_regime_stability": "near_collapse" },
+        "categoryProbabilities": { "strong_offramp_both_sides": 0.12, "offramp_for_us_only": 0.42, "offramp_for_iran_only": 0.08, "no_viable_offramp": 0.38 }
+      }
+    ],
+    "defaultProbabilities": {
+      "strong_offramp_both_sides": 0.28,
+      "offramp_for_us_only": 0.28,
+      "offramp_for_iran_only": 0.18,
+      "no_viable_offramp": 0.26
+    },
+    "source": {
+      "citation": "Crisis Group 'The Art of the Diplomatic Exit' 2024; Chatham House 'Face-Saving and War Termination in the Middle East' 2023; CFR 'US-Iran: Options for De-escalation' 2024; Brookings 'Diplomacy and the End of Wars' 2022",
+      "url": "https://www.crisisgroup.org/middle-east-north-africa",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "us_domestic_regime_stability",
+    "phase": 7,
+    "type": "categorical",
+    "label": "US Domestic Political Cohesion During/After Conflict",
+    "description": "The stability of US domestic political governance and executive branch authority during and after the conflict. This captures: bipartisan consensus or partisan fracture over the war's conduct; whether Congress moves to reassert war powers (invoking the War Powers Resolution, passing restrictive legislation, or cutting appropriations); executive-legislative conflict over strategic direction; and the broader domestic political legitimacy of the war. The Vietnam-era War Powers Resolution (1973) was specifically designed to prevent open-ended presidential wars — its application in a US-Iran scenario is legally contested but politically salient. Partisan fracture is the most likely US domestic pathology: if the conflict is initiated under a Republican administration, Democratic opposition may constrain operations; if the conflict escalates beyond initial authorization, both parties may split internally. A stable wartime consensus — resembling post-9/11 or Gulf War I domestic unity — is only achievable with clear causus belli and rapid military success.",
+    "parents": ["us_domestic_political_pressure", "actual_conflict_duration", "us_total_war_cost_estimate"],
+    "categories": ["strong_bipartisan_consensus", "presidential_authority_constrained", "partisan_fracture", "constitutional_crisis"],
+    "cpt": [
+      {
+        "parentValues": { "us_domestic_political_pressure": "weak_support_continues", "actual_conflict_duration": "under_2_weeks", "us_total_war_cost_estimate": "under_50b" },
+        "categoryProbabilities": { "strong_bipartisan_consensus": 0.48, "presidential_authority_constrained": 0.32, "partisan_fracture": 0.16, "constitutional_crisis": 0.04 }
+      },
+      {
+        "parentValues": { "us_domestic_political_pressure": "moderate_pressure_constrained", "actual_conflict_duration": "2_to_8_weeks", "us_total_war_cost_estimate": "50_200b" },
+        "categoryProbabilities": { "strong_bipartisan_consensus": 0.25, "presidential_authority_constrained": 0.40, "partisan_fracture": 0.28, "constitutional_crisis": 0.07 }
+      },
+      {
+        "parentValues": { "us_domestic_political_pressure": "strong_pressure_exit_sought", "actual_conflict_duration": "2_to_6_months", "us_total_war_cost_estimate": "200_500b" },
+        "categoryProbabilities": { "strong_bipartisan_consensus": 0.08, "presidential_authority_constrained": 0.32, "partisan_fracture": 0.45, "constitutional_crisis": 0.15 }
+      },
+      {
+        "parentValues": { "us_domestic_political_pressure": "overwhelming_pressure_forced_exit", "actual_conflict_duration": "over_6_months", "us_total_war_cost_estimate": "over_1t" },
+        "categoryProbabilities": { "strong_bipartisan_consensus": 0.03, "presidential_authority_constrained": 0.18, "partisan_fracture": 0.45, "constitutional_crisis": 0.34 }
+      },
+      {
+        "parentValues": { "us_domestic_political_pressure": "moderate_pressure_constrained", "actual_conflict_duration": "2_to_6_months", "us_total_war_cost_estimate": "500b_1t" },
+        "categoryProbabilities": { "strong_bipartisan_consensus": 0.06, "presidential_authority_constrained": 0.28, "partisan_fracture": 0.48, "constitutional_crisis": 0.18 }
+      }
+    ],
+    "defaultProbabilities": {
+      "strong_bipartisan_consensus": 0.22,
+      "presidential_authority_constrained": 0.32,
+      "partisan_fracture": 0.34,
+      "constitutional_crisis": 0.12
+    },
+    "source": {
+      "citation": "Brookings 'War Powers and the Constitution' 2024; CFR 'Congress and Presidential War Authority' 2024; RAND 'Domestic Constraints on US Military Operations' 2023; Chatham House 'US Domestic Politics and Foreign Policy' 2024",
+      "url": "https://www.brookings.edu/research/war-powers-and-the-constitution/",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "iran_nuclear_program_outcome",
+    "phase": 7,
+    "type": "categorical",
+    "label": "Iranian Nuclear Program Post-Conflict Status",
+    "description": "The status of Iran's nuclear weapons-relevant infrastructure following the conflict — the primary strategic objective most scenarios assume drives US military action. Outcomes range from permanent elimination (facilities destroyed beyond reconstruction capability, international monitoring established, political agreement in place) through temporary setback (facilities damaged but rebuilding begins within 2–5 years) to reconstitution under dispersal (Iran learns from the strike and relocates to deeper, dispersed sites) to accelerated pursuit (the strike paradoxically strengthens Iran's nuclear resolve and they surge toward weaponization). Historical reference: the 1981 Israeli strike on Osirak actually accelerated Iraq's covert weapons program rather than terminating it; the 2007 Israeli strike on the Al-Kibar reactor in Syria was permanently effective because the program was less advanced. Iran's program is far more advanced, dispersed, and hardened than either precedent — making permanent elimination the least likely outcome absent ground force occupation.",
+    "parents": ["overall_military_balance", "negotiation_framework", "iranian_regime_stability", "escalation_ladder_position"],
+    "categories": ["program_permanently_eliminated", "significant_setback_5_plus_years", "temporary_setback_2_to_4_years", "accelerated_reconstitution"],
+    "cpt": [
+      {
+        "parentValues": { "overall_military_balance": "decisive_us_advantage", "negotiation_framework": "revived_nuclear_deal", "iranian_regime_stability": "weakened_but_stable" },
+        "categoryProbabilities": { "program_permanently_eliminated": 0.28, "significant_setback_5_plus_years": 0.40, "temporary_setback_2_to_4_years": 0.24, "accelerated_reconstitution": 0.08 }
+      },
+      {
+        "parentValues": { "overall_military_balance": "us_advantage", "negotiation_framework": "bilateral_ad_hoc", "iranian_regime_stability": "consolidated_hardline" },
+        "categoryProbabilities": { "program_permanently_eliminated": 0.08, "significant_setback_5_plus_years": 0.28, "temporary_setback_2_to_4_years": 0.42, "accelerated_reconstitution": 0.22 }
+      },
+      {
+        "parentValues": { "overall_military_balance": "contested", "negotiation_framework": "no_framework", "iranian_regime_stability": "consolidated_hardline" },
+        "categoryProbabilities": { "program_permanently_eliminated": 0.03, "significant_setback_5_plus_years": 0.12, "temporary_setback_2_to_4_years": 0.38, "accelerated_reconstitution": 0.47 }
+      },
+      {
+        "parentValues": { "overall_military_balance": "stalemate", "negotiation_framework": "no_framework", "iranian_regime_stability": "consolidated_hardline" },
+        "categoryProbabilities": { "program_permanently_eliminated": 0.02, "significant_setback_5_plus_years": 0.08, "temporary_setback_2_to_4_years": 0.30, "accelerated_reconstitution": 0.60 }
+      },
+      {
+        "parentValues": { "overall_military_balance": "decisive_us_advantage", "negotiation_framework": "no_framework", "iranian_regime_stability": "near_collapse" },
+        "categoryProbabilities": { "program_permanently_eliminated": 0.35, "significant_setback_5_plus_years": 0.38, "temporary_setback_2_to_4_years": 0.20, "accelerated_reconstitution": 0.07 }
+      },
+      {
+        "parentValues": { "overall_military_balance": "us_advantage", "negotiation_framework": "revived_nuclear_deal", "iranian_regime_stability": "weakened_but_stable" },
+        "categoryProbabilities": { "program_permanently_eliminated": 0.18, "significant_setback_5_plus_years": 0.42, "temporary_setback_2_to_4_years": 0.30, "accelerated_reconstitution": 0.10 }
+      }
+    ],
+    "defaultProbabilities": {
+      "program_permanently_eliminated": 0.14,
+      "significant_setback_5_plus_years": 0.28,
+      "temporary_setback_2_to_4_years": 0.34,
+      "accelerated_reconstitution": 0.24
+    },
+    "source": {
+      "citation": "RAND 'Striking Iran's Nuclear Program: Costs, Benefits, and Limitations' 2022; CFR 'Iran's Nuclear Capabilities and US Options' 2024; Brookings 'After the Strike: Iran's Nuclear Choices' 2023; IAEA Board of Governors Reports 2024",
+      "url": "https://www.rand.org/pubs/research_reports/RRA609-1.html",
+      "confidence": "low-medium"
+    }
+  },
+  {
+    "id": "regional_war_expansion_risk",
+    "phase": 7,
+    "type": "categorical",
+    "label": "Risk of Conflict Expanding to Wider Regional War",
+    "description": "The probability and trajectory of the conflict spreading beyond the primary US-Iran bilateral framework into a wider regional conflagration involving multiple state and non-state actors. Expansion vectors include: (1) Hezbollah opening a second front against Israel from Lebanon; (2) Houthi operations from Yemen disrupting Red Sea shipping and striking Saudi/Israeli targets; (3) Iraqi Shia militia attacking US bases and personnel throughout Iraq and Syria; (4) Israeli preemptive or retaliatory strikes on Iran or its proxies triggering Iranian counter-escalation; (5) Gulf state installations (Saudi Aramco, UAE ports) targeted by Iranian missiles or proxy forces. The 2019 Abqaiq-Khurais strikes showed Iran's willingness to strike regional infrastructure. The 2023–2024 Red Sea Houthi campaign demonstrated proxy operational independence. Expansion risk is highest when the conflict is sustained, Iran's conventional military is degraded (increasing proxy reliance), and ceasefire mechanisms are absent.",
+    "parents": ["escalation_ladder_position", "ceasefire_mechanism", "actual_conflict_duration", "iranian_regime_stability"],
+    "categories": ["contained_bilateral", "limited_proxy_expansion", "multi_front_regional_war", "catastrophic_regional_conflagration"],
+    "cpt": [
+      {
+        "parentValues": { "escalation_ladder_position": "limited_exchange", "ceasefire_mechanism": "third_party_bilateral", "actual_conflict_duration": "under_2_weeks" },
+        "categoryProbabilities": { "contained_bilateral": 0.58, "limited_proxy_expansion": 0.30, "multi_front_regional_war": 0.10, "catastrophic_regional_conflagration": 0.02 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "ceasefire_mechanism": "no_formal_ceasefire", "actual_conflict_duration": "2_to_8_weeks" },
+        "categoryProbabilities": { "contained_bilateral": 0.25, "limited_proxy_expansion": 0.42, "multi_front_regional_war": 0.26, "catastrophic_regional_conflagration": 0.07 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "ceasefire_mechanism": "no_formal_ceasefire", "actual_conflict_duration": "2_to_6_months" },
+        "categoryProbabilities": { "contained_bilateral": 0.08, "limited_proxy_expansion": 0.30, "multi_front_regional_war": 0.42, "catastrophic_regional_conflagration": 0.20 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "nuclear_threshold", "ceasefire_mechanism": "no_formal_ceasefire", "actual_conflict_duration": "over_6_months" },
+        "categoryProbabilities": { "contained_bilateral": 0.03, "limited_proxy_expansion": 0.12, "multi_front_regional_war": 0.35, "catastrophic_regional_conflagration": 0.50 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "ceasefire_mechanism": "un_brokered", "actual_conflict_duration": "2_to_8_weeks" },
+        "categoryProbabilities": { "contained_bilateral": 0.22, "limited_proxy_expansion": 0.42, "multi_front_regional_war": 0.28, "catastrophic_regional_conflagration": 0.08 }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "sustained_campaign", "ceasefire_mechanism": "third_party_bilateral", "actual_conflict_duration": "2_to_8_weeks" },
+        "categoryProbabilities": { "contained_bilateral": 0.38, "limited_proxy_expansion": 0.38, "multi_front_regional_war": 0.18, "catastrophic_regional_conflagration": 0.06 }
+      }
+    ],
+    "defaultProbabilities": {
+      "contained_bilateral": 0.28,
+      "limited_proxy_expansion": 0.35,
+      "multi_front_regional_war": 0.26,
+      "catastrophic_regional_conflagration": 0.11
+    },
+    "source": {
+      "citation": "Crisis Group 'Iran's Proxies and Regional Escalation' 2024; RAND 'Iran and Regional Proxy War' 2023; CFR 'Hezbollah and Regional Conflict Dynamics' 2024; Chatham House 'The Houthi Factor in Regional Security' 2024",
+      "url": "https://www.crisisgroup.org/middle-east-north-africa/gulf-and-arabian-peninsula/iran",
+      "confidence": "low-medium"
+    }
+  },
+  {
+    "id": "resolution_type",
+    "phase": 7,
+    "type": "categorical",
+    "label": "Conflict Resolution Type (Primary Outcome)",
+    "description": "The macro-level characterization of how the conflict terminates, synthesizing military, diplomatic, and political outcomes. This is the primary summary variable for Phase 7. 'Decisive US victory' requires both military success (nuclear program substantially set back, Iranian military degraded) and a political framework that locks in those gains. 'Negotiated settlement' requires both sides accepting suboptimal military outcomes in exchange for a stable diplomatic arrangement — historically the most common end state for asymmetric conflicts not involving state collapse. 'Frozen conflict' describes a situation where active hostilities cease but no political resolution is reached — creating a prolonged 'no war no peace' dynamic analogous to post-2006 Lebanon or the current North Korea situation. 'Wider regional war / escalation failure' occurs when resolution attempts fail and the conflict expands beyond manageable parameters, potentially involving nuclear risks. This node directly integrates all prior Phase 7 variables into a final outcome assessment.",
+    "parents": ["ceasefire_mechanism", "negotiation_framework", "iranian_regime_stability", "regional_war_expansion_risk", "war_fatigue_indicator", "face_saving_offramp_availability"],
+    "categories": ["decisive_us_victory", "negotiated_settlement", "frozen_conflict", "wider_regional_war"],
+    "cpt": [
+      {
+        "parentValues": { "ceasefire_mechanism": "un_brokered", "negotiation_framework": "revived_nuclear_deal", "iranian_regime_stability": "weakened_but_stable", "regional_war_expansion_risk": "contained_bilateral", "war_fatigue_indicator": "moderate_iran_pressured", "face_saving_offramp_availability": "strong_offramp_both_sides" },
+        "categoryProbabilities": { "decisive_us_victory": 0.30, "negotiated_settlement": 0.52, "frozen_conflict": 0.14, "wider_regional_war": 0.04 }
+      },
+      {
+        "parentValues": { "ceasefire_mechanism": "third_party_bilateral", "negotiation_framework": "bilateral_ad_hoc", "iranian_regime_stability": "weakened_but_stable", "regional_war_expansion_risk": "limited_proxy_expansion", "war_fatigue_indicator": "moderate_us_pressured", "face_saving_offramp_availability": "strong_offramp_both_sides" },
+        "categoryProbabilities": { "decisive_us_victory": 0.18, "negotiated_settlement": 0.48, "frozen_conflict": 0.28, "wider_regional_war": 0.06 }
+      },
+      {
+        "parentValues": { "ceasefire_mechanism": "unilateral_us_declaration", "negotiation_framework": "no_framework", "iranian_regime_stability": "consolidated_hardline", "regional_war_expansion_risk": "limited_proxy_expansion", "war_fatigue_indicator": "moderate_us_pressured", "face_saving_offramp_availability": "no_viable_offramp" },
+        "categoryProbabilities": { "decisive_us_victory": 0.15, "negotiated_settlement": 0.18, "frozen_conflict": 0.50, "wider_regional_war": 0.17 }
+      },
+      {
+        "parentValues": { "ceasefire_mechanism": "no_formal_ceasefire", "negotiation_framework": "no_framework", "iranian_regime_stability": "fragmented_elite_conflict", "regional_war_expansion_risk": "multi_front_regional_war", "war_fatigue_indicator": "high_both_sides_exhausted", "face_saving_offramp_availability": "no_viable_offramp" },
+        "categoryProbabilities": { "decisive_us_victory": 0.06, "negotiated_settlement": 0.12, "frozen_conflict": 0.30, "wider_regional_war": 0.52 }
+      },
+      {
+        "parentValues": { "ceasefire_mechanism": "unilateral_iran_declaration", "negotiation_framework": "no_framework", "iranian_regime_stability": "near_collapse", "regional_war_expansion_risk": "contained_bilateral", "war_fatigue_indicator": "moderate_iran_pressured", "face_saving_offramp_availability": "offramp_for_us_only" },
+        "categoryProbabilities": { "decisive_us_victory": 0.45, "negotiated_settlement": 0.28, "frozen_conflict": 0.20, "wider_regional_war": 0.07 }
+      },
+      {
+        "parentValues": { "ceasefire_mechanism": "no_formal_ceasefire", "negotiation_framework": "no_framework", "iranian_regime_stability": "consolidated_hardline", "regional_war_expansion_risk": "catastrophic_regional_conflagration", "war_fatigue_indicator": "low_both_sides_continue", "face_saving_offramp_availability": "no_viable_offramp" },
+        "categoryProbabilities": { "decisive_us_victory": 0.04, "negotiated_settlement": 0.06, "frozen_conflict": 0.12, "wider_regional_war": 0.78 }
+      },
+      {
+        "parentValues": { "ceasefire_mechanism": "third_party_bilateral", "negotiation_framework": "regional_security_compact", "iranian_regime_stability": "weakened_but_stable", "regional_war_expansion_risk": "contained_bilateral", "war_fatigue_indicator": "high_both_sides_exhausted", "face_saving_offramp_availability": "strong_offramp_both_sides" },
+        "categoryProbabilities": { "decisive_us_victory": 0.14, "negotiated_settlement": 0.58, "frozen_conflict": 0.22, "wider_regional_war": 0.06 }
+      }
+    ],
+    "defaultProbabilities": {
+      "decisive_us_victory": 0.18,
+      "negotiated_settlement": 0.35,
+      "frozen_conflict": 0.30,
+      "wider_regional_war": 0.17
+    },
+    "source": {
+      "citation": "RAND 'How Conflicts End: A Historical Analysis' 2022; Brookings 'War Termination and Strategic Success' 2023; CFR 'US-Iran Endgame Scenarios' 2024; Crisis Group 'Resolution Pathways in US-Iran Conflict' 2024; Chatham House 'Post-Conflict Stability in the Middle East' 2024",
+      "url": "https://www.rand.org/topics/war-termination.html",
+      "confidence": "low"
+    }
+  }
+]
