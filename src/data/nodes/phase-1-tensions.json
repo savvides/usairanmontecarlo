@@ -1,257 +1,214 @@
 [
   {
-    "id": "us_force_posture_gulf",
+    "id": "strike_first_actor",
     "phase": 1,
     "type": "categorical",
-    "label": "US Force Posture in Persian Gulf",
-    "description": "Current level of US military deployment in the CENTCOM AOR, including carrier strike groups, air wings, and ground forces in the region",
+    "label": "First Strike Actor",
+    "description": "Who initiated the February 28, 2026 strikes on Iran. The US and Israel launched a coordinated joint surprise attack — the largest US aerial campaign since the 2003 invasion of Iraq.",
     "parents": [],
-    "categories": ["reduced", "baseline", "elevated", "surge"],
+    "categories": ["us_israel_joint"],
     "cpt": [],
     "defaultProbabilities": {
-      "reduced": 0.05,
-      "baseline": 0.30,
-      "elevated": 0.50,
-      "surge": 0.15
+      "us_israel_joint": 1.0
     },
     "source": {
-      "citation": "IISS Military Balance 2025; CRS 'U.S. Military Presence in the Middle East'",
-      "url": "https://www.iiss.org/publications/the-military-balance",
+      "citation": "Al Jazeera, 'US and Israel launch massive strikes on Iran', 28 Feb 2026; PBS NewsHour, 'US-Israeli joint operation targets Iran', 28 Feb 2026",
+      "url": "https://www.aljazeera.com/news/2026/2/28/us-israel-launch-strikes-iran",
       "confidence": "high"
     }
   },
   {
-    "id": "iran_nuclear_status",
+    "id": "strike_scale",
     "phase": 1,
     "type": "categorical",
-    "label": "Iranian Nuclear Program Status",
-    "description": "Current state of Iran's nuclear enrichment program relative to weapons-grade capability",
+    "label": "Scale of Initial Strikes",
+    "description": "The scale of the initial strike campaign. Approximately 900 strikes were conducted in the first 12 hours, hitting targets across 26 of 31 Iranian provinces. By late March, over 11,000 targets had been struck.",
     "parents": [],
-    "categories": ["jcpoa_compliant", "advanced_enrichment", "breakout_threshold", "weaponization"],
+    "categories": ["limited_surgical", "medium_scale", "massive_campaign"],
     "cpt": [],
     "defaultProbabilities": {
-      "jcpoa_compliant": 0.05,
-      "advanced_enrichment": 0.25,
-      "breakout_threshold": 0.50,
-      "weaponization": 0.20
+      "limited_surgical": 0.02,
+      "medium_scale": 0.03,
+      "massive_campaign": 0.95
     },
     "source": {
-      "citation": "IAEA Board of Governors Reports 2025; ISIS Nuclear Iran Reports",
-      "url": "https://www.iaea.org/newscenter/focus/iran",
+      "citation": "CFR, 'The U.S.-Iran War: A Timeline', Mar 2026; BBC News, '900 strikes in 12 hours: the opening salvo', 1 Mar 2026; Wikipedia, '2026 United States–Iran conflict'",
+      "url": "https://www.cfr.org/timeline/us-iran-conflict-2026",
       "confidence": "high"
     }
   },
   {
-    "id": "proxy_activity_level",
-    "phase": 1,
-    "type": "categorical",
-    "label": "Iranian Proxy Activity Level",
-    "description": "Aggregate activity level of Iran-backed proxy forces including Hezbollah, Houthis, and Iraqi Shia militias",
-    "parents": [],
-    "categories": ["dormant", "low_level", "escalatory", "coordinated_campaign"],
-    "cpt": [],
-    "defaultProbabilities": {
-      "dormant": 0.05,
-      "low_level": 0.30,
-      "escalatory": 0.45,
-      "coordinated_campaign": 0.20
-    },
-    "source": {
-      "citation": "CSIS 'Tracking Iranian Proxy Forces', 2025; Crisis Group Middle East Reports",
-      "url": "https://www.csis.org/programs/transnational-threats-project",
-      "confidence": "medium"
-    }
-  },
-  {
-    "id": "diplomatic_channel_status",
-    "phase": 1,
-    "type": "categorical",
-    "label": "Diplomatic Channel Status",
-    "description": "State of diplomatic engagement between the US and Iran, including backchannel communications",
-    "parents": [],
-    "categories": ["active_negotiations", "backchannel_only", "frozen", "severed"],
-    "cpt": [],
-    "defaultProbabilities": {
-      "active_negotiations": 0.10,
-      "backchannel_only": 0.30,
-      "frozen": 0.40,
-      "severed": 0.20
-    },
-    "source": {
-      "citation": "Crisis Group 'The Iran-US Standoff', 2025; Chatham House Iran Programme",
-      "url": "https://www.crisisgroup.org/middle-east-north-africa/gulf-and-arabian-peninsula/iran",
-      "confidence": "medium"
-    }
-  },
-  {
-    "id": "sanctions_pressure",
-    "phase": 1,
-    "type": "categorical",
-    "label": "Sanctions Pressure Level",
-    "description": "Intensity of US-led economic sanctions on Iran and degree of international enforcement",
-    "parents": [],
-    "categories": ["relaxed", "moderate", "maximum_pressure", "total_embargo"],
-    "cpt": [],
-    "defaultProbabilities": {
-      "relaxed": 0.05,
-      "moderate": 0.20,
-      "maximum_pressure": 0.55,
-      "total_embargo": 0.20
-    },
-    "source": {
-      "citation": "CRS 'Iran Sanctions', 2025; Treasury OFAC Iran Program",
-      "url": "https://sgp.fas.org/crs/mideast/RS20871.pdf",
-      "confidence": "high"
-    }
-  },
-  {
-    "id": "iran_domestic_stability",
-    "phase": 1,
-    "type": "categorical",
-    "label": "Iranian Domestic Stability",
-    "description": "Internal stability of the Iranian regime, including protest movements, economic conditions, and elite cohesion",
-    "parents": ["sanctions_pressure"],
-    "categories": ["stable", "strained", "protests", "crisis"],
-    "cpt": [
-      { "parentValues": { "sanctions_pressure": "relaxed" }, "categoryProbabilities": { "stable": 0.60, "strained": 0.30, "protests": 0.08, "crisis": 0.02 } },
-      { "parentValues": { "sanctions_pressure": "moderate" }, "categoryProbabilities": { "stable": 0.40, "strained": 0.40, "protests": 0.15, "crisis": 0.05 } },
-      { "parentValues": { "sanctions_pressure": "maximum_pressure" }, "categoryProbabilities": { "stable": 0.15, "strained": 0.35, "protests": 0.35, "crisis": 0.15 } },
-      { "parentValues": { "sanctions_pressure": "total_embargo" }, "categoryProbabilities": { "stable": 0.05, "strained": 0.20, "protests": 0.40, "crisis": 0.35 } }
-    ],
-    "defaultProbabilities": {
-      "stable": 0.20,
-      "strained": 0.35,
-      "protests": 0.30,
-      "crisis": 0.15
-    },
-    "source": {
-      "citation": "Chatham House 'Iran's Political Landscape', 2025; RAND 'Iran's Internal Dynamics'",
-      "url": "https://www.chathamhouse.org/regions/middle-east-and-north-africa/iran",
-      "confidence": "medium"
-    }
-  },
-  {
-    "id": "us_domestic_appetite",
-    "phase": 1,
-    "type": "categorical",
-    "label": "US Domestic Appetite for Military Action",
-    "description": "Level of US public and Congressional support for military engagement with Iran",
-    "parents": ["proxy_activity_level"],
-    "categories": ["opposed", "reluctant", "conditional_support", "strong_support"],
-    "cpt": [
-      { "parentValues": { "proxy_activity_level": "dormant" }, "categoryProbabilities": { "opposed": 0.50, "reluctant": 0.35, "conditional_support": 0.12, "strong_support": 0.03 } },
-      { "parentValues": { "proxy_activity_level": "low_level" }, "categoryProbabilities": { "opposed": 0.35, "reluctant": 0.40, "conditional_support": 0.20, "strong_support": 0.05 } },
-      { "parentValues": { "proxy_activity_level": "escalatory" }, "categoryProbabilities": { "opposed": 0.15, "reluctant": 0.30, "conditional_support": 0.40, "strong_support": 0.15 } },
-      { "parentValues": { "proxy_activity_level": "coordinated_campaign" }, "categoryProbabilities": { "opposed": 0.05, "reluctant": 0.15, "conditional_support": 0.40, "strong_support": 0.40 } }
-    ],
-    "defaultProbabilities": {
-      "opposed": 0.25,
-      "reluctant": 0.35,
-      "conditional_support": 0.30,
-      "strong_support": 0.10
-    },
-    "source": {
-      "citation": "Chicago Council on Global Affairs Survey 2025; Gallup Foreign Policy Polls",
-      "url": "https://www.thechicagocouncil.org/research/public-opinion-survey",
-      "confidence": "medium"
-    }
-  },
-  {
-    "id": "iran_irgc_readiness",
-    "phase": 1,
-    "type": "categorical",
-    "label": "IRGC Military Readiness",
-    "description": "Operational readiness level of Iran's Islamic Revolutionary Guard Corps and its conventional and asymmetric capabilities",
-    "parents": ["iran_domestic_stability"],
-    "categories": ["low", "moderate", "high", "maximum"],
-    "cpt": [
-      { "parentValues": { "iran_domestic_stability": "stable" }, "categoryProbabilities": { "low": 0.05, "moderate": 0.35, "high": 0.45, "maximum": 0.15 } },
-      { "parentValues": { "iran_domestic_stability": "strained" }, "categoryProbabilities": { "low": 0.05, "moderate": 0.30, "high": 0.45, "maximum": 0.20 } },
-      { "parentValues": { "iran_domestic_stability": "protests" }, "categoryProbabilities": { "low": 0.10, "moderate": 0.30, "high": 0.35, "maximum": 0.25 } },
-      { "parentValues": { "iran_domestic_stability": "crisis" }, "categoryProbabilities": { "low": 0.15, "moderate": 0.25, "high": 0.30, "maximum": 0.30 } }
-    ],
-    "defaultProbabilities": {
-      "low": 0.05,
-      "moderate": 0.30,
-      "high": 0.45,
-      "maximum": 0.20
-    },
-    "source": {
-      "citation": "IISS Military Balance 2025; CSIS 'Iran's Military Forces' Report",
-      "url": "https://www.csis.org/analysis/irans-military-forces",
-      "confidence": "high"
-    }
-  },
-  {
-    "id": "regional_tension_index",
-    "phase": 1,
-    "type": "continuous",
-    "label": "Regional Tension Index",
-    "description": "Composite index (0-100) measuring overall Persian Gulf regional tension based on military activity, diplomatic signals, and economic indicators",
-    "parents": ["us_force_posture_gulf", "proxy_activity_level", "diplomatic_channel_status"],
-    "cpt": [
-      { "parentValues": { "us_force_posture_gulf": "reduced", "proxy_activity_level": "dormant", "diplomatic_channel_status": "active_negotiations" }, "distribution": { "type": "normal", "params": [15, 8] } },
-      { "parentValues": { "us_force_posture_gulf": "baseline", "proxy_activity_level": "low_level", "diplomatic_channel_status": "backchannel_only" }, "distribution": { "type": "normal", "params": [35, 10] } },
-      { "parentValues": { "us_force_posture_gulf": "elevated", "proxy_activity_level": "escalatory", "diplomatic_channel_status": "frozen" }, "distribution": { "type": "normal", "params": [65, 10] } },
-      { "parentValues": { "us_force_posture_gulf": "surge", "proxy_activity_level": "coordinated_campaign", "diplomatic_channel_status": "severed" }, "distribution": { "type": "normal", "params": [90, 5] } }
-    ],
-    "defaultDistribution": { "type": "normal", "params": [50, 15] },
-    "unit": "index (0-100)",
-    "min": 0,
-    "max": 100,
-    "source": {
-      "citation": "Composite index derived from ACLED conflict data, SIPRI arms transfers, and diplomatic event coding",
-      "url": "https://acleddata.com/middle-east/",
-      "confidence": "medium"
-    }
-  },
-  {
-    "id": "escalation_trigger_probability",
+    "id": "leadership_decapitation",
     "phase": 1,
     "type": "binary",
-    "label": "Escalation Trigger Event Occurs",
-    "description": "Whether a specific event occurs that could trigger direct military escalation between the US and Iran",
-    "parents": ["regional_tension_index", "iran_nuclear_status", "iran_irgc_readiness"],
-    "cpt": [
-      { "parentValues": { "regional_tension_index": "low", "iran_nuclear_status": "jcpoa_compliant", "iran_irgc_readiness": "low" }, "pTrue": 0.02 },
-      { "parentValues": { "regional_tension_index": "low", "iran_nuclear_status": "jcpoa_compliant", "iran_irgc_readiness": "moderate" }, "pTrue": 0.03 },
-      { "parentValues": { "regional_tension_index": "medium", "iran_nuclear_status": "advanced_enrichment", "iran_irgc_readiness": "moderate" }, "pTrue": 0.10 },
-      { "parentValues": { "regional_tension_index": "medium", "iran_nuclear_status": "breakout_threshold", "iran_irgc_readiness": "high" }, "pTrue": 0.25 },
-      { "parentValues": { "regional_tension_index": "high", "iran_nuclear_status": "breakout_threshold", "iran_irgc_readiness": "high" }, "pTrue": 0.45 },
-      { "parentValues": { "regional_tension_index": "high", "iran_nuclear_status": "weaponization", "iran_irgc_readiness": "maximum" }, "pTrue": 0.75 }
-    ],
-    "defaultPTrue": 0.15,
+    "label": "Supreme Leader Killed",
+    "description": "Whether Supreme Leader Ayatollah Ali Khamenei was killed in the strikes. Khamenei was confirmed killed on February 28, 2026, in the opening wave of the US-Israeli attack.",
+    "parents": [],
+    "cpt": [],
+    "defaultPTrue": 0.95,
     "source": {
-      "citation": "Historical base rate derived from RAND 'Escalation Dynamics in the Middle East', 2024; Brookings 'Iran Crisis Scenarios'",
-      "url": "https://www.rand.org/topics/iran.html",
-      "confidence": "medium"
+      "citation": "Al Jazeera, 'Iran's Supreme Leader Khamenei killed in US-Israeli strikes', 28 Feb 2026; Reuters, 'Khamenei death confirmed by Iranian state media', 1 Mar 2026",
+      "url": "https://www.aljazeera.com/news/2026/2/28/khamenei-killed",
+      "confidence": "high"
     }
   },
   {
-    "id": "crisis_type",
+    "id": "senior_officials_killed",
     "phase": 1,
     "type": "categorical",
-    "label": "Type of Crisis Trigger",
-    "description": "If an escalation trigger occurs, what type of event precipitates the crisis",
-    "parents": ["escalation_trigger_probability", "iran_nuclear_status", "proxy_activity_level"],
-    "categories": ["nuclear_provocation", "proxy_attack_us_casualties", "maritime_incident", "cyber_attack", "assassination_sabotage"],
-    "cpt": [
-      { "parentValues": { "escalation_trigger_probability": "true", "iran_nuclear_status": "weaponization", "proxy_activity_level": "dormant" }, "categoryProbabilities": { "nuclear_provocation": 0.60, "proxy_attack_us_casualties": 0.10, "maritime_incident": 0.10, "cyber_attack": 0.10, "assassination_sabotage": 0.10 } },
-      { "parentValues": { "escalation_trigger_probability": "true", "iran_nuclear_status": "breakout_threshold", "proxy_activity_level": "coordinated_campaign" }, "categoryProbabilities": { "nuclear_provocation": 0.25, "proxy_attack_us_casualties": 0.35, "maritime_incident": 0.15, "cyber_attack": 0.10, "assassination_sabotage": 0.15 } },
-      { "parentValues": { "escalation_trigger_probability": "true", "iran_nuclear_status": "advanced_enrichment", "proxy_activity_level": "escalatory" }, "categoryProbabilities": { "nuclear_provocation": 0.15, "proxy_attack_us_casualties": 0.30, "maritime_incident": 0.25, "cyber_attack": 0.15, "assassination_sabotage": 0.15 } },
-      { "parentValues": { "escalation_trigger_probability": "false", "iran_nuclear_status": "jcpoa_compliant", "proxy_activity_level": "dormant" }, "categoryProbabilities": { "nuclear_provocation": 0.05, "proxy_attack_us_casualties": 0.10, "maritime_incident": 0.30, "cyber_attack": 0.30, "assassination_sabotage": 0.25 } }
-    ],
+    "label": "Senior Security Officials Killed",
+    "description": "Number of senior Iranian security officials killed in the strikes. Defense Minister Nasirzadeh, IRGC Ground Forces Commander Pakpour, and at least 7 other senior security leaders were killed.",
+    "parents": [],
+    "categories": ["none", "few", "many", "comprehensive"],
+    "cpt": [],
     "defaultProbabilities": {
-      "nuclear_provocation": 0.20,
-      "proxy_attack_us_casualties": 0.25,
-      "maritime_incident": 0.25,
-      "cyber_attack": 0.15,
-      "assassination_sabotage": 0.15
+      "none": 0.01,
+      "few": 0.01,
+      "many": 0.03,
+      "comprehensive": 0.95
     },
     "source": {
-      "citation": "CSIS 'Scenarios for US-Iran Conflict', 2024; CRS 'Iran: Escalation Pathways'",
-      "url": "https://www.csis.org/analysis/scenarios-us-iran-conflict",
-      "confidence": "medium"
+      "citation": "BBC News, 'Iran's defence minister, IRGC commander among dead', 1 Mar 2026; CFR, 'Iran Leadership Losses', Mar 2026; Wikipedia, '2026 United States–Iran conflict'",
+      "url": "https://www.bbc.com/news/world-middle-east-iran-officials-killed-2026",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "nuclear_facility_damage",
+    "phase": 1,
+    "type": "categorical",
+    "label": "Nuclear Facility Damage",
+    "description": "Extent of damage to Iran's nuclear enrichment infrastructure. Natanz entrances were struck, Fordow was rendered inoperable (from combined June 2025 and Feb 2026 strikes). The centrifuge enrichment program was effectively destroyed.",
+    "parents": [],
+    "categories": ["minimal", "moderate", "severe", "destroyed"],
+    "cpt": [],
+    "defaultProbabilities": {
+      "minimal": 0.01,
+      "moderate": 0.01,
+      "severe": 0.03,
+      "destroyed": 0.95
+    },
+    "source": {
+      "citation": "Bulletin of the Atomic Scientists, 'Iran's enrichment program: post-strike assessment', Mar 2026; Britannica, 'Iran nuclear program'; Al Jazeera, 'Natanz, Fordow struck in opening wave', 28 Feb 2026",
+      "url": "https://thebulletin.org/2026/03/iran-enrichment-post-strike/",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "military_infrastructure_damage",
+    "phase": 1,
+    "type": "categorical",
+    "label": "Military Infrastructure Damage",
+    "description": "Extent of damage to Iran's broader military infrastructure. Strikes hit targets across 26 of 31 provinces, with Tehran most heavily targeted. Over 11,000 targets struck by late March.",
+    "parents": [],
+    "categories": ["light", "moderate", "heavy", "devastating"],
+    "cpt": [],
+    "defaultProbabilities": {
+      "light": 0.01,
+      "moderate": 0.01,
+      "heavy": 0.03,
+      "devastating": 0.95
+    },
+    "source": {
+      "citation": "PBS NewsHour, 'Scope of US strikes across Iran', Mar 2026; ACLED, 'Iran conflict data', Mar 2026; Wikipedia, '2026 United States–Iran conflict'",
+      "url": "https://www.pbs.org/newshour/world/us-strikes-iran-scope-2026",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "iranian_civilian_casualties_initial",
+    "phase": 1,
+    "type": "categorical",
+    "label": "Iranian Civilian Casualties (Initial Phase)",
+    "description": "Scale of Iranian civilian casualties from the initial strikes and sustained campaign. As of late March 2026: 1,937+ killed, 24,800+ injured, including 4,000 women and 1,621 children. Over 120 historical sites damaged.",
+    "parents": [],
+    "categories": ["minimal", "hundreds", "over_thousand", "mass_casualties"],
+    "cpt": [],
+    "defaultProbabilities": {
+      "minimal": 0.01,
+      "hundreds": 0.02,
+      "over_thousand": 0.95,
+      "mass_casualties": 0.02
+    },
+    "source": {
+      "citation": "Al Jazeera, 'Iran death toll surpasses 1,900', Mar 2026; WHO, 'Iran humanitarian situation report', Mar 2026; Wikipedia, '2026 United States–Iran conflict'",
+      "url": "https://www.aljazeera.com/news/2026/3/iran-casualties-update",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "immediate_international_reaction",
+    "phase": 1,
+    "type": "categorical",
+    "label": "Immediate International Reaction",
+    "description": "The international community's immediate response to the strikes. Russia and China both issued strong condemnations. The UN Security Council held emergency sessions. Most nations outside the US-Israel alliance condemned the attack.",
+    "parents": [],
+    "categories": ["broad_support", "mixed", "broad_condemnation"],
+    "cpt": [],
+    "defaultProbabilities": {
+      "broad_support": 0.02,
+      "mixed": 0.03,
+      "broad_condemnation": 0.95
+    },
+    "source": {
+      "citation": "Reuters, 'Russia, China condemn US-Israeli strikes on Iran', 1 Mar 2026; UN News, 'Security Council holds emergency session on Iran', Mar 2026; Al Jazeera, 'World reacts to Iran strikes', 28 Feb 2026",
+      "url": "https://news.un.org/en/story/2026/03/iran-emergency-session",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "us_stated_war_aims",
+    "phase": 1,
+    "type": "categorical",
+    "label": "US Stated War Aims",
+    "description": "The official US objectives as stated by President Trump: eliminate Iran's nuclear and missile programs, destroy its navy, and change the country's leadership. This went beyond limited counter-proliferation to explicit regime change goals.",
+    "parents": [],
+    "categories": ["limited_strike", "nuclear_elimination", "regime_change"],
+    "cpt": [],
+    "defaultProbabilities": {
+      "limited_strike": 0.01,
+      "nuclear_elimination": 0.04,
+      "regime_change": 0.95
+    },
+    "source": {
+      "citation": "PBS NewsHour, 'Trump outlines war aims against Iran', Mar 2026; CFR, 'US Objectives in Iran Conflict', Mar 2026; BBC News, 'Trump: We will change Iran's leadership', Mar 2026",
+      "url": "https://www.pbs.org/newshour/politics/trump-iran-war-aims-2026",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "element_of_surprise",
+    "phase": 1,
+    "type": "binary",
+    "label": "Element of Surprise Achieved",
+    "description": "Whether the US-Israeli attack achieved tactical surprise. The strikes on February 28 were launched without warning, catching Iran's leadership and military off guard. Air defenses were overwhelmed in the opening hours.",
+    "parents": [],
+    "cpt": [],
+    "defaultPTrue": 0.95,
+    "source": {
+      "citation": "CFR, 'The Surprise Attack on Iran', Mar 2026; BBC News, 'How the US-Israel strike caught Iran off guard', Mar 2026",
+      "url": "https://www.cfr.org/article/surprise-attack-iran-2026",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "iranian_air_defense_initial",
+    "phase": 1,
+    "type": "categorical",
+    "label": "Iranian Air Defense Effectiveness (Initial)",
+    "description": "Performance of Iran's air defense systems in the opening hours. Despite possessing Russian-supplied S-300 systems and indigenous Bavar-373, Iranian air defenses were overwhelmed by the scale and sophistication of the combined US-Israeli assault.",
+    "parents": [],
+    "categories": ["effective", "partially_effective", "overwhelmed"],
+    "cpt": [],
+    "defaultProbabilities": {
+      "effective": 0.02,
+      "partially_effective": 0.03,
+      "overwhelmed": 0.95
+    },
+    "source": {
+      "citation": "IISS, 'Iran air defense assessment post-strikes', Mar 2026; Al Jazeera, 'Iran's air defenses overwhelmed in opening wave', 1 Mar 2026; CSIS, 'Lessons from the Iran Strikes', Mar 2026",
+      "url": "https://www.iiss.org/publications/iran-air-defense-2026",
+      "confidence": "high"
     }
   }
 ]

@@ -1,553 +1,495 @@
 [
   {
-    "id": "first_strike_actor",
+    "id": "iran_missile_retaliation_scale",
     "phase": 2,
     "type": "categorical",
-    "label": "First Strike Actor",
-    "description": "Which actor initiates the first kinetic strike: the United States, Israel acting unilaterally, or Iran/IRGC moving preemptively",
-    "parents": ["escalation_trigger_probability", "crisis_type", "us_domestic_appetite"],
-    "categories": ["us_strikes_first", "israel_strikes_first", "iran_strikes_first", "no_strike"],
+    "label": "Iranian Missile Retaliation Scale",
+    "description": "Scale of Iran's retaliatory missile and drone response. Iran launched 500+ ballistic and naval missiles plus approximately 2,000 drones in the days following the February 28 strikes, representing its largest-ever external military operation.",
+    "parents": ["strike_scale", "leadership_decapitation"],
+    "categories": ["none", "limited", "moderate", "massive"],
     "cpt": [
       {
-        "parentValues": { "escalation_trigger_probability": "true", "crisis_type": "nuclear_provocation", "us_domestic_appetite": "strong_support" },
-        "categoryProbabilities": { "us_strikes_first": 0.50, "israel_strikes_first": 0.30, "iran_strikes_first": 0.10, "no_strike": 0.10 }
+        "parentValues": { "strike_scale": "massive_campaign", "leadership_decapitation": "true" },
+        "categoryProbabilities": { "none": 0.01, "limited": 0.01, "moderate": 0.03, "massive": 0.95 }
       },
       {
-        "parentValues": { "escalation_trigger_probability": "true", "crisis_type": "proxy_attack_us_casualties", "us_domestic_appetite": "conditional_support" },
-        "categoryProbabilities": { "us_strikes_first": 0.55, "israel_strikes_first": 0.10, "iran_strikes_first": 0.15, "no_strike": 0.20 }
+        "parentValues": { "strike_scale": "massive_campaign", "leadership_decapitation": "false" },
+        "categoryProbabilities": { "none": 0.01, "limited": 0.02, "moderate": 0.07, "massive": 0.90 }
       },
       {
-        "parentValues": { "escalation_trigger_probability": "true", "crisis_type": "maritime_incident", "us_domestic_appetite": "reluctant" },
-        "categoryProbabilities": { "us_strikes_first": 0.20, "israel_strikes_first": 0.05, "iran_strikes_first": 0.25, "no_strike": 0.50 }
+        "parentValues": { "strike_scale": "medium_scale", "leadership_decapitation": "true" },
+        "categoryProbabilities": { "none": 0.02, "limited": 0.08, "moderate": 0.40, "massive": 0.50 }
       },
       {
-        "parentValues": { "escalation_trigger_probability": "true", "crisis_type": "cyber_attack", "us_domestic_appetite": "opposed" },
-        "categoryProbabilities": { "us_strikes_first": 0.05, "israel_strikes_first": 0.10, "iran_strikes_first": 0.10, "no_strike": 0.75 }
+        "parentValues": { "strike_scale": "medium_scale", "leadership_decapitation": "false" },
+        "categoryProbabilities": { "none": 0.02, "limited": 0.10, "moderate": 0.48, "massive": 0.40 }
       },
       {
-        "parentValues": { "escalation_trigger_probability": "true", "crisis_type": "assassination_sabotage", "us_domestic_appetite": "conditional_support" },
-        "categoryProbabilities": { "us_strikes_first": 0.15, "israel_strikes_first": 0.20, "iran_strikes_first": 0.45, "no_strike": 0.20 }
+        "parentValues": { "strike_scale": "limited_surgical", "leadership_decapitation": "true" },
+        "categoryProbabilities": { "none": 0.05, "limited": 0.25, "moderate": 0.45, "massive": 0.25 }
       },
       {
-        "parentValues": { "escalation_trigger_probability": "false", "crisis_type": "maritime_incident", "us_domestic_appetite": "reluctant" },
-        "categoryProbabilities": { "us_strikes_first": 0.03, "israel_strikes_first": 0.02, "iran_strikes_first": 0.05, "no_strike": 0.90 }
+        "parentValues": { "strike_scale": "limited_surgical", "leadership_decapitation": "false" },
+        "categoryProbabilities": { "none": 0.10, "limited": 0.35, "moderate": 0.40, "massive": 0.15 }
       }
     ],
     "defaultProbabilities": {
-      "us_strikes_first": 0.25,
-      "israel_strikes_first": 0.15,
-      "iran_strikes_first": 0.20,
-      "no_strike": 0.40
+      "none": 0.01,
+      "limited": 0.01,
+      "moderate": 0.03,
+      "massive": 0.95
     },
     "source": {
-      "citation": "RAND 'Escalation in the Middle East' 2024; CSIS 'Pathways to US-Iran War' 2024",
-      "url": "https://www.rand.org/pubs/research_reports/RRA2111-1.html",
-      "confidence": "medium"
-    }
-  },
-  {
-    "id": "us_strike_target_type",
-    "phase": 2,
-    "type": "categorical",
-    "label": "US/Israel Strike Target Type",
-    "description": "Primary category of targets selected in the initial US or Israeli strike package: nuclear sites, military/IRGC facilities, oil infrastructure, or Iranian leadership",
-    "parents": ["first_strike_actor", "crisis_type"],
-    "categories": ["nuclear_sites", "military_bases", "oil_infrastructure", "leadership_decapitation"],
-    "cpt": [
-      {
-        "parentValues": { "first_strike_actor": "us_strikes_first", "crisis_type": "nuclear_provocation" },
-        "categoryProbabilities": { "nuclear_sites": 0.65, "military_bases": 0.25, "oil_infrastructure": 0.05, "leadership_decapitation": 0.05 }
-      },
-      {
-        "parentValues": { "first_strike_actor": "us_strikes_first", "crisis_type": "proxy_attack_us_casualties" },
-        "categoryProbabilities": { "nuclear_sites": 0.15, "military_bases": 0.65, "oil_infrastructure": 0.10, "leadership_decapitation": 0.10 }
-      },
-      {
-        "parentValues": { "first_strike_actor": "israel_strikes_first", "crisis_type": "nuclear_provocation" },
-        "categoryProbabilities": { "nuclear_sites": 0.80, "military_bases": 0.15, "oil_infrastructure": 0.03, "leadership_decapitation": 0.02 }
-      },
-      {
-        "parentValues": { "first_strike_actor": "israel_strikes_first", "crisis_type": "assassination_sabotage" },
-        "categoryProbabilities": { "nuclear_sites": 0.40, "military_bases": 0.40, "oil_infrastructure": 0.05, "leadership_decapitation": 0.15 }
-      },
-      {
-        "parentValues": { "first_strike_actor": "iran_strikes_first", "crisis_type": "proxy_attack_us_casualties" },
-        "categoryProbabilities": { "nuclear_sites": 0.02, "military_bases": 0.70, "oil_infrastructure": 0.15, "leadership_decapitation": 0.13 }
-      },
-      {
-        "parentValues": { "first_strike_actor": "no_strike", "crisis_type": "maritime_incident" },
-        "categoryProbabilities": { "nuclear_sites": 0.05, "military_bases": 0.50, "oil_infrastructure": 0.35, "leadership_decapitation": 0.10 }
-      }
-    ],
-    "defaultProbabilities": {
-      "nuclear_sites": 0.35,
-      "military_bases": 0.40,
-      "oil_infrastructure": 0.15,
-      "leadership_decapitation": 0.10
-    },
-    "source": {
-      "citation": "CSIS 'Iran Strike Options' 2024; Brookings 'Military Options Against Iran's Nuclear Program' 2023",
-      "url": "https://www.brookings.edu/research/military-options-against-irans-nuclear-program/",
-      "confidence": "medium"
-    }
-  },
-  {
-    "id": "us_strike_method",
-    "phase": 2,
-    "type": "categorical",
-    "label": "US/Israel Strike Method",
-    "description": "Primary delivery method employed in the first strike: manned airstrikes, cruise missiles (TLAM/JASSM), ballistic missiles, or cyber/EW weapons",
-    "parents": ["first_strike_actor", "us_strike_target_type", "us_force_posture_gulf"],
-    "categories": ["manned_airstrikes", "cruise_missiles", "ballistic_missiles", "cyber_ew"],
-    "cpt": [
-      {
-        "parentValues": { "first_strike_actor": "us_strikes_first", "us_strike_target_type": "nuclear_sites", "us_force_posture_gulf": "surge" },
-        "categoryProbabilities": { "manned_airstrikes": 0.45, "cruise_missiles": 0.40, "ballistic_missiles": 0.05, "cyber_ew": 0.10 }
-      },
-      {
-        "parentValues": { "first_strike_actor": "us_strikes_first", "us_strike_target_type": "military_bases", "us_force_posture_gulf": "elevated" },
-        "categoryProbabilities": { "manned_airstrikes": 0.35, "cruise_missiles": 0.45, "ballistic_missiles": 0.10, "cyber_ew": 0.10 }
-      },
-      {
-        "parentValues": { "first_strike_actor": "israel_strikes_first", "us_strike_target_type": "nuclear_sites", "us_force_posture_gulf": "baseline" },
-        "categoryProbabilities": { "manned_airstrikes": 0.70, "cruise_missiles": 0.20, "ballistic_missiles": 0.05, "cyber_ew": 0.05 }
-      },
-      {
-        "parentValues": { "first_strike_actor": "iran_strikes_first", "us_strike_target_type": "military_bases", "us_force_posture_gulf": "surge" },
-        "categoryProbabilities": { "manned_airstrikes": 0.10, "cruise_missiles": 0.20, "ballistic_missiles": 0.60, "cyber_ew": 0.10 }
-      }
-    ],
-    "defaultProbabilities": {
-      "manned_airstrikes": 0.35,
-      "cruise_missiles": 0.35,
-      "ballistic_missiles": 0.20,
-      "cyber_ew": 0.10
-    },
-    "source": {
-      "citation": "Air Force Association 'Strike Options 2025'; CBO 'US Air Force Tactical Aircraft' 2024; IISS Military Balance 2025",
-      "url": "https://www.iiss.org/publications/the-military-balance",
+      "citation": "Al Jazeera, 'Iran launches 500+ missiles in retaliation', Mar 2026; CFR, 'Iran's Retaliatory Strikes', Mar 2026; BBC News, '2,000 drones launched at US and Israeli targets', Mar 2026",
+      "url": "https://www.aljazeera.com/news/2026/3/iran-retaliation-missiles-drones",
       "confidence": "high"
     }
   },
   {
-    "id": "iran_strike_target_type",
+    "id": "retaliation_target_mix",
     "phase": 2,
     "type": "categorical",
-    "label": "Iranian Retaliation Target Type",
-    "description": "Primary category of Iranian retaliation targets: US Gulf bases (Bahrain/Qatar/UAE), Israeli cities, Saudi/Gulf oil infrastructure, or global shipping (Hormuz)",
-    "parents": ["first_strike_actor", "us_strike_target_type", "iran_irgc_readiness"],
-    "categories": ["us_gulf_bases", "israeli_cities", "gulf_oil_infrastructure", "hormuz_closure"],
+    "label": "Retaliation Target Mix",
+    "description": "Distribution of Iranian retaliatory strikes across target types. Approximately 40% aimed at Israel, 60% at US regional targets. Strikes hit Bahrain (3 killed), Kuwait (8 killed), Oman (3 killed), and Israel (~10 killed from ~20 direct hits out of 90 attempts).",
+    "parents": ["iran_missile_retaliation_scale"],
+    "categories": ["israel_only", "us_bases_only", "mixed_israel_and_us", "wide_regional"],
     "cpt": [
       {
-        "parentValues": { "first_strike_actor": "us_strikes_first", "us_strike_target_type": "nuclear_sites", "iran_irgc_readiness": "maximum" },
-        "categoryProbabilities": { "us_gulf_bases": 0.40, "israeli_cities": 0.25, "gulf_oil_infrastructure": 0.20, "hormuz_closure": 0.15 }
+        "parentValues": { "iran_missile_retaliation_scale": "massive" },
+        "categoryProbabilities": { "israel_only": 0.01, "us_bases_only": 0.01, "mixed_israel_and_us": 0.03, "wide_regional": 0.95 }
       },
       {
-        "parentValues": { "first_strike_actor": "us_strikes_first", "us_strike_target_type": "military_bases", "iran_irgc_readiness": "high" },
-        "categoryProbabilities": { "us_gulf_bases": 0.55, "israeli_cities": 0.15, "gulf_oil_infrastructure": 0.20, "hormuz_closure": 0.10 }
+        "parentValues": { "iran_missile_retaliation_scale": "moderate" },
+        "categoryProbabilities": { "israel_only": 0.10, "us_bases_only": 0.15, "mixed_israel_and_us": 0.50, "wide_regional": 0.25 }
       },
       {
-        "parentValues": { "first_strike_actor": "israel_strikes_first", "us_strike_target_type": "nuclear_sites", "iran_irgc_readiness": "maximum" },
-        "categoryProbabilities": { "us_gulf_bases": 0.20, "israeli_cities": 0.55, "gulf_oil_infrastructure": 0.15, "hormuz_closure": 0.10 }
+        "parentValues": { "iran_missile_retaliation_scale": "limited" },
+        "categoryProbabilities": { "israel_only": 0.25, "us_bases_only": 0.30, "mixed_israel_and_us": 0.35, "wide_regional": 0.10 }
       },
       {
-        "parentValues": { "first_strike_actor": "iran_strikes_first", "us_strike_target_type": "military_bases", "iran_irgc_readiness": "high" },
-        "categoryProbabilities": { "us_gulf_bases": 0.50, "israeli_cities": 0.10, "gulf_oil_infrastructure": 0.25, "hormuz_closure": 0.15 }
+        "parentValues": { "iran_missile_retaliation_scale": "none" },
+        "categoryProbabilities": { "israel_only": 0.25, "us_bases_only": 0.25, "mixed_israel_and_us": 0.25, "wide_regional": 0.25 }
       }
     ],
     "defaultProbabilities": {
-      "us_gulf_bases": 0.40,
-      "israeli_cities": 0.25,
-      "gulf_oil_infrastructure": 0.20,
-      "hormuz_closure": 0.15
+      "israel_only": 0.01,
+      "us_bases_only": 0.01,
+      "mixed_israel_and_us": 0.03,
+      "wide_regional": 0.95
     },
     "source": {
-      "citation": "CSIS 'Iranian Ballistic Missile Threat' 2024; RAND 'Iran's Escalation Options' 2023",
-      "url": "https://www.csis.org/analysis/irans-ballistic-missile-program",
-      "confidence": "medium"
-    }
-  },
-  {
-    "id": "iran_retaliation_method",
-    "phase": 2,
-    "type": "categorical",
-    "label": "Iranian Retaliation Method",
-    "description": "Primary delivery system Iran employs in retaliation: ballistic missiles (Shahab/Fattah), drones (Shahed swarms), proxy militia ground attacks, or naval/mine warfare",
-    "parents": ["iran_irgc_readiness", "iran_strike_target_type"],
-    "categories": ["ballistic_missiles", "drone_swarms", "proxy_militia_attacks", "naval_mine_warfare"],
-    "cpt": [
-      {
-        "parentValues": { "iran_irgc_readiness": "maximum", "iran_strike_target_type": "us_gulf_bases" },
-        "categoryProbabilities": { "ballistic_missiles": 0.50, "drone_swarms": 0.25, "proxy_militia_attacks": 0.15, "naval_mine_warfare": 0.10 }
-      },
-      {
-        "parentValues": { "iran_irgc_readiness": "maximum", "iran_strike_target_type": "israeli_cities" },
-        "categoryProbabilities": { "ballistic_missiles": 0.55, "drone_swarms": 0.35, "proxy_militia_attacks": 0.08, "naval_mine_warfare": 0.02 }
-      },
-      {
-        "parentValues": { "iran_irgc_readiness": "high", "iran_strike_target_type": "hormuz_closure" },
-        "categoryProbabilities": { "ballistic_missiles": 0.15, "drone_swarms": 0.20, "proxy_militia_attacks": 0.10, "naval_mine_warfare": 0.55 }
-      },
-      {
-        "parentValues": { "iran_irgc_readiness": "moderate", "iran_strike_target_type": "gulf_oil_infrastructure" },
-        "categoryProbabilities": { "ballistic_missiles": 0.30, "drone_swarms": 0.40, "proxy_militia_attacks": 0.20, "naval_mine_warfare": 0.10 }
-      }
-    ],
-    "defaultProbabilities": {
-      "ballistic_missiles": 0.35,
-      "drone_swarms": 0.30,
-      "proxy_militia_attacks": 0.25,
-      "naval_mine_warfare": 0.10
-    },
-    "source": {
-      "citation": "IISS 'Iran's Ballistic Missile Forces' 2025; CSIA 'Shahed Drone Proliferation' 2024; CNA 'IRGC Naval Operations'",
-      "url": "https://www.iiss.org/blogs/military-balance/2024/04/irans-ballistic-missile-programme",
+      "citation": "PBS NewsHour, 'Iran strikes hit four countries', Mar 2026; Reuters, 'Bahrain, Kuwait, Oman report casualties from Iranian missiles', Mar 2026; Al Jazeera, 'Iran targets spread across region', Mar 2026",
+      "url": "https://www.pbs.org/newshour/world/iran-retaliatory-strikes-regional-2026",
       "confidence": "high"
     }
   },
   {
-    "id": "us_air_defense_performance",
-    "phase": 2,
-    "type": "categorical",
-    "label": "US/Coalition Air Defense Performance",
-    "description": "Effectiveness of US and allied Patriot, THAAD, and Iron Dome/Arrow intercept systems against the incoming Iranian missile and drone salvo",
-    "parents": ["iran_retaliation_method", "us_force_posture_gulf"],
-    "categories": ["high_intercept_rate", "moderate_intercept_rate", "low_intercept_rate", "overwhelmed"],
-    "cpt": [
-      {
-        "parentValues": { "iran_retaliation_method": "ballistic_missiles", "us_force_posture_gulf": "surge" },
-        "categoryProbabilities": { "high_intercept_rate": 0.35, "moderate_intercept_rate": 0.40, "low_intercept_rate": 0.20, "overwhelmed": 0.05 }
-      },
-      {
-        "parentValues": { "iran_retaliation_method": "ballistic_missiles", "us_force_posture_gulf": "baseline" },
-        "categoryProbabilities": { "high_intercept_rate": 0.15, "moderate_intercept_rate": 0.35, "low_intercept_rate": 0.35, "overwhelmed": 0.15 }
-      },
-      {
-        "parentValues": { "iran_retaliation_method": "drone_swarms", "us_force_posture_gulf": "elevated" },
-        "categoryProbabilities": { "high_intercept_rate": 0.45, "moderate_intercept_rate": 0.35, "low_intercept_rate": 0.15, "overwhelmed": 0.05 }
-      },
-      {
-        "parentValues": { "iran_retaliation_method": "naval_mine_warfare", "us_force_posture_gulf": "surge" },
-        "categoryProbabilities": { "high_intercept_rate": 0.60, "moderate_intercept_rate": 0.25, "low_intercept_rate": 0.10, "overwhelmed": 0.05 }
-      }
-    ],
-    "defaultProbabilities": {
-      "high_intercept_rate": 0.30,
-      "moderate_intercept_rate": 0.38,
-      "low_intercept_rate": 0.22,
-      "overwhelmed": 0.10
-    },
-    "source": {
-      "citation": "CBO 'The Effectiveness of US Missile Defense Systems' 2024; CSBA 'Air Defense in the Gulf' 2023",
-      "url": "https://www.csbaonline.org/research/publications/air-defense-in-the-gulf",
-      "confidence": "medium"
-    }
-  },
-  {
-    "id": "us_strike_bda",
-    "phase": 2,
-    "type": "categorical",
-    "label": "US/Israel Strike Battle Damage Assessment",
-    "description": "Initial battle damage assessment of the US or Israeli strike on Iranian targets: mission kills on intended targets, partial damage, minimal effect, or hardened sites survive",
-    "parents": ["us_strike_method", "us_strike_target_type"],
-    "categories": ["mission_kill_success", "partial_damage", "minimal_effect", "hardened_sites_survive"],
-    "cpt": [
-      {
-        "parentValues": { "us_strike_method": "manned_airstrikes", "us_strike_target_type": "nuclear_sites" },
-        "categoryProbabilities": { "mission_kill_success": 0.30, "partial_damage": 0.40, "minimal_effect": 0.15, "hardened_sites_survive": 0.15 }
-      },
-      {
-        "parentValues": { "us_strike_method": "cruise_missiles", "us_strike_target_type": "military_bases" },
-        "categoryProbabilities": { "mission_kill_success": 0.50, "partial_damage": 0.35, "minimal_effect": 0.10, "hardened_sites_survive": 0.05 }
-      },
-      {
-        "parentValues": { "us_strike_method": "ballistic_missiles", "us_strike_target_type": "nuclear_sites" },
-        "categoryProbabilities": { "mission_kill_success": 0.20, "partial_damage": 0.35, "minimal_effect": 0.20, "hardened_sites_survive": 0.25 }
-      },
-      {
-        "parentValues": { "us_strike_method": "cyber_ew", "us_strike_target_type": "nuclear_sites" },
-        "categoryProbabilities": { "mission_kill_success": 0.15, "partial_damage": 0.40, "minimal_effect": 0.35, "hardened_sites_survive": 0.10 }
-      },
-      {
-        "parentValues": { "us_strike_method": "manned_airstrikes", "us_strike_target_type": "leadership_decapitation" },
-        "categoryProbabilities": { "mission_kill_success": 0.25, "partial_damage": 0.30, "minimal_effect": 0.30, "hardened_sites_survive": 0.15 }
-      }
-    ],
-    "defaultProbabilities": {
-      "mission_kill_success": 0.30,
-      "partial_damage": 0.38,
-      "minimal_effect": 0.18,
-      "hardened_sites_survive": 0.14
-    },
-    "source": {
-      "citation": "RAND 'Assessing US Air Strike Effectiveness in Iran' 2023; IISS 'Fordow and Natanz Hardening Assessment' 2024",
-      "url": "https://www.rand.org/pubs/research_reports/RRA2111-1.html",
-      "confidence": "low"
-    }
-  },
-  {
-    "id": "us_casualties_first_exchange",
-    "phase": 2,
-    "type": "categorical",
-    "label": "US Casualties in First Exchange",
-    "description": "Estimated scale of US military casualties from Iranian retaliation in the initial exchange: none/minimal, limited (1-50), significant (51-500), mass (500+)",
-    "parents": ["iran_retaliation_method", "us_air_defense_performance", "iran_strike_target_type"],
-    "categories": ["none_minimal", "limited", "significant", "mass"],
-    "cpt": [
-      {
-        "parentValues": { "iran_retaliation_method": "ballistic_missiles", "us_air_defense_performance": "overwhelmed", "iran_strike_target_type": "us_gulf_bases" },
-        "categoryProbabilities": { "none_minimal": 0.02, "limited": 0.15, "significant": 0.45, "mass": 0.38 }
-      },
-      {
-        "parentValues": { "iran_retaliation_method": "ballistic_missiles", "us_air_defense_performance": "high_intercept_rate", "iran_strike_target_type": "us_gulf_bases" },
-        "categoryProbabilities": { "none_minimal": 0.30, "limited": 0.45, "significant": 0.20, "mass": 0.05 }
-      },
-      {
-        "parentValues": { "iran_retaliation_method": "drone_swarms", "us_air_defense_performance": "moderate_intercept_rate", "iran_strike_target_type": "us_gulf_bases" },
-        "categoryProbabilities": { "none_minimal": 0.25, "limited": 0.45, "significant": 0.25, "mass": 0.05 }
-      },
-      {
-        "parentValues": { "iran_retaliation_method": "proxy_militia_attacks", "us_air_defense_performance": "high_intercept_rate", "iran_strike_target_type": "us_gulf_bases" },
-        "categoryProbabilities": { "none_minimal": 0.20, "limited": 0.50, "significant": 0.25, "mass": 0.05 }
-      }
-    ],
-    "defaultProbabilities": {
-      "none_minimal": 0.20,
-      "limited": 0.40,
-      "significant": 0.28,
-      "mass": 0.12
-    },
-    "source": {
-      "citation": "RAND 'Iranian Conventional Threats to US Forces' 2023; CBO 'Casualties in Potential Gulf Conflict' 2024",
-      "url": "https://www.rand.org/pubs/research_reports/RR3063.html",
-      "confidence": "low"
-    }
-  },
-  {
-    "id": "hormuz_closure_probability",
+    "id": "hezbollah_activation",
     "phase": 2,
     "type": "binary",
-    "label": "Strait of Hormuz Closure Attempted",
-    "description": "Whether Iran attempts to close or significantly impede traffic through the Strait of Hormuz via mines, anti-ship missiles, or IRGC Navy swarming",
-    "parents": ["iran_irgc_readiness", "iran_retaliation_method", "iran_strike_target_type"],
-    "cpt": [
-      { "parentValues": { "iran_irgc_readiness": "maximum", "iran_retaliation_method": "naval_mine_warfare", "iran_strike_target_type": "hormuz_closure" }, "pTrue": 0.90 },
-      { "parentValues": { "iran_irgc_readiness": "high", "iran_retaliation_method": "ballistic_missiles", "iran_strike_target_type": "hormuz_closure" }, "pTrue": 0.60 },
-      { "parentValues": { "iran_irgc_readiness": "high", "iran_retaliation_method": "drone_swarms", "iran_strike_target_type": "us_gulf_bases" }, "pTrue": 0.25 },
-      { "parentValues": { "iran_irgc_readiness": "moderate", "iran_retaliation_method": "proxy_militia_attacks", "iran_strike_target_type": "gulf_oil_infrastructure" }, "pTrue": 0.10 }
-    ],
-    "defaultPTrue": 0.30,
-    "source": {
-      "citation": "CNA 'Hormuz Closure Scenarios' 2023; EIA 'Strait of Hormuz Critical Chokepoint' 2024",
-      "url": "https://www.eia.gov/todayinenergy/detail.php?id=41073",
-      "confidence": "medium"
-    }
-  },
-  {
-    "id": "international_response",
-    "phase": 2,
-    "type": "categorical",
-    "label": "International Response to First Strikes",
-    "description": "Character of the international community's reaction to the opening strikes: broad condemnation of Iran, condemnation of US/Israel, neutral/divided, or active coalition support for US",
-    "parents": ["first_strike_actor", "us_strike_bda", "us_casualties_first_exchange"],
-    "categories": ["condemn_iran_broad", "condemn_us_israel", "neutral_divided", "us_coalition_support"],
+    "label": "Hezbollah Activated",
+    "description": "Whether Hezbollah joined the conflict by launching rocket and drone attacks on Israel. Hezbollah resumed attacks within 2 days of the February 28 strikes, despite its weakened state from the 2024 conflict with Israel.",
+    "parents": ["strike_scale"],
     "cpt": [
       {
-        "parentValues": { "first_strike_actor": "iran_strikes_first", "us_strike_bda": "mission_kill_success", "us_casualties_first_exchange": "mass" },
-        "categoryProbabilities": { "condemn_iran_broad": 0.65, "condemn_us_israel": 0.05, "neutral_divided": 0.15, "us_coalition_support": 0.15 }
+        "parentValues": { "strike_scale": "massive_campaign" },
+        "pTrue": 0.95
       },
       {
-        "parentValues": { "first_strike_actor": "us_strikes_first", "us_strike_bda": "mission_kill_success", "us_casualties_first_exchange": "none_minimal" },
-        "categoryProbabilities": { "condemn_iran_broad": 0.20, "condemn_us_israel": 0.40, "neutral_divided": 0.30, "us_coalition_support": 0.10 }
+        "parentValues": { "strike_scale": "medium_scale" },
+        "pTrue": 0.70
       },
       {
-        "parentValues": { "first_strike_actor": "israel_strikes_first", "us_strike_bda": "partial_damage", "us_casualties_first_exchange": "none_minimal" },
-        "categoryProbabilities": { "condemn_iran_broad": 0.15, "condemn_us_israel": 0.50, "neutral_divided": 0.25, "us_coalition_support": 0.10 }
-      },
-      {
-        "parentValues": { "first_strike_actor": "us_strikes_first", "us_strike_bda": "partial_damage", "us_casualties_first_exchange": "significant" },
-        "categoryProbabilities": { "condemn_iran_broad": 0.30, "condemn_us_israel": 0.25, "neutral_divided": 0.30, "us_coalition_support": 0.15 }
+        "parentValues": { "strike_scale": "limited_surgical" },
+        "pTrue": 0.40
       }
     ],
-    "defaultProbabilities": {
-      "condemn_iran_broad": 0.25,
-      "condemn_us_israel": 0.30,
-      "neutral_divided": 0.30,
-      "us_coalition_support": 0.15
-    },
+    "defaultPTrue": 0.95,
     "source": {
-      "citation": "Chatham House 'Allied Reactions to Gulf Conflict' 2024; ECFR 'European Responses to US-Iran War' 2024",
-      "url": "https://www.chathamhouse.org/research/regions/middle-east-and-north-africa",
-      "confidence": "medium"
-    }
-  },
-  {
-    "id": "un_security_council_action",
-    "phase": 2,
-    "type": "categorical",
-    "label": "UN Security Council Response",
-    "description": "Action taken at the UN Security Council in response to the first strikes: ceasefire resolution passed, resolution vetoed (US or Russia/China), emergency session only, or no action",
-    "parents": ["international_response", "first_strike_actor"],
-    "categories": ["ceasefire_resolution_passed", "resolution_vetoed", "emergency_session_only", "no_action"],
-    "cpt": [
-      {
-        "parentValues": { "international_response": "condemn_iran_broad", "first_strike_actor": "iran_strikes_first" },
-        "categoryProbabilities": { "ceasefire_resolution_passed": 0.20, "resolution_vetoed": 0.40, "emergency_session_only": 0.30, "no_action": 0.10 }
-      },
-      {
-        "parentValues": { "international_response": "condemn_us_israel", "first_strike_actor": "us_strikes_first" },
-        "categoryProbabilities": { "ceasefire_resolution_passed": 0.10, "resolution_vetoed": 0.60, "emergency_session_only": 0.25, "no_action": 0.05 }
-      },
-      {
-        "parentValues": { "international_response": "neutral_divided", "first_strike_actor": "israel_strikes_first" },
-        "categoryProbabilities": { "ceasefire_resolution_passed": 0.05, "resolution_vetoed": 0.55, "emergency_session_only": 0.30, "no_action": 0.10 }
-      },
-      {
-        "parentValues": { "international_response": "us_coalition_support", "first_strike_actor": "iran_strikes_first" },
-        "categoryProbabilities": { "ceasefire_resolution_passed": 0.05, "resolution_vetoed": 0.50, "emergency_session_only": 0.35, "no_action": 0.10 }
-      }
-    ],
-    "defaultProbabilities": {
-      "ceasefire_resolution_passed": 0.10,
-      "resolution_vetoed": 0.52,
-      "emergency_session_only": 0.28,
-      "no_action": 0.10
-    },
-    "source": {
-      "citation": "UN Security Council veto precedents 2024; CFR 'UNSC and the Iran File' 2024",
-      "url": "https://www.cfr.org/backgrounder/un-security-council",
+      "citation": "Al Jazeera, 'Hezbollah resumes attacks on Israel within days of Iran strikes', Mar 2026; BBC News, 'Hezbollah opens second front', Mar 2026; CFR, 'Hezbollah's Role in the Iran War', Mar 2026",
+      "url": "https://www.aljazeera.com/news/2026/3/hezbollah-resumes-attacks-israel",
       "confidence": "high"
     }
   },
   {
-    "id": "nuclear_escalation_signal",
+    "id": "strait_of_hormuz_closure",
     "phase": 2,
     "type": "binary",
-    "label": "Nuclear Escalation Signal Detected",
-    "description": "Whether Iran issues credible nuclear signaling — moving warheads, activating delivery systems, or publicly threatening nuclear use — during or immediately after the first exchange",
-    "parents": ["us_strike_bda", "us_strike_target_type", "iran_irgc_readiness"],
+    "label": "Strait of Hormuz Closed",
+    "description": "Whether Iran closed the Strait of Hormuz to foreign shipping. On March 4, 2026, Iran announced closure of the Strait to foreign vessels. All major shipping carriers suspended Hormuz transits, and maritime insurance was cancelled from March 5.",
+    "parents": ["iran_missile_retaliation_scale"],
     "cpt": [
-      { "parentValues": { "us_strike_bda": "mission_kill_success", "us_strike_target_type": "nuclear_sites", "iran_irgc_readiness": "maximum" }, "pTrue": 0.45 },
-      { "parentValues": { "us_strike_bda": "partial_damage", "us_strike_target_type": "nuclear_sites", "iran_irgc_readiness": "high" }, "pTrue": 0.30 },
-      { "parentValues": { "us_strike_bda": "mission_kill_success", "us_strike_target_type": "leadership_decapitation", "iran_irgc_readiness": "maximum" }, "pTrue": 0.50 },
-      { "parentValues": { "us_strike_bda": "minimal_effect", "us_strike_target_type": "military_bases", "iran_irgc_readiness": "moderate" }, "pTrue": 0.05 }
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "massive" },
+        "pTrue": 0.95
+      },
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "moderate" },
+        "pTrue": 0.60
+      },
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "limited" },
+        "pTrue": 0.25
+      },
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "none" },
+        "pTrue": 0.05
+      }
     ],
-    "defaultPTrue": 0.15,
+    "defaultPTrue": 0.95,
     "source": {
-      "citation": "RAND 'Nuclear Signaling in a US-Iran War' 2024; Arms Control Association 'Iran Nuclear Posture' 2025",
-      "url": "https://www.armscontrol.org/factsheets/iran_nuclear_chronology",
-      "confidence": "low"
+      "citation": "Reuters, 'Iran closes Strait of Hormuz to foreign shipping', 4 Mar 2026; Lloyd's List, 'All major carriers suspend Hormuz transits', 5 Mar 2026; Al Jazeera, 'Hormuz closure chokes global oil supply', Mar 2026",
+      "url": "https://www.reuters.com/world/middle-east/iran-closes-hormuz-2026-03-04",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "us_regional_casualties",
+    "phase": 2,
+    "type": "categorical",
+    "label": "US Regional Casualties",
+    "description": "US military and personnel casualties from Iranian retaliatory strikes on regional bases. Scattered casualties reported across multiple countries (Bahrain, Kuwait) but no single mass-casualty event on US forces.",
+    "parents": ["iran_missile_retaliation_scale"],
+    "categories": ["none", "light", "moderate", "heavy"],
+    "cpt": [
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "massive" },
+        "categoryProbabilities": { "none": 0.02, "light": 0.93, "moderate": 0.04, "heavy": 0.01 }
+      },
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "moderate" },
+        "categoryProbabilities": { "none": 0.15, "light": 0.60, "moderate": 0.20, "heavy": 0.05 }
+      },
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "limited" },
+        "categoryProbabilities": { "none": 0.40, "light": 0.45, "moderate": 0.12, "heavy": 0.03 }
+      },
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "none" },
+        "categoryProbabilities": { "none": 0.90, "light": 0.08, "moderate": 0.01, "heavy": 0.01 }
+      }
+    ],
+    "defaultProbabilities": {
+      "none": 0.02,
+      "light": 0.93,
+      "moderate": 0.04,
+      "heavy": 0.01
+    },
+    "source": {
+      "citation": "PBS NewsHour, 'US casualties reported in Bahrain, Kuwait', Mar 2026; CFR, 'US Military Losses in Iran Conflict', Mar 2026; BBC News, 'Scattered US casualties across Gulf bases', Mar 2026",
+      "url": "https://www.pbs.org/newshour/world/us-casualties-gulf-2026",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "israeli_casualties_from_retaliation",
+    "phase": 2,
+    "type": "categorical",
+    "label": "Israeli Casualties from Iranian Retaliation",
+    "description": "Israeli civilian and military casualties from Iranian retaliatory strikes. Approximately 10 killed from ~20 direct hits out of 90 missile attempts targeting Israel. Iron Dome and Arrow systems intercepted the majority.",
+    "parents": ["iran_missile_retaliation_scale", "retaliation_target_mix"],
+    "categories": ["none", "light", "moderate", "heavy"],
+    "cpt": [
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "massive", "retaliation_target_mix": "wide_regional" },
+        "categoryProbabilities": { "none": 0.02, "light": 0.93, "moderate": 0.04, "heavy": 0.01 }
+      },
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "massive", "retaliation_target_mix": "mixed_israel_and_us" },
+        "categoryProbabilities": { "none": 0.03, "light": 0.87, "moderate": 0.08, "heavy": 0.02 }
+      },
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "massive", "retaliation_target_mix": "israel_only" },
+        "categoryProbabilities": { "none": 0.02, "light": 0.48, "moderate": 0.35, "heavy": 0.15 }
+      },
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "moderate", "retaliation_target_mix": "mixed_israel_and_us" },
+        "categoryProbabilities": { "none": 0.10, "light": 0.70, "moderate": 0.15, "heavy": 0.05 }
+      },
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "limited", "retaliation_target_mix": "israel_only" },
+        "categoryProbabilities": { "none": 0.20, "light": 0.60, "moderate": 0.15, "heavy": 0.05 }
+      }
+    ],
+    "defaultProbabilities": {
+      "none": 0.02,
+      "light": 0.93,
+      "moderate": 0.04,
+      "heavy": 0.01
+    },
+    "source": {
+      "citation": "Al Jazeera, 'Israel reports ~10 killed in Iranian missile strikes', Mar 2026; Haaretz, '20 direct hits from 90 Iranian missile attempts', Mar 2026; BBC News, 'Iron Dome intercepts majority of Iranian barrage', Mar 2026",
+      "url": "https://www.aljazeera.com/news/2026/3/israel-casualties-iran-retaliation",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "allied_country_damage",
+    "phase": 2,
+    "type": "categorical",
+    "label": "Allied Country Damage",
+    "description": "Damage inflicted on US-allied Gulf states by Iranian retaliatory strikes. Bahrain suffered 3 killed, Kuwait 8 killed, and Oman 3 killed — all from Iranian missiles targeting US military facilities or allied infrastructure in those countries.",
+    "parents": ["retaliation_target_mix"],
+    "categories": ["none", "minor", "significant", "severe"],
+    "cpt": [
+      {
+        "parentValues": { "retaliation_target_mix": "wide_regional" },
+        "categoryProbabilities": { "none": 0.01, "minor": 0.02, "significant": 0.95, "severe": 0.02 }
+      },
+      {
+        "parentValues": { "retaliation_target_mix": "mixed_israel_and_us" },
+        "categoryProbabilities": { "none": 0.05, "minor": 0.25, "significant": 0.55, "severe": 0.15 }
+      },
+      {
+        "parentValues": { "retaliation_target_mix": "us_bases_only" },
+        "categoryProbabilities": { "none": 0.10, "minor": 0.30, "significant": 0.45, "severe": 0.15 }
+      },
+      {
+        "parentValues": { "retaliation_target_mix": "israel_only" },
+        "categoryProbabilities": { "none": 0.60, "minor": 0.30, "significant": 0.08, "severe": 0.02 }
+      }
+    ],
+    "defaultProbabilities": {
+      "none": 0.01,
+      "minor": 0.02,
+      "significant": 0.95,
+      "severe": 0.02
+    },
+    "source": {
+      "citation": "Reuters, 'Bahrain, Kuwait, Oman report casualties from Iranian strikes', Mar 2026; Al Jazeera, 'Gulf states caught in crossfire of US-Iran war', Mar 2026; PBS NewsHour, 'Allied nations suffer collateral damage', Mar 2026",
+      "url": "https://www.reuters.com/world/middle-east/gulf-state-casualties-iran-strikes-2026",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "us_air_defense_effectiveness",
+    "phase": 2,
+    "type": "categorical",
+    "label": "US Air Defense Effectiveness",
+    "description": "Performance of US and allied missile defense systems (Patriot, THAAD, Aegis) against Iranian retaliatory strikes. While most missiles were intercepted, some Iranian strikes got through to targets in Bahrain, Kuwait, Oman, and Israel, indicating mostly effective but not perfect defense.",
+    "parents": ["iran_missile_retaliation_scale"],
+    "categories": ["failed", "partial", "mostly_effective", "highly_effective"],
+    "cpt": [
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "massive" },
+        "categoryProbabilities": { "failed": 0.01, "partial": 0.04, "mostly_effective": 0.92, "highly_effective": 0.03 }
+      },
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "moderate" },
+        "categoryProbabilities": { "failed": 0.02, "partial": 0.08, "mostly_effective": 0.50, "highly_effective": 0.40 }
+      },
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "limited" },
+        "categoryProbabilities": { "failed": 0.02, "partial": 0.05, "mostly_effective": 0.33, "highly_effective": 0.60 }
+      },
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "none" },
+        "categoryProbabilities": { "failed": 0.05, "partial": 0.05, "mostly_effective": 0.20, "highly_effective": 0.70 }
+      }
+    ],
+    "defaultProbabilities": {
+      "failed": 0.01,
+      "partial": 0.04,
+      "mostly_effective": 0.92,
+      "highly_effective": 0.03
+    },
+    "source": {
+      "citation": "CSIS, 'Missile Defense Performance in the Iran War', Mar 2026; PBS NewsHour, 'US Patriot, THAAD batteries tested in real combat', Mar 2026; Al Jazeera, 'Some Iranian missiles penetrate US defenses', Mar 2026",
+      "url": "https://www.csis.org/analysis/missile-defense-iran-war-2026",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "shipping_insurance_status",
+    "phase": 2,
+    "type": "categorical",
+    "label": "Shipping Insurance Status",
+    "description": "Status of maritime shipping insurance for Persian Gulf transits. All major insurance providers cancelled coverage for Strait of Hormuz transits effective March 5, 2026, following Iran's closure of the strait on March 4.",
+    "parents": ["strait_of_hormuz_closure"],
+    "categories": ["normal", "elevated_premiums", "selective_coverage", "cancelled"],
+    "cpt": [
+      {
+        "parentValues": { "strait_of_hormuz_closure": "true" },
+        "categoryProbabilities": { "normal": 0.00, "elevated_premiums": 0.01, "selective_coverage": 0.02, "cancelled": 0.97 }
+      },
+      {
+        "parentValues": { "strait_of_hormuz_closure": "false" },
+        "categoryProbabilities": { "normal": 0.10, "elevated_premiums": 0.50, "selective_coverage": 0.30, "cancelled": 0.10 }
+      }
+    ],
+    "defaultProbabilities": {
+      "normal": 0.01,
+      "elevated_premiums": 0.01,
+      "selective_coverage": 0.03,
+      "cancelled": 0.95
+    },
+    "source": {
+      "citation": "Lloyd's List, 'All insurers cancel Hormuz transit coverage', 5 Mar 2026; Reuters, 'Shipping insurance withdrawn from Persian Gulf', Mar 2026; Financial Times, 'Maritime insurers flee Gulf', Mar 2026",
+      "url": "https://www.lloydslist.com/insurance-hormuz-cancelled-2026",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "oil_market_initial_shock",
+    "phase": 2,
+    "type": "continuous",
+    "label": "Oil Market Initial Price Shock",
+    "description": "Initial spike in Brent crude oil prices following the strikes and Hormuz closure. Brent crude surged from approximately $83/barrel to over $113/barrel — a roughly 36% increase — driven by supply disruption fears and Hormuz closure.",
+    "parents": ["strait_of_hormuz_closure", "iran_missile_retaliation_scale"],
+    "cpt": [
+      {
+        "parentValues": { "strait_of_hormuz_closure": "true", "iran_missile_retaliation_scale": "massive" },
+        "distribution": { "type": "normal", "params": [113, 5] }
+      },
+      {
+        "parentValues": { "strait_of_hormuz_closure": "true", "iran_missile_retaliation_scale": "moderate" },
+        "distribution": { "type": "normal", "params": [105, 7] }
+      },
+      {
+        "parentValues": { "strait_of_hormuz_closure": "false", "iran_missile_retaliation_scale": "massive" },
+        "distribution": { "type": "normal", "params": [98, 8] }
+      },
+      {
+        "parentValues": { "strait_of_hormuz_closure": "false", "iran_missile_retaliation_scale": "moderate" },
+        "distribution": { "type": "normal", "params": [92, 7] }
+      },
+      {
+        "parentValues": { "strait_of_hormuz_closure": "false", "iran_missile_retaliation_scale": "limited" },
+        "distribution": { "type": "normal", "params": [88, 5] }
+      }
+    ],
+    "defaultDistribution": { "type": "normal", "params": [113, 5] },
+    "unit": "$/barrel",
+    "min": 80,
+    "max": 150,
+    "source": {
+      "citation": "Reuters, 'Brent crude surges past $113 after Iran strikes', Mar 2026; Bloomberg, 'Oil spikes 36% on Hormuz closure', Mar 2026; Financial Times, 'Energy markets in turmoil', Mar 2026",
+      "url": "https://www.reuters.com/business/energy/oil-prices-surge-iran-war-2026",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "un_emergency_session",
+    "phase": 2,
+    "type": "binary",
+    "label": "UN Emergency Session Held",
+    "description": "Whether the United Nations held an emergency session in response to the conflict. The UN Security Council convened emergency sessions, with Russia and China pushing for condemnation resolutions (vetoed by the US).",
+    "parents": ["immediate_international_reaction"],
+    "cpt": [
+      {
+        "parentValues": { "immediate_international_reaction": "broad_condemnation" },
+        "pTrue": 0.97
+      },
+      {
+        "parentValues": { "immediate_international_reaction": "mixed" },
+        "pTrue": 0.75
+      },
+      {
+        "parentValues": { "immediate_international_reaction": "broad_support" },
+        "pTrue": 0.40
+      }
+    ],
+    "defaultPTrue": 0.95,
+    "source": {
+      "citation": "UN News, 'Security Council holds emergency session on Iran', Mar 2026; Al Jazeera, 'UN emergency session as Russia, China condemn strikes', Mar 2026; Reuters, 'US vetoes UN resolution on Iran', Mar 2026",
+      "url": "https://news.un.org/en/story/2026/03/iran-security-council-emergency",
+      "confidence": "high"
     }
   },
   {
     "id": "escalation_ladder_position",
     "phase": 2,
     "type": "categorical",
-    "label": "Escalation Ladder Position After Initial Exchange",
-    "description": "Where the conflict sits on the Schelling escalation ladder after the first exchange: de-escalation opening, limited war, regional war, or near-nuclear threshold",
-    "parents": ["us_casualties_first_exchange", "nuclear_escalation_signal", "international_response", "us_strike_bda"],
-    "categories": ["de_escalation_opening", "limited_war", "regional_war", "near_nuclear_threshold"],
+    "label": "Escalation Ladder Position",
+    "description": "Position on the conflict escalation ladder by early-to-mid March 2026. With massive strikes across 26 provinces, leadership decapitation, 500+ retaliatory missiles, Hezbollah activation, and Hormuz closure, the conflict reached full-scale war status.",
+    "parents": ["iran_missile_retaliation_scale", "hezbollah_activation", "strait_of_hormuz_closure"],
+    "categories": ["limited_exchange", "sustained_campaign", "full_scale_war", "nuclear_threshold"],
     "cpt": [
       {
-        "parentValues": { "us_casualties_first_exchange": "none_minimal", "nuclear_escalation_signal": "false", "international_response": "condemn_iran_broad", "us_strike_bda": "mission_kill_success" },
-        "categoryProbabilities": { "de_escalation_opening": 0.45, "limited_war": 0.40, "regional_war": 0.12, "near_nuclear_threshold": 0.03 }
+        "parentValues": { "iran_missile_retaliation_scale": "massive", "hezbollah_activation": "true", "strait_of_hormuz_closure": "true" },
+        "categoryProbabilities": { "limited_exchange": 0.00, "sustained_campaign": 0.02, "full_scale_war": 0.95, "nuclear_threshold": 0.03 }
       },
       {
-        "parentValues": { "us_casualties_first_exchange": "significant", "nuclear_escalation_signal": "false", "international_response": "neutral_divided", "us_strike_bda": "partial_damage" },
-        "categoryProbabilities": { "de_escalation_opening": 0.10, "limited_war": 0.50, "regional_war": 0.35, "near_nuclear_threshold": 0.05 }
+        "parentValues": { "iran_missile_retaliation_scale": "massive", "hezbollah_activation": "true", "strait_of_hormuz_closure": "false" },
+        "categoryProbabilities": { "limited_exchange": 0.01, "sustained_campaign": 0.09, "full_scale_war": 0.85, "nuclear_threshold": 0.05 }
       },
       {
-        "parentValues": { "us_casualties_first_exchange": "mass", "nuclear_escalation_signal": "true", "international_response": "condemn_us_israel", "us_strike_bda": "hardened_sites_survive" },
-        "categoryProbabilities": { "de_escalation_opening": 0.03, "limited_war": 0.17, "regional_war": 0.50, "near_nuclear_threshold": 0.30 }
+        "parentValues": { "iran_missile_retaliation_scale": "massive", "hezbollah_activation": "false", "strait_of_hormuz_closure": "true" },
+        "categoryProbabilities": { "limited_exchange": 0.01, "sustained_campaign": 0.14, "full_scale_war": 0.80, "nuclear_threshold": 0.05 }
       },
       {
-        "parentValues": { "us_casualties_first_exchange": "limited", "nuclear_escalation_signal": "true", "international_response": "neutral_divided", "us_strike_bda": "mission_kill_success" },
-        "categoryProbabilities": { "de_escalation_opening": 0.15, "limited_war": 0.40, "regional_war": 0.35, "near_nuclear_threshold": 0.10 }
+        "parentValues": { "iran_missile_retaliation_scale": "moderate", "hezbollah_activation": "true", "strait_of_hormuz_closure": "true" },
+        "categoryProbabilities": { "limited_exchange": 0.02, "sustained_campaign": 0.28, "full_scale_war": 0.65, "nuclear_threshold": 0.05 }
+      },
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "moderate", "hezbollah_activation": "false", "strait_of_hormuz_closure": "false" },
+        "categoryProbabilities": { "limited_exchange": 0.10, "sustained_campaign": 0.55, "full_scale_war": 0.30, "nuclear_threshold": 0.05 }
+      },
+      {
+        "parentValues": { "iran_missile_retaliation_scale": "limited", "hezbollah_activation": "false", "strait_of_hormuz_closure": "false" },
+        "categoryProbabilities": { "limited_exchange": 0.35, "sustained_campaign": 0.45, "full_scale_war": 0.15, "nuclear_threshold": 0.05 }
       }
     ],
     "defaultProbabilities": {
-      "de_escalation_opening": 0.20,
-      "limited_war": 0.42,
-      "regional_war": 0.28,
-      "near_nuclear_threshold": 0.10
+      "limited_exchange": 0.01,
+      "sustained_campaign": 0.02,
+      "full_scale_war": 0.95,
+      "nuclear_threshold": 0.02
     },
     "source": {
-      "citation": "Schelling 'Arms and Influence' (applied); RAND 'Escalation Management in the Middle East' 2024; Brookings 'After the First Strike' 2024",
-      "url": "https://www.rand.org/pubs/research_reports/RRA2111-1.html",
-      "confidence": "medium"
+      "citation": "CFR, 'US-Iran Conflict Escalation Analysis', Mar 2026; RAND, 'Escalation Dynamics in the 2026 Iran War'; Brookings, 'Full-Scale War: The Iran Conflict Enters New Phase', Mar 2026",
+      "url": "https://www.cfr.org/article/us-iran-escalation-analysis-2026",
+      "confidence": "high"
     }
   },
   {
-    "id": "oil_price_shock",
-    "phase": 2,
-    "type": "continuous",
-    "label": "Global Oil Price Shock ($/bbl above baseline)",
-    "description": "Estimated increase in Brent crude price above pre-conflict baseline, driven by Hormuz disruption risk and regional production outages",
-    "parents": ["hormuz_closure_probability", "iran_strike_target_type", "escalation_ladder_position"],
-    "cpt": [
-      {
-        "parentValues": { "hormuz_closure_probability": "true", "iran_strike_target_type": "hormuz_closure", "escalation_ladder_position": "regional_war" },
-        "distribution": { "type": "normal", "params": [85, 20] }
-      },
-      {
-        "parentValues": { "hormuz_closure_probability": "true", "iran_strike_target_type": "gulf_oil_infrastructure", "escalation_ladder_position": "limited_war" },
-        "distribution": { "type": "normal", "params": [45, 15] }
-      },
-      {
-        "parentValues": { "hormuz_closure_probability": "false", "iran_strike_target_type": "us_gulf_bases", "escalation_ladder_position": "limited_war" },
-        "distribution": { "type": "normal", "params": [20, 10] }
-      },
-      {
-        "parentValues": { "hormuz_closure_probability": "false", "iran_strike_target_type": "us_gulf_bases", "escalation_ladder_position": "de_escalation_opening" },
-        "distribution": { "type": "normal", "params": [10, 5] }
-      }
-    ],
-    "defaultDistribution": { "type": "normal", "params": [35, 18] },
-    "unit": "$/barrel above baseline",
-    "min": 0,
-    "max": 150,
-    "source": {
-      "citation": "EIA 'Energy Market Implications of Iran Conflict' 2024; IEA 'Oil Market Disruption Scenarios' 2024",
-      "url": "https://www.eia.gov/analysis/special/2024/iran/",
-      "confidence": "medium"
-    }
-  },
-  {
-    "id": "us_public_support_post_strike",
+    "id": "iranian_command_and_control_status",
     "phase": 2,
     "type": "categorical",
-    "label": "US Public Support After First Exchange",
-    "description": "Shift in US domestic public and Congressional support for continuing military operations after the first exchange results become known",
-    "parents": ["us_casualties_first_exchange", "us_strike_bda", "international_response"],
-    "categories": ["rally_effect_strong", "modest_support", "unchanged", "backlash_opposition"],
+    "label": "Iranian Command and Control Status",
+    "description": "State of Iran's military command and control infrastructure following the decapitation strikes. With the Supreme Leader, defense minister, IRGC ground forces commander, and 7+ senior security officials killed, Iran's C2 was severely degraded though not fully collapsed — regional IRGC commanders retained some autonomous capability.",
+    "parents": ["leadership_decapitation", "senior_officials_killed"],
+    "categories": ["intact", "degraded", "severely_degraded", "collapsed"],
     "cpt": [
       {
-        "parentValues": { "us_casualties_first_exchange": "mass", "us_strike_bda": "hardened_sites_survive", "international_response": "condemn_us_israel" },
-        "categoryProbabilities": { "rally_effect_strong": 0.15, "modest_support": 0.20, "unchanged": 0.15, "backlash_opposition": 0.50 }
+        "parentValues": { "leadership_decapitation": "true", "senior_officials_killed": "comprehensive" },
+        "categoryProbabilities": { "intact": 0.01, "degraded": 0.02, "severely_degraded": 0.94, "collapsed": 0.03 }
       },
       {
-        "parentValues": { "us_casualties_first_exchange": "mass", "us_strike_bda": "mission_kill_success", "international_response": "condemn_iran_broad" },
-        "categoryProbabilities": { "rally_effect_strong": 0.50, "modest_support": 0.30, "unchanged": 0.12, "backlash_opposition": 0.08 }
+        "parentValues": { "leadership_decapitation": "true", "senior_officials_killed": "many" },
+        "categoryProbabilities": { "intact": 0.01, "degraded": 0.09, "severely_degraded": 0.80, "collapsed": 0.10 }
       },
       {
-        "parentValues": { "us_casualties_first_exchange": "none_minimal", "us_strike_bda": "mission_kill_success", "international_response": "us_coalition_support" },
-        "categoryProbabilities": { "rally_effect_strong": 0.55, "modest_support": 0.30, "unchanged": 0.10, "backlash_opposition": 0.05 }
+        "parentValues": { "leadership_decapitation": "true", "senior_officials_killed": "few" },
+        "categoryProbabilities": { "intact": 0.02, "degraded": 0.28, "severely_degraded": 0.60, "collapsed": 0.10 }
       },
       {
-        "parentValues": { "us_casualties_first_exchange": "limited", "us_strike_bda": "partial_damage", "international_response": "neutral_divided" },
-        "categoryProbabilities": { "rally_effect_strong": 0.20, "modest_support": 0.35, "unchanged": 0.30, "backlash_opposition": 0.15 }
+        "parentValues": { "leadership_decapitation": "false", "senior_officials_killed": "comprehensive" },
+        "categoryProbabilities": { "intact": 0.02, "degraded": 0.18, "severely_degraded": 0.65, "collapsed": 0.15 }
+      },
+      {
+        "parentValues": { "leadership_decapitation": "false", "senior_officials_killed": "many" },
+        "categoryProbabilities": { "intact": 0.05, "degraded": 0.45, "severely_degraded": 0.40, "collapsed": 0.10 }
+      },
+      {
+        "parentValues": { "leadership_decapitation": "false", "senior_officials_killed": "few" },
+        "categoryProbabilities": { "intact": 0.20, "degraded": 0.55, "severely_degraded": 0.20, "collapsed": 0.05 }
+      },
+      {
+        "parentValues": { "leadership_decapitation": "false", "senior_officials_killed": "none" },
+        "categoryProbabilities": { "intact": 0.60, "degraded": 0.30, "severely_degraded": 0.08, "collapsed": 0.02 }
       }
     ],
     "defaultProbabilities": {
-      "rally_effect_strong": 0.28,
-      "modest_support": 0.32,
-      "unchanged": 0.20,
-      "backlash_opposition": 0.20
+      "intact": 0.01,
+      "degraded": 0.02,
+      "severely_degraded": 0.94,
+      "collapsed": 0.03
     },
     "source": {
-      "citation": "Chicago Council on Global Affairs 'Wartime Public Opinion' 2024; Gallup 'Rally Around the Flag Effect' Historical Analysis",
-      "url": "https://www.thechicagocouncil.org/research/public-opinion-survey",
-      "confidence": "medium"
+      "citation": "IISS, 'Iran C2 Assessment Post-Decapitation', Mar 2026; CSIS, 'Command Structure Collapse in Iran', Mar 2026; BBC News, 'Iran's military chain of command in disarray', Mar 2026",
+      "url": "https://www.iiss.org/publications/iran-c2-assessment-2026",
+      "confidence": "high"
     }
   }
 ]
