@@ -351,7 +351,7 @@
     "type": "categorical",
     "label": "Conflict Duration Projection",
     "description": "Estimated total duration of active combat operations. As of March 29, the conflict is 29 days old with no ceasefire in sight. Key variables: whether the April 6 energy-strike deadline leads to further escalation; whether Iranian military capacity degrades to the point of capitulation; whether domestic US political pressure forces a halt; whether regional escalation (Houthis, Hezbollah) extends the timeline. Historical comparisons: OIF major combat 21 days, Kosovo air campaign 78 days, Libya 2011 air campaign 7 months.",
-    "parents": ["us_air_campaign_scale", "iranian_command_and_control_status", "houthi_war_entry"],
+    "parents": ["us_air_campaign_scale", "iranian_command_and_control_status", "houthi_war_entry", "drone_cost_asymmetry"],
     "categories": ["weeks", "1_3_months", "3_6_months", "prolonged_over_6_months"],
     "cpt": [
       {
@@ -373,6 +373,18 @@
       {
         "parentValues": { "us_air_campaign_scale": "limited", "iranian_command_and_control_status": "degraded", "houthi_war_entry": "false" },
         "categoryProbabilities": { "weeks": 0.25, "1_3_months": 0.45, "3_6_months": 0.22, "prolonged_over_6_months": 0.08 }
+      },
+      {
+        "parentValues": { "drone_cost_asymmetry": "defense_unsustainable", "houthi_war_entry": "true" },
+        "categoryProbabilities": { "weeks": 0.02, "1_3_months": 0.20, "3_6_months": 0.45, "prolonged_over_6_months": 0.33 }
+      },
+      {
+        "parentValues": { "drone_cost_asymmetry": "unfavorable_defense", "houthi_war_entry": "true" },
+        "categoryProbabilities": { "weeks": 0.04, "1_3_months": 0.30, "3_6_months": 0.42, "prolonged_over_6_months": 0.24 }
+      },
+      {
+        "parentValues": { "drone_cost_asymmetry": "favorable_defense" },
+        "categoryProbabilities": { "weeks": 0.15, "1_3_months": 0.50, "3_6_months": 0.28, "prolonged_over_6_months": 0.07 }
       }
     ],
     "defaultProbabilities": {
@@ -593,5 +605,55 @@
     ],
     "defaultProbabilities": { "stage_1_precision_strikes": 0.03, "stage_2_regime_campaign": 0.85, "stage_3_ground_forces": 0.12 },
     "source": { "citation": "Pape, 'Escalation Trap' Substack March 2026; Pape, Bombing to Win (Cornell, 1996)", "url": "https://escalationtrap.substack.com/", "confidence": "medium" }
+  },
+  {
+    "id": "energy_infrastructure_targeting",
+    "phase": 3,
+    "type": "categorical",
+    "label": "Energy Infrastructure Targeting Level",
+    "description": "Escalation level of attacks on oil and gas production, storage, and refining infrastructure. Initially both sides observed an implicit red line against production facilities. Iran struck Gulf state oil/gas storage and refineries in limited strikes as a signal. On March 9-10, Iran escalated by striking the Shah gas fields (UAE), crossing the production facility red line. Israel struck Iran's South Pars gas field on March 18 (Trump denied prior US knowledge). Iran retaliated by damaging Qatar's Ras Laffan LNG facility. This escalation sequence represents a distinct rung between conventional strikes and ground operations.",
+    "parents": ["us_air_campaign_scale", "iranian_asymmetric_naval_ops"],
+    "categories": ["restrained", "storage_refinery_only", "production_targeted", "mutual_energy_destruction"],
+    "cpt": [
+      { "parentValues": { "us_air_campaign_scale": "sustained", "iranian_asymmetric_naval_ops": "active_mine_warfare" }, "categoryProbabilities": { "restrained": 0.05, "storage_refinery_only": 0.15, "production_targeted": 0.70, "mutual_energy_destruction": 0.10 } },
+      { "parentValues": { "us_air_campaign_scale": "sustained", "iranian_asymmetric_naval_ops": "fast_boat_swarms" }, "categoryProbabilities": { "restrained": 0.02, "storage_refinery_only": 0.08, "production_targeted": 0.75, "mutual_energy_destruction": 0.15 } },
+      { "parentValues": { "us_air_campaign_scale": "escalating", "iranian_asymmetric_naval_ops": "active_mine_warfare" }, "categoryProbabilities": { "restrained": 0.01, "storage_refinery_only": 0.05, "production_targeted": 0.64, "mutual_energy_destruction": 0.30 } },
+      { "parentValues": { "us_air_campaign_scale": "escalating", "iranian_asymmetric_naval_ops": "fast_boat_swarms" }, "categoryProbabilities": { "restrained": 0.01, "storage_refinery_only": 0.04, "production_targeted": 0.55, "mutual_energy_destruction": 0.40 } },
+      { "parentValues": { "us_air_campaign_scale": "limited", "iranian_asymmetric_naval_ops": "sporadic_mines" }, "categoryProbabilities": { "restrained": 0.40, "storage_refinery_only": 0.40, "production_targeted": 0.15, "mutual_energy_destruction": 0.05 } },
+      { "parentValues": { "us_air_campaign_scale": "paused", "iranian_asymmetric_naval_ops": "ceased" }, "categoryProbabilities": { "restrained": 0.80, "storage_refinery_only": 0.15, "production_targeted": 0.04, "mutual_energy_destruction": 0.01 } },
+      { "parentValues": { "us_air_campaign_scale": "sustained", "iranian_asymmetric_naval_ops": "sporadic_mines" }, "categoryProbabilities": { "restrained": 0.10, "storage_refinery_only": 0.35, "production_targeted": 0.45, "mutual_energy_destruction": 0.10 } },
+      { "parentValues": { "us_air_campaign_scale": "sustained", "iranian_asymmetric_naval_ops": "ceased" }, "categoryProbabilities": { "restrained": 0.25, "storage_refinery_only": 0.45, "production_targeted": 0.25, "mutual_energy_destruction": 0.05 } }
+    ],
+    "defaultProbabilities": { "restrained": 0.02, "storage_refinery_only": 0.05, "production_targeted": 0.85, "mutual_energy_destruction": 0.08 },
+    "source": {
+      "citation": "Reuters 'Iran strikes UAE Shah gas fields' March 10, 2026; AP 'Israel strikes South Pars, Trump denies prior knowledge' March 18, 2026; Al Jazeera 'Qatar Ras Laffan LNG facility damaged in Iranian retaliation' March 19, 2026",
+      "url": "https://www.reuters.com/world/middle-east/",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "drone_cost_asymmetry",
+    "phase": 3,
+    "type": "categorical",
+    "label": "Drone Defense Cost Asymmetry",
+    "description": "The cost-exchange ratio between cheap Iranian attack drones and expensive interceptor missiles used by Gulf states and the US. Iran launches drone swarms of 50-100 units per package. Each drone costs a fraction of the interceptor missile required to shoot it down, making sustained defense financially unsustainable. Ukraine, with extensive experience countering cheap drone swarms from the Russia-Ukraine war, has sent military specialists to Gulf countries and will likely begin selling cheap drone interceptors, which could mitigate this asymmetry.",
+    "parents": ["iranian_asymmetric_naval_ops", "us_air_campaign_scale"],
+    "categories": ["favorable_defense", "neutral", "unfavorable_defense", "defense_unsustainable"],
+    "cpt": [
+      { "parentValues": { "iranian_asymmetric_naval_ops": "fast_boat_swarms", "us_air_campaign_scale": "sustained" }, "categoryProbabilities": { "favorable_defense": 0.03, "neutral": 0.07, "unfavorable_defense": 0.60, "defense_unsustainable": 0.30 } },
+      { "parentValues": { "iranian_asymmetric_naval_ops": "active_mine_warfare", "us_air_campaign_scale": "sustained" }, "categoryProbabilities": { "favorable_defense": 0.05, "neutral": 0.15, "unfavorable_defense": 0.60, "defense_unsustainable": 0.20 } },
+      { "parentValues": { "iranian_asymmetric_naval_ops": "sporadic_mines", "us_air_campaign_scale": "sustained" }, "categoryProbabilities": { "favorable_defense": 0.15, "neutral": 0.35, "unfavorable_defense": 0.40, "defense_unsustainable": 0.10 } },
+      { "parentValues": { "iranian_asymmetric_naval_ops": "ceased", "us_air_campaign_scale": "sustained" }, "categoryProbabilities": { "favorable_defense": 0.50, "neutral": 0.30, "unfavorable_defense": 0.15, "defense_unsustainable": 0.05 } },
+      { "parentValues": { "iranian_asymmetric_naval_ops": "fast_boat_swarms", "us_air_campaign_scale": "escalating" }, "categoryProbabilities": { "favorable_defense": 0.02, "neutral": 0.05, "unfavorable_defense": 0.53, "defense_unsustainable": 0.40 } },
+      { "parentValues": { "iranian_asymmetric_naval_ops": "fast_boat_swarms", "us_air_campaign_scale": "limited" }, "categoryProbabilities": { "favorable_defense": 0.05, "neutral": 0.10, "unfavorable_defense": 0.55, "defense_unsustainable": 0.30 } },
+      { "parentValues": { "iranian_asymmetric_naval_ops": "sporadic_mines", "us_air_campaign_scale": "limited" }, "categoryProbabilities": { "favorable_defense": 0.20, "neutral": 0.40, "unfavorable_defense": 0.30, "defense_unsustainable": 0.10 } },
+      { "parentValues": { "iranian_asymmetric_naval_ops": "ceased", "us_air_campaign_scale": "paused" }, "categoryProbabilities": { "favorable_defense": 0.70, "neutral": 0.20, "unfavorable_defense": 0.08, "defense_unsustainable": 0.02 } }
+    ],
+    "defaultProbabilities": { "favorable_defense": 0.05, "neutral": 0.10, "unfavorable_defense": 0.65, "defense_unsustainable": 0.20 },
+    "source": {
+      "citation": "Reuters 'Gulf states struggle with drone defense costs' March 2026; AP 'Ukraine sends drone defense specialists to Gulf' March 2026; CSIS 'Cost Exchange Ratios in the Iran Conflict' March 2026",
+      "url": "https://www.csis.org/analysis/",
+      "confidence": "medium"
+    }
   }
 ]

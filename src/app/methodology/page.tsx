@@ -26,7 +26,7 @@ export default function MethodologyPage() {
               how likely each one is.
             </p>
             <p>
-              The model behind this simulation is a Bayesian network: a directed graph of 104
+              The model behind this simulation is a Bayesian network: a directed graph of 107
               interconnected variables spanning 8 phases of a potential US-Iran military conflict.
               Each variable has a probability distribution that depends on its parent variables.
               When you change an input — like selecting a crisis trigger scenario — the effects

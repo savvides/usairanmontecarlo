@@ -1,17 +1,35 @@
 import { describe, it, expect } from 'vitest';
 import phase1Nodes from '@data/nodes/phase-1-tensions.json';
+import phase2Nodes from '@data/nodes/phase-2-escalation.json';
+import phase3Nodes from '@data/nodes/phase-3-conflict.json';
+import phase4Nodes from '@data/nodes/phase-4-economic.json';
+import phase5Nodes from '@data/nodes/phase-5-geopolitical.json';
+import phase6Nodes from '@data/nodes/phase-6-humanitarian.json';
+import phase7Nodes from '@data/nodes/phase-7-resolution.json';
+import phase8Nodes from '@data/nodes/phase-8-aftermath.json';
 import phase1Scenarios from '@data/scenarios/phase-1-scenarios.json';
 import sources from '@data/sources.json';
 import type { SimNode, ScenarioCard, BinaryNode, ContinuousNode, CategoricalNode } from '@engine/types';
 
-const nodes = phase1Nodes as unknown as SimNode[];
-const scenarios = phase1Scenarios as unknown as ScenarioCard[];
+const allPhases: { phase: number; nodes: SimNode[] }[] = [
+  { phase: 1, nodes: phase1Nodes as unknown as SimNode[] },
+  { phase: 2, nodes: phase2Nodes as unknown as SimNode[] },
+  { phase: 3, nodes: phase3Nodes as unknown as SimNode[] },
+  { phase: 4, nodes: phase4Nodes as unknown as SimNode[] },
+  { phase: 5, nodes: phase5Nodes as unknown as SimNode[] },
+  { phase: 6, nodes: phase6Nodes as unknown as SimNode[] },
+  { phase: 7, nodes: phase7Nodes as unknown as SimNode[] },
+  { phase: 8, nodes: phase8Nodes as unknown as SimNode[] },
+];
 
-describe('Phase 1 node data integrity', () => {
+const allNodes = allPhases.flatMap((p) => p.nodes);
+const allNodeIds = new Set(allNodes.map((n) => n.id));
+
+describe.each(allPhases)('Phase $phase node data integrity', ({ phase, nodes }) => {
   it('all nodes have required fields', () => {
     for (const node of nodes) {
       expect(node.id).toBeTruthy();
-      expect(node.phase).toBe(1);
+      expect(node.phase).toBe(phase);
       expect(['binary', 'continuous', 'categorical']).toContain(node.type);
       expect(node.label).toBeTruthy();
       expect(node.description).toBeTruthy();
@@ -23,22 +41,21 @@ describe('Phase 1 node data integrity', () => {
     }
   });
 
-  it('all node IDs are unique', () => {
+  it('all node IDs are unique within phase', () => {
     const ids = nodes.map((n) => n.id);
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it('all parent references point to existing nodes', () => {
-    const ids = new Set(nodes.map((n) => n.id));
+  it('all parent references point to existing nodes across all phases', () => {
     for (const node of nodes) {
       for (const parentId of node.parents) {
-        expect(ids.has(parentId)).toBe(true);
+        expect(allNodeIds.has(parentId)).toBe(true);
       }
     }
   });
 
   it('no forward phase references', () => {
-    const nodeMap = new Map(nodes.map((n) => [n.id, n]));
+    const nodeMap = new Map(allNodes.map((n) => [n.id, n]));
     for (const node of nodes) {
       for (const parentId of node.parents) {
         const parent = nodeMap.get(parentId);
@@ -94,8 +111,16 @@ describe('Phase 1 node data integrity', () => {
   });
 });
 
+describe('Cross-phase node ID uniqueness', () => {
+  it('all node IDs are unique across all phases', () => {
+    const ids = allNodes.map((n) => n.id);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+});
+
 describe('Phase 1 scenario card data integrity', () => {
-  const nodeIds = new Set(nodes.map((n) => n.id));
+  const scenarios = phase1Scenarios as unknown as ScenarioCard[];
+  const nodeIds = new Set(allPhases[0].nodes.map((n) => n.id));
 
   it('all scenarios have required fields', () => {
     for (const scenario of scenarios) {
