@@ -1,0 +1,25 @@
+{
+  "lastUpdated": "2026-03-30",
+  "observedThrough": "2026-03-29",
+  "currentPhase": 3,
+  "phaseStatus": {
+    "1": "observed",
+    "2": "observed",
+    "3": "mixed",
+    "4": "projected",
+    "5": "projected",
+    "6": "projected",
+    "7": "projected",
+    "8": "projected"
+  },
+  "events": [
+    { "date": "2026-02-28", "label": "US/Israel strike Iran", "description": "Surprise 12-hour campaign: ~900 strikes across 26 provinces. Khamenei and 7+ senior officials killed. Nuclear facilities at Natanz and Fordow hit.", "phase": 1, "source": "Al Jazeera, PBS, CFR" },
+    { "date": "2026-03-01", "label": "Iran retaliates", "description": "Iran launches 500+ ballistic/naval missiles and ~2,000 drones. 40% aimed at Israel, 60% at US regional targets. Bahrain, Kuwait, Oman struck.", "phase": 2, "source": "Al Jazeera, Reuters" },
+    { "date": "2026-03-02", "label": "Hezbollah enters war", "description": "Hezbollah resumes rocket and drone attacks on Israel within 48 hours of the initial strike.", "phase": 2, "source": "Bloomberg, Times of Israel" },
+    { "date": "2026-03-04", "label": "Strait of Hormuz closed", "description": "Iran closes the Strait of Hormuz to foreign shipping. All major carriers suspend transits. Insurance cancelled from March 5.", "phase": 2, "source": "CNBC, Wikipedia" },
+    { "date": "2026-03-10", "label": "Oil production drops 10M+ bpd", "description": "Kuwait, Iraq, Saudi Arabia, and UAE production collectively drops by 10+ million barrels per day.", "phase": 4, "source": "IEA, CNBC" },
+    { "date": "2026-03-12", "label": "UNSC Resolution 2817", "description": "Security Council adopts resolution condemning Iran's attacks on neighbors. 13-0-2 (Russia and China abstain).", "phase": 5, "source": "UN Press, Al Jazeera" },
+    { "date": "2026-03-25", "label": "Ceasefire talks deadlocked", "description": "Iran rejects US 15-point ceasefire proposal as 'maximalist.' Issues counterproposal demanding reparations and sovereignty over Hormuz.", "phase": 5, "source": "NPR, PBS, CNBC" },
+    { "date": "2026-03-28", "label": "Houthis enter war", "description": "Houthis launch ballistic missiles at Israel and declare entry into the war, demanding strikes on Iran and Hezbollah stop.", "phase": 3, "source": "Bloomberg, Stimson Center" }
+  ]
+}
