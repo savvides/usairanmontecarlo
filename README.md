@@ -8,7 +8,7 @@ An interactive web simulation that models the cascading consequences of the US-I
 
 ## How It Works
 
-The simulation runs **5,000 Monte Carlo scenarios** through a **Bayesian network of 100 interconnected variables** across 8 phases:
+The simulation runs **5,000 Monte Carlo scenarios** through a **Bayesian network of 107 interconnected variables** across 8 phases:
 
 | Phase | Status | Description |
 |-------|--------|-------------|
@@ -36,7 +36,7 @@ The simulation runs **5,000 Monte Carlo scenarios** through a **Bayesian network
 - **Engine:** Pure TypeScript Bayesian Network with Monte Carlo sampling
 - **Frontend:** Next.js 14, React, D3.js, Framer Motion, Tailwind CSS
 - **Deploy:** Static export on GitHub Pages (zero backend)
-- **Tests:** Vitest (62 tests)
+- **Tests:** Vitest (112 tests)
 
 ## Development
 
