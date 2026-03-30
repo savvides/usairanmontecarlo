@@ -1,447 +1,145 @@
 [
   {
-    "id": "regime-change-nation-building",
+    "id": "successful-regime-change",
     "phase": 8,
-    "title": "Regime Change + Nation Building",
-    "description": "The Islamic Republic collapses or is overthrown following decisive US military victory and a catastrophic humanitarian outcome that delegitimizes the regime domestically. This scenario represents the maximum US intervention footprint: regime change followed by a sustained nation-building enterprise analogous to Iraq post-2003. The preconditions are specific and demanding — a combination of near_collapse Iranian regime stability, decisive_us_victory resolution type, and catastrophic humanitarian cost — conditions that individually are low-probability but are correlated when a full-scale conflict exceeds 3 months with extensive ground operations or direct targeting of regime leadership infrastructure. The post-regime-change political landscape is shaped by three competing forces: (1) the Iranian diaspora, largely liberal and Western-oriented, seeking to establish democratic institutions with US backing; (2) ethnic and religious minorities (Kurds, Azeris, Baloch, Arab Khuzestani) seeking autonomy or independence in a power vacuum; and (3) reconstituted IRGC elements and hardline networks seeking to preserve institutional power under a new political shell. Iraq 2003 is the canonical reference — the US disbanded the Iraqi Army and de-Ba'athification in ways that destroyed governance capacity; the question is whether lessons were absorbed. The CBO estimated Iraq nation-building costs at $2–3 trillion over 20 years; Iran is 3x Iraq's population and 3x its geographic size, with significantly more sophisticated governance infrastructure that could either facilitate or resist reconstruction. Nation-building in Iran faces a unique dynamic: Iranian nationalism is exceptionally strong, including among reformists and anti-regime elements — the same populations who opposed the Islamic Republic would resist a perceived US occupation. The RAND Nation-Building study (2014) identifies 'host nation capacity' as the single strongest predictor of reconstruction success; Iran's pre-conflict technocratic and institutional capacity is substantially higher than Iraq's 2003 baseline, which is both an asset (capable governance partners exist) and a liability (those networks will resist US direction). The nuclear outcome in this scenario is the most ambiguous of the four: regime collapse creates a dangerous transitional period in which nuclear materials and scientific knowledge are both most vulnerable to non-state actor acquisition and most accessible for comprehensive verification — the 'loose nukes' risk and the 'full transparency' opportunity coexist. Reconstruction timeline assessment: 15–25 years to functional governance with sustained $50–100 billion/year US investment, based on Iraq and Afghanistan analogs scaled to Iranian population and territory.",
+    "title": "Successful Regime Change",
+    "description": "The Islamic Republic collapses under the combined pressure of military devastation, Khamenei's death, economic collapse, and popular uprising. A transitional government emerges — either a reformist coalition with diaspora participation or a moderate military council that negotiates with the US — and accepts comprehensive terms including full IAEA nuclear access, proxy network disarmament commitments, and integration into a US-led regional security framework. The US commits to major reconstruction investment through a multilateral fund ($50-100 billion over 10 years), analogous to the Marshall Plan logic but with the specific goal of preventing the power vacuum that produced ISIS in post-2003 Iraq. The nuclear program is permanently dismantled under the most intrusive verification regime ever implemented — continuous IAEA presence, military site access, and all 60% enriched uranium stocks accounted for and removed. This is the maximally optimistic outcome and requires the convergence of conditions that historically occur in fewer than 15% of externally-driven regime changes: a capable successor elite, sustained international investment, absence of ethnic fragmentation, and no spoiler actors. The Iraq 2003 canonical reference looms: the US toppled Saddam but failed to build a stable successor state despite $2-3 trillion in expenditure over 20 years. Iran's stronger institutional base and educated population are assets, but Iranian nationalism — including among reformists — resists perceived US occupation. The 15-25 year reconstruction timeline and the risk of the next US administration abandoning the project (as Trump abandoned the JCPOA) are the primary vulnerabilities. Success probability is low but the outcome, if achieved, represents the most transformative positive scenario for regional stability.",
     "overrides": [
       {
-        "nodeId": "iranian_regime_stability",
-        "overrideProbabilities": {
-          "consolidated_hardline": 0.04,
-          "weakened_but_stable": 0.12,
-          "fragmented_elite_conflict": 0.28,
-          "near_collapse": 0.56
-        }
+        "nodeId": "iran_regime_outcome",
+        "overrideProbabilities": { "new_hardline_regime": 0.05, "military_government": 0.18, "reformist_transition": 0.52, "failed_state": 0.18, "partition": 0.07 }
       },
       {
-        "nodeId": "resolution_type",
-        "overrideProbabilities": {
-          "decisive_us_victory": 0.65,
-          "negotiated_settlement": 0.18,
-          "frozen_conflict": 0.12,
-          "wider_regional_war": 0.05
-        }
+        "nodeId": "iran_nuclear_status_5yr",
+        "overrideProbabilities": { "permanently_eliminated": 0.42, "slow_reconstitution": 0.32, "covert_program": 0.18, "breakout_capability_restored": 0.08 }
       },
       {
-        "nodeId": "humanitarian_cost_index",
-        "overrideProbabilities": {
-          "low": 0.03,
-          "moderate": 0.12,
-          "high": 0.35,
-          "catastrophic": 0.50
-        }
+        "nodeId": "regional_power_balance",
+        "overrideProbabilities": { "us_israel_dominant": 0.48, "gcc_ascendant": 0.28, "multipolar": 0.18, "power_vacuum": 0.06 }
       },
       {
-        "nodeId": "iran_nuclear_status_long_term",
-        "overrideProbabilities": {
-          "eliminated_with_verification": 0.38,
-          "degraded_slow_reconstitution": 0.32,
-          "active_reconstitution_underway": 0.20,
-          "covert_breakout_capability": 0.10
-        }
+        "nodeId": "us_force_posture_postwar",
+        "overrideProbabilities": { "enhanced_presence": 0.45, "status_quo": 0.30, "gradual_drawdown": 0.18, "rapid_withdrawal": 0.07 }
       },
       {
-        "nodeId": "regional_power_balance_shift",
-        "overrideProbabilities": {
-          "us_israel_dominant": 0.42,
-          "saudi_gulf_ascendant": 0.28,
-          "multipolar_fragmentation": 0.22,
-          "iran_russia_china_axis": 0.08
-        }
+        "nodeId": "reconstruction_cost_estimate",
+        "overrideProbabilities": { "under_100b": 0.08, "100_500b": 0.42, "500b_1t": 0.35, "over_1t": 0.15 }
       },
       {
-        "nodeId": "us_force_posture_change",
-        "overrideProbabilities": {
-          "enhanced_forward_presence": 0.55,
-          "status_quo_maintained": 0.25,
-          "offshore_balancing_transition": 0.12,
-          "rapid_drawdown": 0.08
-        }
-      },
-      {
-        "nodeId": "iran_reconstruction_timeline",
-        "overrideProbabilities": {
-          "under_3_years": 0.04,
-          "3_to_7_years": 0.14,
-          "7_to_15_years": 0.38,
-          "generational_over_15_years": 0.44
-        }
-      },
-      {
-        "nodeId": "iranian_domestic_political_consequences",
-        "overrideProbabilities": {
-          "hardline_consolidation": 0.08,
-          "reformist_resurgence": 0.25,
-          "military_junta_transition": 0.30,
-          "revolutionary_collapse": 0.37
-        }
-      },
-      {
-        "nodeId": "us_domestic_political_consequences",
-        "overrideProbabilities": {
-          "executive_power_consolidated": 0.30,
-          "partisan_realignment": 0.30,
-          "war_powers_reform_pushed": 0.22,
-          "constitutional_reckoning": 0.18
-        }
-      },
-      {
-        "nodeId": "global_order_precedent_effect",
-        "overrideProbabilities": {
-          "us_credibility_restored_order_stabilized": 0.25,
-          "proliferation_incentives_increased": 0.40,
-          "un_system_further_degraded": 0.22,
-          "multipolar_normative_fragmentation": 0.13
-        }
-      },
-      {
-        "nodeId": "refugee_displacement_long_term",
-        "overrideProbabilities": {
-          "limited_under_500k_displaced": 0.05,
-          "moderate_500k_to_2m": 0.18,
-          "severe_2m_to_5m": 0.37,
-          "catastrophic_over_5m": 0.40
-        }
+        "nodeId": "us_iran_relations_decade",
+        "overrideProbabilities": { "normalized": 0.25, "cold_peace": 0.42, "hostile_frozen": 0.25, "permanent_adversary": 0.08 }
       },
       {
         "nodeId": "long_term_stability_assessment",
-        "overrideProbabilities": {
-          "sustainable_stability": 0.12,
-          "fragile_equilibrium": 0.28,
-          "managed_instability": 0.35,
-          "renewed_major_conflict_risk": 0.25
-        }
+        "overrideProbabilities": { "stable_new_order": 0.28, "fragile_peace": 0.42, "recurring_crises": 0.22, "permanent_instability": 0.08 }
       }
     ]
   },
   {
-    "id": "weakened-but-intact-iran",
+    "id": "failed-state",
     "phase": 8,
-    "title": "Weakened but Intact Iran",
-    "description": "The conflict ends with a negotiated settlement or declared US victory that leaves the Islamic Republic politically intact but strategically diminished — its nuclear program significantly set back, its conventional military degraded, its economic position worsened, and its regional proxy network weakened but not eliminated. This is the most analytically likely Phase 8 trajectory under the modal conflict scenarios: a short-to-medium duration conflict (weeks to 3 months) that achieves meaningful nuclear degradation without the domestic and international political costs of regime change. The Islamic Republic has survived severe stress before — the 8-year Iran-Iraq War killed 500,000 Iranians without toppling Khomeini; the 2009 Green Movement was suppressed despite mass mobilization; the 2019–2020 protests under crushing sanctions produced no regime transition. A 'weakened but intact' Iran is therefore the historically default outcome for even severe external shocks to the Islamic Republic's system. The post-conflict political equilibrium in this scenario features a regime that has absorbed the nationalist legitimacy boost from 'surviving' US military action (analogous to Saddam's domestic narrative after 1991), while conceding real strategic ground on the nuclear program under the settlement framework. The key long-term risk in this scenario is the regime's 'legitimacy debt' dynamic: having promised its population it would protect Iran and having failed to prevent US strikes, the regime faces pressure to demonstrate renewed strength — either through nuclear reconstitution, proxy activation, or diplomatic confrontation — within a 3–7 year window. RAND's conflict termination analysis identifies this as the 'wounded animal' dynamic: a regime that has survived external pressure but faces internal legitimacy questions is more likely to pursue confrontational policies than a fully secure or fully collapsed regime. The nuclear reconstitution timeline under this scenario — 4–8 years to breakout capability — means the conflict effectively delays rather than resolves the underlying nuclear crisis, setting the stage for a potential second round. The regional balance in this scenario is 'Saudi-Gulf ascendant': the conflict removes Iran as the primary regional security threat in the near-term, freeing Saudi Arabia, UAE, and Israel to consolidate their post-Abraham Accords alignment without the Iran threat overhang. Oil market recovery is substantial but leaves a $15–20/barrel risk premium that benefits Gulf state budgets.",
+    "title": "Failed State",
+    "description": "Iran's post-Khamenei power vacuum proves impossible to fill. No faction — IRGC remnants, clerical networks, reformists, ethnic power centers — can establish authority over the entire country. The Islamic Republic's institutional architecture, built entirely around the Supreme Leader as the linchpin, collapses without a viable succession mechanism under wartime conditions. The country fragments along ethnic and regional lines: Kurdish regions in the northwest align with Iraqi Kurdistan and seek autonomy with Turkish acquiescence; Azeri-majority provinces in the north develop ties with Azerbaijan; Baloch areas in the southeast become ungoverned spaces exploited by militant groups; Arab-majority Khuzestan faces competing Iraqi and Saudi influence. The IRGC splinters into regional fiefdoms, each controlling economic assets and military forces but unable to project national authority. Nuclear materials and scientific knowledge become the primary global security concern — the 'loose nukes' risk in a country with enough enriched uranium for several weapons and thousands of nuclear scientists. The refugee crisis exceeds 5 million within 2 years as infrastructure collapses, food systems fail, and ethnic violence erupts. Iraq's post-2003 trajectory and Libya's post-2011 collapse are the direct analogs, but applied to a country of 88 million people (4x Iraq, 14x Libya) with far greater strategic significance. No international actor is willing to commit the forces and resources required to stabilize the situation — the Afghanistan lesson has been absorbed. China loses its $400 billion Belt and Road investment; Russia loses its most important Middle East ally; the US faces blame for creating the catastrophe without the capacity or political will to manage it. This scenario produces the worst long-term stability outcome and the highest nuclear proliferation risk.",
     "overrides": [
       {
-        "nodeId": "iranian_regime_stability",
-        "overrideProbabilities": {
-          "consolidated_hardline": 0.28,
-          "weakened_but_stable": 0.52,
-          "fragmented_elite_conflict": 0.16,
-          "near_collapse": 0.04
-        }
+        "nodeId": "iran_regime_outcome",
+        "overrideProbabilities": { "new_hardline_regime": 0.05, "military_government": 0.10, "reformist_transition": 0.03, "failed_state": 0.55, "partition": 0.27 }
       },
       {
-        "nodeId": "resolution_type",
-        "overrideProbabilities": {
-          "decisive_us_victory": 0.35,
-          "negotiated_settlement": 0.48,
-          "frozen_conflict": 0.14,
-          "wider_regional_war": 0.03
-        }
+        "nodeId": "iran_nuclear_status_5yr",
+        "overrideProbabilities": { "permanently_eliminated": 0.05, "slow_reconstitution": 0.15, "covert_program": 0.38, "breakout_capability_restored": 0.42 }
       },
       {
-        "nodeId": "iran_nuclear_program_outcome",
-        "overrideProbabilities": {
-          "permanently_eliminated": 0.15,
-          "significantly_set_back": 0.55,
-          "partially_degraded": 0.25,
-          "accelerated_reconstitution": 0.05
-        }
+        "nodeId": "regional_power_balance",
+        "overrideProbabilities": { "us_israel_dominant": 0.05, "gcc_ascendant": 0.12, "multipolar": 0.28, "power_vacuum": 0.55 }
       },
       {
-        "nodeId": "actual_conflict_duration",
-        "overrideProbabilities": {
-          "under_2_weeks": 0.25,
-          "1_3_months": 0.48,
-          "3_6_months": 0.22,
-          "over_6_months": 0.05
-        }
+        "nodeId": "refugee_long_term",
+        "overrideProbabilities": { "under_500k": 0.02, "500k_2m": 0.08, "2_5m": 0.28, "over_5m": 0.62 }
       },
       {
-        "nodeId": "iran_nuclear_status_long_term",
-        "overrideProbabilities": {
-          "eliminated_with_verification": 0.12,
-          "degraded_slow_reconstitution": 0.45,
-          "active_reconstitution_underway": 0.32,
-          "covert_breakout_capability": 0.11
-        }
+        "nodeId": "global_nuclear_proliferation_impact",
+        "overrideProbabilities": { "deterrence_strengthened": 0.03, "mixed_signals": 0.12, "proliferation_incentive": 0.35, "cascade_risk": 0.50 }
       },
       {
-        "nodeId": "regional_power_balance_shift",
-        "overrideProbabilities": {
-          "us_israel_dominant": 0.22,
-          "saudi_gulf_ascendant": 0.42,
-          "multipolar_fragmentation": 0.28,
-          "iran_russia_china_axis": 0.08
-        }
+        "nodeId": "reconstruction_cost_estimate",
+        "overrideProbabilities": { "under_100b": 0.01, "100_500b": 0.08, "500b_1t": 0.28, "over_1t": 0.63 }
+      },
+      {
+        "nodeId": "long_term_stability_assessment",
+        "overrideProbabilities": { "stable_new_order": 0.01, "fragile_peace": 0.05, "recurring_crises": 0.25, "permanent_instability": 0.69 }
+      }
+    ]
+  },
+  {
+    "id": "resilient-iran",
+    "phase": 8,
+    "title": "Resilient Iran",
+    "description": "The Islamic Republic survives — weakened, battered, but institutionally intact under a new hardline regime or IRGC-dominated military government. Iran's post-Khamenei leadership consolidates power through the 'resistance narrative': framing survival against US aggression as a divine victory, analogous to how Hezbollah declared 'divine victory' after surviving Israel's 2006 campaign, or how Saddam maintained power after 1991 by claiming to have withstood the American onslaught. The regime's first priority is nuclear reconstitution. Without IAEA access (the frozen-conflict or hostile-relationship scenarios produce no verification framework), Iran's dispersed nuclear program rebuilds in hardened, underground facilities — potentially with Chinese technological assistance and North Korean cooperation on delivery systems. The 5-year breakout timeline means the US faces a renewed nuclear decision before the political wounds of the first conflict have healed. Domestically, the regime tightens authoritarian control — expanding surveillance, suppressing the internet permanently, and eliminating any remaining reformist space. The 'wounded animal' dynamic identified by RAND drives foreign policy: a regime that survived but was humiliated pursues confrontational policies to restore legitimacy — proxy network reconstruction, regional spoiler operations, and nuclear advancement. The US-Iran relationship enters permanent adversary status — no diplomatic channels, no trade, ongoing sanctions, periodic proxy confrontations. Regional actors adapt by hedging: Saudi Arabia and UAE maintain US relationships while expanding Chinese economic ties; Turkey deepens NATO-independent foreign policy. This is the historically modal outcome — authoritarian regimes survive external military pressure more often than they collapse — and it is the scenario that makes the conflict retrospectively look most futile: enormous costs incurred to delay rather than resolve the nuclear question.",
+    "overrides": [
+      {
+        "nodeId": "iran_regime_outcome",
+        "overrideProbabilities": { "new_hardline_regime": 0.48, "military_government": 0.32, "reformist_transition": 0.08, "failed_state": 0.08, "partition": 0.04 }
+      },
+      {
+        "nodeId": "iran_nuclear_status_5yr",
+        "overrideProbabilities": { "permanently_eliminated": 0.03, "slow_reconstitution": 0.22, "covert_program": 0.40, "breakout_capability_restored": 0.35 }
+      },
+      {
+        "nodeId": "us_iran_relations_decade",
+        "overrideProbabilities": { "normalized": 0.02, "cold_peace": 0.10, "hostile_frozen": 0.38, "permanent_adversary": 0.50 }
       },
       {
         "nodeId": "oil_market_restructuring",
-        "overrideProbabilities": {
-          "minor_disruption_markets_recover": 0.32,
-          "opec_plus_reconfigured": 0.42,
-          "iranian_oil_permanently_reduced": 0.18,
-          "accelerated_energy_transition": 0.08
-        }
+        "overrideProbabilities": { "return_to_normal": 0.08, "permanent_diversification": 0.38, "new_energy_order": 0.32, "prolonged_crisis": 0.22 }
       },
       {
-        "nodeId": "alliance_realignment_long_term",
-        "overrideProbabilities": {
-          "us_alliances_strengthened": 0.28,
-          "transatlantic_fracture": 0.28,
-          "gulf_states_hedge_toward_china": 0.25,
-          "new_regional_security_architecture": 0.19
-        }
+        "nodeId": "global_nuclear_proliferation_impact",
+        "overrideProbabilities": { "deterrence_strengthened": 0.05, "mixed_signals": 0.18, "proliferation_incentive": 0.42, "cascade_risk": 0.35 }
       },
       {
-        "nodeId": "iranian_domestic_political_consequences",
-        "overrideProbabilities": {
-          "hardline_consolidation": 0.45,
-          "reformist_resurgence": 0.28,
-          "military_junta_transition": 0.20,
-          "revolutionary_collapse": 0.07
-        }
-      },
-      {
-        "nodeId": "us_domestic_political_consequences",
-        "overrideProbabilities": {
-          "executive_power_consolidated": 0.35,
-          "partisan_realignment": 0.35,
-          "war_powers_reform_pushed": 0.22,
-          "constitutional_reckoning": 0.08
-        }
+        "nodeId": "us_force_posture_postwar",
+        "overrideProbabilities": { "enhanced_presence": 0.28, "status_quo": 0.32, "gradual_drawdown": 0.28, "rapid_withdrawal": 0.12 }
       },
       {
         "nodeId": "long_term_stability_assessment",
-        "overrideProbabilities": {
-          "sustainable_stability": 0.10,
-          "fragile_equilibrium": 0.42,
-          "managed_instability": 0.35,
-          "renewed_major_conflict_risk": 0.13
-        }
+        "overrideProbabilities": { "stable_new_order": 0.03, "fragile_peace": 0.18, "recurring_crises": 0.48, "permanent_instability": 0.31 }
       }
     ]
   },
   {
-    "id": "strategic-stalemate-frozen-conflict",
+    "id": "new-middle-east-order",
     "phase": 8,
-    "title": "Strategic Stalemate with Frozen Conflict",
-    "description": "Active large-scale hostilities cease without a formal resolution, leaving the underlying political and nuclear disputes unresolved and the region in a condition of armed standoff. This scenario emerges from a specific convergence: the US achieves partial military objectives (degrading but not eliminating Iran's nuclear infrastructure), Iran retains enough asymmetric capability to make sustained US operations politically costly, and neither side can construct the domestic political coalition needed for a formal settlement. The 'frozen conflict' category in international relations literature — North Korea post-1953, Cyprus post-1974, Kashmir post-1998 — describes exactly this dynamic: active war ends, formal resolution does not occur, and the underlying conflict persists in a managed low-level state for decades. The specific mechanism for US-Iran freezing is: congressional war powers pressure forces a halt to offensive operations; Iran declares a unilateral 'strategic victory' in having survived; no ceasefire mechanism exists to formalize the pause; and both sides slip into a posture of 'armed truce' with periodic proxy escalations. This scenario is the most corrosive for long-term stability precisely because it combines the costs of conflict (infrastructure destruction, economic dislocation, political polarization) with the absence of conflict's resolutory benefits (negotiated constraints, diplomatic architecture, verification mechanisms). Iran's nuclear reconstitution is most rapid in this scenario: without a verification framework, the IAEA cannot operate in Iran, and the regime has maximum political incentive to rebuild nuclear capabilities as the primary deterrent against a repeat US strike. The 5-year nuclear reconstitution timeline in a frozen conflict scenario means that the US faces a renewed nuclear decision — strike again or accept a nuclear-threshold Iran — before the political wounds of the first conflict have healed. Regional actors adapt to the stalemate by hedging: Saudi Arabia and UAE simultaneously maintain US security relationships and expand Chinese economic ties; Turkey deepens its NATO-independent foreign policy; Israel maintains strike readiness while pursuing diplomatic normalization where possible. The frozen conflict is the scenario most likely to produce a 'multipolar fragmentation' regional order: the absence of a clear power-political resolution leaves a vacuum that multiple actors fill simultaneously, producing a more complex and less predictable regional environment than either a clear US victory or a clear settlement.",
+    "title": "New Middle East Order",
+    "description": "The conflict produces a structural transformation of the Middle East regional order — not through successful US nation-building in Iran but through the geopolitical vacuum Iran's weakening creates, which Gulf states and China fill. Saudi Arabia, UAE, and the broader GCC emerge as the primary regional power brokers, leveraging their oil wealth, infrastructure investment capacity, and strategic positioning between the US and China. The Abraham Accords framework expands to include additional Arab states; Saudi-Israeli normalization, long-discussed, formalizes under the umbrella of mutual interest in post-Iran regional stability. China fills the economic vacuum: its Belt and Road investments in the region accelerate, it becomes the primary reconstruction funder for whatever remains of Iran's economy (conditional on political alignment), and it positions itself as an alternative security partner for states hedging against US unreliability. The US gradually draws down its Middle East military presence — not because of defeat but because the threat that justified the posture (Iranian nuclear program, proxy network) has been degraded, and the Indo-Pacific rebalance demands the resources. Russia, weakened by its own conflicts and Iran's diminished utility as an ally, loses influence in the region. The nuclear question remains unresolved but is managed through a combination of Saudi nuclear hedging (kept ambiguous under US tolerance), IAEA residual monitoring where possible, and the deterrent effect of the demonstrated US willingness to strike. This is not a 'stable new order' — it is a managed transition from US-centric to multipolar regional architecture, with significant ongoing risks from Iranian instability, proxy network remnants, and the precedent of coercive regime change. But it represents the most historically plausible structural transformation, as it aligns with existing trends (GCC assertiveness, Chinese economic expansion, US rebalancing) rather than requiring unprecedented institutional innovation.",
     "overrides": [
       {
-        "nodeId": "resolution_type",
-        "overrideProbabilities": {
-          "decisive_us_victory": 0.08,
-          "negotiated_settlement": 0.18,
-          "frozen_conflict": 0.65,
-          "wider_regional_war": 0.09
-        }
-      },
-      {
-        "nodeId": "actual_conflict_duration",
-        "overrideProbabilities": {
-          "under_2_weeks": 0.05,
-          "1_3_months": 0.28,
-          "3_6_months": 0.42,
-          "over_6_months": 0.25
-        }
-      },
-      {
-        "nodeId": "iranian_regime_stability",
-        "overrideProbabilities": {
-          "consolidated_hardline": 0.42,
-          "weakened_but_stable": 0.35,
-          "fragmented_elite_conflict": 0.18,
-          "near_collapse": 0.05
-        }
-      },
-      {
-        "nodeId": "iran_nuclear_program_outcome",
-        "overrideProbabilities": {
-          "permanently_eliminated": 0.04,
-          "significantly_set_back": 0.22,
-          "partially_degraded": 0.42,
-          "accelerated_reconstitution": 0.32
-        }
-      },
-      {
-        "nodeId": "iran_nuclear_status_long_term",
-        "overrideProbabilities": {
-          "eliminated_with_verification": 0.03,
-          "degraded_slow_reconstitution": 0.18,
-          "active_reconstitution_underway": 0.42,
-          "covert_breakout_capability": 0.37
-        }
-      },
-      {
-        "nodeId": "regional_power_balance_shift",
-        "overrideProbabilities": {
-          "us_israel_dominant": 0.10,
-          "saudi_gulf_ascendant": 0.22,
-          "multipolar_fragmentation": 0.48,
-          "iran_russia_china_axis": 0.20
-        }
-      },
-      {
-        "nodeId": "alliance_realignment_long_term",
-        "overrideProbabilities": {
-          "us_alliances_strengthened": 0.08,
-          "transatlantic_fracture": 0.35,
-          "gulf_states_hedge_toward_china": 0.42,
-          "new_regional_security_architecture": 0.15
-        }
-      },
-      {
-        "nodeId": "us_domestic_political_consequences",
-        "overrideProbabilities": {
-          "executive_power_consolidated": 0.08,
-          "partisan_realignment": 0.28,
-          "war_powers_reform_pushed": 0.42,
-          "constitutional_reckoning": 0.22
-        }
-      },
-      {
-        "nodeId": "iranian_domestic_political_consequences",
-        "overrideProbabilities": {
-          "hardline_consolidation": 0.52,
-          "reformist_resurgence": 0.15,
-          "military_junta_transition": 0.25,
-          "revolutionary_collapse": 0.08
-        }
-      },
-      {
-        "nodeId": "global_order_precedent_effect",
-        "overrideProbabilities": {
-          "us_credibility_restored_order_stabilized": 0.06,
-          "proliferation_incentives_increased": 0.48,
-          "un_system_further_degraded": 0.28,
-          "multipolar_normative_fragmentation": 0.18
-        }
-      },
-      {
-        "nodeId": "long_term_stability_assessment",
-        "overrideProbabilities": {
-          "sustainable_stability": 0.03,
-          "fragile_equilibrium": 0.18,
-          "managed_instability": 0.42,
-          "renewed_major_conflict_risk": 0.37
-        }
-      }
-    ]
-  },
-  {
-    "id": "regional-transformation",
-    "phase": 8,
-    "title": "Regional Transformation",
-    "description": "The conflict serves as a structural shock that transforms the Middle East regional order more comprehensively than any event since the 1979 Iranian Revolution — reshaping alliances, governance, economic architecture, and the regional security framework in ways that persist for decades. This scenario encompasses both positive and negative transformation pathways, unified by the common characteristic that the post-conflict region is qualitatively different from the pre-conflict baseline — not merely a return to a modified status quo. Positive transformation pathway: a decisive US military victory combined with an Iranian reformist resurgence and sustained US diplomatic investment produces a new regional security compact — an 'Arab-Israeli-Iranian' normalization framework analogous to the post-WWII European security architecture. Saudi-Iranian normalization deepens; the Abraham Accords expand to include other Arab states; and US-brokered multilateral security guarantees replace the informal deterrence system that preceded the conflict. RAND's 2023 regional security analysis identifies this as a 'best case' achievable only if the US sustains 15–20 years of diplomatic engagement equivalent to its post-WWII European investment — historically unprecedented for the Middle East. Negative transformation pathway: the conflict triggers 'catastrophic_regional_conflagration' with major involvement of Lebanon, Iraq, Yemen, and potentially Turkish and Gulf state forces. The collapse of multiple state structures simultaneously creates a power vacuum that no actor — US, China, or regional powers — can fill. The humanitarian catastrophe exceeds Syria in scale: 5–10 million displaced, multiple state failures, and a 20–30 year reconstruction horizon. Iranian nuclear material security in this scenario is the critical global risk: state failure + nuclear-capable scientific base + motivated non-state actors creates the conditions for nuclear terrorism that no international framework is designed to address. The 'regional transformation' scenario is analytically distinct because it captures the tail-risk, non-linear outcomes that dominate long-run assessments but are systematically underweighted by policymakers focused on base cases. CFR's 2024 global risk assessment identifies Middle East structural transformation — in either direction — as the highest-consequence low-probability geopolitical risk of the current decade.",
-    "overrides": [
-      {
-        "nodeId": "regional_war_expansion_risk",
-        "overrideProbabilities": {
-          "contained_bilateral": 0.08,
-          "limited_spillover": 0.20,
-          "major_regional_involvement": 0.38,
-          "catastrophic_regional_conflagration": 0.34
-        }
-      },
-      {
-        "nodeId": "resolution_type",
-        "overrideProbabilities": {
-          "decisive_us_victory": 0.22,
-          "negotiated_settlement": 0.20,
-          "frozen_conflict": 0.22,
-          "wider_regional_war": 0.36
-        }
-      },
-      {
-        "nodeId": "actual_conflict_duration",
-        "overrideProbabilities": {
-          "under_2_weeks": 0.04,
-          "1_3_months": 0.18,
-          "3_6_months": 0.38,
-          "over_6_months": 0.40
-        }
-      },
-      {
-        "nodeId": "regional_power_balance_shift",
-        "overrideProbabilities": {
-          "us_israel_dominant": 0.14,
-          "saudi_gulf_ascendant": 0.18,
-          "multipolar_fragmentation": 0.32,
-          "iran_russia_china_axis": 0.36
-        }
+        "nodeId": "regional_power_balance",
+        "overrideProbabilities": { "us_israel_dominant": 0.10, "gcc_ascendant": 0.52, "multipolar": 0.30, "power_vacuum": 0.08 }
       },
       {
         "nodeId": "oil_market_restructuring",
-        "overrideProbabilities": {
-          "minor_disruption_markets_recover": 0.05,
-          "opec_plus_reconfigured": 0.18,
-          "iranian_oil_permanently_reduced": 0.32,
-          "accelerated_energy_transition": 0.45
-        }
+        "overrideProbabilities": { "return_to_normal": 0.12, "permanent_diversification": 0.42, "new_energy_order": 0.35, "prolonged_crisis": 0.11 }
       },
       {
-        "nodeId": "alliance_realignment_long_term",
-        "overrideProbabilities": {
-          "us_alliances_strengthened": 0.10,
-          "transatlantic_fracture": 0.35,
-          "gulf_states_hedge_toward_china": 0.28,
-          "new_regional_security_architecture": 0.27
-        }
+        "nodeId": "us_force_posture_postwar",
+        "overrideProbabilities": { "enhanced_presence": 0.08, "status_quo": 0.22, "gradual_drawdown": 0.48, "rapid_withdrawal": 0.22 }
       },
       {
-        "nodeId": "iranian_domestic_political_consequences",
-        "overrideProbabilities": {
-          "hardline_consolidation": 0.32,
-          "reformist_resurgence": 0.15,
-          "military_junta_transition": 0.30,
-          "revolutionary_collapse": 0.23
-        }
+        "nodeId": "precedent_for_global_order",
+        "overrideProbabilities": { "rules_based_reinforced": 0.08, "might_makes_right": 0.25, "multipolar_realignment": 0.45, "un_system_weakened": 0.22 }
       },
       {
-        "nodeId": "humanitarian_cost_index",
-        "overrideProbabilities": {
-          "low": 0.03,
-          "moderate": 0.10,
-          "high": 0.30,
-          "catastrophic": 0.57
-        }
+        "nodeId": "iran_regime_outcome",
+        "overrideProbabilities": { "new_hardline_regime": 0.22, "military_government": 0.30, "reformist_transition": 0.18, "failed_state": 0.20, "partition": 0.10 }
       },
       {
-        "nodeId": "iran_nuclear_status_long_term",
-        "overrideProbabilities": {
-          "eliminated_with_verification": 0.08,
-          "degraded_slow_reconstitution": 0.18,
-          "active_reconstitution_underway": 0.30,
-          "covert_breakout_capability": 0.44
-        }
-      },
-      {
-        "nodeId": "global_order_precedent_effect",
-        "overrideProbabilities": {
-          "us_credibility_restored_order_stabilized": 0.08,
-          "proliferation_incentives_increased": 0.35,
-          "un_system_further_degraded": 0.25,
-          "multipolar_normative_fragmentation": 0.32
-        }
-      },
-      {
-        "nodeId": "refugee_displacement_long_term",
-        "overrideProbabilities": {
-          "limited_under_500k_displaced": 0.03,
-          "moderate_500k_to_2m": 0.12,
-          "severe_2m_to_5m": 0.30,
-          "catastrophic_over_5m": 0.55
-        }
+        "nodeId": "reconstruction_cost_estimate",
+        "overrideProbabilities": { "under_100b": 0.08, "100_500b": 0.35, "500b_1t": 0.38, "over_1t": 0.19 }
       },
       {
         "nodeId": "long_term_stability_assessment",
-        "overrideProbabilities": {
-          "sustainable_stability": 0.06,
-          "fragile_equilibrium": 0.15,
-          "managed_instability": 0.32,
-          "renewed_major_conflict_risk": 0.47
-        }
+        "overrideProbabilities": { "stable_new_order": 0.12, "fragile_peace": 0.38, "recurring_crises": 0.35, "permanent_instability": 0.15 }
       }
     ]
   }
