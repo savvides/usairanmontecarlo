@@ -523,5 +523,23 @@
       "url": "https://www.unocha.org/",
       "confidence": "medium"
     }
+  },
+  {
+    "id": "iranian_nationalist_resolve",
+    "phase": 6,
+    "type": "categorical",
+    "label": "Iranian Nationalist Resolve (Pape)",
+    "description": "Pape's core finding: strategic bombing strengthens rather than degrades defender resolve. Punishment strategies failed in all 8 cases studied (1917-1991). Iran absorbed hundreds of thousands of casualties during the Iran-Iraq War without collapsing. Bombing 'infuses nationalism in the regime and across the society.' Higher casualties produce HIGHER resolve — the inverse of punishment theory.",
+    "parents": ["us_air_campaign_scale", "infrastructure_destruction_scale", "iranian_civilian_death_toll"],
+    "categories": ["low", "moderate", "high", "total_mobilization"],
+    "cpt": [
+      { "parentValues": { "us_air_campaign_scale": "sustained", "infrastructure_destruction_scale": "extensive", "iranian_civilian_death_toll": "500_2000" }, "categoryProbabilities": { "low": 0.03, "moderate": 0.22, "high": 0.55, "total_mobilization": 0.20 } },
+      { "parentValues": { "us_air_campaign_scale": "sustained", "infrastructure_destruction_scale": "catastrophic", "iranian_civilian_death_toll": "2000_5000" }, "categoryProbabilities": { "low": 0.01, "moderate": 0.09, "high": 0.35, "total_mobilization": 0.55 } },
+      { "parentValues": { "us_air_campaign_scale": "escalating", "infrastructure_destruction_scale": "catastrophic", "iranian_civilian_death_toll": "5000_10000" }, "categoryProbabilities": { "low": 0.01, "moderate": 0.04, "high": 0.20, "total_mobilization": 0.75 } },
+      { "parentValues": { "us_air_campaign_scale": "limited", "infrastructure_destruction_scale": "limited", "iranian_civilian_death_toll": "under_500" }, "categoryProbabilities": { "low": 0.25, "moderate": 0.50, "high": 0.20, "total_mobilization": 0.05 } },
+      { "parentValues": { "us_air_campaign_scale": "paused", "infrastructure_destruction_scale": "limited" }, "categoryProbabilities": { "low": 0.40, "moderate": 0.40, "high": 0.15, "total_mobilization": 0.05 } }
+    ],
+    "defaultProbabilities": { "low": 0.05, "moderate": 0.25, "high": 0.45, "total_mobilization": 0.25 },
+    "source": { "citation": "Pape, Bombing to Win Ch. 2-3 (Cornell, 1996); Pape, 'Escalation Trap' March 2026; Iran-Iraq War data (1980-88)", "url": "https://escalationtrap.substack.com/", "confidence": "medium" }
   }
 ]
