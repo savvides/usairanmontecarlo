@@ -1,5 +1,25 @@
+# Dependencies
 node_modules/
+
+# Next.js
 .next/
 out/
+
+# OS
 .DS_Store
 *.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build artifacts
+tsconfig.tsbuildinfo
+dist/
+
+# Local tools
+.gstack/
+.claude/
