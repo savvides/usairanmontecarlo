@@ -5,7 +5,7 @@
     "type": "continuous",
     "label": "Current Oil Price ($/barrel)",
     "description": "Brent crude benchmark price as of late March 2026. Observed: paper Brent at $113/bbl (+36% from pre-conflict ~$83), with Dubai physical crude trading at a massive $126/bbl premium reflecting actual delivery scarcity. The spread between paper and physical prices indicates severe supply dislocation. Pre-conflict Brent was ~$83/bbl. The current price reflects both war risk premium and actual supply loss from Hormuz closure.",
-    "parents": ["escalation_ladder_position", "strait_of_hormuz_closure"],
+    "parents": ["escalation_ladder_position", "strait_of_hormuz_closure", "energy_infrastructure_targeting"],
     "cpt": [
       {
         "parentValues": { "escalation_ladder_position": "full_scale_war", "strait_of_hormuz_closure": "true" },
@@ -22,6 +22,18 @@
       {
         "parentValues": { "escalation_ladder_position": "limited_exchange", "strait_of_hormuz_closure": "false" },
         "distribution": { "type": "normal", "params": [88, 8] }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "strait_of_hormuz_closure": "true", "energy_infrastructure_targeting": "mutual_energy_destruction" },
+        "distribution": { "type": "normal", "params": [160, 25] }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "strait_of_hormuz_closure": "true", "energy_infrastructure_targeting": "production_targeted" },
+        "distribution": { "type": "normal", "params": [135, 18] }
+      },
+      {
+        "parentValues": { "escalation_ladder_position": "full_scale_war", "strait_of_hormuz_closure": "true", "energy_infrastructure_targeting": "restrained" },
+        "distribution": { "type": "normal", "params": [105, 12] }
       }
     ],
     "defaultDistribution": { "type": "normal", "params": [120, 15] },

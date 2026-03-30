@@ -498,12 +498,35 @@
     "source": { "citation": "Pape, 'Escalation Trap' March 2026 (~75% estimate); Pape, Bombing to Win Ch. 9-10", "url": "https://escalationtrap.substack.com/", "confidence": "low" }
   },
   {
+    "id": "ground_operation_feasibility",
+    "phase": 7,
+    "type": "categorical",
+    "label": "Ground Operation Feasibility",
+    "description": "Physical and logistical feasibility of US ground operations in Iran. Iran's geography makes large-scale ground invasion extremely difficult: the Zagros Mountains to the west create a natural fortress, and no neighboring country (Azerbaijan, Turkmenistan, Afghanistan, Pakistan) is likely to allow staging of ground forces. The only viable approach is amphibious from the Persian Gulf/Gulf of Oman, which would be extremely costly. A limited operation such as occupying Kharg or Qeshm islands, or the mainland shore of the Strait of Hormuz to de-blockade it, is the maximum the US appears willing to consider. Even limited island/shore operations would face constant Iranian missile and drone attacks. The mountainous terrain and several large deserts make interior operations extremely challenging.",
+    "parents": ["ground_escalation_probability", "overall_military_balance"],
+    "categories": ["infeasible", "limited_island_ops", "coastal_foothold", "major_invasion"],
+    "cpt": [
+      { "parentValues": { "ground_escalation_probability": "true", "overall_military_balance": "decisive_us" }, "categoryProbabilities": { "infeasible": 0.10, "limited_island_ops": 0.55, "coastal_foothold": 0.25, "major_invasion": 0.10 } },
+      { "parentValues": { "ground_escalation_probability": "true", "overall_military_balance": "us_advantage" }, "categoryProbabilities": { "infeasible": 0.20, "limited_island_ops": 0.50, "coastal_foothold": 0.22, "major_invasion": 0.08 } },
+      { "parentValues": { "ground_escalation_probability": "true", "overall_military_balance": "contested" }, "categoryProbabilities": { "infeasible": 0.40, "limited_island_ops": 0.40, "coastal_foothold": 0.15, "major_invasion": 0.05 } },
+      { "parentValues": { "ground_escalation_probability": "true", "overall_military_balance": "stalemate" }, "categoryProbabilities": { "infeasible": 0.60, "limited_island_ops": 0.30, "coastal_foothold": 0.08, "major_invasion": 0.02 } },
+      { "parentValues": { "ground_escalation_probability": "false", "overall_military_balance": "decisive_us" }, "categoryProbabilities": { "infeasible": 0.70, "limited_island_ops": 0.20, "coastal_foothold": 0.08, "major_invasion": 0.02 } },
+      { "parentValues": { "ground_escalation_probability": "false", "overall_military_balance": "us_advantage" }, "categoryProbabilities": { "infeasible": 0.80, "limited_island_ops": 0.15, "coastal_foothold": 0.04, "major_invasion": 0.01 } }
+    ],
+    "defaultProbabilities": { "infeasible": 0.30, "limited_island_ops": 0.50, "coastal_foothold": 0.15, "major_invasion": 0.05 },
+    "source": {
+      "citation": "RAND 'Iran Geography and Military Operations' 2024; CSIS 'Amphibious Options in the Persian Gulf' March 2026; AP 'US signals limited ground operation possible' March 2026; Kings and Generals conflict analysis March 2026",
+      "url": "https://www.csis.org/analysis/",
+      "confidence": "medium"
+    }
+  },
+  {
     "id": "resolution_type",
     "phase": 7,
     "type": "categorical",
     "label": "Resolution Type (Summary)",
     "description": "The overall characterization of how the conflict resolves. This is the summary node for Phase 7, integrating ceasefire mechanism, war termination terms, and regional expansion dynamics. A decisive US victory requires both military success (largely achieved) and political consolidation through favorable terms — the 1991 Gulf War template. A negotiated settlement reflects the JCPOA-era model of mutual concessions formalized through diplomacy. A frozen conflict is the Korean War/Kashmir template: fighting stops, no resolution occurs, underlying tensions persist indefinitely. A wider regional war represents the worst-case escalation where Houthi entry, Hezbollah operations, and potential Iraqi militia activation transforms the bilateral US-Iran conflict into a multi-theater regional conflagration. As of March 29, with Houthis and Hezbollah both active, the conflict is already exhibiting early wider-war characteristics, though it has not yet crossed the threshold into full regional conflagration.",
-    "parents": ["ceasefire_mechanism", "war_termination_terms", "regional_expansion_risk_current", "coercive_success_probability", "ground_escalation_probability"],
+    "parents": ["ceasefire_mechanism", "war_termination_terms", "regional_expansion_risk_current", "coercive_success_probability", "ground_escalation_probability", "ground_operation_feasibility"],
     "categories": ["decisive_us_victory", "negotiated_settlement", "frozen_conflict", "wider_regional_war"],
     "cpt": [
       {
@@ -545,6 +568,22 @@
       {
         "parentValues": { "coercive_success_probability": "counterproductive", "ground_escalation_probability": "true" },
         "categoryProbabilities": { "decisive_us_victory": 0.03, "negotiated_settlement": 0.10, "frozen_conflict": 0.27, "wider_regional_war": 0.60 }
+      },
+      {
+        "parentValues": { "ground_escalation_probability": "true", "ground_operation_feasibility": "infeasible" },
+        "categoryProbabilities": { "decisive_us_victory": 0.02, "negotiated_settlement": 0.25, "frozen_conflict": 0.53, "wider_regional_war": 0.20 }
+      },
+      {
+        "parentValues": { "ground_escalation_probability": "true", "ground_operation_feasibility": "limited_island_ops" },
+        "categoryProbabilities": { "decisive_us_victory": 0.06, "negotiated_settlement": 0.22, "frozen_conflict": 0.42, "wider_regional_war": 0.30 }
+      },
+      {
+        "parentValues": { "ground_escalation_probability": "true", "ground_operation_feasibility": "coastal_foothold" },
+        "categoryProbabilities": { "decisive_us_victory": 0.12, "negotiated_settlement": 0.18, "frozen_conflict": 0.35, "wider_regional_war": 0.35 }
+      },
+      {
+        "parentValues": { "ground_escalation_probability": "true", "ground_operation_feasibility": "major_invasion" },
+        "categoryProbabilities": { "decisive_us_victory": 0.20, "negotiated_settlement": 0.10, "frozen_conflict": 0.25, "wider_regional_war": 0.45 }
       }
     ],
     "defaultProbabilities": {
