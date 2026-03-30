@@ -529,7 +529,7 @@
     "phase": 6,
     "type": "categorical",
     "label": "Iranian Nationalist Resolve (Pape)",
-    "description": "Pape's core finding: strategic bombing strengthens rather than degrades defender resolve. Punishment strategies failed in all 8 cases studied (1917-1991). Iran absorbed hundreds of thousands of casualties during the Iran-Iraq War without collapsing. Bombing 'infuses nationalism in the regime and across the society.' Higher casualties produce HIGHER resolve — the inverse of punishment theory.",
+    "description": "Pape's core finding: strategic bombing strengthens rather than degrades defender resolve. Punishment strategies failed in all 8 cases studied (1917-1991). Iran absorbed hundreds of thousands of casualties during the Iran-Iraq War without collapsing. Bombing 'infuses nationalism in the regime and across the society.' Higher casualties produce HIGHER resolve, the inverse of punishment theory. Observed: no major wartime protests have emerged since February 28 despite a massive pre-war protest movement (early 2026, 3,000-30,000 killed in crackdown). The IRGC has threatened harsh crackdown on anyone who takes to the streets during the war. The rally-around-the-flag effect appears confirmed by the absence of mass opposition during active bombing, consistent with Pape's predictions.",
     "parents": ["us_air_campaign_scale", "infrastructure_destruction_scale", "iranian_civilian_death_toll"],
     "categories": ["low", "moderate", "high", "total_mobilization"],
     "cpt": [
