@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { readFileSync, writeFileSync } from 'fs';
-import { execSync } from 'child_process';
+import { execSync, spawnSync } from 'child_process';
 import { createInterface } from 'readline';
 
 const rl = createInterface({ input: process.stdin, output: process.stdout });
@@ -56,15 +56,6 @@ async function main() {
   console.log(`\nUpdated ${TIMELINE_PATH}`);
   console.log(`  ${timeline.events.length} events, observed through ${timeline.observedThrough}`);
 
-  console.log('\nValidating...');
-  try {
-    JSON.parse(readFileSync(TIMELINE_PATH, 'utf-8'));
-    console.log('  timeline.json valid');
-  } catch (e) {
-    console.error('  timeline.json invalid:', e.message);
-    process.exit(1);
-  }
-
   console.log('\nRunning tests...');
   try { execSync('npx vitest run', { stdio: 'inherit' }); }
   catch { console.error('\nTests failed. Fix issues before pushing.'); process.exit(1); }
@@ -75,9 +66,9 @@ async function main() {
 
   const shouldPush = await ask('\nCommit and push? (y/n): ');
   if (shouldPush.toLowerCase() === 'y') {
-    execSync('git add -A', { stdio: 'inherit' });
+    execSync('git add src/data/timeline.json', { stdio: 'inherit' });
     const msg = `data: update simulation — ${newEvents.length} new events, observed through ${timeline.observedThrough}`;
-    execSync(`git commit -m "${msg}"`, { stdio: 'inherit' });
+    spawnSync('git', ['commit', '-m', msg], { stdio: 'inherit' });
     execSync('git push', { stdio: 'inherit' });
     console.log('\nPushed. GitHub Pages will auto-deploy.');
   } else {

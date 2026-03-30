@@ -26,10 +26,9 @@ export function SimulationShell({ nodes, scenarios }: SimulationShellProps) {
   const phase = usePhase();
   const simulation = useSimulation(nodes);
 
-  // Run simulation on mount and whenever scenarios change
   useEffect(() => {
     simulation.run(5000);
-  }, [simulation.run]);
+  }, [simulation.activeGraph]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const content = getPhaseContent(phase.currentPhase);
   const phaseScenarios = useMemo(
@@ -37,7 +36,10 @@ export function SimulationShell({ nodes, scenarios }: SimulationShellProps) {
     [scenarios, phase.currentPhase]
   );
   const selectedScenario = simulation.selectedScenarios.get(phase.currentPhase);
-  const phaseResults = simulation.getPhaseResults(phase.currentPhase);
+  const phaseResults = useMemo(
+    () => simulation.getPhaseResults(phase.currentPhase),
+    [simulation.getPhaseResults, phase.currentPhase]
+  );
 
   const phaseNodes = useMemo(() => {
     const phaseNodeIds = simulation.activeGraph.phaseNodes.get(phase.currentPhase) ?? [];
@@ -57,7 +59,6 @@ export function SimulationShell({ nodes, scenarios }: SimulationShellProps) {
     } else {
       simulation.selectScenario(scenario);
     }
-    setTimeout(() => simulation.run(5000), 0);
   };
 
   if (!content) {

@@ -14,6 +14,8 @@ interface TimelineBarProps {
 export function TimelineBar({ timeline, currentPhase, onEventClick }: TimelineBarProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
+  const onEventClickRef = useRef(onEventClick);
+  onEventClickRef.current = onEventClick;
 
   useEffect(() => {
     if (!svgRef.current) return;
@@ -114,9 +116,11 @@ export function TimelineBar({ timeline, currentPhase, onEventClick }: TimelineBa
             );
         })
         .on('mouseleave', () => { tooltip.style('display', 'none'); })
-        .on('click', () => { if (onEventClick) onEventClick(event); });
+        .on('click', () => { onEventClickRef.current?.(event); });
     });
-  }, [timeline, currentPhase, onEventClick]);
+
+    return () => { svg.selectAll('*').remove(); };
+  }, [timeline, currentPhase]);
 
   return (
     <div className="relative border-t border-border bg-surface px-2 py-1">
