@@ -51,7 +51,7 @@
     "type": "categorical",
     "label": "Ceasefire Mechanism",
     "description": "The primary mechanism through which hostilities are halted, if at all. Trump's April 6 deadline represents a US ultimatum framework: accept terms or face energy infrastructure strikes. Turkey has positioned itself as a mediator with ties to both sides and NATO membership giving it leverage. UN-brokered cessation requires UNSC consensus, which Russia and China have blocked throughout March. A unilateral ceasefire would involve one side declaring a halt without formal agreement. The 'no ceasefire' outcome reflects the frozen-conflict trajectory where active combat gradually subsides without formal termination. With Khamenei dead, Iran's decision-making is fragmented — the IRGC, acting president, and Guardian Council must reach internal consensus before accepting any external framework, which significantly delays any mechanism requiring Iranian agreement. Turkey's March mediation efforts and China's quiet diplomacy through economic leverage represent the most active non-US channels.",
-    "parents": ["ceasefire_mediation_viability", "april_6_deadline_outcome"],
+    "parents": ["ceasefire_mediation_viability", "april_6_deadline_outcome", "coercive_success_probability"],
     "categories": ["us_ultimatum_accepted", "turkey_mediated_deal", "un_brokered", "unilateral_ceasefire", "no_ceasefire"],
     "cpt": [
       {
@@ -77,6 +77,10 @@
       {
         "parentValues": { "ceasefire_mediation_viability": "viable", "april_6_deadline_outcome": "escalation" },
         "categoryProbabilities": { "us_ultimatum_accepted": 0.06, "turkey_mediated_deal": 0.30, "un_brokered": 0.15, "unilateral_ceasefire": 0.24, "no_ceasefire": 0.25 }
+      },
+      {
+        "parentValues": { "coercive_success_probability": "failed" },
+        "categoryProbabilities": { "us_ultimatum_accepted": 0.05, "turkey_mediated_deal": 0.15, "un_brokered": 0.08, "unilateral_ceasefire": 0.22, "no_ceasefire": 0.50 }
       }
     ],
     "defaultProbabilities": {
@@ -148,7 +152,7 @@
     "type": "categorical",
     "label": "Iran Post-Khamenei Power Structure",
     "description": "The governance outcome in Iran following the confirmed death of Supreme Leader Khamenei in the February 28 strikes. This is unprecedented in the Islamic Republic's 47-year history — the only prior succession (Khomeini to Khamenei in 1989) occurred peacefully with institutional continuity intact. Now, the succession must occur under wartime conditions with degraded command structures, destroyed communications infrastructure, and active foreign military operations. The Assembly of Experts is constitutionally responsible for selecting a new Supreme Leader, but many members are elderly, some may have been killed or displaced, and the body has never operated under war conditions. A hardliner successor (Mojtaba Khamenei, the late leader's son, or Ahmad Khatami) would maintain institutional continuity but lack Khamenei's 35-year authority base. A military junta led by surviving IRGC commanders represents the most likely outcome if civilian institutions fail — the IRGC controls significant economic and military assets independently. A reformist opening requires the war's discrediting of hardliner policies to create space for figures like former foreign minister Zarif or moderate clerics. Fragmented power vacuum is the most dangerous outcome: competing IRGC factions, clerical networks, and regional power centers operating without central authority. Full regime collapse requires sustained military pressure combined with popular uprising — possible but dependent on internal dynamics that external analysis cannot reliably assess.",
-    "parents": ["conflict_duration_projection", "iranian_economic_collapse"],
+    "parents": ["conflict_duration_projection", "iranian_economic_collapse", "iranian_nationalist_resolve"],
     "categories": ["hardliner_successor", "military_junta", "reformist_opening", "fragmented_power_vacuum", "regime_collapse"],
     "cpt": [
       {
@@ -174,6 +178,14 @@
       {
         "parentValues": { "conflict_duration_projection": "prolonged", "iranian_economic_collapse": "severe" },
         "categoryProbabilities": { "hardliner_successor": 0.12, "military_junta": 0.28, "reformist_opening": 0.10, "fragmented_power_vacuum": 0.30, "regime_collapse": 0.20 }
+      },
+      {
+        "parentValues": { "iranian_nationalist_resolve": "high" },
+        "categoryProbabilities": { "hardliner_successor": 0.45, "military_junta": 0.30, "reformist_opening": 0.05, "fragmented_power_vacuum": 0.15, "regime_collapse": 0.05 }
+      },
+      {
+        "parentValues": { "iranian_nationalist_resolve": "total_mobilization" },
+        "categoryProbabilities": { "hardliner_successor": 0.55, "military_junta": 0.30, "reformist_opening": 0.02, "fragmented_power_vacuum": 0.10, "regime_collapse": 0.03 }
       }
     ],
     "defaultProbabilities": {
@@ -241,7 +253,7 @@
     "type": "categorical",
     "label": "War Termination Terms",
     "description": "The substantive framework under which hostilities end, ranging from complete Iranian capitulation to a situation where no formal terms exist. Unconditional Iranian surrender is historically rare — even Japan's 1945 surrender retained the emperor — and would require regime collapse or extreme military pressure beyond current operations. Negotiated terms with US advantages is the most likely outcome of a successful ceasefire: Iran accepts nuclear constraints, possibly proxy limitations, in exchange for sanctions relief and implicit regime survival guarantees. Mutual concessions involve face-saving elements for both sides — the JCPOA model where each side claims victory domestically. A frozen conflict produces no terms at all: fighting subsides without formal agreement, leaving all underlying disputes unresolved. The decisive US military balance favors US-advantaged terms, but Iran's asymmetric capabilities through proxies (Hezbollah actively fighting, Houthis entering the war) give it bargaining leverage that pure military balance does not capture. Trump's transactional negotiating style may accelerate a deal but could also produce terms that lack institutional durability.",
-    "parents": ["ceasefire_mechanism", "overall_military_balance"],
+    "parents": ["ceasefire_mechanism", "overall_military_balance", "coercive_success_probability"],
     "categories": ["unconditional_iranian_surrender", "negotiated_with_us_advantages", "mutual_concessions", "frozen_conflict_no_terms"],
     "cpt": [
       {
@@ -263,13 +275,17 @@
       {
         "parentValues": { "ceasefire_mechanism": "no_ceasefire", "overall_military_balance": "decisive_us" },
         "categoryProbabilities": { "unconditional_iranian_surrender": 0.02, "negotiated_with_us_advantages": 0.10, "mutual_concessions": 0.12, "frozen_conflict_no_terms": 0.76 }
+      },
+      {
+        "parentValues": { "coercive_success_probability": "failed" },
+        "categoryProbabilities": { "unconditional_iranian_surrender": 0.01, "negotiated_with_us_advantages": 0.22, "mutual_concessions": 0.40, "frozen_conflict_no_terms": 0.37 }
       }
     ],
     "defaultProbabilities": {
-      "unconditional_iranian_surrender": 0.05,
-      "negotiated_with_us_advantages": 0.35,
-      "mutual_concessions": 0.28,
-      "frozen_conflict_no_terms": 0.32
+      "unconditional_iranian_surrender": 0.02,
+      "negotiated_with_us_advantages": 0.36,
+      "mutual_concessions": 0.29,
+      "frozen_conflict_no_terms": 0.33
     },
     "source": {
       "citation": "RAND 'War Termination Theory and Practice' 2023; Brookings 'Negotiated Endings to Armed Conflicts' 2024; CFR 'Conflict Termination Frameworks' 2025; Chatham House 'Iran Negotiation Dynamics' March 2026",
@@ -446,12 +462,48 @@
     }
   },
   {
+    "id": "coercive_success_probability",
+    "phase": 7,
+    "type": "categorical",
+    "label": "Coercive Success Probability (Pape)",
+    "description": "Pape's central finding: airpower achieves ~100% tactical success but near-zero coercive (political) success against states employing asymmetric strategies. Punishment succeeded 0/8 times. Denial succeeded 5/33 times (~15%), but only with ground forces. Iran's asymmetric strategy makes denial impotent without ground presence.",
+    "parents": ["overall_military_balance", "iranian_nationalist_resolve", "escalation_trap_stage"],
+    "categories": ["succeeded", "partial", "failed", "counterproductive"],
+    "cpt": [
+      { "parentValues": { "overall_military_balance": "decisive_us", "iranian_nationalist_resolve": "high", "escalation_trap_stage": "stage_2_regime_campaign" }, "categoryProbabilities": { "succeeded": 0.03, "partial": 0.17, "failed": 0.55, "counterproductive": 0.25 } },
+      { "parentValues": { "overall_military_balance": "decisive_us", "iranian_nationalist_resolve": "total_mobilization", "escalation_trap_stage": "stage_2_regime_campaign" }, "categoryProbabilities": { "succeeded": 0.02, "partial": 0.08, "failed": 0.45, "counterproductive": 0.45 } },
+      { "parentValues": { "overall_military_balance": "decisive_us", "iranian_nationalist_resolve": "total_mobilization", "escalation_trap_stage": "stage_3_ground_forces" }, "categoryProbabilities": { "succeeded": 0.02, "partial": 0.13, "failed": 0.40, "counterproductive": 0.45 } },
+      { "parentValues": { "overall_military_balance": "decisive_us", "iranian_nationalist_resolve": "moderate" }, "categoryProbabilities": { "succeeded": 0.10, "partial": 0.25, "failed": 0.45, "counterproductive": 0.20 } },
+      { "parentValues": { "overall_military_balance": "decisive_us", "iranian_nationalist_resolve": "low" }, "categoryProbabilities": { "succeeded": 0.20, "partial": 0.35, "failed": 0.35, "counterproductive": 0.10 } }
+    ],
+    "defaultProbabilities": { "succeeded": 0.05, "partial": 0.15, "failed": 0.55, "counterproductive": 0.25 },
+    "source": { "citation": "Pape, Bombing to Win (Cornell, 1996) — 33-case empirical analysis; Pape, 'Escalation Trap' March 2026", "url": "https://escalationtrap.substack.com/", "confidence": "high" }
+  },
+  {
+    "id": "ground_escalation_probability",
+    "phase": 7,
+    "type": "binary",
+    "label": "Ground Escalation Initiated (Pape)",
+    "description": "Pape estimates ~75% probability the US escalates to ground forces when air coercion fails. This is where 'the trap really closes' — an open-ended commitment in a country of 88 million people spanning 636,000 square miles of mountainous terrain.",
+    "parents": ["coercive_success_probability", "actual_conflict_duration", "us_domestic_political_impact"],
+    "cpt": [
+      { "parentValues": { "coercive_success_probability": "failed", "actual_conflict_duration": "2_4_months", "us_domestic_political_impact": "rallying_effect" }, "pTrue": 0.75 },
+      { "parentValues": { "coercive_success_probability": "failed", "actual_conflict_duration": "4_8_months", "us_domestic_political_impact": "growing_opposition" }, "pTrue": 0.55 },
+      { "parentValues": { "coercive_success_probability": "counterproductive", "actual_conflict_duration": "2_4_months" }, "pTrue": 0.80 },
+      { "parentValues": { "coercive_success_probability": "counterproductive", "actual_conflict_duration": "4_8_months" }, "pTrue": 0.70 },
+      { "parentValues": { "coercive_success_probability": "partial" }, "pTrue": 0.30 },
+      { "parentValues": { "coercive_success_probability": "succeeded" }, "pTrue": 0.05 }
+    ],
+    "defaultPTrue": 0.45,
+    "source": { "citation": "Pape, 'Escalation Trap' March 2026 (~75% estimate); Pape, Bombing to Win Ch. 9-10", "url": "https://escalationtrap.substack.com/", "confidence": "low" }
+  },
+  {
     "id": "resolution_type",
     "phase": 7,
     "type": "categorical",
     "label": "Resolution Type (Summary)",
     "description": "The overall characterization of how the conflict resolves. This is the summary node for Phase 7, integrating ceasefire mechanism, war termination terms, and regional expansion dynamics. A decisive US victory requires both military success (largely achieved) and political consolidation through favorable terms — the 1991 Gulf War template. A negotiated settlement reflects the JCPOA-era model of mutual concessions formalized through diplomacy. A frozen conflict is the Korean War/Kashmir template: fighting stops, no resolution occurs, underlying tensions persist indefinitely. A wider regional war represents the worst-case escalation where Houthi entry, Hezbollah operations, and potential Iraqi militia activation transforms the bilateral US-Iran conflict into a multi-theater regional conflagration. As of March 29, with Houthis and Hezbollah both active, the conflict is already exhibiting early wider-war characteristics, though it has not yet crossed the threshold into full regional conflagration.",
-    "parents": ["ceasefire_mechanism", "war_termination_terms", "regional_expansion_risk_current"],
+    "parents": ["ceasefire_mechanism", "war_termination_terms", "regional_expansion_risk_current", "coercive_success_probability", "ground_escalation_probability"],
     "categories": ["decisive_us_victory", "negotiated_settlement", "frozen_conflict", "wider_regional_war"],
     "cpt": [
       {
@@ -481,12 +533,24 @@
       {
         "parentValues": { "ceasefire_mechanism": "us_ultimatum_accepted", "war_termination_terms": "unconditional_iranian_surrender", "regional_expansion_risk_current": "contained" },
         "categoryProbabilities": { "decisive_us_victory": 0.72, "negotiated_settlement": 0.20, "frozen_conflict": 0.06, "wider_regional_war": 0.02 }
+      },
+      {
+        "parentValues": { "coercive_success_probability": "failed", "ground_escalation_probability": "false" },
+        "categoryProbabilities": { "decisive_us_victory": 0.02, "negotiated_settlement": 0.30, "frozen_conflict": 0.48, "wider_regional_war": 0.20 }
+      },
+      {
+        "parentValues": { "coercive_success_probability": "failed", "ground_escalation_probability": "true" },
+        "categoryProbabilities": { "decisive_us_victory": 0.08, "negotiated_settlement": 0.15, "frozen_conflict": 0.32, "wider_regional_war": 0.45 }
+      },
+      {
+        "parentValues": { "coercive_success_probability": "counterproductive", "ground_escalation_probability": "true" },
+        "categoryProbabilities": { "decisive_us_victory": 0.03, "negotiated_settlement": 0.10, "frozen_conflict": 0.27, "wider_regional_war": 0.60 }
       }
     ],
     "defaultProbabilities": {
-      "decisive_us_victory": 0.18,
-      "negotiated_settlement": 0.28,
-      "frozen_conflict": 0.30,
+      "decisive_us_victory": 0.05,
+      "negotiated_settlement": 0.33,
+      "frozen_conflict": 0.38,
       "wider_regional_war": 0.24
     },
     "source": {
