@@ -8,9 +8,14 @@ import { ContextPanel } from './ContextPanel';
 import { InteractionPanel } from './InteractionPanel';
 import { ResultsPanel } from './ResultsPanel';
 import { getPhaseContent } from '@/lib/phase-content';
-import { CascadeStrip } from './CascadeStrip';
+import { TimelineBar } from './TimelineBar';
 import { cn } from '@/lib/utils';
 import type { SimNode, ScenarioCard as ScenarioCardType } from '@engine/types';
+import timelineData from '@data/timeline.json';
+import type { TimelineData } from '@/lib/timeline';
+import { daysSinceUpdate } from '@/lib/timeline';
+
+const timeline = timelineData as TimelineData;
 
 interface SimulationShellProps {
   nodes: SimNode[];
@@ -41,6 +46,9 @@ export function SimulationShell({ nodes, scenarios }: SimulationShellProps) {
       .filter((n): n is SimNode => n !== undefined);
   }, [simulation.activeGraph, phase.currentPhase]);
 
+  const daysAgo = daysSinceUpdate(timeline.lastUpdated);
+  const updatedLabel = daysAgo === 0 ? 'Updated today' : daysAgo === 1 ? 'Updated yesterday' : `Updated ${daysAgo} days ago`;
+
   const [mobileView, setMobileView] = useState<'cards' | 'results'>('cards');
 
   const handleSelectScenario = (scenario: ScenarioCardType) => {
@@ -62,12 +70,21 @@ export function SimulationShell({ nodes, scenarios }: SimulationShellProps) {
 
   return (
     <div className="flex h-screen flex-col bg-background">
+      <div className="flex items-center justify-between px-4 py-1.5 bg-surface-elevated border-b border-border text-[10px]">
+        <span className="font-mono text-text-muted">
+          Data as of {timeline.observedThrough} · {updatedLabel}
+        </span>
+        <span className="font-mono text-accent/60">
+          Phase {timeline.currentPhase} active
+        </span>
+      </div>
       <PhaseProgress
         currentPhase={phase.currentPhase}
         totalPhases={phase.totalPhases}
         completedPhases={phase.completedPhases}
         canNavigateFreely={phase.canNavigateFreely}
         onPhaseClick={phase.goToPhase}
+        phaseStatuses={timeline.phaseStatus}
       />
 
       {/* Mobile view toggle */}
@@ -128,11 +145,7 @@ export function SimulationShell({ nodes, scenarios }: SimulationShellProps) {
         </div>
       </div>
 
-      <CascadeStrip
-        graph={simulation.activeGraph}
-        result={simulation.result}
-        currentPhase={phase.currentPhase}
-      />
+      <TimelineBar timeline={timeline} currentPhase={phase.currentPhase} />
     </div>
   );
 }
