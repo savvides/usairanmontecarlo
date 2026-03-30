@@ -31,23 +31,40 @@ export function InteractionPanel({
         transition={{ duration: 0.3 }}
         className="flex h-full flex-col overflow-y-auto p-5"
       >
-        <h3 className="text-xs font-mono text-text-muted uppercase tracking-wider mb-3">
-          Scenario Selection
-        </h3>
-        <p className="text-xs text-text-secondary mb-4">
-          Choose a crisis trigger to see how it shifts the probability landscape.
-        </p>
-
-        <div className="flex-1 space-y-3">
-          {scenarios.map((scenario) => (
-            <ScenarioCard
-              key={scenario.id}
-              scenario={scenario}
-              isSelected={scenario.id === selectedScenarioId}
-              onSelect={onSelectScenario}
-            />
-          ))}
-        </div>
+        {scenarios.length > 0 ? (
+          <>
+            <h3 className="text-xs font-mono text-text-muted uppercase tracking-wider mb-3">
+              Scenario Selection
+            </h3>
+            <p className="text-xs text-text-secondary mb-4">
+              Choose a scenario to see how it shifts the probability landscape.
+            </p>
+            <div className="flex-1 space-y-3">
+              {scenarios.map((scenario) => (
+                <ScenarioCard
+                  key={scenario.id}
+                  scenario={scenario}
+                  isSelected={scenario.id === selectedScenarioId}
+                  onSelect={onSelectScenario}
+                />
+              ))}
+            </div>
+          </>
+        ) : (
+          <div className="flex-1">
+            <h3 className="text-xs font-mono text-text-muted uppercase tracking-wider mb-3">
+              Historical Record
+            </h3>
+            <div className="rounded-lg border border-border bg-surface p-4">
+              <p className="text-xs leading-relaxed text-text-secondary">
+                This phase reflects observed events from the 2026 conflict. The data is locked to what actually happened — no scenario adjustments are available.
+              </p>
+              <p className="mt-3 text-xs leading-relaxed text-text-secondary">
+                Interactive scenario cards become available from Phase 3 onward, where the simulation projects forward from known facts.
+              </p>
+            </div>
+          </div>
+        )}
 
         {canAdvance && (
           <button
