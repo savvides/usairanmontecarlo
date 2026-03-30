@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import type { PhaseStatus } from '@/lib/timeline';
 
 interface PhaseProgressProps {
   currentPhase: number;
@@ -9,6 +10,7 @@ interface PhaseProgressProps {
   completedPhases: Set<number>;
   canNavigateFreely: boolean;
   onPhaseClick: (phase: number) => void;
+  phaseStatuses?: Record<string, PhaseStatus>;
 }
 
 const PHASE_LABELS = [
@@ -22,12 +24,25 @@ const PHASE_LABELS = [
   'Aftermath',
 ];
 
+const STATUS_ICONS: Record<PhaseStatus, string> = {
+  observed: '●',
+  mixed: '◐',
+  projected: '○',
+};
+
+const STATUS_LABELS: Record<PhaseStatus, string> = {
+  observed: 'OBS',
+  mixed: 'NOW',
+  projected: 'PROJ',
+};
+
 export function PhaseProgress({
   currentPhase,
   totalPhases,
   completedPhases,
   canNavigateFreely,
   onPhaseClick,
+  phaseStatuses,
 }: PhaseProgressProps) {
   return (
     <div className="flex items-center gap-1 px-4 py-3 bg-surface border-b border-border">
@@ -36,6 +51,7 @@ export function PhaseProgress({
         const isCurrent = phase === currentPhase;
         const isCompleted = completedPhases.has(phase);
         const isClickable = canNavigateFreely || isCompleted || phase <= currentPhase;
+        const status = phaseStatuses?.[String(phase)];
 
         return (
           <button
@@ -54,13 +70,27 @@ export function PhaseProgress({
               className={cn(
                 'flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-mono',
                 isCurrent && 'bg-accent text-white',
-                isCompleted && !isCurrent && 'bg-success/20 text-success',
-                !isCurrent && !isCompleted && 'bg-surface-elevated text-text-muted'
+                !isCurrent && status === 'observed' && 'bg-accent/20 text-accent',
+                !isCurrent && status === 'mixed' && 'bg-warning/20 text-warning',
+                !isCurrent && status === 'projected' && 'bg-surface-elevated text-text-muted',
+                !isCurrent && !status && (isCompleted ? 'bg-success/20 text-success' : 'bg-surface-elevated text-text-muted')
               )}
             >
-              {phase}
+              {status ? STATUS_ICONS[status] : phase}
             </span>
             <span className="hidden lg:inline">{PHASE_LABELS[i]}</span>
+            {status && (
+              <span
+                className={cn(
+                  'hidden xl:inline text-[8px] font-mono uppercase',
+                  status === 'observed' && 'text-accent/60',
+                  status === 'mixed' && 'text-warning/60',
+                  status === 'projected' && 'text-text-muted/40'
+                )}
+              >
+                {STATUS_LABELS[status]}
+              </span>
+            )}
           </button>
         );
       })}
