@@ -92,16 +92,16 @@ export function SimulationShell({ nodes, scenarios }: SimulationShellProps) {
         </button>
       </div>
 
-      {/* Three-panel layout — responsive */}
+      {/* Three-panel layout — responsive, proportional */}
       <div className="flex flex-1 overflow-hidden">
-        {/* Left: Context — hidden below lg */}
-        <div className="hidden lg:block w-[320px] border-r border-border flex-shrink-0">
+        {/* Left: Context — hidden below lg, ~30% width */}
+        <div className="hidden lg:flex lg:flex-[3] border-r border-border min-w-0">
           <ContextPanel content={content} />
         </div>
 
-        {/* Center: Interaction — shows on mobile when 'cards' selected */}
+        {/* Center: Interaction — ~30% on desktop, full width on mobile */}
         <div className={cn(
-          'md:w-[280px] lg:w-[320px] md:border-r border-border flex-shrink-0',
+          'md:flex-[3] lg:flex-[3] md:border-r border-border min-w-0',
           mobileView === 'cards' ? 'block w-full' : 'hidden md:block'
         )}>
           <InteractionPanel
@@ -114,9 +114,9 @@ export function SimulationShell({ nodes, scenarios }: SimulationShellProps) {
           />
         </div>
 
-        {/* Right: Results — shows on mobile when 'results' selected */}
+        {/* Right: Results — ~40% width */}
         <div className={cn(
-          'flex-1',
+          'flex-[4] min-w-0',
           mobileView === 'results' ? 'block' : 'hidden md:block'
         )}>
           <ResultsPanel

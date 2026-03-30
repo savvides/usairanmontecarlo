@@ -1,10 +1,27 @@
 'use client';
 
+import { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ProbabilityBar } from '@/components/visualizations/ProbabilityBar';
 import { DistributionChart } from '@/components/visualizations/DistributionChart';
 import type { SimNode, ContinuousNode } from '@engine/types';
 import type { PhaseResults } from '@/hooks/useSimulation';
+
+function useContainerWidth(ref: React.RefObject<HTMLElement | null>): number {
+  const [width, setWidth] = useState(400);
+  useEffect(() => {
+    if (!ref.current) return;
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setWidth(entry.contentRect.width);
+      }
+    });
+    observer.observe(ref.current);
+    setWidth(ref.current.clientWidth);
+    return () => observer.disconnect();
+  }, [ref]);
+  return width;
+}
 
 interface ResultsPanelProps {
   nodes: SimNode[];
@@ -14,6 +31,9 @@ interface ResultsPanelProps {
 }
 
 export function ResultsPanel({ nodes, phaseResults, phase, isRunning }: ResultsPanelProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const chartWidth = useContainerWidth(containerRef) - 24; // subtract padding (p-3 = 12px * 2)
+
   if (!phaseResults) {
     return (
       <div className="flex h-full items-center justify-center p-5">
@@ -28,6 +48,7 @@ export function ResultsPanel({ nodes, phaseResults, phase, isRunning }: ResultsP
     <AnimatePresence mode="wait">
       <motion.div
         key={`results-${phase}`}
+        ref={containerRef}
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -20 }}
@@ -88,11 +109,11 @@ export function ResultsPanel({ nodes, phaseResults, phase, isRunning }: ResultsP
                   <DistributionChart
                     node={node as ContinuousNode}
                     values={values}
-                    width={260}
+                    width={Math.max(chartWidth, 200)}
                     height={120}
                   />
                 ) : (
-                  <ProbabilityBar node={node} values={values} width={260} />
+                  <ProbabilityBar node={node} values={values} width={Math.max(chartWidth, 200)} />
                 )}
 
                 {stats && (
