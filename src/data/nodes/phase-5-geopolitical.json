@@ -194,28 +194,24 @@
     "type": "categorical",
     "label": "Turkey's Mediation Role",
     "description": "Turkey's role as a diplomatic intermediary in the conflict. Observed: messaging_channel. Turkey is currently facilitating message exchanges between Washington and Tehran — a critical but limited function. Ankara has not escalated to formal mediation proposals or peace conferences. Turkey's unique position: NATO member with strong economic ties to Iran ($10B+ annual trade), hosting major US air assets at Incirlik, and geographically positioned as Iran's western neighbor. Erdogan's government has historical form as a mediator (2010 Tehran Declaration on nuclear fuel swap with Brazil). Turkey's ability to upgrade from messaging channel to active mediator depends on both parties' willingness to engage substantively.",
-    "parents": ["escalation_ladder_position", "ceasefire_negotiation_status"],
+    "parents": ["escalation_ladder_position"],
     "categories": ["uninvolved", "messaging_channel", "active_mediator", "peace_broker"],
     "cpt": [
       {
-        "parentValues": { "escalation_ladder_position": "full_scale_war", "ceasefire_negotiation_status": "deadlocked" },
-        "categoryProbabilities": { "uninvolved": 0.02, "messaging_channel": 0.90, "active_mediator": 0.06, "peace_broker": 0.02 }
+        "parentValues": { "escalation_ladder_position": "full_scale_war" },
+        "categoryProbabilities": { "uninvolved": 0.02, "messaging_channel": 0.80, "active_mediator": 0.14, "peace_broker": 0.04 }
       },
       {
-        "parentValues": { "escalation_ladder_position": "full_scale_war", "ceasefire_negotiation_status": "progressing" },
-        "categoryProbabilities": { "uninvolved": 0.02, "messaging_channel": 0.30, "active_mediator": 0.52, "peace_broker": 0.16 }
+        "parentValues": { "escalation_ladder_position": "sustained_campaign" },
+        "categoryProbabilities": { "uninvolved": 0.04, "messaging_channel": 0.52, "active_mediator": 0.34, "peace_broker": 0.10 }
       },
       {
-        "parentValues": { "escalation_ladder_position": "sustained_campaign", "ceasefire_negotiation_status": "progressing" },
-        "categoryProbabilities": { "uninvolved": 0.03, "messaging_channel": 0.22, "active_mediator": 0.50, "peace_broker": 0.25 }
+        "parentValues": { "escalation_ladder_position": "limited_exchange" },
+        "categoryProbabilities": { "uninvolved": 0.05, "messaging_channel": 0.28, "active_mediator": 0.42, "peace_broker": 0.25 }
       },
       {
-        "parentValues": { "escalation_ladder_position": "sustained_campaign", "ceasefire_negotiation_status": "deadlocked" },
-        "categoryProbabilities": { "uninvolved": 0.05, "messaging_channel": 0.65, "active_mediator": 0.24, "peace_broker": 0.06 }
-      },
-      {
-        "parentValues": { "escalation_ladder_position": "limited_exchange", "ceasefire_negotiation_status": "near_agreement" },
-        "categoryProbabilities": { "uninvolved": 0.05, "messaging_channel": 0.15, "active_mediator": 0.35, "peace_broker": 0.45 }
+        "parentValues": { "escalation_ladder_position": "nuclear_threshold" },
+        "categoryProbabilities": { "uninvolved": 0.10, "messaging_channel": 0.60, "active_mediator": 0.24, "peace_broker": 0.06 }
       }
     ],
     "defaultProbabilities": {
