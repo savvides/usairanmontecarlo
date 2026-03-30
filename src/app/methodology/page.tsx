@@ -125,7 +125,12 @@ export default function MethodologyPage() {
             </li>
             <li>
               <strong className="text-text-primary">Snapshot-in-time model</strong> — parameters
-              reflect conditions as of March 2026 and do not update automatically.
+              reflect conditions as of March 29, 2026 and do not update automatically.
+            </li>
+            <li>
+              <strong className="text-text-primary">Phases 1–2 are locked to observed data</strong> —
+              the February 28 strike and the Feb 28 – Mar 10 retaliation period are historical
+              record, not projections. Probabilistic modeling begins at Phase 3.
             </li>
           </ul>
         </section>
