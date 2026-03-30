@@ -576,5 +576,22 @@
       "url": "https://www.reuters.com/world/middle-east/",
       "confidence": "medium"
     }
+  },
+  {
+    "id": "escalation_trap_stage",
+    "phase": 3,
+    "type": "categorical",
+    "label": "Escalation Trap Stage (Pape)",
+    "description": "Position in Robert Pape's three-stage escalation model. Stage 1: precision strikes on nuclear facilities. Stage 2: leadership decapitation and regime air campaign. Stage 3: ground forces and territorial control. Since the Feb 28 strikes killed Khamenei and targeted regime infrastructure across 26 provinces, the conflict entered Stage 2 immediately. Pape estimates ~75% probability of progression to Stage 3 when air coercion fails.",
+    "parents": ["us_air_campaign_scale", "strike_scale", "leadership_decapitation"],
+    "categories": ["stage_1_precision_strikes", "stage_2_regime_campaign", "stage_3_ground_forces"],
+    "cpt": [
+      { "parentValues": { "us_air_campaign_scale": "sustained", "strike_scale": "massive_campaign", "leadership_decapitation": "true" }, "categoryProbabilities": { "stage_1_precision_strikes": 0.02, "stage_2_regime_campaign": 0.85, "stage_3_ground_forces": 0.13 } },
+      { "parentValues": { "us_air_campaign_scale": "escalating", "strike_scale": "massive_campaign", "leadership_decapitation": "true" }, "categoryProbabilities": { "stage_1_precision_strikes": 0.01, "stage_2_regime_campaign": 0.59, "stage_3_ground_forces": 0.40 } },
+      { "parentValues": { "us_air_campaign_scale": "sustained", "leadership_decapitation": "false" }, "categoryProbabilities": { "stage_1_precision_strikes": 0.15, "stage_2_regime_campaign": 0.75, "stage_3_ground_forces": 0.10 } },
+      { "parentValues": { "us_air_campaign_scale": "limited", "leadership_decapitation": "false" }, "categoryProbabilities": { "stage_1_precision_strikes": 0.70, "stage_2_regime_campaign": 0.25, "stage_3_ground_forces": 0.05 } }
+    ],
+    "defaultProbabilities": { "stage_1_precision_strikes": 0.03, "stage_2_regime_campaign": 0.85, "stage_3_ground_forces": 0.12 },
+    "source": { "citation": "Pape, 'Escalation Trap' Substack March 2026; Pape, Bombing to Win (Cornell, 1996)", "url": "https://escalationtrap.substack.com/", "confidence": "medium" }
   }
 ]
