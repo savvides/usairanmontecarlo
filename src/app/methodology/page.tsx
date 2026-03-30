@@ -62,6 +62,73 @@ export default function MethodologyPage() {
         </section>
 
         <section className="mt-10">
+          <h2 className="text-lg font-semibold text-text-primary">Theoretical Framework: Pape&apos;s Coercion Theory</h2>
+          <div className="mt-3 space-y-3 text-sm leading-relaxed text-text-secondary">
+            <p>
+              This simulation&apos;s conflict dynamics are informed by Robert Pape&apos;s empirical research
+              on strategic coercion, the most comprehensive scholarly analysis of airpower&apos;s
+              political effectiveness. Pape analyzed every strategic air campaign from 1917 to 1991
+              (33 cases) and found a striking pattern: airpower almost always succeeds tactically
+              but almost never achieves its political objectives.
+            </p>
+            <p>
+              <strong className="text-text-primary">The denial/punishment distinction.</strong> Pape
+              classified coercive airpower into four strategies. Punishment (targeting civilians to
+              force capitulation) failed in all 8 cases where it was the dominant approach.
+              Decapitation (killing leaders) has never worked independently against states. Only
+              denial (threatening the enemy&apos;s ability to achieve military objectives) produced
+              success — and only 15% of the time (5 of 33 cases), always requiring ground forces
+              to create what Pape calls a &ldquo;hammer and anvil&rdquo; effect.
+            </p>
+            <p>
+              <strong className="text-text-primary">The escalation trap.</strong> Applied to Iran,
+              Pape&apos;s framework predicts a three-stage escalation pattern. Stage 1: precision
+              strikes achieve tactical success but fail to eliminate dispersed nuclear knowledge.
+              Stage 2: strategic disappointment drives escalation to regime-change bombing. Stage 3:
+              air coercion fails to produce political compliance, creating structural pressure for
+              ground forces (~75% probability by Pape&apos;s estimate). The core logic is recursive:
+              failure generates fear, fear justifies escalation, escalation produces new failure.
+            </p>
+            <p>
+              <strong className="text-text-primary">Nationalist backlash.</strong> Pape&apos;s most
+              counterintuitive finding: bombing consistently <em>strengthens</em> defender resolve
+              rather than degrading it. This is the inverse of what punishment theory predicts.
+              Authoritarian regimes suppress internal revolt under external pressure, and civilian
+              casualties trigger rally-around-the-flag effects. Iran absorbed hundreds of thousands
+              of casualties during the Iran-Iraq War without collapsing. The simulation models this
+              as a positive feedback loop where higher bombing intensity increases Iranian nationalist
+              resolve, making political concessions <em>less</em> likely.
+            </p>
+            <p>
+              <strong className="text-text-primary">How this shapes the model.</strong> Four nodes
+              directly encode Pape&apos;s parameters: escalation trap stage (Phase 3), Iranian
+              nationalist resolve (Phase 6), coercive success probability (Phase 7), and ground
+              escalation probability (Phase 7). Resolution outcomes are calibrated against Pape&apos;s
+              empirical success rates — &ldquo;decisive US victory&rdquo; through airpower alone is set
+              near 5%, consistent with the 0-15% historical range for punishment and denial strategies.
+            </p>
+            <p>
+              <strong className="text-text-primary">Limitations of the framework.</strong> Pape&apos;s
+              33-case dataset predates precision-guided standoff weapons, advanced cyber capabilities,
+              and Iranian drone swarms. His bilateral model does not fully capture multilateral
+              dynamics (US, Israel, Iran, proxies, Russia, China). The ~75% ground escalation estimate
+              is a single analyst projection without a historical base rate for this specific scenario.
+              Competing scholars (Kroenig, Mueller) argue Pape underestimates punishment&apos;s marginal
+              contribution in compound strategies.
+            </p>
+          </div>
+          <div className="mt-4 border-t border-border pt-4">
+            <h4 className="text-xs font-mono text-text-muted uppercase tracking-wider mb-2">Key Sources</h4>
+            <ul className="space-y-1 text-xs text-text-muted">
+              <li>Pape, <em>Bombing to Win: Air Power and Coercion in War</em> (Cornell, 1996)</li>
+              <li>Pape, &ldquo;Escalation Trap&rdquo; Substack (2025-26)</li>
+              <li>Pape, <em>Foreign Affairs</em> articles on Iran (2025-26)</li>
+              <li>Talmadge, &ldquo;Closing Time&rdquo; <em>International Security</em> (2008)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section className="mt-10">
           <h2 className="text-lg font-semibold text-text-primary">What the Confidence Badges Mean</h2>
           <div className="mt-3 space-y-3 text-sm leading-relaxed text-text-secondary">
             <p>
