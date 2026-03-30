@@ -7,7 +7,7 @@ export default function Home() {
 
       <div className="relative z-10 max-w-2xl text-center px-6">
         <div className="mb-4 text-xs font-mono text-accent uppercase tracking-[0.3em]">
-          Monte Carlo Simulation
+          Monte Carlo Analysis of the 2026 Conflict
         </div>
 
         <h1 className="text-5xl font-bold tracking-tight text-text-primary sm:text-6xl">
@@ -18,15 +18,16 @@ export default function Home() {
         </h2>
 
         <p className="mt-6 text-sm leading-relaxed text-text-secondary max-w-lg mx-auto">
-          An interactive Monte Carlo simulation exploring the cascading consequences of a
-          US-Iran military conflict. Walk through 8 phases — from pre-conflict tensions to
-          long-term aftermath — and see how decisions in one domain ripple across military,
-          economic, geopolitical, and humanitarian outcomes.
+          The war began February 28, 2026. US and Israeli forces struck Iran in a surprise
+          12-hour campaign, killing Supreme Leader Khamenei and destroying the nuclear program.
+          This simulation models what happens next — tracing the conflict through retaliation,
+          active fighting, economic shockwaves, and the paths to resolution.
         </p>
 
         <p className="mt-4 text-xs text-text-muted max-w-md mx-auto">
-          Each simulation runs thousands of scenarios through a Bayesian network to show
-          you not just what might happen, but how likely each outcome is — and why.
+          Phases 1–2 are locked to observed historical data. Phases 3–8 are probabilistic
+          projections — each simulation runs 5,000 scenarios through a Bayesian network to show
+          the range of outcomes and how likely each one is.
         </p>
 
         <Link
@@ -38,7 +39,7 @@ export default function Home() {
         </Link>
 
         <div className="mt-12 flex items-center justify-center gap-6 text-[10px] font-mono text-text-muted">
-          <span>As of March 2026</span>
+          <span>As of March 29, 2026</span>
           <span className="h-3 w-px bg-border" />
           <span>Research-backed parameters</span>
           <span className="h-3 w-px bg-border" />
