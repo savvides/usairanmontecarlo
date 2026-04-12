@@ -50,7 +50,7 @@
     "phase": 7,
     "type": "categorical",
     "label": "Ceasefire Mechanism",
-    "description": "The primary mechanism through which hostilities are halted, if at all. Trump's April 6 deadline represents a US ultimatum framework: accept terms or face energy infrastructure strikes. Turkey has positioned itself as a mediator with ties to both sides and NATO membership giving it leverage. UN-brokered cessation requires UNSC consensus, which Russia and China have blocked throughout March. A unilateral ceasefire would involve one side declaring a halt without formal agreement. The 'no ceasefire' outcome reflects the frozen-conflict trajectory where active combat gradually subsides without formal termination. With Khamenei dead, Iran's decision-making is fragmented — the IRGC, acting president, and Guardian Council must reach internal consensus before accepting any external framework, which significantly delays any mechanism requiring Iranian agreement. Turkey's March mediation efforts and China's quiet diplomacy through economic leverage represent the most active non-US channels.",
+    "description": "The primary mechanism through which hostilities are halted, if at all. Observed: a two-week ceasefire was agreed on April 7-8 through Pakistan mediation (not Turkey as previously expected). The 'turkey_mediated_deal' category now represents any third-party mediated deal (Turkey, Pakistan, or similar). The ceasefire included terms for Hormuz reopening and nuclear talks, but Iran failed to honor the Hormuz terms and direct US-Iran negotiations in Islamabad collapsed on April 12 after 21 hours. The nuclear program remains the core sticking point. Trump has threatened a full naval blockade if Iran does not accept terms. The 2-week ceasefire expires around April 22, creating a new deadline. The 'no ceasefire' outcome reflects the frozen-conflict trajectory if the ceasefire collapses without renewal.",
     "parents": ["ceasefire_mediation_viability", "april_6_deadline_outcome", "coercive_success_probability"],
     "categories": ["us_ultimatum_accepted", "turkey_mediated_deal", "un_brokered", "unilateral_ceasefire", "no_ceasefire"],
     "cpt": [
@@ -84,14 +84,14 @@
       }
     ],
     "defaultProbabilities": {
-      "us_ultimatum_accepted": 0.15,
-      "turkey_mediated_deal": 0.22,
-      "un_brokered": 0.10,
-      "unilateral_ceasefire": 0.20,
-      "no_ceasefire": 0.33
+      "us_ultimatum_accepted": 0.10,
+      "turkey_mediated_deal": 0.35,
+      "un_brokered": 0.08,
+      "unilateral_ceasefire": 0.15,
+      "no_ceasefire": 0.32
     },
     "source": {
-      "citation": "Crisis Group 'Ceasefire Mechanisms in the US-Iran Conflict' March 2026; Chatham House 'Turkey's Mediation Role in Middle East Conflicts' 2025; CFR 'UN Security Council Deadlock on Iran' March 2026; RAND 'Ending Wars: Mediation and Ultimatum Dynamics' 2023",
+      "citation": "Reuters 'US-Iran ceasefire agreed via Pakistan mediation' April 2026; NPR 'Pakistan talks collapse after 21 hours' April 12, 2026; Crisis Group 'Ceasefire Mechanisms in the US-Iran Conflict' March 2026; PBS 'Historic US-Iran negotiations in Pakistan' April 2026",
       "url": "https://www.crisisgroup.org/middle-east-north-africa/gulf-and-arabian-peninsula/iran",
       "confidence": "low"
     }
@@ -135,13 +135,13 @@
       }
     ],
     "defaultProbabilities": {
-      "immediate_post_ceasefire": 0.15,
-      "phased_reopening": 0.32,
-      "prolonged_closure": 0.30,
-      "permanent_rerouting": 0.23
+      "immediate_post_ceasefire": 0.05,
+      "phased_reopening": 0.25,
+      "prolonged_closure": 0.45,
+      "permanent_rerouting": 0.25
     },
     "source": {
-      "citation": "CSIS 'Strait of Hormuz: Strategic Chokepoint Analysis' 2025; RAND 'Maritime Security in the Persian Gulf' 2024; EIA 'World Oil Transit Chokepoints' 2025; Lloyd's of London 'War Risk Premium Assessment: Hormuz' March 2026",
+      "citation": "Reuters 'Hormuz remains effectively closed despite ceasefire' April 9, 2026; CNBC 'Iran charges $1M+ tolls for Hormuz transit' April 2026; CSIS 'Strait of Hormuz: Strategic Chokepoint Analysis' 2025; EIA 'World Oil Transit Chokepoints' 2025",
       "url": "https://www.csis.org/analysis/strait-hormuz",
       "confidence": "low"
     }
@@ -476,7 +476,7 @@
       { "parentValues": { "overall_military_balance": "decisive_us", "iranian_nationalist_resolve": "moderate" }, "categoryProbabilities": { "succeeded": 0.10, "partial": 0.25, "failed": 0.45, "counterproductive": 0.20 } },
       { "parentValues": { "overall_military_balance": "decisive_us", "iranian_nationalist_resolve": "low" }, "categoryProbabilities": { "succeeded": 0.20, "partial": 0.35, "failed": 0.35, "counterproductive": 0.10 } }
     ],
-    "defaultProbabilities": { "succeeded": 0.05, "partial": 0.15, "failed": 0.55, "counterproductive": 0.25 },
+    "defaultProbabilities": { "succeeded": 0.03, "partial": 0.12, "failed": 0.55, "counterproductive": 0.30 },
     "source": { "citation": "Pape, Bombing to Win (Cornell, 1996) — 33-case empirical analysis; Pape, 'Escalation Trap' March 2026", "url": "https://escalationtrap.substack.com/", "confidence": "high" }
   },
   {
@@ -587,13 +587,13 @@
       }
     ],
     "defaultProbabilities": {
-      "decisive_us_victory": 0.05,
-      "negotiated_settlement": 0.33,
-      "frozen_conflict": 0.38,
-      "wider_regional_war": 0.24
+      "decisive_us_victory": 0.03,
+      "negotiated_settlement": 0.28,
+      "frozen_conflict": 0.42,
+      "wider_regional_war": 0.27
     },
     "source": {
-      "citation": "RAND 'War Outcomes and Resolution Typologies' 2024; Brookings 'Conflict Resolution in the Middle East' 2025; Crisis Group 'US-Iran Conflict Trajectory Assessment' March 2026; CFR 'Regional War Escalation Indicators' March 2026",
+      "citation": "NPR 'US-Iran peace talks collapse' April 12, 2026; Reuters 'Israel Operation Eternal Darkness kills 357 in Lebanon' April 8, 2026; RAND 'War Outcomes and Resolution Typologies' 2024; Crisis Group 'US-Iran Conflict Trajectory Assessment' April 2026",
       "url": "https://www.rand.org/topics/conflict-termination.html",
       "confidence": "low"
     }

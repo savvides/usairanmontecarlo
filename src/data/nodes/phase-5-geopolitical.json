@@ -441,7 +441,7 @@
     "phase": 5,
     "type": "categorical",
     "label": "April 6 Energy-Strike Deadline Outcome",
-    "description": "Outcome of Trump's April 6 deadline — the date when the current pause on strikes against Iranian energy infrastructure expires. This is the critical near-term inflection point. Trump extended the energy-strike pause as a carrot to incentivize Iranian compliance on Hormuz reopening and ceasefire talks. Iran's response options: comply (reopen Hormuz, halt attacks), partial compliance (reduce but not stop operations), continue talks while defying the deadline, or full defiance. Iran's counterproposal demanding reparations and Hormuz sovereignty suggests full compliance is unlikely. The most probable outcome is defiance with continued talks, as both sides have incentives to keep channels open while neither can make the concessions required for a deal.",
+    "description": "Outcome of Trump's April 6 deadline, now observed. The deadline passed on April 6 without a deal. Iran defied the deadline terms but engaged in Pakistan-mediated ceasefire talks, resulting in a two-week ceasefire agreed on April 7-8. The observed outcome is 'defiance_with_talks': Iran refused to comply with US demands (reopen Hormuz unconditionally, halt all operations) but simultaneously agreed to negotiate through Pakistan. The ceasefire included Hormuz reopening terms that Iran then failed to honor, charging $1M+ transit tolls and limiting passage. Historic direct US-Iran negotiations in Islamabad on April 11-12 ran for 21 hours but collapsed over Iran's refusal to commit to forgoing nuclear weapons. Trump subsequently threatened a full naval blockade.",
     "parents": ["ceasefire_negotiation_status", "iranian_command_and_control_status", "overall_military_balance"],
     "categories": ["iran_complies", "partial_compliance", "defiance_with_talks", "full_defiance"],
     "cpt": [
@@ -467,15 +467,15 @@
       }
     ],
     "defaultProbabilities": {
-      "iran_complies": 0.05,
-      "partial_compliance": 0.18,
-      "defiance_with_talks": 0.52,
-      "full_defiance": 0.25
+      "iran_complies": 0.02,
+      "partial_compliance": 0.10,
+      "defiance_with_talks": 0.70,
+      "full_defiance": 0.18
     },
     "source": {
-      "citation": "Bloomberg 'Trump extends energy-strike pause to April 6' March 2026; Reuters 'Iran rejects US 15-point ceasefire as maximalist'; AP 'Iran demands reparations and Hormuz sovereignty in counterproposal'; WSJ 'The April 6 Deadline: What Comes Next' March 2026",
-      "url": "https://www.bloomberg.com/",
-      "confidence": "medium"
+      "citation": "Reuters 'US-Iran ceasefire agreed via Pakistan mediation' April 2026; NPR 'US-Iran peace talks in Islamabad collapse' April 12, 2026; PBS 'Historic US-Iran negotiations in Pakistan' April 11, 2026; CNBC 'Trump threatens naval blockade after Iran talks fail' April 12, 2026",
+      "url": "https://www.reuters.com/",
+      "confidence": "high"
     }
   },
   {

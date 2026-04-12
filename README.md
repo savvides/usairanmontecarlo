@@ -14,12 +14,12 @@ The simulation runs **5,000 Monte Carlo scenarios** through a **Bayesian network
 |-------|--------|-------------|
 | 1. The Strike (Feb 28) | Observed | US/Israel surprise campaign: 900 strikes, Khamenei killed, nuclear program destroyed |
 | 2. Retaliation (Feb 28 – Mar 10) | Observed | Iran's 500+ missile/2000 drone response, Hormuz closure, Hezbollah activation |
-| 3. Active Conflict (Current) | Mixed | Ongoing air campaign, Houthi entry, naval situation |
-| 4. Economic Shockwaves | Mixed | Oil at $113-126/bbl, 10M+ bpd lost, GCC food crisis |
-| 5. Geopolitical Reactions | Mixed | UNSC Resolution 2817, ceasefire deadlock, Turkey mediation |
-| 6. Humanitarian Impact | Mixed | 1,937+ killed, 24,800+ injured, infrastructure devastation |
-| 7. Resolution Paths | Projected | Ceasefire scenarios, April 6 deadline, post-Khamenei power vacuum |
-| 8. Long-Term Aftermath | Projected | Nuclear future, regime outcome, regional order, reconstruction |
+| 3. Active Conflict (Current) | Mixed | 38 days of air campaign, ceasefire agreed April 7, fragile pause |
+| 4. Economic Shockwaves | Mixed | Oil $113-126/bbl, gas $4/gal, Hormuz effectively closed despite ceasefire, water crisis |
+| 5. Geopolitical Reactions | Mixed | Pakistan-mediated ceasefire, Islamabad talks collapse, naval blockade threatened |
+| 6. Humanitarian Impact | Mixed | 2,000+ killed in Iran, Operation Eternal Darkness in Lebanon (1,500+ killed) |
+| 7. Resolution Paths | Mixed | Ceasefire exists but fragile, talks collapsed April 12, April 22 expiration looms |
+| 8. Long-Term Aftermath | Projected | Nuclear refusal confirmed, regime survival likely, regional order fractured |
 
 **Observed** phases are locked to real-world data. **Projected** phases use scenario cards to explore different futures.
 
@@ -58,7 +58,7 @@ As the conflict evolves, run `npm run update` to:
 
 ## Methodology
 
-The simulation uses a directed acyclic graph (DAG) of 100 nodes with conditional probability tables. When CPTs are sparse, a weighted nearest-neighbor interpolation engine blends partial matches instead of falling back silently to defaults.
+The simulation uses a directed acyclic graph (DAG) of 107 nodes with conditional probability tables. When CPTs are sparse, a weighted nearest-neighbor interpolation engine blends partial matches instead of falling back silently to defaults.
 
 Each result card shows a confidence score computed from:
 - **CPT Coverage (40%)** — how often the engine found matching data vs. defaults
