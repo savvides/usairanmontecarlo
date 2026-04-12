@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.2.0] - 2026-04-12
+
+### Added
+- 6 new timeline events covering April 6-12: deadline passes, Pakistan-mediated ceasefire, Operation Eternal Darkness in Lebanon, Hormuz remains closed, Islamabad talks, talks collapse
+- Pape coercion theory validation note on methodology page, with observed outcomes confirming predictions
+- 2 new TODOS: scenario cards for mixed phases (P2), update cadence documentation (P3)
+
+### Changed
+- Editorial rewrite for Phases 3-8 reflecting events through April 12: ceasefire, Pakistan mediation replacing Turkey, Islamabad talks collapse, Lebanon escalation, naval blockade threat, Pape theory validated
+- Phases 4-7 shifted from projected to mixed status, reflecting observed data from the ceasefire period
+- Recalibrated 5 Bayesian nodes from observed data: april_6_deadline_outcome (Phase 5), ceasefire_mechanism, hormuz_reopening, coercive_success_probability, resolution_type (Phase 7)
+- Updated ceasefire_mechanism description to note that "turkey_mediated_deal" category now represents any third-party mediated deal (Turkey, Pakistan, or similar)
+- Methodology page snapshot date updated from March 29 to April 12
+- Phase status description on methodology page updated to reflect mixed phases
+- Fixed stale node count in README (100 → 107 in methodology section)
+
 ## [1.0.1.0] - 2026-03-30
 
 ### Added
