@@ -3,8 +3,7 @@
 // Report: .gstack/qa-reports/qa-report-localhost-2026-04-25.md
 
 import { describe, it, expect } from 'vitest';
-import timeline from '@data/timeline.json';
-import { formatLongDate, describePhaseStatus } from '@/lib/timeline-format';
+import { timeline, formatLongDate, describePhaseStatus } from '@/lib/timeline';
 import type { PhaseStatus } from '@/lib/timeline';
 
 describe('formatLongDate', () => {

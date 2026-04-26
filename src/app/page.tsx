@@ -1,13 +1,9 @@
 import Link from 'next/link';
-import timeline from '@data/timeline.json';
-import type { PhaseStatus } from '@/lib/timeline';
-import { formatLongDate, describePhaseStatus } from '@/lib/timeline-format';
+import { timeline, formatLongDate, describePhaseStatus } from '@/lib/timeline';
 
 export default function Home() {
   const asOfDate = formatLongDate(timeline.lastUpdated);
-  const phaseStatusDescription = describePhaseStatus(
-    timeline.phaseStatus as Record<string, PhaseStatus>
-  );
+  const phaseStatusDescription = describePhaseStatus(timeline.phaseStatus);
 
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-background">
