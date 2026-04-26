@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useCallback, useMemo, useRef } from 'react';
+import { useState, useCallback, useMemo, useRef, useEffect } from 'react';
 import { buildGraph, runSimulation, applyScenario } from '@engine/index';
+import { SimulationWorker } from '@engine/worker-client';
 import type { SimNode, SimGraph, SimulationResult, ScenarioCard } from '@engine/types';
 import { computeNodeConfidence, getConfidenceTier, type ConfidenceTier } from '@/lib/confidence';
 
@@ -73,6 +74,34 @@ export function useSimulation(nodes: SimNode[]) {
   const [isRunning, setIsRunning] = useState(false);
   const [selectedScenarios, setSelectedScenarios] = useState<Map<number, ScenarioCard>>(new Map());
 
+  const workerRef = useRef<SimulationWorker | null>(null);
+  const latestRunIdRef = useRef(0);
+
+  useEffect(() => {
+    if (typeof Worker === 'undefined') return;
+    let raw: Worker | null = null;
+    try {
+      // Construct the Worker at the call site so the bundler can statically
+      // detect new Worker(new URL(...)) and transpile the worker entrypoint.
+      raw = new Worker(new URL('../engine/worker.ts', import.meta.url), { type: 'module' });
+      const wrapper = new SimulationWorker();
+      wrapper.attach(raw, () => {
+        // Worker failed to load/run — drop wrapper so run() falls back to main thread.
+        workerRef.current?.terminate();
+        workerRef.current = null;
+        setIsRunning(false);
+      });
+      workerRef.current = wrapper;
+    } catch {
+      raw?.terminate();
+      workerRef.current = null;
+    }
+    return () => {
+      workerRef.current?.terminate();
+      workerRef.current = null;
+    };
+  }, []);
+
   const baseGraph = useMemo(() => {
     return buildGraph(nodes);
   }, [nodes]);
@@ -87,8 +116,22 @@ export function useSimulation(nodes: SimNode[]) {
 
   const run = useCallback(
     (runCount: number = 1000, seed: number = Date.now()) => {
+      const myId = ++latestRunIdRef.current;
       setIsRunning(true);
+
+      const worker = workerRef.current;
+      if (worker) {
+        worker.run(activeGraph, [], runCount, seed).then((r) => {
+          if (myId !== latestRunIdRef.current) return; // stale — newer run dispatched
+          setResult(r);
+          setIsRunning(false);
+        });
+        return;
+      }
+
+      // Fallback: no Worker available (SSR, tests, unsupported env). Run on main thread.
       requestAnimationFrame(() => {
+        if (myId !== latestRunIdRef.current) return;
         const r = runSimulation(activeGraph, runCount, seed);
         setResult(r);
         setIsRunning(false);

@@ -8,12 +8,10 @@ import type { WorkerRequest, WorkerResponse, SimNode, ScenarioCard } from './typ
 // This file is bundled separately as a Web Worker by Next.js/webpack.
 
 self.onmessage = (event: MessageEvent<WorkerRequest>) => {
-  const { nodes, sortedIds, overrides, runCount, seed } = event.data;
+  const { id, nodes, overrides, runCount, seed } = event.data;
 
-  // Rebuild the graph from serialized data
   const graph = buildGraph(nodes);
 
-  // Apply overrides if any
   let activeGraph = graph;
   if (overrides.length > 0) {
     const syntheticScenario: ScenarioCard = {
@@ -26,16 +24,16 @@ self.onmessage = (event: MessageEvent<WorkerRequest>) => {
     activeGraph = applyScenario(graph, syntheticScenario);
   }
 
-  // Run simulation
   const result = runSimulation(activeGraph, runCount, seed);
 
-  // Serialize results for transfer
   const response: WorkerResponse = {
     type: 'result',
+    id,
     runs: result.runs.map((run) => run.buffer as ArrayBuffer),
     nodeIndexMap: Array.from(result.nodeIndexMap.entries()),
+    diagnosticsNodes: Array.from(result.diagnostics.nodes.entries()),
   };
 
-  // Transfer ArrayBuffers (zero-copy)
+  // Transfer ArrayBuffers (zero-copy). diagnosticsNodes is small enough to copy.
   self.postMessage(response, { transfer: response.runs });
 };

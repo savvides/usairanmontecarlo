@@ -127,6 +127,7 @@ export interface ScenarioCard {
 
 export interface WorkerRequest {
   type: 'run';
+  id: number; // request ID — echoed back so callers can discard stale results
   nodes: SimNode[]; // serialized (Map can't be sent via postMessage)
   sortedIds: string[];
   overrides: NodeOverride[];
@@ -136,6 +137,8 @@ export interface WorkerRequest {
 
 export interface WorkerResponse {
   type: 'result';
+  id: number;
   runs: ArrayBuffer[]; // transferable Float32Arrays
   nodeIndexMap: [string, number][]; // serialized Map
+  diagnosticsNodes: [string, NodeDiagnostics][]; // serialized Map
 }
