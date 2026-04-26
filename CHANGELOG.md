@@ -7,6 +7,12 @@ All notable changes to this project will be documented in this file.
 ### Added
 - 8 new timeline events covering April 13-24: US naval blockade takes effect (April 13), brief Hormuz reopening (April 17), Iran re-closes Hormuz (April 18), Iran formalizes toll regime (April 19), Trump extends ceasefire / Islamabad-2 dies (April 21), Iran seizes ships in Hormuz (April 22), Trump "shoot and kill" order (April 23), Hormuz reopen consensus shifts to H2 2026 (April 24)
 
+### Fixed
+- Landing page no longer shows a stale "As of March 29, 2026" date — now auto-derives from `timeline.lastUpdated` and stays in sync with each cycle
+- Landing page phase status copy was stuck on "Phases 3-8 are probabilistic projections" since v1.0.2.0 — now auto-derives from `timeline.phaseStatus` so it accurately reflects which phases are observed, mixed, and projected
+- Phase progress badge for mixed phases said "NOW" on all 5 mixed phases, implying each was the current phase — now reads "MIX" so users can tell the active phase apart from the mixed-status group
+- Simulation page header rendered the data date as raw ISO ("2026-04-24") while the landing page showed "April 24, 2026" — now consistently formatted across both surfaces
+
 ### Changed
 - Editorial rewrite for Phases 3-8 reflecting the dual blockade stand-off, ship seizures, "shoot and kill" order, unilateral ceasefire extension, Lavrov-Xi axis hardening, Hormuz reopen pushed to H2 2026, and Pape's "counterproductive" outcome publicly stated by a Permanent Five member
 - Recalibrated 4 Bayesian nodes from observed data: ceasefire_mechanism (turkey_mediated_deal 0.35→0.32, unilateral_ceasefire 0.15→0.20), hormuz_reopening (prolonged_closure 0.45→0.55), coercive_success_probability (counterproductive 0.30→0.35, failed 0.55→0.53), resolution_type (wider_regional_war 0.27→0.33, negotiated_settlement 0.28→0.22)
@@ -15,6 +21,11 @@ All notable changes to this project will be documented in this file.
 - README phase status table updated to reflect April 24 reality
 - Aligned VERSION file (was 1.0.1.0, drifted from package.json)
 - timeline.json `lastUpdated` and `observedThrough` bumped to 2026-04-24
+
+### For contributors
+- Consolidated timeline helpers into a single module: `formatLongDate`, `formatDate`, `describePhaseStatus`, and `daysSinceUpdate` all live in `src/lib/timeline.ts`. Typed `timeline` accessor exported so callers no longer cast `as Record<string, PhaseStatus>` at every use site.
+- Added 9 regression tests covering the date and phase-status helpers (catches future drift)
+- Test count: 112 → 121
 
 ## [1.0.2.0] - 2026-04-12
 

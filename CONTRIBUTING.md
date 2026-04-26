@@ -47,7 +47,7 @@ git clone https://github.com/savvides/usairanmontecarlo.git
 cd usairanmontecarlo
 npm install
 npm run dev    # http://localhost:3000
-npm test       # 112 tests
+npm test       # 121 tests
 ```
 
 ## Guidelines
