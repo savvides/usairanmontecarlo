@@ -36,7 +36,7 @@ The simulation runs **5,000 Monte Carlo scenarios** through a **Bayesian network
 - **Engine:** Pure TypeScript Bayesian Network with Monte Carlo sampling
 - **Frontend:** Next.js 16, React 19, D3.js, Framer Motion, Tailwind CSS
 - **Deploy:** Static export on GitHub Pages (zero backend)
-- **Tests:** Vitest (121 tests)
+- **Tests:** Vitest (128 tests)
 
 ## Development
 

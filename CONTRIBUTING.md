@@ -25,6 +25,8 @@ The simulation engine lives in `src/engine/` and is pure TypeScript with zero Re
 - `sampler.ts` — Monte Carlo sampling with CPT interpolation
 - `scenario.ts` — scenario card application
 - `distributions.ts` — probability distribution sampling
+- `worker.ts` — Web Worker entrypoint for off-main-thread simulation runs
+- `worker-client.ts` — main-thread wrapper around the worker (request-id routing, diagnostics serialization)
 
 All engine changes must include tests. Run `npm test` before submitting.
 
@@ -47,7 +49,7 @@ git clone https://github.com/savvides/usairanmontecarlo.git
 cd usairanmontecarlo
 npm install
 npm run dev    # http://localhost:3000
-npm test       # 121 tests
+npm test       # 128 tests
 ```
 
 ## Guidelines
