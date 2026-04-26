@@ -32,7 +32,7 @@ const STATUS_ICONS: Record<PhaseStatus, string> = {
 
 const STATUS_LABELS: Record<PhaseStatus, string> = {
   observed: 'OBS',
-  mixed: 'NOW',
+  mixed: 'MIX',
   projected: 'PROJ',
 };
 
