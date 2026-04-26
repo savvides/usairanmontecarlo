@@ -1,6 +1,32 @@
 import Link from 'next/link';
+import timeline from '@data/timeline.json';
+import type { PhaseStatus } from '@/lib/timeline';
+
+function formatLongDate(dateStr: string): string {
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+}
+
+function describePhaseStatus(status: Record<string, PhaseStatus>): string {
+  const groups = { observed: [] as number[], mixed: [] as number[], projected: [] as number[] };
+  for (const [k, v] of Object.entries(status)) groups[v as PhaseStatus].push(Number(k));
+  const fmt = (ns: number[]) =>
+    ns.length === 0 ? '' :
+    ns.length === 1 ? `Phase ${ns[0]}` :
+    `Phases ${ns[0]}–${ns[ns.length - 1]}`;
+  const parts: string[] = [];
+  if (groups.observed.length) parts.push(`${fmt(groups.observed)} are locked to observed historical data`);
+  if (groups.mixed.length) parts.push(`${fmt(groups.mixed)} are mixed observed and projected`);
+  if (groups.projected.length) parts.push(`${fmt(groups.projected)} is fully projected`);
+  return parts.join('. ');
+}
 
 export default function Home() {
+  const asOfDate = formatLongDate(timeline.lastUpdated);
+  const phaseStatusDescription = describePhaseStatus(
+    timeline.phaseStatus as Record<string, PhaseStatus>
+  );
+
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-background">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(74,139,181,0.08)_0%,_transparent_70%)]" />
@@ -25,9 +51,8 @@ export default function Home() {
         </p>
 
         <p className="mt-4 text-xs text-text-muted max-w-md mx-auto">
-          Phases 1–2 are locked to observed historical data. Phases 3–8 are probabilistic
-          projections — each simulation runs 5,000 scenarios through a Bayesian network to show
-          the range of outcomes and how likely each one is.
+          {phaseStatusDescription}. Each simulation runs 5,000 scenarios through a Bayesian
+          network to show the range of outcomes and how likely each one is.
         </p>
 
         <Link
@@ -39,7 +64,7 @@ export default function Home() {
         </Link>
 
         <div className="mt-12 flex items-center justify-center gap-6 text-[10px] font-mono text-text-muted">
-          <span>As of March 29, 2026</span>
+          <span>As of {asOfDate}</span>
           <span className="h-3 w-px bg-border" />
           <span>Research-backed parameters</span>
           <span className="h-3 w-px bg-border" />
