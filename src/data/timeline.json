@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-12",
-  "observedThrough": "2026-04-12",
+  "lastUpdated": "2026-04-24",
+  "observedThrough": "2026-04-24",
   "currentPhase": 3,
   "phaseStatus": {
     "1": "observed",
@@ -26,6 +26,14 @@
     { "date": "2026-04-08", "label": "Israel attacks Lebanon", "description": "Israel launches 'Operation Eternal Darkness' across Lebanon hours after ceasefire. 100 airstrikes in 10 minutes, 357 killed. Lebanon's inclusion in ceasefire disputed.", "phase": 6, "source": "Reuters, AP" },
     { "date": "2026-04-09", "label": "Hormuz remains closed", "description": "Despite ceasefire terms, Strait of Hormuz remains effectively closed. Iran charges $1M+ transit tolls per vessel and limits passage.", "phase": 4, "source": "Reuters, CNBC" },
     { "date": "2026-04-11", "label": "US-Iran talks in Islamabad", "description": "Historic direct negotiations: VP Vance, Witkoff, and Kushner meet Iran's Araghchi and Ghalibaf in Pakistan. Marathon 21-hour session.", "phase": 5, "source": "PBS, NPR, CNN" },
-    { "date": "2026-04-12", "label": "Pakistan talks collapse", "description": "Negotiations fail. Iran refuses to commit to forgoing nuclear weapons. Trump threatens full naval blockade on Iran.", "phase": 7, "source": "NPR, Al Jazeera, Times of Israel" }
+    { "date": "2026-04-12", "label": "Pakistan talks collapse", "description": "Negotiations fail. Iran refuses to commit to forgoing nuclear weapons. Trump threatens full naval blockade on Iran.", "phase": 7, "source": "NPR, Al Jazeera, Times of Israel" },
+    { "date": "2026-04-13", "label": "US naval blockade takes effect", "description": "US Navy blockade of Iran begins at 10am ET under Adm. Brad Cooper at CENTCOM. All ships entering or leaving the Strait of Hormuz require US Navy approval. Vessels that paid Iranian tolls are subject to interdiction.", "phase": 7, "source": "CBS News, Axios, Wikipedia (2026 US naval blockade of Iran)" },
+    { "date": "2026-04-17", "label": "Brief Hormuz reopening", "description": "Iran declares Strait of Hormuz open to shipping; US blockade still active. During a brief window where both sides claim the strait is open, six cruise ships transit from the Persian Gulf into the Arabian Sea. Iran disputes US framing of any new agreement.", "phase": 4, "source": "CNBC, Washington Post, Wikipedia (Hormuz crisis)" },
+    { "date": "2026-04-18", "label": "Iran re-closes Hormuz", "description": "Iran shuts the Strait of Hormuz again, blaming US 'breaches of trust' during the ongoing ceasefire and the continued naval blockade.", "phase": 4, "source": "CNN (Day 50), Wikipedia" },
+    { "date": "2026-04-19", "label": "Iran formalizes toll regime", "description": "Iranian parliament moves to formalize a law banning ships from 'hostile' countries from transiting the strait and imposing tolls on all others. Oil prices jump after US and Iran trade fire on commercial ships.", "phase": 4, "source": "CNBC, Al Jazeera, Wikipedia" },
+    { "date": "2026-04-21", "label": "Trump extends ceasefire, Islamabad-2 dies", "description": "Hours before the April 22 expiration, Trump extends the two-week ceasefire at Pakistan's request to give Tehran time for a 'unified proposal.' Vance-led second Islamabad round dissolves after Iran refuses to attend. Naval blockade continues regardless of extension.", "phase": 7, "source": "TIME, Euronews, NBC News, North Denver Tribune" },
+    { "date": "2026-04-22", "label": "Iran seizes ships in Hormuz", "description": "Hours after ceasefire extension, IRGC seizes Italian-owned MSC Francesca and the Epaminondas in the Strait of Hormuz after firing on three commercial vessels. Iran cites US capture of an Iranian commercial vessel as justification. Panama denounces seizure as 'grave attack against maritime security.'", "phase": 5, "source": "NPR, CNBC, Washington Post, Al Jazeera" },
+    { "date": "2026-04-23", "label": "Trump 'shoot and kill' order", "description": "Trump orders US Navy to 'shoot and kill' any Iranian boats laying mines in the Strait of Hormuz and expands blockade scope: no ship may enter or leave the strait without US Navy approval. Brent crude tops $105/bbl on the escalation.", "phase": 7, "source": "Al Jazeera, Euronews, CNBC" },
+    { "date": "2026-04-24", "label": "Hormuz reopen consensus shifts to H2 2026", "description": "Dallas Fed Energy survey: ~80% of oil and gas executives expect the Strait of Hormuz will not fully reopen until August 2026 or later. Baker Hughes concurs. IEA characterizes the closure as the 'largest supply disruption in the history of the global oil market.' Brent ~$106, WTI ~$96.", "phase": 4, "source": "CNBC, Bloomberg, IEA" }
   ]
 }

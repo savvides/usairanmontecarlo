@@ -50,7 +50,7 @@
     "phase": 7,
     "type": "categorical",
     "label": "Ceasefire Mechanism",
-    "description": "The primary mechanism through which hostilities are halted, if at all. Observed: a two-week ceasefire was agreed on April 7-8 through Pakistan mediation (not Turkey as previously expected). The 'turkey_mediated_deal' category now represents any third-party mediated deal (Turkey, Pakistan, or similar). The ceasefire included terms for Hormuz reopening and nuclear talks, but Iran failed to honor the Hormuz terms and direct US-Iran negotiations in Islamabad collapsed on April 12 after 21 hours. The nuclear program remains the core sticking point. Trump has threatened a full naval blockade if Iran does not accept terms. The 2-week ceasefire expires around April 22, creating a new deadline. The 'no ceasefire' outcome reflects the frozen-conflict trajectory if the ceasefire collapses without renewal.",
+    "description": "The primary mechanism through which hostilities are halted, if at all. Observed: a two-week ceasefire was agreed on April 7-8 through Pakistan mediation (not Turkey as previously expected); the 'turkey_mediated_deal' category now represents any third-party mediated deal (Turkey, Pakistan, or similar). The ceasefire included terms for Hormuz reopening and nuclear talks, but Iran did not honor the Hormuz terms, direct US-Iran negotiations in Islamabad collapsed on April 12 after 21 hours, and on April 13 the US imposed a naval blockade on Iran. On April 21, hours before the April 22 expiration, Trump unilaterally extended the ceasefire at Pakistan's request — Vance-led Islamabad-2 had just dissolved when Iran refused to attend. The character of the active ceasefire has therefore shifted from third-party-mediated deal toward unilateral extension with mediation cover. Within hours of the extension, Iran seized two ships in the strait, and on April 23 Trump ordered the Navy to 'shoot and kill' Iranian mine-layers. The nuclear question (US wants 20-year enrichment ban; Iran offers 5) remains the structural sticking point.",
     "parents": ["ceasefire_mediation_viability", "april_6_deadline_outcome", "coercive_success_probability"],
     "categories": ["us_ultimatum_accepted", "turkey_mediated_deal", "un_brokered", "unilateral_ceasefire", "no_ceasefire"],
     "cpt": [
@@ -84,14 +84,14 @@
       }
     ],
     "defaultProbabilities": {
-      "us_ultimatum_accepted": 0.10,
-      "turkey_mediated_deal": 0.35,
-      "un_brokered": 0.08,
-      "unilateral_ceasefire": 0.15,
-      "no_ceasefire": 0.32
+      "us_ultimatum_accepted": 0.08,
+      "turkey_mediated_deal": 0.32,
+      "un_brokered": 0.06,
+      "unilateral_ceasefire": 0.20,
+      "no_ceasefire": 0.34
     },
     "source": {
-      "citation": "Reuters 'US-Iran ceasefire agreed via Pakistan mediation' April 2026; NPR 'Pakistan talks collapse after 21 hours' April 12, 2026; Crisis Group 'Ceasefire Mechanisms in the US-Iran Conflict' March 2026; PBS 'Historic US-Iran negotiations in Pakistan' April 2026",
+      "citation": "Reuters 'US-Iran ceasefire agreed via Pakistan mediation' April 2026; NPR 'Pakistan talks collapse after 21 hours' April 12, 2026; TIME 'Trump extends Iran ceasefire' April 21, 2026; Al Jazeera 'Trump orders shoot-and-kill on Iranian mine-layers' April 23, 2026; Crisis Group 'Ceasefire Mechanisms in the US-Iran Conflict' March 2026",
       "url": "https://www.crisisgroup.org/middle-east-north-africa/gulf-and-arabian-peninsula/iran",
       "confidence": "low"
     }
@@ -101,7 +101,7 @@
     "phase": 7,
     "type": "categorical",
     "label": "Strait of Hormuz Reopening",
-    "description": "The timeline and manner in which the Strait of Hormuz is reopened to commercial shipping after its closure since March 4. Hormuz handles approximately 20% of global oil transit (~21 million barrels/day). Immediate post-ceasefire reopening requires Iranian naval and mine-clearing cooperation, which depends on the ceasefire mechanism's credibility. A phased reopening involves US/allied naval escorts and progressive mine-clearing operations — the 1988 Operation Earnest Will model — taking weeks to months. Prolonged closure persists if no ceasefire is reached or Iran retains asymmetric denial capability through IRGC naval forces and Houthi Red Sea operations. Permanent rerouting involves expanded use of the Iraq-Turkey pipeline, Saudi east-west pipeline, and UAE Fujairah bypass, reducing Hormuz dependence permanently. The US Navy's mine-clearing capacity is significant but the strait's shallow waters and Iran's estimated 2,000+ sea mines deployed since March 4 make rapid clearing operationally challenging. Insurance markets have already priced Hormuz transit at war-risk premiums exceeding the 2019 tanker attack levels.",
+    "description": "The timeline and manner in which the Strait of Hormuz is reopened to commercial shipping after its closure since March 4. Hormuz handles approximately 20% of global oil transit (~21 million barrels/day). The April 7 ceasefire required reopening but Iran did not comply; on April 13 the US Navy began a counter-blockade of Iranian ports under Adm. Brad Cooper at CENTCOM. A brief April 17 window saw Iran declare the strait open and six cruise ships transit, but Iran re-closed the strait on April 18 citing US 'breaches of trust.' On April 19 Iran's parliament moved to formalize a toll regime banning 'hostile' country ships. By April 23 Trump expanded blockade scope so that no ship may enter or leave the strait without US Navy approval, and ordered the Navy to 'shoot and kill' Iranian mine-layers. Industry consensus as of April 24 (Dallas Fed Energy survey: ~80% of executives; Baker Hughes) is that the strait will not fully reopen until H2 2026. Immediate post-ceasefire reopening requires Iranian naval and mine-clearing cooperation that does not exist under blockade conditions. A phased reopening involves US/allied naval escorts and progressive mine-clearing — the 1988 Operation Earnest Will model — but the dual-blockade configuration (Iran blocking Hormuz, US blocking Iranian ports) creates a structurally unstable stand-off. Prolonged closure is now the modal outcome. Permanent rerouting involves expanded use of the Iraq-Turkey pipeline, Saudi east-west pipeline, and UAE Fujairah bypass, but capacity remains capped at well under pre-war Hormuz throughput. Iran's estimated 2,000+ sea mines deployed since March 4 make rapid clearing operationally challenging.",
     "parents": ["ceasefire_mechanism", "hormuz_reopening_timeline"],
     "categories": ["immediate_post_ceasefire", "phased_reopening", "prolonged_closure", "permanent_rerouting"],
     "cpt": [
@@ -135,13 +135,13 @@
       }
     ],
     "defaultProbabilities": {
-      "immediate_post_ceasefire": 0.05,
-      "phased_reopening": 0.25,
-      "prolonged_closure": 0.45,
+      "immediate_post_ceasefire": 0.02,
+      "phased_reopening": 0.18,
+      "prolonged_closure": 0.55,
       "permanent_rerouting": 0.25
     },
     "source": {
-      "citation": "Reuters 'Hormuz remains effectively closed despite ceasefire' April 9, 2026; CNBC 'Iran charges $1M+ tolls for Hormuz transit' April 2026; CSIS 'Strait of Hormuz: Strategic Chokepoint Analysis' 2025; EIA 'World Oil Transit Chokepoints' 2025",
+      "citation": "CNBC 'Hormuz may not fully reopen until second half of 2026' April 24, 2026; Bloomberg 'Iran War: When Will the Strait of Hormuz Reopen?' April 21, 2026; Wikipedia '2026 Strait of Hormuz crisis'; Al Jazeera 'Trump orders shoot-and-kill on Iranian mine-layers' April 23, 2026; CSIS 'Strait of Hormuz: Strategic Chokepoint Analysis' 2025",
       "url": "https://www.csis.org/analysis/strait-hormuz",
       "confidence": "low"
     }
@@ -466,7 +466,7 @@
     "phase": 7,
     "type": "categorical",
     "label": "Coercive Success Probability (Pape)",
-    "description": "Pape's central finding: airpower achieves ~100% tactical success but near-zero coercive (political) success against states employing asymmetric strategies. Punishment succeeded 0/8 times. Denial succeeded 5/33 times (~15%), but only with ground forces. Iran's asymmetric strategy makes denial impotent without ground presence.",
+    "description": "Pape's central finding: airpower achieves ~100% tactical success but near-zero coercive (political) success against states employing asymmetric strategies. Punishment succeeded 0/8 times. Denial succeeded 5/33 times (~15%), but only with ground forces. Iran's asymmetric strategy makes denial impotent without ground presence. April 2026 observed validation: 38 days of air dominance produced zero political concessions, the April 6 deadline passed without Iranian compliance, the 21-hour Islamabad talks collapsed on April 12 over Iran's refusal to forgo nuclear weapons, the second Islamabad round on April 21 dissolved when Iran refused to attend, and Russia's foreign minister Lavrov publicly argued the campaign would push Iran toward actually acquiring a bomb — the canonical Pape counterproductive outcome. The escalation has moved from ultimatum to ceasefire-with-blockade to ship seizures and 'shoot and kill' orders without producing compliance. The 'counterproductive' bin (campaign produces the outcome it sought to prevent) has gained weight relative to 'failed' (campaign simply doesn't produce concessions).",
     "parents": ["overall_military_balance", "iranian_nationalist_resolve", "escalation_trap_stage"],
     "categories": ["succeeded", "partial", "failed", "counterproductive"],
     "cpt": [
@@ -476,8 +476,8 @@
       { "parentValues": { "overall_military_balance": "decisive_us", "iranian_nationalist_resolve": "moderate" }, "categoryProbabilities": { "succeeded": 0.10, "partial": 0.25, "failed": 0.45, "counterproductive": 0.20 } },
       { "parentValues": { "overall_military_balance": "decisive_us", "iranian_nationalist_resolve": "low" }, "categoryProbabilities": { "succeeded": 0.20, "partial": 0.35, "failed": 0.35, "counterproductive": 0.10 } }
     ],
-    "defaultProbabilities": { "succeeded": 0.03, "partial": 0.12, "failed": 0.55, "counterproductive": 0.30 },
-    "source": { "citation": "Pape, Bombing to Win (Cornell, 1996) — 33-case empirical analysis; Pape, 'Escalation Trap' March 2026", "url": "https://escalationtrap.substack.com/", "confidence": "high" }
+    "defaultProbabilities": { "succeeded": 0.02, "partial": 0.10, "failed": 0.53, "counterproductive": 0.35 },
+    "source": { "citation": "Pape, Bombing to Win (Cornell, 1996) — 33-case empirical analysis; Pape, 'Escalation Trap' March 2026; Al Jazeera 'Lavrov: Iran war could push Tehran toward nuclear bomb' April 2026; NPR 'Islamabad talks collapse' April 12, 2026", "url": "https://escalationtrap.substack.com/", "confidence": "high" }
   },
   {
     "id": "ground_escalation_probability",
@@ -525,7 +525,7 @@
     "phase": 7,
     "type": "categorical",
     "label": "Resolution Type (Summary)",
-    "description": "The overall characterization of how the conflict resolves. This is the summary node for Phase 7, integrating ceasefire mechanism, war termination terms, and regional expansion dynamics. A decisive US victory requires both military success (largely achieved) and political consolidation through favorable terms — the 1991 Gulf War template. A negotiated settlement reflects the JCPOA-era model of mutual concessions formalized through diplomacy. A frozen conflict is the Korean War/Kashmir template: fighting stops, no resolution occurs, underlying tensions persist indefinitely. A wider regional war represents the worst-case escalation where Houthi entry, Hezbollah operations, and potential Iraqi militia activation transforms the bilateral US-Iran conflict into a multi-theater regional conflagration. As of March 29, with Houthis and Hezbollah both active, the conflict is already exhibiting early wider-war characteristics, though it has not yet crossed the threshold into full regional conflagration.",
+    "description": "The overall characterization of how the conflict resolves. This is the summary node for Phase 7, integrating ceasefire mechanism, war termination terms, and regional expansion dynamics. A decisive US victory requires both military success (largely achieved) and political consolidation through favorable terms — the 1991 Gulf War template. A negotiated settlement reflects the JCPOA-era model of mutual concessions formalized through diplomacy. A frozen conflict is the Korean War/Kashmir template: fighting stops, no resolution occurs, underlying tensions persist indefinitely. A wider regional war represents the worst-case escalation where Houthi entry, Hezbollah operations, and potential Iraqi militia activation transforms the bilateral US-Iran conflict into a multi-theater regional conflagration. As of April 24, the trajectory has shifted: the active naval blockade, ship seizures in Hormuz, the 'shoot and kill' order on Iranian mine-layers, the collapse of Islamabad-2, and the visible Lavrov-Xi axis hardening have all increased the wider-war path's weight. The ceasefire continues only as a unilateral Trump extension at Pakistan's request, with kinetic violations daily. The negotiated settlement path has weakened: Iran refused to attend the second Islamabad round and the gap between US (20-year enrichment ban) and Iranian (5-year) positions on the nuclear question is structural.",
     "parents": ["ceasefire_mechanism", "war_termination_terms", "regional_expansion_risk_current", "coercive_success_probability", "ground_escalation_probability", "ground_operation_feasibility"],
     "categories": ["decisive_us_victory", "negotiated_settlement", "frozen_conflict", "wider_regional_war"],
     "cpt": [
@@ -587,13 +587,13 @@
       }
     ],
     "defaultProbabilities": {
-      "decisive_us_victory": 0.03,
-      "negotiated_settlement": 0.28,
-      "frozen_conflict": 0.42,
-      "wider_regional_war": 0.27
+      "decisive_us_victory": 0.02,
+      "negotiated_settlement": 0.22,
+      "frozen_conflict": 0.43,
+      "wider_regional_war": 0.33
     },
     "source": {
-      "citation": "NPR 'US-Iran peace talks collapse' April 12, 2026; Reuters 'Israel Operation Eternal Darkness kills 357 in Lebanon' April 8, 2026; RAND 'War Outcomes and Resolution Typologies' 2024; Crisis Group 'US-Iran Conflict Trajectory Assessment' April 2026",
+      "citation": "NPR 'US-Iran peace talks collapse' April 12, 2026; CBS News 'US naval blockade of Iran takes effect' April 13, 2026; Al Jazeera 'Trump orders shoot-and-kill on Iranian mine-layers' April 23, 2026; Washington Post 'Iran seizes 2 ships in Strait of Hormuz' April 22, 2026; Reuters 'Israel Operation Eternal Darkness kills 357 in Lebanon' April 8, 2026; Crisis Group 'US-Iran Conflict Trajectory Assessment' April 2026",
       "url": "https://www.rand.org/topics/conflict-termination.html",
       "confidence": "low"
     }

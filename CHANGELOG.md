@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.3.0] - 2026-04-24
+
+### Added
+- 8 new timeline events covering April 13-24: US naval blockade takes effect (April 13), brief Hormuz reopening (April 17), Iran re-closes Hormuz (April 18), Iran formalizes toll regime (April 19), Trump extends ceasefire / Islamabad-2 dies (April 21), Iran seizes ships in Hormuz (April 22), Trump "shoot and kill" order (April 23), Hormuz reopen consensus shifts to H2 2026 (April 24)
+
+### Changed
+- Editorial rewrite for Phases 3-8 reflecting the dual blockade stand-off, ship seizures, "shoot and kill" order, unilateral ceasefire extension, Lavrov-Xi axis hardening, Hormuz reopen pushed to H2 2026, and Pape's "counterproductive" outcome publicly stated by a Permanent Five member
+- Recalibrated 4 Bayesian nodes from observed data: ceasefire_mechanism (turkey_mediated_deal 0.35→0.32, unilateral_ceasefire 0.15→0.20), hormuz_reopening (prolonged_closure 0.45→0.55), coercive_success_probability (counterproductive 0.30→0.35, failed 0.55→0.53), resolution_type (wider_regional_war 0.27→0.33, negotiated_settlement 0.28→0.22)
+- Methodology page snapshot date updated from April 12 to April 24
+- Pape validation note strengthened: now references blockade, ship seizures, Islamabad-2 cancellation, Lavrov's nuclear-acquisition warning
+- README phase status table updated to reflect April 24 reality
+- Aligned VERSION file (was 1.0.1.0, drifted from package.json)
+- timeline.json `lastUpdated` and `observedThrough` bumped to 2026-04-24
+
 ## [1.0.2.0] - 2026-04-12
 
 ### Added

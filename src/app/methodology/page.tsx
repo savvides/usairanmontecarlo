@@ -109,15 +109,23 @@ export default function MethodologyPage() {
             </p>
             <p>
               <strong className="text-text-primary">Observed validation (April 2026).</strong> As of
-              April 12, 2026, observed conflict outcomes have validated Pape&apos;s predictions with
+              April 24, 2026, observed conflict outcomes have validated Pape&apos;s predictions with
               striking accuracy. The US air campaign achieved near-total tactical dominance over
               38 days but produced zero political concessions: the April 6 deadline passed without
-              Iranian compliance, 21-hour direct negotiations in Islamabad collapsed on April 12
-              when Iran refused to commit to forgoing nuclear weapons, and Trump responded with a
-              naval blockade threat. This is textbook Stage 2 of Pape&apos;s escalation trap. The
-              nationalist backlash coefficient is also confirmed: no wartime protests have emerged
-              inside Iran, the IRGC has threatened crackdown on dissent, and the rally-around-the-flag
-              effect is visible in the absence of mass opposition during active bombardment.
+              Iranian compliance; 21-hour direct negotiations in Islamabad collapsed on April 12
+              when Iran refused to commit to forgoing nuclear weapons; Trump imposed a US naval
+              blockade on April 13; the April 22 ceasefire expiration was met by a unilateral
+              Trump extension at Pakistan&apos;s request; the second Islamabad round on April 21
+              dissolved when Iran refused to attend; Iran seized two ships in Hormuz the next day;
+              and on April 23 Trump ordered the Navy to &ldquo;shoot and kill&rdquo; Iranian
+              mine-layers. This is textbook Stage 2 of Pape&apos;s escalation trap, now visibly
+              moving toward the &ldquo;counterproductive&rdquo; outcome: Russia&apos;s foreign
+              minister Lavrov has publicly warned the campaign will push Iran toward acquiring a
+              nuclear weapon — Pape&apos;s canonical worst case stated by a Permanent Five member.
+              The nationalist backlash coefficient is also confirmed: no wartime protests have
+              emerged inside Iran, the IRGC has threatened crackdown on dissent, and the
+              rally-around-the-flag effect is visible in the absence of mass opposition during
+              active bombardment.
             </p>
             <p>
               <strong className="text-text-primary">Limitations of the framework.</strong> Pape&apos;s
@@ -204,7 +212,7 @@ export default function MethodologyPage() {
             </li>
             <li>
               <strong className="text-text-primary">Snapshot-in-time model</strong> — parameters
-              reflect conditions as of April 12, 2026 and do not update automatically.
+              reflect conditions as of April 24, 2026 and do not update automatically.
             </li>
             <li>
               <strong className="text-text-primary">Phases 1–2 are locked to observed data</strong> —

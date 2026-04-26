@@ -14,12 +14,12 @@ The simulation runs **5,000 Monte Carlo scenarios** through a **Bayesian network
 |-------|--------|-------------|
 | 1. The Strike (Feb 28) | Observed | US/Israel surprise campaign: 900 strikes, Khamenei killed, nuclear program destroyed |
 | 2. Retaliation (Feb 28 – Mar 10) | Observed | Iran's 500+ missile/2000 drone response, Hormuz closure, Hezbollah activation |
-| 3. Active Conflict (Current) | Mixed | 38 days of air campaign, ceasefire agreed April 7, fragile pause |
-| 4. Economic Shockwaves | Mixed | Oil $113-126/bbl, gas $4/gal, Hormuz effectively closed despite ceasefire, water crisis |
-| 5. Geopolitical Reactions | Mixed | Pakistan-mediated ceasefire, Islamabad talks collapse, naval blockade threatened |
-| 6. Humanitarian Impact | Mixed | 2,000+ killed in Iran, Operation Eternal Darkness in Lebanon (1,500+ killed) |
-| 7. Resolution Paths | Mixed | Ceasefire exists but fragile, talks collapsed April 12, April 22 expiration looms |
-| 8. Long-Term Aftermath | Projected | Nuclear refusal confirmed, regime survival likely, regional order fractured |
+| 3. Active Conflict (Current) | Mixed | 38 days of air campaign; paper ceasefire extended April 21; US blockade in effect since April 13 |
+| 4. Economic Shockwaves | Mixed | Brent ~$106, Hormuz reopen consensus pushed to H2 2026, dual blockade stand-off |
+| 5. Geopolitical Reactions | Mixed | Islamabad talks collapsed April 12; Islamabad-2 dissolved April 21 (Iran refused); Lavrov-Xi axis hardens |
+| 6. Humanitarian Impact | Mixed | Iran dead: ~1,900 (IFRC) / 3,636 documented (HRANA); Lebanon 1,500+ killed, ~1M displaced |
+| 7. Resolution Paths | Mixed | Ceasefire extended unilaterally; ships seized April 22; "shoot and kill" order April 23 |
+| 8. Long-Term Aftermath | Projected | Nuclear refusal hardened; regime survival likely; Russia-China-Iran axis visibly consolidating |
 
 **Observed** phases are locked to real-world data. **Projected** phases use scenario cards to explore different futures.
 
