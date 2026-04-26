@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.4.0] - 2026-04-26
+
+### Changed
+- Simulation now runs in a Web Worker. Scenario clicks no longer block the UI thread — even on lower-end mobile devices, clicking through scenarios stays smooth instead of freezing for hundreds of ms while 5000 iterations of a 107-node Bayesian graph run.
+- Rapid scenario clicking is now safe. Multiple in-flight simulations are tracked by request ID, and stale results from earlier clicks are dropped silently so the histograms always reflect the latest selection.
+
+### Fixed
+- Box-Muller normal sampler could emit -Infinity/NaN when the PRNG returned exactly 0, propagating through the Bayesian network and producing useless distributions. The sampler now draws from (0, 1] so log(0) is unreachable.
+- Continuous nodes with `min === max` silently fell through to "high" via NaN comparisons in the discretizer. `validateGraph` now flags zero-range nodes as a configuration error.
+- CPT rows could reference parent IDs not declared in `node.parents` (typos or stale data) and the engine would silently ignore the ghost dependency, dropping the intended causality. `validateGraph` now flags stray parent keys. Partial-key rows (intentional for interpolation) still validate.
+
+### For contributors
+- Added a worker message-protocol smoke test that uses an in-process loopback Worker to verify request-id round-trip, diagnostics serialization, concurrent request routing, and terminate() semantics without needing a real browser Worker.
+- Deleted unused `useWorker.ts` hook (zero callers, broken API).
+- Excluded `out/` and `.next/` from `tsconfig.json` so stale build artifacts no longer poison `tsc --noEmit`.
+- Test count: 121 → 128.
+
 ## [1.0.3.0] - 2026-04-24
 
 ### Added
