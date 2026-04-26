@@ -16,6 +16,13 @@
   **Priority:** P3
   Add a small note to the landing page or methodology page explaining how frequently the simulation is updated. Each manual update creates a staleness cliff — a reader on April 13 sees "as of April 12" and wonders if the site is maintained. Setting expectations builds trust.
 
+## UI
+
+- **Mobile timeline label collision**
+  **Priority:** P3
+  At 375px viewport, event labels in the timeline bar overlap each other (e.g., "AffeMab d 1Ms2..."). Pre-existing in TimelineBar.tsx since the component shipped. Worsens each cycle as more events are added (now 22 events, may grow to 30+ over the next quarter). Fix: stagger labels into two rows on narrow viewports, or show only every Nth label with a tooltip on the dots.
+  **Found by:** /qa on 2026-04-25 (out of scope for v1.0.3.0)
+
 ## Testing
 
 - **Expand scenario card validation to all 8 phases**
