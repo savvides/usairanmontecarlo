@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import seedrandom from 'seedrandom';
+import seedrandom, { type PRNG } from 'seedrandom';
 import { sampleBinary, sampleContinuous, sampleCategorical } from '@engine/distributions';
 
 describe('sampleBinary', () => {
@@ -72,6 +72,23 @@ describe('sampleContinuous', () => {
       );
       expect(val).toBeGreaterThanOrEqual(90);
       expect(val).toBeLessThanOrEqual(110);
+    }
+  });
+
+  it('Box-Muller never produces NaN/Infinity even when rng() returns 0', () => {
+    // Synthetic PRNG that yields 0 (the historical Math.log(0) trap).
+    const draws = [0, 0.5, 0, 0.25, 0.999999, 0.5];
+    let i = 0;
+    const fakeRng = Object.assign(() => draws[i++ % draws.length], {
+      double: () => 0,
+      int32: () => 0,
+      quick: () => 0,
+      state: () => ({}),
+    }) as unknown as PRNG;
+
+    for (let k = 0; k < draws.length; k++) {
+      const val = sampleContinuous(fakeRng, { type: 'normal', params: [0, 1] });
+      expect(Number.isFinite(val)).toBe(true);
     }
   });
 });

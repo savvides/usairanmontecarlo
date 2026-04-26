@@ -11,7 +11,8 @@ export function sampleBinary(rng: PRNG, pTrue: number): boolean {
  * Box-Muller transform for normal distribution sampling.
  */
 function sampleNormal(rng: PRNG, mean: number, stddev: number): number {
-  const u1 = rng();
+  // rng() returns [0, 1); shift to (0, 1] so log() never sees 0.
+  const u1 = 1 - rng();
   const u2 = rng();
   const z = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
   return mean + z * stddev;

@@ -87,6 +87,25 @@ export function validateGraph(graph: SimGraph): string[] {
         );
       }
     }
+
+    // Continuous nodes must have a non-zero range — discretization divides by (max - min).
+    if (node.type === 'continuous' && node.max <= node.min) {
+      errors.push(`Node "${id}" has invalid range: min=${node.min} max=${node.max}`);
+    }
+
+    // Each CPT row's parentValues keys must be a subset of node.parents.
+    // Stray keys would silently create "ghost" dependencies the engine ignores.
+    const parentSet = new Set(node.parents);
+    for (let i = 0; i < node.cpt.length; i++) {
+      const row = node.cpt[i];
+      for (const key of Object.keys(row.parentValues)) {
+        if (!parentSet.has(key)) {
+          errors.push(
+            `Node "${id}" CPT row ${i} references unknown parent "${key}" (node.parents = [${node.parents.join(', ')}])`
+          );
+        }
+      }
+    }
   }
 
   return errors;

@@ -119,4 +119,44 @@ describe('validateGraph', () => {
     ];
     expect(() => buildGraph(nodes)).toThrow(/duplicate/i);
   });
+
+  it('detects continuous nodes with zero or negative range', () => {
+    const zero = makeContinuousNode('zero', 1);
+    zero.min = 5;
+    zero.max = 5;
+    const inverted = makeContinuousNode('inverted', 1);
+    inverted.min = 10;
+    inverted.max = 0;
+
+    const errorsZero = validateGraph(buildGraph([zero]));
+    expect(errorsZero.some((e) => e.includes('zero') && e.includes('range'))).toBe(true);
+
+    const errorsInverted = validateGraph(buildGraph([inverted]));
+    expect(errorsInverted.some((e) => e.includes('inverted') && e.includes('range'))).toBe(true);
+  });
+
+  it('detects CPT rows referencing parents not declared on the node', () => {
+    const a = makeBinaryNode('a', 1);
+    const b = makeBinaryNode('b', 1, ['a']);
+    // CPT row references "ghost" — a parent that's not in node.parents.
+    b.cpt = [{ parentValues: { a: 'true', ghost: 'true' }, pTrue: 0.9 }];
+
+    const errors = validateGraph(buildGraph([a, b]));
+    expect(errors.some((e) => e.includes('ghost'))).toBe(true);
+  });
+
+  it('accepts CPT rows with a subset of parents (partial-match for interpolation)', () => {
+    // The interpolation design intentionally allows partial parentValues —
+    // so a row with fewer keys than node.parents must NOT error.
+    const a = makeBinaryNode('a', 1);
+    const b = makeBinaryNode('b', 1);
+    const c = makeBinaryNode('c', 1, ['a', 'b']);
+    c.cpt = [
+      { parentValues: { a: 'true' }, pTrue: 0.7 },
+      { parentValues: { a: 'true', b: 'true' }, pTrue: 0.9 },
+    ];
+
+    const errors = validateGraph(buildGraph([a, b, c]));
+    expect(errors).toEqual([]);
+  });
 });
