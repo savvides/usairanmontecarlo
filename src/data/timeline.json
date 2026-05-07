@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-24",
-  "observedThrough": "2026-04-24",
+  "lastUpdated": "2026-05-07",
+  "observedThrough": "2026-05-07",
   "currentPhase": 3,
   "phaseStatus": {
     "1": "observed",
@@ -34,6 +34,9 @@
     { "date": "2026-04-21", "label": "Trump extends ceasefire, Islamabad-2 dies", "description": "Hours before the April 22 expiration, Trump extends the two-week ceasefire at Pakistan's request to give Tehran time for a 'unified proposal.' Vance-led second Islamabad round dissolves after Iran refuses to attend. Naval blockade continues regardless of extension.", "phase": 7, "source": "TIME, Euronews, NBC News, North Denver Tribune" },
     { "date": "2026-04-22", "label": "Iran seizes ships in Hormuz", "description": "Hours after ceasefire extension, IRGC seizes Italian-owned MSC Francesca and the Epaminondas in the Strait of Hormuz after firing on three commercial vessels. Iran cites US capture of an Iranian commercial vessel as justification. Panama denounces seizure as 'grave attack against maritime security.'", "phase": 5, "source": "NPR, CNBC, Washington Post, Al Jazeera" },
     { "date": "2026-04-23", "label": "Trump 'shoot and kill' order", "description": "Trump orders US Navy to 'shoot and kill' any Iranian boats laying mines in the Strait of Hormuz and expands blockade scope: no ship may enter or leave the strait without US Navy approval. Brent crude tops $105/bbl on the escalation.", "phase": 7, "source": "Al Jazeera, Euronews, CNBC" },
-    { "date": "2026-04-24", "label": "Hormuz reopen consensus shifts to H2 2026", "description": "Dallas Fed Energy survey: ~80% of oil and gas executives expect the Strait of Hormuz will not fully reopen until August 2026 or later. Baker Hughes concurs. IEA characterizes the closure as the 'largest supply disruption in the history of the global oil market.' Brent ~$106, WTI ~$96.", "phase": 4, "source": "CNBC, Bloomberg, IEA" }
+    { "date": "2026-04-24", "label": "Hormuz reopen consensus shifts to H2 2026", "description": "Dallas Fed Energy survey: ~80% of oil and gas executives expect the Strait of Hormuz will not fully reopen until August 2026 or later. Baker Hughes concurs. IEA characterizes the closure as the 'largest supply disruption in the history of the global oil market.' Brent ~$106, WTI ~$96.", "phase": 4, "source": "CNBC, Bloomberg, IEA" },
+    { "date": "2026-05-04", "label": "Project Freedom launched", "description": "President Trump launches 'Project Freedom,' a US naval operation to escort commercial vessels through the Strait of Hormuz. Immediate military exchanges occur, including Iranian missile/drone attacks and retaliatory US strikes on Iranian vessels.", "phase": 7, "source": "Washington Post, Truflation" },
+    { "date": "2026-05-06", "label": "Project Freedom paused for talks", "description": "The US temporarily pauses the 'Project Freedom' escort mission to facilitate ongoing peace negotiations mediated by Pakistan. The waterway remains blocked to standard traffic.", "phase": 7, "source": "Washington Post" },
+    { "date": "2026-05-07", "label": "Negotiations progress, oil surges", "description": "Trump signals 'great progress' toward a potential agreement but warns of higher-level military strikes if negotiations fail. France and the UK work on a multinational initiative to ensure maritime security. Brent crude exceeds $113/bbl due to the volatile environment.", "phase": 4, "source": "Washington Post, Naval News, Truflation" }
   ]
 }
