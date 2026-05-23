@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-07",
-  "observedThrough": "2026-05-07",
+  "lastUpdated": "2026-05-22",
+  "observedThrough": "2026-05-22",
   "currentPhase": 3,
   "phaseStatus": {
     "1": "observed",
@@ -37,6 +37,9 @@
     { "date": "2026-04-24", "label": "Hormuz reopen consensus shifts to H2 2026", "description": "Dallas Fed Energy survey: ~80% of oil and gas executives expect the Strait of Hormuz will not fully reopen until August 2026 or later. Baker Hughes concurs. IEA characterizes the closure as the 'largest supply disruption in the history of the global oil market.' Brent ~$106, WTI ~$96.", "phase": 4, "source": "CNBC, Bloomberg, IEA" },
     { "date": "2026-05-04", "label": "Project Freedom launched", "description": "President Trump launches 'Project Freedom,' a US naval operation to escort commercial vessels through the Strait of Hormuz. Immediate military exchanges occur, including Iranian missile/drone attacks and retaliatory US strikes on Iranian vessels.", "phase": 7, "source": "Washington Post, Truflation" },
     { "date": "2026-05-06", "label": "Project Freedom paused for talks", "description": "The US temporarily pauses the 'Project Freedom' escort mission to facilitate ongoing peace negotiations mediated by Pakistan. The waterway remains blocked to standard traffic.", "phase": 7, "source": "Washington Post" },
-    { "date": "2026-05-07", "label": "Negotiations progress, oil surges", "description": "Trump signals 'great progress' toward a potential agreement but warns of higher-level military strikes if negotiations fail. France and the UK work on a multinational initiative to ensure maritime security. Brent crude exceeds $113/bbl due to the volatile environment.", "phase": 4, "source": "Washington Post, Naval News, Truflation" }
+    { "date": "2026-05-07", "label": "Negotiations progress, oil surges", "description": "Trump signals 'great progress' toward a potential agreement but warns of higher-level military strikes if negotiations fail. France and the UK work on a multinational initiative to ensure maritime security. Brent crude exceeds $113/bbl due to the volatile environment.", "phase": 4, "source": "Washington Post, Naval News, Truflation" },
+    { "date": "2026-05-22", "label": "EU expands navigation sanctions", "description": "The EU Council formally expands its sanctions framework targeting individuals and entities obstructing freedom of navigation in the Strait of Hormuz, imposing travel bans and asset freezes.", "phase": 5, "source": "EU Council, Sofia Globe, AA" },
+    { "date": "2026-05-22", "label": "Pakistan Army Chief in Tehran", "description": "Pakistan's Army Chief, Field Marshal Syed Asim Munir, arrives in Tehran for high-level, indirect peace negotiations to resolve the Strait of Hormuz crisis and nuclear dispute.", "phase": 7, "source": "CBS News, Rudaw, Dawn" },
+    { "date": "2026-05-22", "label": "97 ships redirected in blockade", "description": "CENTCOM reports U.S. naval forces have redirected 97 commercial vessels and disabled four others since the blockade began on April 13. Secretary Rubio notes 'some slight progress' in mediation.", "phase": 7, "source": "CBS News, Fox News, Hamer Intel" }
   ]
 }
