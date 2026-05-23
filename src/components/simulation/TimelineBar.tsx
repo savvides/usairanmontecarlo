@@ -98,7 +98,7 @@ export function TimelineBar({ timeline, currentPhase, onEventClick }: TimelineBa
         .attr('cursor', 'pointer');
 
       g.append('text')
-        .attr('x', cx).attr('y', h / 2 + (index % 2 === 0 ? 14 : 24))
+        .attr('x', cx).attr('y', h / 2 + (totalWidth < 600 && index % 2 !== 0 ? 24 : 14))
         .attr('text-anchor', 'middle').attr('fill', '#55556a')
         .attr('font-size', '7px').attr('font-family', "'JetBrains Mono', monospace")
         .text(formatDate(event.date));
