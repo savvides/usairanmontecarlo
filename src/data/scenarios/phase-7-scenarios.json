@@ -32,6 +32,33 @@
       {
         "nodeId": "resolution_type",
         "overrideProbabilities": { "decisive_us_victory": 0.42, "negotiated_settlement": 0.48, "frozen_conflict": 0.08, "wider_regional_war": 0.02 }
+      },
+      {
+        "nodeId": "energy_infrastructure_targeting",
+        "overrideProbabilities": {
+          "restrained": 0.80,
+          "storage_refinery_only": 0.15,
+          "production_targeted": 0.04,
+          "mutual_energy_destruction": 0.01
+        }
+      },
+      {
+        "nodeId": "drone_cost_asymmetry",
+        "overrideProbabilities": {
+          "favorable_defense": 0.50,
+          "neutral": 0.35,
+          "unfavorable_defense": 0.12,
+          "defense_unsustainable": 0.03
+        }
+      },
+      {
+        "nodeId": "ground_operation_feasibility",
+        "overrideProbabilities": {
+          "infeasible": 0.85,
+          "limited_island_ops": 0.12,
+          "coastal_foothold": 0.02,
+          "major_invasion": 0.01
+        }
       }
     ]
   },
@@ -68,6 +95,33 @@
       {
         "nodeId": "resolution_type",
         "overrideProbabilities": { "decisive_us_victory": 0.12, "negotiated_settlement": 0.62, "frozen_conflict": 0.18, "wider_regional_war": 0.08 }
+      },
+      {
+        "nodeId": "energy_infrastructure_targeting",
+        "overrideProbabilities": {
+          "restrained": 0.10,
+          "storage_refinery_only": 0.25,
+          "production_targeted": 0.55,
+          "mutual_energy_destruction": 0.10
+        }
+      },
+      {
+        "nodeId": "drone_cost_asymmetry",
+        "overrideProbabilities": {
+          "favorable_defense": 0.10,
+          "neutral": 0.25,
+          "unfavorable_defense": 0.50,
+          "defense_unsustainable": 0.15
+        }
+      },
+      {
+        "nodeId": "ground_operation_feasibility",
+        "overrideProbabilities": {
+          "infeasible": 0.70,
+          "limited_island_ops": 0.22,
+          "coastal_foothold": 0.06,
+          "major_invasion": 0.02
+        }
       }
     ]
   },
@@ -104,6 +158,33 @@
       {
         "nodeId": "resolution_type",
         "overrideProbabilities": { "decisive_us_victory": 0.05, "negotiated_settlement": 0.12, "frozen_conflict": 0.68, "wider_regional_war": 0.15 }
+      },
+      {
+        "nodeId": "energy_infrastructure_targeting",
+        "overrideProbabilities": {
+          "restrained": 0.05,
+          "storage_refinery_only": 0.15,
+          "production_targeted": 0.60,
+          "mutual_energy_destruction": 0.20
+        }
+      },
+      {
+        "nodeId": "drone_cost_asymmetry",
+        "overrideProbabilities": {
+          "favorable_defense": 0.05,
+          "neutral": 0.15,
+          "unfavorable_defense": 0.55,
+          "defense_unsustainable": 0.25
+        }
+      },
+      {
+        "nodeId": "ground_operation_feasibility",
+        "overrideProbabilities": {
+          "infeasible": 0.25,
+          "limited_island_ops": 0.55,
+          "coastal_foothold": 0.16,
+          "major_invasion": 0.04
+        }
       }
     ]
   },
@@ -140,6 +221,33 @@
       {
         "nodeId": "resolution_type",
         "overrideProbabilities": { "decisive_us_victory": 0.04, "negotiated_settlement": 0.10, "frozen_conflict": 0.20, "wider_regional_war": 0.66 }
+      },
+      {
+        "nodeId": "energy_infrastructure_targeting",
+        "overrideProbabilities": {
+          "restrained": 0.01,
+          "storage_refinery_only": 0.04,
+          "production_targeted": 0.35,
+          "mutual_energy_destruction": 0.60
+        }
+      },
+      {
+        "nodeId": "drone_cost_asymmetry",
+        "overrideProbabilities": {
+          "favorable_defense": 0.01,
+          "neutral": 0.04,
+          "unfavorable_defense": 0.40,
+          "defense_unsustainable": 0.55
+        }
+      },
+      {
+        "nodeId": "ground_operation_feasibility",
+        "overrideProbabilities": {
+          "infeasible": 0.08,
+          "limited_island_ops": 0.42,
+          "coastal_foothold": 0.38,
+          "major_invasion": 0.12
+        }
       }
     ]
   }

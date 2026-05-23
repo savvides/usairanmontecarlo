@@ -108,8 +108,8 @@ export default function MethodologyPage() {
               near 5%, consistent with the 0-15% historical range for punishment and denial strategies.
             </p>
             <p>
-              <strong className="text-text-primary">Observed validation (April 2026).</strong> As of
-              April 24, 2026, observed conflict outcomes have validated Pape&apos;s predictions with
+              <strong className="text-text-primary">Observed validation (May 2026).</strong> As of
+              May 22, 2026, observed conflict outcomes have validated Pape&apos;s predictions with
               striking accuracy. The US air campaign achieved near-total tactical dominance over
               38 days but produced zero political concessions: the April 6 deadline passed without
               Iranian compliance; 21-hour direct negotiations in Islamabad collapsed on April 12
@@ -212,7 +212,8 @@ export default function MethodologyPage() {
             </li>
             <li>
               <strong className="text-text-primary">Snapshot-in-time model</strong> — parameters
-              reflect conditions as of April 24, 2026 and do not update automatically.
+              reflect conditions as of our last manual update (May 22, 2026). The simulation is updated
+              manually as significant developments unfold in the ongoing conflict, ensuring readers see a structured timeline rather than stale information.
             </li>
             <li>
               <strong className="text-text-primary">Phases 1–2 are locked to observed data</strong> —

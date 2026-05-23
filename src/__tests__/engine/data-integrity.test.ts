@@ -8,6 +8,13 @@ import phase6Nodes from '@data/nodes/phase-6-humanitarian.json';
 import phase7Nodes from '@data/nodes/phase-7-resolution.json';
 import phase8Nodes from '@data/nodes/phase-8-aftermath.json';
 import phase1Scenarios from '@data/scenarios/phase-1-scenarios.json';
+import phase2Scenarios from '@data/scenarios/phase-2-scenarios.json';
+import phase3Scenarios from '@data/scenarios/phase-3-scenarios.json';
+import phase4Scenarios from '@data/scenarios/phase-4-scenarios.json';
+import phase5Scenarios from '@data/scenarios/phase-5-scenarios.json';
+import phase6Scenarios from '@data/scenarios/phase-6-scenarios.json';
+import phase7Scenarios from '@data/scenarios/phase-7-scenarios.json';
+import phase8Scenarios from '@data/scenarios/phase-8-scenarios.json';
 import sources from '@data/sources.json';
 import type { SimNode, ScenarioCard, BinaryNode, ContinuousNode, CategoricalNode } from '@engine/types';
 
@@ -20,6 +27,17 @@ const allPhases: { phase: number; nodes: SimNode[] }[] = [
   { phase: 6, nodes: phase6Nodes as unknown as SimNode[] },
   { phase: 7, nodes: phase7Nodes as unknown as SimNode[] },
   { phase: 8, nodes: phase8Nodes as unknown as SimNode[] },
+];
+
+const allScenarios: { phase: number; scenarios: ScenarioCard[] }[] = [
+  { phase: 1, scenarios: phase1Scenarios as unknown as ScenarioCard[] },
+  { phase: 2, scenarios: phase2Scenarios as unknown as ScenarioCard[] },
+  { phase: 3, scenarios: phase3Scenarios as unknown as ScenarioCard[] },
+  { phase: 4, scenarios: phase4Scenarios as unknown as ScenarioCard[] },
+  { phase: 5, scenarios: phase5Scenarios as unknown as ScenarioCard[] },
+  { phase: 6, scenarios: phase6Scenarios as unknown as ScenarioCard[] },
+  { phase: 7, scenarios: phase7Scenarios as unknown as ScenarioCard[] },
+  { phase: 8, scenarios: phase8Scenarios as unknown as ScenarioCard[] },
 ];
 
 const allNodes = allPhases.flatMap((p) => p.nodes);
@@ -118,14 +136,11 @@ describe('Cross-phase node ID uniqueness', () => {
   });
 });
 
-describe('Phase 1 scenario card data integrity', () => {
-  const scenarios = phase1Scenarios as unknown as ScenarioCard[];
-  const nodeIds = new Set(allPhases[0].nodes.map((n) => n.id));
-
+describe.each(allScenarios)('Phase $phase scenario card data integrity', ({ phase, scenarios }) => {
   it('all scenarios have required fields', () => {
     for (const scenario of scenarios) {
       expect(scenario.id).toBeTruthy();
-      expect(scenario.phase).toBe(1);
+      expect(scenario.phase).toBe(phase);
       expect(scenario.title).toBeTruthy();
       expect(scenario.description).toBeTruthy();
       expect(Array.isArray(scenario.overrides)).toBe(true);
@@ -133,7 +148,7 @@ describe('Phase 1 scenario card data integrity', () => {
     }
   });
 
-  it('all scenario IDs are unique', () => {
+  it('all scenario IDs are unique within phase', () => {
     const ids = scenarios.map((s) => s.id);
     expect(new Set(ids).size).toBe(ids.length);
   });
@@ -141,17 +156,21 @@ describe('Phase 1 scenario card data integrity', () => {
   it('all override nodeIds reference existing nodes', () => {
     for (const scenario of scenarios) {
       for (const override of scenario.overrides) {
-        expect(nodeIds.has(override.nodeId)).toBe(true);
+        expect(allNodeIds.has(override.nodeId)).toBe(true);
       }
     }
   });
 
-  it('override probability distributions sum to ~1', () => {
+  it('override probability distributions sum to ~1 or have valid binary overrides', () => {
     for (const scenario of scenarios) {
       for (const override of scenario.overrides) {
         if (override.overrideProbabilities) {
           const sum = Object.values(override.overrideProbabilities).reduce((a, b) => a + b, 0);
           expect(sum).toBeCloseTo(1.0, 2);
+        }
+        if (override.overridePTrue !== undefined) {
+          expect(override.overridePTrue).toBeGreaterThanOrEqual(0);
+          expect(override.overridePTrue).toBeLessThanOrEqual(1);
         }
       }
     }

@@ -62,6 +62,24 @@
           "sustained": 0.35,
           "all_out": 0.05
         }
+      },
+      {
+        "nodeId": "energy_infrastructure_targeting",
+        "overrideProbabilities": {
+          "restrained": 0.70,
+          "storage_refinery_only": 0.20,
+          "production_targeted": 0.08,
+          "mutual_energy_destruction": 0.02
+        }
+      },
+      {
+        "nodeId": "drone_cost_asymmetry",
+        "overrideProbabilities": {
+          "favorable_defense": 0.35,
+          "neutral": 0.40,
+          "unfavorable_defense": 0.20,
+          "defense_unsustainable": 0.05
+        }
       }
     ]
   },
@@ -127,6 +145,24 @@
           "degraded": 0.02,
           "largely_destroyed": 0.48,
           "collapsed": 0.50
+        }
+      },
+      {
+        "nodeId": "energy_infrastructure_targeting",
+        "overrideProbabilities": {
+          "restrained": 0.02,
+          "storage_refinery_only": 0.08,
+          "production_targeted": 0.65,
+          "mutual_energy_destruction": 0.25
+        }
+      },
+      {
+        "nodeId": "drone_cost_asymmetry",
+        "overrideProbabilities": {
+          "favorable_defense": 0.02,
+          "neutral": 0.08,
+          "unfavorable_defense": 0.55,
+          "defense_unsustainable": 0.35
         }
       }
     ]
@@ -197,6 +233,24 @@
           "targeted": 0.12,
           "widespread": 0.46,
           "critical_infrastructure_attacks": 0.40
+        }
+      },
+      {
+        "nodeId": "energy_infrastructure_targeting",
+        "overrideProbabilities": {
+          "restrained": 0.01,
+          "storage_refinery_only": 0.04,
+          "production_targeted": 0.45,
+          "mutual_energy_destruction": 0.50
+        }
+      },
+      {
+        "nodeId": "drone_cost_asymmetry",
+        "overrideProbabilities": {
+          "favorable_defense": 0.01,
+          "neutral": 0.04,
+          "unfavorable_defense": 0.35,
+          "defense_unsustainable": 0.60
         }
       }
     ]
@@ -272,6 +326,24 @@
           "limited": 0.02,
           "sustained": 0.38,
           "escalating": 0.60
+        }
+      },
+      {
+        "nodeId": "energy_infrastructure_targeting",
+        "overrideProbabilities": {
+          "restrained": 0.01,
+          "storage_refinery_only": 0.05,
+          "production_targeted": 0.34,
+          "mutual_energy_destruction": 0.60
+        }
+      },
+      {
+        "nodeId": "drone_cost_asymmetry",
+        "overrideProbabilities": {
+          "favorable_defense": 0.01,
+          "neutral": 0.04,
+          "unfavorable_defense": 0.40,
+          "defense_unsustainable": 0.55
         }
       }
     ]
