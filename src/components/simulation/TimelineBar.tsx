@@ -85,7 +85,7 @@ export function TimelineBar({ timeline, currentPhase, onEventClick }: TimelineBa
     // Event markers with tooltips
     const tooltip = d3.select(tooltipRef.current);
 
-    events.forEach((event) => {
+    events.forEach((event, index) => {
       const cx = x(event.parsedDate);
       const isCurrentPhase = event.phase === currentPhase;
 
@@ -98,7 +98,7 @@ export function TimelineBar({ timeline, currentPhase, onEventClick }: TimelineBa
         .attr('cursor', 'pointer');
 
       g.append('text')
-        .attr('x', cx).attr('y', h / 2 + 16)
+        .attr('x', cx).attr('y', h / 2 + (index % 2 === 0 ? 14 : 24))
         .attr('text-anchor', 'middle').attr('fill', '#55556a')
         .attr('font-size', '7px').attr('font-family', "'JetBrains Mono', monospace")
         .text(formatDate(event.date));
