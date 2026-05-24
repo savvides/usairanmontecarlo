@@ -161,16 +161,34 @@ describe.each(allScenarios)('Phase $phase scenario card data integrity', ({ phas
     }
   });
 
-  it('override probability distributions sum to ~1 or have valid binary overrides', () => {
+  it('all overrides are valid for their node types and categories', () => {
+    const nodeMap = new Map(allNodes.map((n) => [n.id, n]));
     for (const scenario of scenarios) {
       for (const override of scenario.overrides) {
+        const node = nodeMap.get(override.nodeId);
+        if (!node) continue;
+
         if (override.overrideProbabilities) {
+          expect(node.type).toBe('categorical');
           const sum = Object.values(override.overrideProbabilities).reduce((a, b) => a + b, 0);
           expect(sum).toBeCloseTo(1.0, 2);
+          
+          const nodeCats = (node as CategoricalNode).categories;
+          Object.keys(override.overrideProbabilities).forEach(cat => {
+            expect(nodeCats).toContain(cat);
+          });
         }
+
         if (override.overridePTrue !== undefined) {
+          expect(node.type).toBe('binary');
           expect(override.overridePTrue).toBeGreaterThanOrEqual(0);
           expect(override.overridePTrue).toBeLessThanOrEqual(1);
+        }
+
+        if (override.overrideDistribution) {
+          expect(node.type).toBe('continuous');
+          expect(['normal', 'uniform', 'triangular']).toContain(override.overrideDistribution.type);
+          expect(Array.isArray(override.overrideDistribution.params)).toBe(true);
         }
       }
     }
