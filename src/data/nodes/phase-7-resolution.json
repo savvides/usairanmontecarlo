@@ -50,7 +50,7 @@
     "phase": 7,
     "type": "categorical",
     "label": "Ceasefire Mechanism",
-    "description": "The primary mechanism through which hostilities are halted, if at all. Observed: a two-week ceasefire was agreed on April 7-8 through Pakistan mediation (not Turkey as previously expected); the 'turkey_mediated_deal' category now represents any third-party mediated deal (Turkey, Pakistan, or similar). The ceasefire included terms for Hormuz reopening and nuclear talks, but Iran did not honor the Hormuz terms, direct US-Iran negotiations in Islamabad collapsed on April 12 after 21 hours, and on April 13 the US imposed a naval blockade on Iran. On April 21, hours before the April 22 expiration, Trump unilaterally extended the ceasefire at Pakistan's request — Vance-led Islamabad-2 had just dissolved when Iran refused to attend. The character of the active ceasefire has therefore shifted from third-party-mediated deal toward unilateral extension with mediation cover. Within hours of the extension, Iran seized two ships in the strait, and on April 23 Trump ordered the Navy to 'shoot and kill' Iranian mine-layers. The nuclear question (US wants 20-year enrichment ban; Iran offers 5) remains the structural sticking point.",
+    "description": "The primary mechanism through which hostilities are halted, if at all. Observed: a two-week ceasefire was agreed on April 7-8 through Pakistan mediation (not Turkey as previously expected); the 'turkey_mediated_deal' category now represents any third-party mediated deal (Turkey, Pakistan, or similar). The ceasefire included terms for Hormuz reopening and nuclear talks, but Iran did not honor the Hormuz terms, direct US-Iran negotiations in Islamabad collapsed on April 12 after 21 hours, and on April 13 the US imposed a naval blockade on Iran. On April 21, hours before the April 22 expiration, Trump unilaterally extended the ceasefire at Pakistan's request — Vance-led Islamabad-2 had just dissolved when Iran refused to attend. The character of the active ceasefire has therefore shifted from third-party-mediated deal toward unilateral extension with mediation cover. Within hours of the extension, Iran seized two ships in the strait, and on April 23 Trump ordered the Navy to 'shoot and kill' Iranian mine-layers. The nuclear question (US wants 20-year enrichment ban; Iran offers 5) remains the structural sticking point. By late May 2026, a one-page 14-point MOU was near finalization — Trump circulated drafts to Israel and Arab countries on May 30 and stated the deal was close to finalizing with 'strong inspections.' However, Iran's FM Araghchi expressed uncertainty and Khamenei's advisor dismissed US nuclear control demands as a 'fantasy.' By June 2, Reuters reported Iran was preparing to decline the US proposal, with Mojtaba Khamenei stating enrichment is non-negotiable. The mediated track remains active but fragile.",
     "parents": ["ceasefire_mediation_viability", "april_6_deadline_outcome", "coercive_success_probability"],
     "categories": ["us_ultimatum_accepted", "turkey_mediated_deal", "un_brokered", "unilateral_ceasefire", "no_ceasefire"],
     "cpt": [
@@ -84,11 +84,11 @@
       }
     ],
     "defaultProbabilities": {
-      "us_ultimatum_accepted": 0.08,
-      "turkey_mediated_deal": 0.32,
-      "un_brokered": 0.06,
-      "unilateral_ceasefire": 0.20,
-      "no_ceasefire": 0.34
+      "us_ultimatum_accepted": 0.06,
+      "turkey_mediated_deal": 0.33,
+      "un_brokered": 0.05,
+      "unilateral_ceasefire": 0.18,
+      "no_ceasefire": 0.38
     },
     "source": {
       "citation": "Reuters 'US-Iran ceasefire agreed via Pakistan mediation' April 2026; NPR 'Pakistan talks collapse after 21 hours' April 12, 2026; TIME 'Trump extends Iran ceasefire' April 21, 2026; Al Jazeera 'Trump orders shoot-and-kill on Iranian mine-layers' April 23, 2026; Crisis Group 'Ceasefire Mechanisms in the US-Iran Conflict' March 2026",
@@ -282,10 +282,10 @@
       }
     ],
     "defaultProbabilities": {
-      "unconditional_iranian_surrender": 0.02,
-      "negotiated_with_us_advantages": 0.36,
-      "mutual_concessions": 0.29,
-      "frozen_conflict_no_terms": 0.33
+      "unconditional_iranian_surrender": 0.01,
+      "negotiated_with_us_advantages": 0.31,
+      "mutual_concessions": 0.33,
+      "frozen_conflict_no_terms": 0.35
     },
     "source": {
       "citation": "RAND 'War Termination Theory and Practice' 2023; Brookings 'Negotiated Endings to Armed Conflicts' 2024; CFR 'Conflict Termination Frameworks' 2025; Chatham House 'Iran Negotiation Dynamics' March 2026",
@@ -298,7 +298,7 @@
     "phase": 7,
     "type": "categorical",
     "label": "Nuclear Program Verification Outcome",
-    "description": "The verification and inspection framework for Iran's nuclear program following war termination. The February 28 strikes destroyed declared enrichment facilities at Natanz and Fordow, but IAEA reports indicate Iran's stockpile of 60% enriched uranium (enough for several weapons) is unaccounted for — either destroyed, dispersed, or hidden. Full IAEA access requires Iranian cooperation and a legal framework (either revived Safeguards Agreement or new treaty), which depends on war termination terms. Partial inspection involves limited IAEA presence at declared sites without access to suspected undeclared locations or military dimensions. No verification occurs in frozen-conflict scenarios where Iran rejects all inspection frameworks. A new agreement could go beyond the JCPOA's Additional Protocol to include permanent IAEA presence, military site access, and advanced monitoring — but requires trust-building that the conflict has destroyed. The critical gap: even full IAEA access cannot guarantee detection of covert facilities in a country of 1.6 million square kilometers with extensive tunnel networks. IAEA Director General's March 2026 statement noted the agency has lost all monitoring capability since the strikes.",
+    "description": "The verification and inspection framework for Iran's nuclear program following war termination. The February 28 strikes destroyed declared enrichment facilities at Natanz and Fordow, but IAEA reports indicate Iran's stockpile of 60% enriched uranium (enough for several weapons) is unaccounted for — either destroyed, dispersed, or hidden. Full IAEA access requires Iranian cooperation and a legal framework (either revived Safeguards Agreement or new treaty), which depends on war termination terms. Partial inspection involves limited IAEA presence at declared sites without access to suspected undeclared locations or military dimensions. No verification occurs in frozen-conflict scenarios where Iran rejects all inspection frameworks. A new agreement could go beyond the JCPOA's Additional Protocol to include permanent IAEA presence, military site access, and advanced monitoring — but requires trust-building that the conflict has destroyed. The critical gap: even full IAEA access cannot guarantee detection of covert facilities in a country of 1.6 million square kilometers with extensive tunnel networks. IAEA Director General's March 2026 statement noted the agency has lost all monitoring capability since the strikes. As of June 2026, Iran-Russia signed a $25 billion nuclear cooperation MOU (June 4) to expand the Hormoz Nuclear Power Plant and Bushehr, deepening Iran's nuclear self-sufficiency outside the IAEA framework. Austria's intelligence service separately reported Iran is advancing nuclear-capable ballistic missiles. IAEA Director Grossi has stated 'the next Iran nuclear deal will look very different.' Iran's position that enrichment is non-negotiable (Mojtaba Khamenei, June 2026) further narrows the verification outlook.",
     "parents": ["war_termination_terms"],
     "categories": ["full_iaea_access", "partial_inspection", "no_verification", "new_agreement"],
     "cpt": [
@@ -320,10 +320,10 @@
       }
     ],
     "defaultProbabilities": {
-      "full_iaea_access": 0.12,
-      "partial_inspection": 0.25,
-      "no_verification": 0.35,
-      "new_agreement": 0.28
+      "full_iaea_access": 0.08,
+      "partial_inspection": 0.20,
+      "no_verification": 0.40,
+      "new_agreement": 0.32
     },
     "source": {
       "citation": "IAEA Board of Governors 'Iran Safeguards Implementation Report' March 2026; Brookings 'Nuclear Verification After Military Strikes' 2025; CSIS 'After the Strike: Iran Nuclear Monitoring Gaps' 2025; Arms Control Association 'JCPOA Lessons for Post-Conflict Verification' 2024",
@@ -476,7 +476,7 @@
       { "parentValues": { "overall_military_balance": "decisive_us", "iranian_nationalist_resolve": "moderate" }, "categoryProbabilities": { "succeeded": 0.10, "partial": 0.25, "failed": 0.45, "counterproductive": 0.20 } },
       { "parentValues": { "overall_military_balance": "decisive_us", "iranian_nationalist_resolve": "low" }, "categoryProbabilities": { "succeeded": 0.20, "partial": 0.35, "failed": 0.35, "counterproductive": 0.10 } }
     ],
-    "defaultProbabilities": { "succeeded": 0.02, "partial": 0.10, "failed": 0.53, "counterproductive": 0.35 },
+    "defaultProbabilities": { "succeeded": 0.02, "partial": 0.12, "failed": 0.51, "counterproductive": 0.35 },
     "source": { "citation": "Pape, Bombing to Win (Cornell, 1996) — 33-case empirical analysis; Pape, 'Escalation Trap' March 2026; Al Jazeera 'Lavrov: Iran war could push Tehran toward nuclear bomb' April 2026; NPR 'Islamabad talks collapse' April 12, 2026", "url": "https://escalationtrap.substack.com/", "confidence": "high" }
   },
   {
@@ -588,9 +588,9 @@
     ],
     "defaultProbabilities": {
       "decisive_us_victory": 0.02,
-      "negotiated_settlement": 0.22,
+      "negotiated_settlement": 0.24,
       "frozen_conflict": 0.43,
-      "wider_regional_war": 0.33
+      "wider_regional_war": 0.31
     },
     "source": {
       "citation": "NPR 'US-Iran peace talks collapse' April 12, 2026; CBS News 'US naval blockade of Iran takes effect' April 13, 2026; Al Jazeera 'Trump orders shoot-and-kill on Iranian mine-layers' April 23, 2026; Washington Post 'Iran seizes 2 ships in Strait of Hormuz' April 22, 2026; Reuters 'Israel Operation Eternal Darkness kills 357 in Lebanon' April 8, 2026; Crisis Group 'US-Iran Conflict Trajectory Assessment' April 2026",
