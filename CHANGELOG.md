@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.5.0] - 2026-06-07
+
+### Added
+- 6 new timeline events covering May 24–June 4: Trump says MOU near finalization (May 24), Austria intelligence reports Iran advancing nuclear-capable ballistic missiles (May 26), final deal talks intensify with core gaps remaining (May 27), IRGC threatens blockade attack if deal betrayed and MOU draft circulated to Israel/Arab states (May 30), Iran preparing to decline US proposal with enrichment standoff deepening (June 2), Iran-Russia sign $25B nuclear cooperation agreement for Hormoz and Bushehr expansion (June 4)
+
+### Changed
+- Recalibrated 5 Bayesian nodes from observed data: ceasefire_mechanism (turkey_mediated_deal 0.32→0.33, no_ceasefire 0.34→0.38, unilateral_ceasefire 0.20→0.18, us_ultimatum_accepted 0.08→0.06, un_brokered 0.06→0.05), coercive_success_probability (partial 0.10→0.12, failed 0.53→0.51), resolution_type (negotiated_settlement 0.22→0.24, wider_regional_war 0.33→0.31), nuclear_program_verification (no_verification 0.35→0.40, new_agreement 0.28→0.32, full_iaea_access 0.12→0.08, partial_inspection 0.25→0.20), war_termination_terms (mutual_concessions 0.29→0.33, frozen_conflict_no_terms 0.33→0.35, negotiated_with_us_advantages 0.36→0.31, unconditional_iranian_surrender 0.02→0.01)
+- Updated ceasefire_mechanism description to reflect May MOU near-finalization, Iranian internal factional rift, and June 2 Iran preparing to decline
+- Updated nuclear_program_verification description to reflect Iran-Russia $25B nuclear cooperation deal, Austria intelligence report, IAEA Director Grossi's "next deal will look very different" statement, and Iran's enrichment-is-non-negotiable position
+- Pape validation section extended to June 7: MOU near-finalization confirms "partial" coercion traction, Iran preparing to decline confirms no strategic concession on nuclear question, Russia-Iran $25B nuclear deal makes the "counterproductive" pathway structurally concrete
+- Methodology snapshot date updated from May 22 to June 7, 2026
+- timeline.json `lastUpdated` and `observedThrough` bumped to 2026-06-07
+
 ## [1.0.4.0] - 2026-04-26
 
 ### Changed
