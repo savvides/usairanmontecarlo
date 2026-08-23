@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.5.0] - 2026-08-23
+
+### Added
+- 14 new timeline events covering June 3 – August 20: House and Senate war-powers votes, Islamabad MoU signed, US blockade lifted then reimposed, Iran re-closes Hormuz over Lebanon, June 27 Hormuz stress test, Trump declares the MoU "over," 13-night July campaign, Jordan attack, dual-lane framework that never starts, 60-day window lapse, UAE financial cutoff, Economic D-Day
+- 4 bibliography entries: Islamabad Memorandum, Kpler Hormuz MoU post-mortem, Reuters August oil analysis, Wikipedia casualties page
+- Snapshot-drift regression tests that lock `lastUpdated` / `observedThrough` to 2026-08-23, require the June 17 / July 8 / August 17 events, and fail if mixed-phase editorial still leads with April 24 or May 22
+
+### Changed
+- Editorial rewrite for Phases 3–8 reflecting the signed-then-dead memorandum, the missed H2 Hormuz reopen, Brent's path from $71 to $100 back to $92, Lebanon's 4,324 dead, and Pape Stage 3 not arriving
+- Recalibrated Bayesian defaults from observed data: conflict duration (mass to `prolonged_over_6_months` / `4_8_months`+`over_8_months`), ceasefire window and mechanism (`no_ceasefire` 0.34→0.60), Hormuz reopen (`prolonged_closure` 0.55→0.62, timeline `indefinite` 0.23→0.55), oil price default $120→$92 (min 80→65), coercive success (`counterproductive` 0.35→0.42), ground escalation PTrue 0.45→0.28, resolution type (`negotiated_settlement` 0.22→0.12, `wider_regional_war` 0.33→0.38), Iranian civilian toll modal bin `500_2000`→`2000_5000`
+- Mixed-phase scenario cards rebased onto August 23 observed conditions without changing IDs (URL state preserved): "Air Campaign Stays Paused," "Strike Campaign Resumes," "Omani Dual-Lane Deal Holds," "Second MoU: Final Deal," "Mediated Settlement by Year-End"
+- Methodology Pape-validation note and snapshot-limitation date moved from May 22 to August 23
+- README phase status table updated to August 23 reality
+- `timeline.json` `lastUpdated` and `observedThrough` bumped to 2026-08-23
+
+### For contributors
+- Test count: 128 → 164 (8 new assertions in the snapshot-drift suite)
+
 ## [1.0.4.0] - 2026-04-26
 
 ### Changed
