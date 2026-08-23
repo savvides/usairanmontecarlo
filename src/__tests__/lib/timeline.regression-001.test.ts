@@ -5,6 +5,7 @@
 import { describe, it, expect } from 'vitest';
 import { timeline, formatLongDate, describePhaseStatus } from '@/lib/timeline';
 import type { PhaseStatus } from '@/lib/timeline';
+import { phaseContent } from '@/lib/phase-content';
 
 describe('formatLongDate', () => {
   it('formats ISO date as long English form', () => {
@@ -65,5 +66,53 @@ describe('describePhaseStatus', () => {
     expect(desc).toContain('Phases 1–2');
     expect(desc).toContain('Phases 3–5');
     expect(desc).toContain('Phase 8');
+  });
+});
+
+describe('August 2026 snapshot contract', () => {
+  it('lastUpdated and observedThrough are 2026-08-23', () => {
+    expect(timeline.lastUpdated).toBe('2026-08-23');
+    expect(timeline.observedThrough).toBe('2026-08-23');
+  });
+
+  it('formatLongDate of lastUpdated is August 23, 2026', () => {
+    expect(formatLongDate(timeline.lastUpdated)).toBe('August 23, 2026');
+  });
+
+  it('includes the Islamabad Memorandum on 2026-06-17', () => {
+    const mou = timeline.events.find((e) => e.date === '2026-06-17');
+    expect(mou).toBeDefined();
+    expect(mou!.phase).toBe(7);
+    expect(mou!.label.toLowerCase()).toMatch(/islamabad|mou|memorandum/);
+  });
+
+  it('includes Trump declaring the MoU over on 2026-07-08', () => {
+    const over = timeline.events.find((e) => e.date === '2026-07-08');
+    expect(over).toBeDefined();
+    expect(over!.phase).toBe(7);
+  });
+
+  it('includes the 60-day MoU window lapse on 2026-08-17', () => {
+    const lapse = timeline.events.find((e) => e.date === '2026-08-17');
+    expect(lapse).toBeDefined();
+    expect(lapse!.phase).toBe(7);
+  });
+
+  it('keeps events sorted by date', () => {
+    const dates = timeline.events.map((e) => e.date);
+    expect(dates).toEqual([...dates].sort());
+  });
+
+  it('does not lead mixed-phase copy with a stale snapshot date', () => {
+    const stale = /As of (April 24|May 22), 2026/;
+    for (const p of phaseContent.filter((x) => x.phase >= 3)) {
+      expect(p.paragraphs.join(' ')).not.toMatch(stale);
+    }
+  });
+
+  it('phase 3 editorial names the current snapshot date', () => {
+    const p3 = phaseContent.find((p) => p.phase === 3);
+    expect(p3).toBeDefined();
+    expect(p3!.paragraphs[0]).toContain('August 23, 2026');
   });
 });
