@@ -350,7 +350,7 @@
     "phase": 3,
     "type": "categorical",
     "label": "Conflict Duration Projection",
-    "description": "Estimated total duration of active combat operations. As of March 29, the conflict is 29 days old with no ceasefire in sight. Key variables: whether the April 6 energy-strike deadline leads to further escalation; whether Iranian military capacity degrades to the point of capitulation; whether domestic US political pressure forces a halt; whether regional escalation (Houthis, Hezbollah) extends the timeline. Historical comparisons: OIF major combat 21 days, Kosovo air campaign 78 days, Libya 2011 air campaign 7 months.",
+    "description": "Estimated total duration of active combat operations. Observed: the war began 28 February 2026 and is in its sixth month as of 23 August 2026 (~176 days). A 14-point Islamabad Memorandum signed 17 June produced a 60-day window that lapsed on 17 August with no final deal. A 13-night July air campaign and the 15 July reimposition of the US naval blockade show that 'active combat' now pulses rather than ending. Bins of weeks and 1–3 months are falsified as total-duration outcomes; mass moves to prolonged_over_6_months. Historical comparisons: Kosovo air campaign 78 days, Libya 2011 air campaign 7 months, this campaign has already matched Libya and is not over.",
     "parents": ["us_air_campaign_scale", "iranian_command_and_control_status", "houthi_war_entry", "drone_cost_asymmetry"],
     "categories": ["weeks", "1_3_months", "3_6_months", "prolonged_over_6_months"],
     "cpt": [
@@ -388,13 +388,13 @@
       }
     ],
     "defaultProbabilities": {
-      "weeks": 0.05,
-      "1_3_months": 0.38,
-      "3_6_months": 0.40,
-      "prolonged_over_6_months": 0.17
+      "weeks": 0.01,
+      "1_3_months": 0.04,
+      "3_6_months": 0.20,
+      "prolonged_over_6_months": 0.75
     },
     "source": {
-      "citation": "Historical air campaign duration analysis (Kosovo 78 days, Libya 213 days, OIF 21 days major combat); RAND 'Duration and Outcomes of US Military Interventions' 2024; current operational trajectory assessment",
+      "citation": "Historical air campaign duration analysis (Kosovo 78 days, Libya 213 days); Wikipedia '2026 Iran war' as of 23 August 2026 (~176 days ongoing); Kpler '60 days of a broken US-Iran MoU' 19 August 2026; RAND 'Duration and Outcomes of US Military Interventions' 2024",
       "url": "https://www.rand.org/topics/military-operations.html",
       "confidence": "low"
     }
@@ -404,7 +404,7 @@
     "phase": 3,
     "type": "categorical",
     "label": "US Military Casualties",
-    "description": "Total US military casualties (killed and wounded) during the conflict. Observed as of March 29: light casualties — approximately 30-50 wounded from Iranian ballistic missile strikes on Gulf bases (most intercepted), minor injuries from Houthi Red Sea attacks. No confirmed KIA from direct Iranian action as of reporting date. Projection forward depends heavily on whether ground operations commence and whether Iranian asymmetric attacks achieve breakthroughs.",
+    "description": "Total US military casualties (killed and wounded) during the conflict. Observed as of 21 July 2026: 19 service members and 1 civilian contractor killed; 624 service members and 5 contractors wounded (Wikipedia / CENTCOM). That is no longer a 'light' air-campaign bill — it is moderate for a six-month standoff-and-strike war, and it does not include the 6 airmen killed in the 12 March KC-135 crash that CENTCOM said was not hostile. Projection forward now depends less on a ground invasion (which has not occurred) and more on whether Hormuz interdiction, Jordan/Bahrain/Kuwait base attacks, and interceptor shortages produce a step-change.",
     "parents": ["us_air_campaign_scale", "conflict_duration_projection", "iranian_asymmetric_naval_ops"],
     "categories": ["minimal", "light", "moderate", "heavy"],
     "cpt": [
@@ -430,13 +430,13 @@
       }
     ],
     "defaultProbabilities": {
-      "minimal": 0.15,
-      "light": 0.50,
-      "moderate": 0.28,
-      "heavy": 0.07
+      "minimal": 0.02,
+      "light": 0.25,
+      "moderate": 0.58,
+      "heavy": 0.15
     },
     "source": {
-      "citation": "CENTCOM casualty reporting March 2026; DoD press briefings; historical air-campaign casualty rates (Kosovo: 0 KIA, OIF air campaign: 139 KIA first 30 days); CRS 'US Military Casualties in Operations' database",
+      "citation": "Wikipedia 'Casualties of the 2026 Iran war' (as of 21 July 2026: 19 KIA, 624 wounded); CENTCOM / DoD press briefings; CRS 'US Military Casualties in Operations' database",
       "url": "https://www.defense.gov/",
       "confidence": "medium"
     }
@@ -552,7 +552,7 @@
     "phase": 3,
     "type": "categorical",
     "label": "Ceasefire Window",
-    "description": "Assessment of diplomatic openings for a ceasefire or conflict termination. As of March 29, negotiations are deadlocked. The US has set an April 6 deadline for the energy-strike pause — interpreted as an ultimatum to Iran. Oman and Qatar backchannel efforts are ongoing but Iran's leadership (to the extent it can communicate) has not signaled willingness to accept US terms. China has called for restraint but has not applied decisive economic pressure. The UN Security Council is paralyzed by US/Russian vetoes.",
+    "description": "Assessment of diplomatic openings for a ceasefire or conflict termination. Observed as of 23 August 2026: the window that existed in June was used. The Islamabad Memorandum was signed 17 June, declared 'over' by Trump on 8 July, and its 60-day final-deal clock lapsed on 17 August with no extension and no talks scheduled. Oman is talking to Iran about a dual-lane Hormuz route, not about ending the war. Congressional war-powers votes (House 3 June, Senate 23 June) constrain escalation more than they open a deal. The live state is closer to 'none' than 'strong,' with a residual 'narrow' channel through Pakistan/Qatar/Oman messengers.",
     "parents": ["overall_military_balance", "conflict_duration_projection", "iranian_command_and_control_status"],
     "categories": ["none", "narrow", "moderate", "strong"],
     "cpt": [
@@ -578,13 +578,13 @@
       }
     ],
     "defaultProbabilities": {
-      "none": 0.35,
-      "narrow": 0.42,
-      "moderate": 0.18,
-      "strong": 0.05
+      "none": 0.48,
+      "narrow": 0.38,
+      "moderate": 0.12,
+      "strong": 0.02
     },
     "source": {
-      "citation": "Reuters 'Iran-US negotiations deadlocked as April deadline looms' March 29, 2026; Oman/Qatar backchannel reporting via Middle East Eye; UNSC meeting records March 2026; Trump April 6 deadline statement",
+      "citation": "Wikipedia 'Islamabad Memorandum'; Kpler 19 August 2026; Forbes 'Iran's Top Negotiator Says Hormuz Will Stay Shut' 18 August 2026; Reuters Senate war-powers vote 23 June 2026",
       "url": "https://www.reuters.com/world/middle-east/",
       "confidence": "medium"
     }
@@ -594,7 +594,7 @@
     "phase": 3,
     "type": "categorical",
     "label": "Escalation Trap Stage (Pape)",
-    "description": "Position in Robert Pape's three-stage escalation model. Stage 1: precision strikes on nuclear facilities. Stage 2: leadership decapitation and regime air campaign. Stage 3: ground forces and territorial control. Since the Feb 28 strikes killed Khamenei and targeted regime infrastructure across 26 provinces, the conflict entered Stage 2 immediately. Pape estimates ~75% probability of progression to Stage 3 when air coercion fails.",
+    "description": "Position in Robert Pape's three-stage escalation model. Stage 1: precision strikes on nuclear facilities. Stage 2: leadership decapitation and regime air campaign. Stage 3: ground forces and territorial control. The conflict entered Stage 2 on 28 February when Khamenei was killed and regime infrastructure was hit across 26 provinces. As of 23 August 2026 it is still in Stage 2. Pape estimated ~75% probability of progression to Stage 3 when air coercion fails; six months of coercive failure have instead produced a naval blockade, a signed-then-dead memorandum, and 'Economic D-Day' secondary sanctions. Stage 3 is not off the table — Trump threatened to 'take Kharg Island' in July and then said he was unsure 'America has the stomach' — but munitions shortages (virtually all PrSM/ATACMS, ~80% of THAAD) and two congressional war-powers votes are a constraint the original 75% estimate did not price.",
     "parents": ["us_air_campaign_scale", "strike_scale", "leadership_decapitation"],
     "categories": ["stage_1_precision_strikes", "stage_2_regime_campaign", "stage_3_ground_forces"],
     "cpt": [
@@ -603,7 +603,7 @@
       { "parentValues": { "us_air_campaign_scale": "sustained", "leadership_decapitation": "false" }, "categoryProbabilities": { "stage_1_precision_strikes": 0.15, "stage_2_regime_campaign": 0.75, "stage_3_ground_forces": 0.10 } },
       { "parentValues": { "us_air_campaign_scale": "limited", "leadership_decapitation": "false" }, "categoryProbabilities": { "stage_1_precision_strikes": 0.70, "stage_2_regime_campaign": 0.25, "stage_3_ground_forces": 0.05 } }
     ],
-    "defaultProbabilities": { "stage_1_precision_strikes": 0.03, "stage_2_regime_campaign": 0.85, "stage_3_ground_forces": 0.12 },
+    "defaultProbabilities": { "stage_1_precision_strikes": 0.02, "stage_2_regime_campaign": 0.90, "stage_3_ground_forces": 0.08 },
     "source": { "citation": "Pape, 'Escalation Trap' Substack March 2026; Pape, Bombing to Win (Cornell, 1996)", "url": "https://escalationtrap.substack.com/", "confidence": "medium" }
   },
   {
