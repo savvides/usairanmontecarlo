@@ -11,7 +11,7 @@
 
 ## Testing
 
-- [ ] `npm test` passes (121+ tests)
+- [ ] `npm test` passes (171+ tests)
 - [ ] `npm run build` succeeds
 - [ ] Manually verified in browser
 
