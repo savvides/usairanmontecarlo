@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.0.5.0] - 2026-08-23
+## [1.0.6.0] - 2026-08-23
 
 ### Added
 - 14 new timeline events covering June 3 – August 20: House and Senate war-powers votes, Islamabad MoU signed, US blockade lifted then reimposed, Iran re-closes Hormuz over Lebanon, June 27 Hormuz stress test, Trump declares the MoU "over," 13-night July campaign, Jordan attack, dual-lane framework that never starts, 60-day window lapse, UAE financial cutoff, Economic D-Day
