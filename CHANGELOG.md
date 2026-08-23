@@ -16,9 +16,14 @@ All notable changes to this project will be documented in this file.
 - Methodology Pape-validation note and snapshot-limitation date moved from May 22 to August 23
 - README phase status table updated to August 23 reality
 - `timeline.json` `lastUpdated` and `observedThrough` bumped to 2026-08-23
+- Retuned firing CPT rows so un-overridden histograms match August oil (~$92 band) and ground-escalation (~0.28) defaults instead of leftover March cells
+
+### Fixed
+- Results panel kept painting the previous scenario's histograms while a newer 5000-run job was in flight. It now dims those charts and shows an Updating overlay until the latest run lands.
+- A dead simulation worker silently fell back to a full 5000-run job on the UI thread. The hook now reconstructs the worker once on error and caps any main-thread fallback at 250 runs.
 
 ### For contributors
-- Test count: 128 → 164 (8 new assertions in the snapshot-drift suite)
+- Test count: 128 → 171 (snapshot-drift suite, August default-run histogram test, result-view-state helper, main-thread run cap)
 
 ## [1.0.4.0] - 2026-04-26
 
