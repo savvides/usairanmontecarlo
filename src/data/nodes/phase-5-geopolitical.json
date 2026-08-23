@@ -151,7 +151,7 @@
     "phase": 5,
     "type": "categorical",
     "label": "Ceasefire Negotiation Status",
-    "description": "Current state of diplomatic efforts to achieve a ceasefire. Observed: deadlocked. The US submitted a 15-point ceasefire proposal that Iran rejected as 'maximalist.' Iran's counterproposal demands reparations for strike damage and sovereignty over the Strait of Hormuz — terms the US considers non-starters. No direct US-Iran talks are occurring; all communication is through intermediaries (Turkey, Swiss protecting-power channel). Trump has extended the energy-strike pause to April 6, creating a soft deadline. The gap between positions is enormous: the US demands nuclear concessions and proxy disarmament; Iran demands reparations and recognition of its regional role. Both sides have domestic political constraints that prevent visible concessions.",
+    "description": "Current state of diplomatic efforts to achieve a ceasefire. Observed as of 23 August 2026: a deal was reached, implemented in part, and then died. The 17 June Islamabad Memorandum was the 'near_agreement' / 'progressing' state; Trump declared it 'over' on 8 July; the 60-day final-deal clock lapsed on 17 August. Ghalibaf on 18 August restated maximalist Hormuz conditions. Trump the same day said no talks are scheduled. Oman is negotiating a shipping-route technical arrangement, which is not a ceasefire negotiation. The live state is deadlocked, with a thin residual 'progressing' mass for the Oman/Pakistan/Qatar messenger channel.",
     "parents": ["escalation_ladder_position", "turkey_mediation_role", "iranian_command_and_control_status"],
     "categories": ["not_attempted", "deadlocked", "progressing", "near_agreement"],
     "cpt": [
@@ -177,13 +177,13 @@
       }
     ],
     "defaultProbabilities": {
-      "not_attempted": 0.02,
-      "deadlocked": 0.91,
-      "progressing": 0.05,
+      "not_attempted": 0.03,
+      "deadlocked": 0.85,
+      "progressing": 0.10,
       "near_agreement": 0.02
     },
     "source": {
-      "citation": "Reuters 'Iran rejects US 15-point ceasefire as maximalist' March 2026; AP 'Iran counterproposal demands reparations, Hormuz sovereignty'; BBC 'Turkey mediating message exchanges between US and Iran'; Bloomberg 'Trump extends energy-strike pause to April 6'",
+      "citation": "Wikipedia 'Islamabad Memorandum' (signed 17 June, 'over' 8 July, clock lapsed 17 August); Forbes 18 August 2026; Crisis Group trigger list 18 August 2026",
       "url": "https://www.reuters.com/world/",
       "confidence": "high"
     }
@@ -357,7 +357,7 @@
     "phase": 5,
     "type": "categorical",
     "label": "GCC Political Alignment Shift",
-    "description": "How Gulf Cooperation Council states' political alignment shifts in response to the conflict. The GCC faces a paradox: Iran directly attacked Bahrain, Kuwait, and Oman with missiles causing casualties — generating anger toward Tehran — but the broader economic disruption (70% food import disruption, Hormuz closure, 40-120% price spikes) is caused by the US-initiated conflict. Saudi Arabia's $109B defense modernization depends on US partnership, but the Kingdom also had the 2023 Beijing-brokered normalization with Iran. The UAE's economic model requires stability. Qatar hosts Al-Udeid (largest US base in the region) but also maintains back-channels with Iran. The net effect is likely closer alignment to the US driven by direct Iranian aggression, but with significant hedging behavior.",
+    "description": "How Gulf Cooperation Council states' political alignment shifts in response to the conflict. Observed as of 18–20 August 2026: the UAE suspended all trade, exchange, and financial transactions with Iran after reporting two Iranian missiles (one in UAE territorial waters) and after a week of ADNOC-affiliated tanker attacks that Abu Dhabi named as IRGC piracy. That is a step toward closer_to_us on the Iran question. Simultaneously, Trump's 'get your own oil' line, NATO's 'not our war' posture through the spring, and the 20 August threat to sanction any country trading with Iran push GCC capitals toward hedging — they want the strait open and do not want to be drafted into Economic D-Day. Rezaei's 22 August threat to halt all oil through Hormuz if neighbors join the US crackdown is the squeeze from the other side. Modal outcome remains hedging, with closer_to_us still large and a fatter distancing tail than in March.",
     "parents": ["allied_countries_attacked", "escalation_ladder_position", "gcc_food_crisis"],
     "categories": ["closer_to_us", "hedging", "distancing_from_us", "hostile_to_us"],
     "cpt": [
@@ -383,13 +383,13 @@
       }
     ],
     "defaultProbabilities": {
-      "closer_to_us": 0.42,
-      "hedging": 0.45,
-      "distancing_from_us": 0.11,
-      "hostile_to_us": 0.02
+      "closer_to_us": 0.38,
+      "hedging": 0.42,
+      "distancing_from_us": 0.16,
+      "hostile_to_us": 0.04
     },
     "source": {
-      "citation": "Reuters 'Bahrain, Kuwait, Oman hit by Iranian missiles' March 2026; Al Jazeera 'GCC food emergency: 70% import disruption'; IISS 'Gulf States and the Iran War' March 2026; Chatham House 'GCC Alignment Under Pressure' 2024",
+      "citation": "Wikipedia '2026 Iran war' 18 August 2026 (UAE financial cutoff); Reuters 19 August 2026; Times of Israel 22 August 2026 (Economic D-Day); Hormuz Strait Monitor 23 August 2026 (Rezaei threat)",
       "url": "https://www.iiss.org/",
       "confidence": "medium"
     }
@@ -399,7 +399,7 @@
     "phase": 5,
     "type": "categorical",
     "label": "Global Alliance Realignment Signal",
-    "description": "Whether the conflict triggers broader realignment of the international order. The UNSC dynamics (13-0-2 condemnation of Iran, Russia's failed counter-resolution) suggest the US-led order is not collapsing — but the Russia/China abstention pattern signals continued erosion toward multipolarity. Key indicators: Global South states' voting patterns (many joined the condemnation due to attacks on sovereign states), BRICS cohesion (fractured — India and Brazil voted with the majority), and NATO solidarity (present but limited to political support). The conflict could strengthen the US-led order if it demonstrates effective collective action against an aggressor, or weaken it if prolonged war generates humanitarian backlash and economic damage to neutral states.",
+    "description": "Whether the conflict triggers broader realignment of the international order. New observed facts since the March UNSC 13-0-2 vote: the US House (3 June, 215–208) and Senate (23 June, 50–48) voted to halt the war or require authorization; NATO on 19 August said it is 'prepared to defend all allies' against Iran, which is Article 5 language aimed at Iranian strikes on Turkey/Incirlik and Jordan, not a commitment to join the Iran campaign; US munitions stocks (PrSM, ATACMS, THAAD, Tomahawk, Reaper) are visibly depleted, which Indo-Pacific planners will read as a transfer of deterrence from Taiwan to Hormuz; Trump's 20 August secondary-sanctions threat is an attempt to coerce China, Iran's top remaining oil customer. The US-led order is not collapsing, but the 'unchanged' bin of March is too generous. Mass moves toward multipolar_fragmentation.",
     "parents": ["unsc_resolution_outcome", "russia_official_position", "china_official_position", "nato_involvement_level"],
     "categories": ["us_led_order_strengthened", "unchanged", "multipolar_fragmentation", "anti_us_bloc_forming"],
     "cpt": [
@@ -425,13 +425,13 @@
       }
     ],
     "defaultProbabilities": {
-      "us_led_order_strengthened": 0.22,
-      "unchanged": 0.42,
-      "multipolar_fragmentation": 0.30,
-      "anti_us_bloc_forming": 0.06
+      "us_led_order_strengthened": 0.12,
+      "unchanged": 0.28,
+      "multipolar_fragmentation": 0.42,
+      "anti_us_bloc_forming": 0.18
     },
     "source": {
-      "citation": "UNSC Resolution 2817 voting record March 2026; CFR 'Alliance Systems and the Iran War' March 2026; Brookings 'Global Order After Iran' March 2026; IISS Strategic Survey 'Multipolarity Under Stress' 2024",
+      "citation": "Reuters House 3 June and Senate 23 June 2026 war-powers votes; Wikipedia NATO statement 19 August 2026; The Hill 4 August 2026 (munitions); Times of Israel 22 August 2026 (Economic D-Day)",
       "url": "https://www.cfr.org/",
       "confidence": "medium"
     }
