@@ -9,7 +9,7 @@
     "cpt": [
       {
         "parentValues": { "escalation_ladder_position": "full_scale_war", "strait_of_hormuz_closure": "true" },
-        "distribution": { "type": "normal", "params": [120, 15] }
+        "distribution": { "type": "normal", "params": [92, 12] }
       },
       {
         "parentValues": { "escalation_ladder_position": "full_scale_war", "strait_of_hormuz_closure": "false" },
@@ -29,7 +29,7 @@
       },
       {
         "parentValues": { "escalation_ladder_position": "full_scale_war", "strait_of_hormuz_closure": "true", "energy_infrastructure_targeting": "production_targeted" },
-        "distribution": { "type": "normal", "params": [135, 18] }
+        "distribution": { "type": "normal", "params": [96, 12] }
       },
       {
         "parentValues": { "escalation_ladder_position": "full_scale_war", "strait_of_hormuz_closure": "true", "energy_infrastructure_targeting": "restrained" },

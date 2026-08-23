@@ -484,13 +484,13 @@
     "phase": 7,
     "type": "binary",
     "label": "Ground Escalation Initiated (Pape)",
-    "description": "Pape estimates ~75% probability the US escalates to ground forces when air coercion fails. This is where 'the trap really closes' — an open-ended commitment in a country of 88 million people. Observed as of 23 August 2026: six months of air-coercion failure have not produced Stage 3. Trump threatened in July to 'take Kharg Island' and then told Fox he was unsure 'America has the stomach' to do it. Two congressional war-powers votes (House 3 June, Senate 23 June) and reported interceptor/long-range-missile exhaustion (virtually all PrSM and ATACMS, ~80% of THAAD) are a political and material ceiling. The default therefore falls. The CPT rows that still carry 0.70–0.80 in the counterproductive × 2–4 month cells remain as 'if the administration chooses that path' conditionals; they are no longer the prior.",
+    "description": "Pape estimates ~75% probability the US escalates to ground forces when air coercion fails. This is where 'the trap really closes' — an open-ended commitment in a country of 88 million people. Observed as of 23 August 2026: six months of air-coercion failure have not produced Stage 3. Trump threatened in July to 'take Kharg Island' and then told Fox he was unsure 'America has the stomach' to do it. Two congressional war-powers votes (House 3 June, Senate 23 June) and reported interceptor/long-range-missile exhaustion (virtually all PrSM and ATACMS, ~80% of THAAD) are a political and material ceiling. The default therefore falls. CPT rows that fire under failed/counterproductive air coercion at the live 4–8 month duration — and the 2–4 month cells that still interpolate into sampled parent states — are retuned toward the 0.28 prior, not Pape's ~75% Stage-3 estimate.",
     "parents": ["coercive_success_probability", "actual_conflict_duration", "us_domestic_political_impact"],
     "cpt": [
-      { "parentValues": { "coercive_success_probability": "failed", "actual_conflict_duration": "2_4_months", "us_domestic_political_impact": "rallying_effect" }, "pTrue": 0.75 },
-      { "parentValues": { "coercive_success_probability": "failed", "actual_conflict_duration": "4_8_months", "us_domestic_political_impact": "growing_opposition" }, "pTrue": 0.55 },
-      { "parentValues": { "coercive_success_probability": "counterproductive", "actual_conflict_duration": "2_4_months" }, "pTrue": 0.80 },
-      { "parentValues": { "coercive_success_probability": "counterproductive", "actual_conflict_duration": "4_8_months" }, "pTrue": 0.70 },
+      { "parentValues": { "coercive_success_probability": "failed", "actual_conflict_duration": "2_4_months", "us_domestic_political_impact": "rallying_effect" }, "pTrue": 0.40 },
+      { "parentValues": { "coercive_success_probability": "failed", "actual_conflict_duration": "4_8_months", "us_domestic_political_impact": "growing_opposition" }, "pTrue": 0.28 },
+      { "parentValues": { "coercive_success_probability": "counterproductive", "actual_conflict_duration": "2_4_months" }, "pTrue": 0.40 },
+      { "parentValues": { "coercive_success_probability": "counterproductive", "actual_conflict_duration": "4_8_months" }, "pTrue": 0.32 },
       { "parentValues": { "coercive_success_probability": "partial" }, "pTrue": 0.30 },
       { "parentValues": { "coercive_success_probability": "succeeded" }, "pTrue": 0.05 }
     ],
