@@ -4,7 +4,7 @@
     "phase": 6,
     "type": "categorical",
     "label": "Iranian Civilian Death Toll",
-    "description": "Total Iranian civilian fatalities from direct strike effects and secondary causes. Observed as of late March 2026: 1,937 killed according to Iran's Health Ministry, placing the current toll in the 500-2,000 bracket. The figure is climbing as the air campaign continues across 26 provinces with 11,000+ targets struck. This count includes direct strike casualties, collateral damage from military target proximity, and early secondary deaths from infrastructure failure. The figure is likely an undercount given disrupted communications and morgue capacity. For comparison, Iraq War 2003 invasion phase (~March-May) produced an estimated 7,000-10,000 civilian deaths; the Yemen war produced ~150,000 civilian deaths over 8 years. The trajectory depends critically on conflict duration and whether energy infrastructure is targeted after April 6.",
+    "description": "Total Iranian civilian fatalities from direct strike effects and secondary causes. Reporting has not converged. HRANA has documented 3,684 war deaths in Iran (its 7 April cut showed 1,701 civilians, 1,221 military, 714 unclassified — military is an undercount). Iran's Health Ministry has reported 3,528; OCHA 3,400; the IDF 6,000. Civilian-only figures are therefore a range, not a point: likely still inside or just above the 2,000–5,000 bracket once unclassified and post-April deaths are considered, with a real tail into 5,000–10,000 if the IDF number is closer to truth or if July's 13-night campaign is under-counted in HRANA's slow update. Do not present a single number as fact. The 500–2,000 bin that was modal in March is no longer the center of mass.",
     "parents": ["escalation_ladder_position", "conflict_duration_projection", "overall_military_balance"],
     "categories": ["under_500", "500_2000", "2000_5000", "5000_10000", "over_10000"],
     "cpt": [
@@ -35,13 +35,13 @@
     ],
     "defaultProbabilities": {
       "under_500": 0.01,
-      "500_2000": 0.90,
-      "2000_5000": 0.06,
-      "5000_10000": 0.02,
-      "over_10000": 0.01
+      "500_2000": 0.22,
+      "2000_5000": 0.55,
+      "5000_10000": 0.18,
+      "over_10000": 0.04
     },
     "source": {
-      "citation": "Iran Health Ministry casualty figures March 2026 (1,937 killed); Reuters 'Iran civilian death toll tracking'; WHO 'Health impact of Iran conflict' March 2026; Watson Institute 'Costs of War' methodology",
+      "citation": "Wikipedia 'Casualties of the 2026 Iran war' (HRANA 3,684; Iran MoH 3,528; OCHA 3,400; IDF 6,000); HRANA 7 April 2026 civilian/military split; IFRC earlier ~1,900",
       "url": "https://www.reuters.com/world/",
       "confidence": "high"
     }
