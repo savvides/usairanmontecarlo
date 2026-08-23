@@ -2,34 +2,34 @@
   {
     "id": "conflict-winds-down-april",
     "phase": 3,
-    "title": "Conflict Winds Down (April)",
-    "description": "The combination of devastating US air strikes and the economic pain of Hormuz closure creates pressure on both sides. Iran's remaining leadership — with C2 severely degraded and military capacity collapsing — signals through Omani back-channels a willingness to accept a ceasefire framework. Trump, facing the April 6 energy-strike deadline and rising US gasoline prices, finds a face-saving off-ramp. The air campaign tapers to occasional enforcement strikes by mid-April. Houthis are pressured by the Saudis to halt attacks. Hezbollah, already weakened from the 2024 war, scales back. The conflict enters a 'frozen' state — no formal peace deal, but active combat largely ends within 6-8 weeks of the February 28 start. The critical question becomes how fast Hormuz can be reopened once hostilities cease.",
+    "title": "Air Campaign Stays Paused",
+    "description": "From the 23 August 2026 snapshot: Hegseth says the blockade can run indefinitely, but the 13-night July campaign and the Camp David munitions row have taken a full-scale air restart off the immediate table. Both capitals keep the Oman/Pakistan messenger channel open. Direct strikes on Iran stay at a low simmer — interception, occasional coastal radar hits, no 170-target nights. Houthis are leaned on by Riyadh to stop killing seafarers. Hezbollah and Israel remain in their own war, which this card does not settle. The conflict is already six months old, so 'winding down' no longer means a sub-three-month war; it means the remaining duration is a frozen blockade plus sporadic fire, not a new campaign. Hormuz stays the prize and does not reopen on this path either, but the kinetic temperature falls.",
     "overrides": [
       {
         "nodeId": "conflict_duration_projection",
         "overrideProbabilities": {
-          "weeks": 0.35,
-          "1_3_months": 0.50,
-          "3_6_months": 0.12,
-          "prolonged_over_6_months": 0.03
+          "weeks": 0.01,
+          "1_3_months": 0.04,
+          "3_6_months": 0.25,
+          "prolonged_over_6_months": 0.70
         }
       },
       {
         "nodeId": "ceasefire_window",
         "overrideProbabilities": {
-          "none": 0.05,
-          "narrow": 0.25,
-          "moderate": 0.50,
-          "strong": 0.20
+          "none": 0.15,
+          "narrow": 0.40,
+          "moderate": 0.35,
+          "strong": 0.10
         }
       },
       {
         "nodeId": "us_air_campaign_scale",
         "overrideProbabilities": {
-          "paused": 0.08,
-          "limited": 0.42,
-          "sustained": 0.45,
-          "escalating": 0.05
+          "paused": 0.42,
+          "limited": 0.40,
+          "sustained": 0.16,
+          "escalating": 0.02
         }
       },
       {
@@ -86,16 +86,16 @@
   {
     "id": "sustained-campaign-through-summer",
     "phase": 3,
-    "title": "Sustained Campaign Through Summer",
-    "description": "No ceasefire materializes. Iran's fragmented leadership refuses to surrender sovereignty demands, and Trump lifts the energy-strike pause on April 6, expanding targeting to Iranian oil and gas infrastructure. The air campaign grinds on — 11,000+ targets in the first month becomes 25,000+ by June. Iranian military capacity is systematically destroyed, but the country's dispersed geography (1.6M sq km) and mountainous terrain mean pockets of resistance persist. Houthis maintain Red Sea attacks. Hezbollah keeps up sporadic rocket fire on northern Israel. Hormuz remains closed. The conflict becomes the defining global crisis of 2026, with cascading economic effects deepening by the month. Domestic US political debate intensifies — 'mission creep' comparisons to Iraq/Afghanistan emerge, but no US ground troops are deployed.",
+    "title": "Strike Campaign Resumes",
+    "description": "From the 23 August 2026 snapshot: Economic D-Day does not reopen Hormuz, Rezaei carries out a wider anti-ship campaign, and Trump authorizes another multi-night strike package on the scale of 8–24 July — coastal missile and drone storage, radar, IRGC Navy, selected energy nodes. Interceptor stocks are already thin, so the campaign is real but shorter-ranged than the administration's rhetoric. Iran answers against US-linked facilities in the Gulf and Jordan. This is the path back toward Pape Stage 2 intensification without Stage 3. Duration lengthens. The ceasefire window narrows toward none. Ground invasion is still not selected.",
     "overrides": [
       {
         "nodeId": "conflict_duration_projection",
         "overrideProbabilities": {
-          "weeks": 0.02,
-          "1_3_months": 0.15,
-          "3_6_months": 0.58,
-          "prolonged_over_6_months": 0.25
+          "weeks": 0.01,
+          "1_3_months": 0.03,
+          "3_6_months": 0.16,
+          "prolonged_over_6_months": 0.80
         }
       },
       {
@@ -103,17 +103,17 @@
         "overrideProbabilities": {
           "none": 0.55,
           "narrow": 0.32,
-          "moderate": 0.10,
-          "strong": 0.03
+          "moderate": 0.11,
+          "strong": 0.02
         }
       },
       {
         "nodeId": "us_air_campaign_scale",
         "overrideProbabilities": {
-          "paused": 0.01,
-          "limited": 0.04,
-          "sustained": 0.75,
-          "escalating": 0.20
+          "paused": 0.02,
+          "limited": 0.08,
+          "sustained": 0.45,
+          "escalating": 0.45
         }
       },
       {

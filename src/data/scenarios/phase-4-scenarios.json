@@ -2,21 +2,21 @@
   {
     "id": "april-6-deadline-forces-hormuz-open",
     "phase": 4,
-    "title": "April 6 Deadline Forces Hormuz Open",
-    "description": "Trump's April 6 energy-strike deadline proves to be the decisive pressure point. As the deadline approaches, the administration communicates through Swiss and Omani channels that failure to permit shipping transits will result in direct strikes on Iranian oil and gas infrastructure — the one category of targets excluded so far. Iran's remaining leadership calculates that losing oil infrastructure (their only post-war revenue source for reconstruction) is worse than the humiliation of permitting transits. A tacit agreement emerges: Iran stops mining operations and permits limited convoy transits through cleared channels under US naval escort. Tanker traffic resumes at ~30% of pre-war volume by late April, rising to ~60% by June. Oil prices retreat from $113 to $95-100 within weeks of reopening, settling at $90-95 by summer as SPR releases and alternative routing cover the remaining gap. The worst economic scenarios are averted, though global growth still takes a hit.",
+    "title": "Omani Dual-Lane Deal Holds",
+    "description": "From the 23 August 2026 snapshot: the 4 August Iran–Oman dual-lane framework, which never started in observed history, is implemented. Mine clearance of the main lane begins within 30 days, zero tolls are charged for a defined window, and the UN/Omani southern route is used in both directions. Iran keeps a claim of administration; the US keeps the blockade of Iranian ports but stops shooting at hulls on the cleared lane. Traffic recovers from single digits toward a third of pre-war volume over a quarter, not overnight. Brent retreats from the $90s toward $80–88 as the Hormuz premium bleeds out. This is not the April 6 ultimatum working. It is a technical shipping deal that leaves the nuclear file untouched — the only reopen path that does not require Ghalibaf's political conditions or Trump's 'total surrender.'",
     "overrides": [
       {
         "nodeId": "hormuz_reopening_timeline",
         "overrideProbabilities": {
-          "within_weeks": 0.45,
-          "1_3_months": 0.42,
-          "3_6_months": 0.11,
-          "indefinite": 0.02
+          "within_weeks": 0.18,
+          "1_3_months": 0.52,
+          "3_6_months": 0.24,
+          "indefinite": 0.06
         }
       },
       {
         "nodeId": "oil_price_trajectory_6mo",
-        "overrideDistribution": { "type": "normal", "params": [92, 10] }
+        "overrideDistribution": { "type": "normal", "params": [84, 10] }
       },
       {
         "nodeId": "global_gdp_impact",
