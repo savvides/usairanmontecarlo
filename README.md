@@ -14,12 +14,12 @@ The simulation runs **5,000 Monte Carlo scenarios** through a **Bayesian network
 |-------|--------|-------------|
 | 1. The Strike (Feb 28) | Observed | US/Israel surprise campaign: 900 strikes, Khamenei killed, nuclear program destroyed |
 | 2. Retaliation (Feb 28 – Mar 10) | Observed | Iran's 500+ missile/2000 drone response, Hormuz closure, Hezbollah activation |
-| 3. Active Conflict (Current) | Mixed | 38 days of air campaign; paper ceasefire extended April 21; US blockade in effect since April 13 |
-| 4. Economic Shockwaves | Mixed | Brent ~$106, Hormuz reopen consensus pushed to H2 2026, dual blockade stand-off |
-| 5. Geopolitical Reactions | Mixed | Islamabad talks collapsed April 12; Islamabad-2 dissolved April 21 (Iran refused); Lavrov-Xi axis hardens |
-| 6. Humanitarian Impact | Mixed | Iran dead: ~1,900 (IFRC) / 3,636 documented (HRANA); Lebanon 1,500+ killed, ~1M displaced |
-| 7. Resolution Paths | Mixed | Ceasefire extended unilaterally; ships seized April 22; "shoot and kill" order April 23 |
-| 8. Long-Term Aftermath | Projected | Nuclear refusal hardened; regime survival likely; Russia-China-Iran axis visibly consolidating |
+| 3. Active Conflict (Current) | Mixed | Six-month war; Islamabad MoU signed June 17 and declared over July 8; 13-night July campaign; blockade reimposed July 15 |
+| 4. Economic Shockwaves | Mixed | Brent ~$92; Hormuz 7–13 crossings/day vs ~130 pre-war; April H2-reopen call missed; Economic D-Day announced August 20 |
+| 5. Geopolitical Reactions | Mixed | House and Senate war-powers votes; UAE severs financial ties with Iran August 18; no talks scheduled |
+| 6. Humanitarian Impact | Mixed | Iran deaths 3,400–6,000 depending on source; Lebanon 4,324 killed, 1M+ displaced; US 19 KIA / 624 wounded |
+| 7. Resolution Paths | Mixed | 60-day MoU window lapsed August 17; Ghalibaf keeps Hormuz shut pending blockade/sanctions/assets; frozen conflict is modal |
+| 8. Long-Term Aftermath | Projected | Nuclear refusal hardened; regime survival observed so far; Hormuz converted into a negotiated hostage |
 
 **Observed** phases are locked to real-world data. **Projected** phases use scenario cards to explore different futures.
 
@@ -36,7 +36,7 @@ The simulation runs **5,000 Monte Carlo scenarios** through a **Bayesian network
 - **Engine:** Pure TypeScript Bayesian Network with Monte Carlo sampling
 - **Frontend:** Next.js 16, React 19, D3.js, Framer Motion, Tailwind CSS
 - **Deploy:** Static export on GitHub Pages (zero backend)
-- **Tests:** Vitest (128 tests)
+- **Tests:** Vitest (171 tests)
 
 ## Development
 

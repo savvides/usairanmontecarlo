@@ -2,20 +2,20 @@
   {
     "id": "april-deal-quick-resolution",
     "phase": 7,
-    "title": "April Deal: Quick Resolution",
-    "description": "Trump's April 6 energy-strike deadline works as intended: facing the prospect of systematic destruction of Iran's oil infrastructure (Kharg Island terminal, refineries, export pipelines), Iran's fragmented post-Khamenei leadership — likely an IRGC-Guardian Council coalition acting as interim authority — accepts modified terms that allow both sides to claim partial victory. The deal framework involves: Iran accepts comprehensive IAEA inspection of all nuclear sites including military dimensions; the US agrees to a phased sanctions relief timeline and implicit regime survival guarantees; Hormuz reopens under international naval escort within weeks. Turkey and Qatar serve as co-guarantors. The Houthi and Hezbollah dimensions are managed through a separate de-escalation annex brokered by Saudi Arabia (Houthis) and France (Hezbollah/Lebanon). This scenario requires Iran's leadership to prioritize regime survival over ideological resistance — a calculation the IRGC's institutional interests (preserving its economic empire) may drive even if clerical hardliners resist. Trump frames the outcome as 'the greatest deal in history' — nuclear program destroyed, favorable terms extracted, American casualties minimal. The critical vulnerability is durability: a deal negotiated under extreme duress, with a fragmented Iranian counterpart, and without congressional treaty ratification may collapse within 2-3 years — the JCPOA precedent where the next administration abandoned the framework.",
+    "title": "Second MoU: Final Deal",
+    "description": "From the 23 August 2026 snapshot: Pakistan and Qatar put a second memorandum in front of both presidents within weeks. Lessons of June are written in: Hormuz reopen is sequenced and monitored, Israel-Lebanon is either carved out explicitly or included with a verification mechanism, and the nuclear paragraph is no longer deferred — Iran accepts dilution of the highly enriched stock and IAEA access short of a 20-year enrichment ban; the US lifts the blockade and the oil-sanctions waiver becomes a wind-down rather than a 60-day tease. Trump frames it as the deal the first MoU was supposed to be. Iranian hardliners call it a pause. Because the war is already six months old, this is not a sub-six-week resolution. It is a 4–8 month war that ends in a settlement rather than a freeze. Durability is the risk: a second duress deal, still without a treaty, can be abandoned by the next administration the way the JCPOA was.",
     "overrides": [
       {
         "nodeId": "actual_conflict_duration",
-        "overrideProbabilities": { "under_6_weeks": 0.72, "2_4_months": 0.22, "4_8_months": 0.05, "over_8_months": 0.01 }
+        "overrideProbabilities": { "under_6_weeks": 0.01, "2_4_months": 0.04, "4_8_months": 0.72, "over_8_months": 0.23 }
       },
       {
         "nodeId": "ceasefire_mechanism",
-        "overrideProbabilities": { "us_ultimatum_accepted": 0.62, "turkey_mediated_deal": 0.22, "un_brokered": 0.08, "unilateral_ceasefire": 0.06, "no_ceasefire": 0.02 }
+        "overrideProbabilities": { "us_ultimatum_accepted": 0.10, "turkey_mediated_deal": 0.62, "un_brokered": 0.12, "unilateral_ceasefire": 0.10, "no_ceasefire": 0.06 }
       },
       {
         "nodeId": "hormuz_reopening",
-        "overrideProbabilities": { "immediate_post_ceasefire": 0.38, "phased_reopening": 0.48, "prolonged_closure": 0.10, "permanent_rerouting": 0.04 }
+        "overrideProbabilities": { "immediate_post_ceasefire": 0.12, "phased_reopening": 0.58, "prolonged_closure": 0.22, "permanent_rerouting": 0.08 }
       },
       {
         "nodeId": "war_termination_terms",
@@ -31,7 +31,7 @@
       },
       {
         "nodeId": "resolution_type",
-        "overrideProbabilities": { "decisive_us_victory": 0.42, "negotiated_settlement": 0.48, "frozen_conflict": 0.08, "wider_regional_war": 0.02 }
+        "overrideProbabilities": { "decisive_us_victory": 0.08, "negotiated_settlement": 0.62, "frozen_conflict": 0.24, "wider_regional_war": 0.06 }
       },
       {
         "nodeId": "energy_infrastructure_targeting",
@@ -65,20 +65,20 @@
   {
     "id": "negotiated-settlement-by-summer",
     "phase": 7,
-    "title": "Negotiated Settlement by Summer",
-    "description": "The April 6 deadline passes without Iranian acceptance, triggering US energy infrastructure strikes that devastate Iran's oil export capacity but do not produce capitulation. Instead, the conflict enters a grinding 2-4 month phase of continued US air operations, Iranian proxy activation (Hezbollah maintaining pressure on Israel, Houthis disrupting Red Sea shipping), and mounting economic costs on all sides. The settlement emerges through a convergence of pressures by June-August 2026: Turkey and China co-mediate, leveraging Turkey's NATO membership and Iran relationship, and China's economic leverage over both Iranian reconstruction needs and global oil market stability. The framework involves face-saving elements for both sides: Iran agrees to 'voluntary' nuclear transparency measures (not framed as imposed terms); the US accepts a phased withdrawal of additional forces deployed for the conflict; sanctions relief is tied to a multi-year verification schedule; Hormuz reopens under a multilateral naval monitoring arrangement. The Houthi/Hezbollah situation is addressed through parallel tracks — Saudi Arabia negotiates a Yemen ceasefire extension, Israel and Hezbollah agree to an enhanced UNIFIL framework. This is the JCPOA negotiation model compressed into months rather than years, driven by the urgency of active conflict rather than the patience of peacetime diplomacy. The deal is more durable than the April scenario because it involves broader international buy-in, but it comes at the cost of months of additional destruction, thousands of casualties, and a global economic shock from sustained Hormuz closure.",
+    "title": "Mediated Settlement by Year-End",
+    "description": "From the 23 August 2026 snapshot: there is no second presidential signing this month. A grinding autumn of blockade, sporadic strikes, and Economic D-Day costs produces a late-year package mediated by China and Pakistan, not a summer package mediated by Turkey. Iran trades a monitored Hormuz reopen and a dilution schedule for sanctions relief and a written end to the blockade. The US does not get a 20-year enrichment ban. Israel is not a signatory; Lebanon is handled on a parallel track that may or may not hold. This is the slower cousin of 'Second MoU: Final Deal' — more destruction, more seafarer dead, a war that has crossed eight months — and slightly more international buy-in, which is the only reason it might last longer than June's memorandum did.",
     "overrides": [
       {
         "nodeId": "actual_conflict_duration",
-        "overrideProbabilities": { "under_6_weeks": 0.08, "2_4_months": 0.58, "4_8_months": 0.28, "over_8_months": 0.06 }
+        "overrideProbabilities": { "under_6_weeks": 0.01, "2_4_months": 0.03, "4_8_months": 0.32, "over_8_months": 0.64 }
       },
       {
         "nodeId": "ceasefire_mechanism",
-        "overrideProbabilities": { "us_ultimatum_accepted": 0.08, "turkey_mediated_deal": 0.48, "un_brokered": 0.18, "unilateral_ceasefire": 0.16, "no_ceasefire": 0.10 }
+        "overrideProbabilities": { "us_ultimatum_accepted": 0.06, "turkey_mediated_deal": 0.40, "un_brokered": 0.22, "unilateral_ceasefire": 0.18, "no_ceasefire": 0.14 }
       },
       {
         "nodeId": "hormuz_reopening",
-        "overrideProbabilities": { "immediate_post_ceasefire": 0.12, "phased_reopening": 0.52, "prolonged_closure": 0.28, "permanent_rerouting": 0.08 }
+        "overrideProbabilities": { "immediate_post_ceasefire": 0.04, "phased_reopening": 0.42, "prolonged_closure": 0.38, "permanent_rerouting": 0.16 }
       },
       {
         "nodeId": "war_termination_terms",
@@ -94,7 +94,7 @@
       },
       {
         "nodeId": "resolution_type",
-        "overrideProbabilities": { "decisive_us_victory": 0.12, "negotiated_settlement": 0.62, "frozen_conflict": 0.18, "wider_regional_war": 0.08 }
+        "overrideProbabilities": { "decisive_us_victory": 0.04, "negotiated_settlement": 0.48, "frozen_conflict": 0.36, "wider_regional_war": 0.12 }
       },
       {
         "nodeId": "energy_infrastructure_targeting",

@@ -108,24 +108,20 @@ export default function MethodologyPage() {
               near 5%, consistent with the 0-15% historical range for punishment and denial strategies.
             </p>
             <p>
-              <strong className="text-text-primary">Observed validation (May 2026).</strong> As of
-              May 22, 2026, observed conflict outcomes have validated Pape&apos;s predictions with
-              striking accuracy. The US air campaign achieved near-total tactical dominance over
-              38 days but produced zero political concessions: the April 6 deadline passed without
-              Iranian compliance; 21-hour direct negotiations in Islamabad collapsed on April 12
-              when Iran refused to commit to forgoing nuclear weapons; Trump imposed a US naval
-              blockade on April 13; the April 22 ceasefire expiration was met by a unilateral
-              Trump extension at Pakistan&apos;s request; the second Islamabad round on April 21
-              dissolved when Iran refused to attend; Iran seized two ships in Hormuz the next day;
-              and on April 23 Trump ordered the Navy to &ldquo;shoot and kill&rdquo; Iranian
-              mine-layers. This is textbook Stage 2 of Pape&apos;s escalation trap, now visibly
-              moving toward the &ldquo;counterproductive&rdquo; outcome: Russia&apos;s foreign
-              minister Lavrov has publicly warned the campaign will push Iran toward acquiring a
-              nuclear weapon — Pape&apos;s canonical worst case stated by a Permanent Five member.
-              The nationalist backlash coefficient is also confirmed: no wartime protests have
-              emerged inside Iran, the IRGC has threatened crackdown on dissent, and the
-              rally-around-the-flag effect is visible in the absence of mass opposition during
-              active bombardment.
+              <strong className="text-text-primary">Observed validation (August 2026).</strong> As of
+              August 23, 2026, six months of war have extended Pape&apos;s predicted pattern rather
+              than broken it. Near-total tactical dominance still has not produced a nuclear
+              concession. A 14-point presidential memorandum was signed on June 17 and declared
+              &ldquo;over&rdquo; on July 8; its 60-day final-deal clock lapsed on August 17 with no
+              extension. A 13-night July air campaign did not reopen the strait or move the
+              enrichment file. Iran has converted Hormuz from a casualty of war into a negotiated
+              hostage — Pape&apos;s &ldquo;counterproductive&rdquo; bin in operational form, on top
+              of Lavrov&apos;s spring warning that the campaign pushes Tehran toward a bomb. Stage 3
+              has not arrived. The United States substituted a reimposed naval blockade and
+              August 20 &ldquo;Economic D-Day&rdquo; secondary sanctions for ground forces, against
+              a ceiling of interceptor shortages and two congressional war-powers votes. The
+              nationalist backlash coefficient still holds: no mass anti-war protest movement has
+              displaced the government that signed the memorandum and then let it lapse.
             </p>
             <p>
               <strong className="text-text-primary">Limitations of the framework.</strong> Pape&apos;s
@@ -212,7 +208,7 @@ export default function MethodologyPage() {
             </li>
             <li>
               <strong className="text-text-primary">Snapshot-in-time model</strong> — parameters
-              reflect conditions as of our last manual update (May 22, 2026). The simulation is updated
+              reflect conditions as of our last manual update (August 23, 2026). The simulation is updated
               manually as significant developments unfold in the ongoing conflict, ensuring readers see a structured timeline rather than stale information.
             </li>
             <li>

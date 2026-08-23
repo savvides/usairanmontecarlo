@@ -79,6 +79,38 @@
       "url": "https://www.chathamhouse.org/regions/middle-east-and-north-africa/iran",
       "type": "geopolitical",
       "usedFor": ["Iranian domestic politics", "Regime stability analysis", "Diplomatic dynamics"]
+    },
+    {
+      "id": "islamabad-memorandum",
+      "title": "Islamabad Memorandum of Understanding between the United States of America and the Islamic Republic of Iran",
+      "publisher": "Wikipedia / Wikisource",
+      "url": "https://en.wikipedia.org/wiki/Islamabad_Memorandum",
+      "type": "geopolitical",
+      "usedFor": ["17 June 2026 MoU terms", "60-day window", "blockade lift and collapse"]
+    },
+    {
+      "id": "kpler-hormuz-mou-2026-08",
+      "title": "60 days of a broken US-Iran MoU: the market stopped waiting for Hormuz",
+      "publisher": "Kpler",
+      "url": "https://www.kpler.com/blog/60-days-of-a-broken-us-iran-mou-the-market-stopped-waiting-for-hormuz",
+      "type": "economic",
+      "usedFor": ["Hormuz flows July–August 2026", "MoU lapse 17 August", "crossing counts"]
+    },
+    {
+      "id": "reuters-oil-2026-08",
+      "title": "Oil market starts pricing in a prolonged Hormuz crisis",
+      "publisher": "Reuters",
+      "url": "https://www.reuters.com/commentary/reuters-open-interest/oil-market-starts-pricing-prolonged-hormuz-crisis-2026-08-18/",
+      "type": "economic",
+      "usedFor": ["Brent path", "Iranian export collapse", "August oil prices"]
+    },
+    {
+      "id": "wikipedia-casualties-2026",
+      "title": "Casualties of the 2026 Iran war",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Casualties_of_the_2026_Iran_war",
+      "type": "osint",
+      "usedFor": ["Iran death-toll range", "Lebanon Health Ministry figures", "US KIA/wounded as of 21 July"]
     }
   ]
 }

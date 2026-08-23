@@ -12,6 +12,11 @@ export interface PhaseResults {
   confidence: Map<string, { score: number; tier: ConfidenceTier }>;
 }
 
+/** Cap for the no-Worker fallback so a dead worker cannot freeze the UI on 5000 runs. */
+export function mainThreadRunCount(requested: number): number {
+  return Math.min(requested, 250);
+}
+
 function computeStats(values: number[]): { mean: number; min: number; max: number; p10: number; p90: number } {
   const sorted = [...values].sort((a, b) => a - b);
   const mean = values.reduce((a, b) => a + b, 0) / values.length;
@@ -79,24 +84,44 @@ export function useSimulation(nodes: SimNode[]) {
 
   useEffect(() => {
     if (typeof Worker === 'undefined') return;
-    let raw: Worker | null = null;
+    let cancelled = false;
+    let retried = false;
+    const wrapper = new SimulationWorker();
+
+    const bind = (raw: Worker) => {
+      wrapper.attach(raw, () => {
+        if (cancelled) return;
+        workerRef.current = null;
+        wrapper.terminate();
+        setIsRunning(false);
+        if (!retried) {
+          retried = true;
+          try {
+            // Reconstruct once. Same static new Worker(new URL(...)) shape so the
+            // bundler still detects and transpiles the worker entrypoint.
+            const next = new Worker(new URL('../engine/worker.ts', import.meta.url), { type: 'module' });
+            bind(next);
+            workerRef.current = wrapper;
+            return;
+          } catch {
+            // Reconstruction failed — leave the wrapper dropped.
+          }
+        }
+      });
+    };
+
     try {
       // Construct the Worker at the call site so the bundler can statically
       // detect new Worker(new URL(...)) and transpile the worker entrypoint.
-      raw = new Worker(new URL('../engine/worker.ts', import.meta.url), { type: 'module' });
-      const wrapper = new SimulationWorker();
-      wrapper.attach(raw, () => {
-        // Worker failed to load/run — drop wrapper so run() falls back to main thread.
-        workerRef.current?.terminate();
-        workerRef.current = null;
-        setIsRunning(false);
-      });
+      const raw = new Worker(new URL('../engine/worker.ts', import.meta.url), { type: 'module' });
+      bind(raw);
       workerRef.current = wrapper;
     } catch {
-      raw?.terminate();
+      wrapper.terminate();
       workerRef.current = null;
     }
     return () => {
+      cancelled = true;
       workerRef.current?.terminate();
       workerRef.current = null;
     };
@@ -129,10 +154,11 @@ export function useSimulation(nodes: SimNode[]) {
         return;
       }
 
-      // Fallback: no Worker available (SSR, tests, unsupported env). Run on main thread.
+      // Fallback: no Worker available (SSR, tests, unsupported env, dead worker).
+      // Cap at 250 so a click cannot freeze the UI on a full 5000-run job.
       requestAnimationFrame(() => {
         if (myId !== latestRunIdRef.current) return;
-        const r = runSimulation(activeGraph, runCount, seed);
+        const r = runSimulation(activeGraph, mainThreadRunCount(runCount), seed);
         setResult(r);
         setIsRunning(false);
       });
