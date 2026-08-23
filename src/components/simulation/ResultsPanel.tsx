@@ -7,6 +7,15 @@ import { DistributionChart } from '@/components/visualizations/DistributionChart
 import type { SimNode, ContinuousNode } from '@engine/types';
 import type { PhaseResults } from '@/hooks/useSimulation';
 
+export type ResultViewState = 'empty' | 'running' | 'ready' | 'updating';
+
+export function resultViewState(isRunning: boolean, hasResults: boolean): ResultViewState {
+  if (!hasResults && isRunning) return 'running';
+  if (!hasResults) return 'empty';
+  if (isRunning) return 'updating';
+  return 'ready';
+}
+
 function useContainerWidth(ref: React.RefObject<HTMLElement | null>): number {
   const [width, setWidth] = useState(400);
   useEffect(() => {
@@ -33,28 +42,30 @@ interface ResultsPanelProps {
 export function ResultsPanel({ nodes, phaseResults, phase, isRunning }: ResultsPanelProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const chartWidth = useContainerWidth(containerRef) - 24; // subtract padding (p-3 = 12px * 2)
+  const view = resultViewState(isRunning, phaseResults !== null);
 
-  if (!phaseResults) {
+  if (!phaseResults || view === 'empty' || view === 'running') {
     return (
       <div className="flex h-full items-center justify-center p-5">
         <p className="text-sm text-text-muted">
-          {isRunning ? 'Running simulation...' : 'Select a scenario to see results'}
+          {view === 'running' ? 'Running simulation...' : 'Select a scenario to see results'}
         </p>
       </div>
     );
   }
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={`results-${phase}`}
-        ref={containerRef}
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -20 }}
-        transition={{ duration: 0.3 }}
-        className="h-full overflow-y-auto p-5"
-      >
+    <div className="relative h-full">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={`results-${phase}`}
+          ref={containerRef}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -20 }}
+          transition={{ duration: 0.3 }}
+          className={`h-full overflow-y-auto p-5 ${view === 'updating' ? 'opacity-40' : ''}`}
+        >
         <h3 className="text-xs font-mono text-text-muted uppercase tracking-wider mb-4">
           Outcome Distributions
         </h3>
@@ -127,7 +138,18 @@ export function ResultsPanel({ nodes, phaseResults, phase, isRunning }: ResultsP
             );
           })}
         </div>
-      </motion.div>
-    </AnimatePresence>
+        </motion.div>
+      </AnimatePresence>
+      {view === 'updating' && (
+        <div
+          aria-live="polite"
+          className="pointer-events-none absolute inset-0 z-10 flex items-start justify-center bg-background/40 pt-5"
+        >
+          <p className="rounded bg-surface-elevated px-2 py-1 text-xs font-mono text-text-muted">
+            Updating…
+          </p>
+        </div>
+      )}
+    </div>
   );
 }
