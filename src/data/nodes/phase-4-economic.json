@@ -4,7 +4,7 @@
     "phase": 4,
     "type": "continuous",
     "label": "Current Oil Price ($/barrel)",
-    "description": "Brent crude benchmark price as of late March 2026. Observed: paper Brent at $113/bbl (+36% from pre-conflict ~$83), with Dubai physical crude trading at a massive $126/bbl premium reflecting actual delivery scarcity. The spread between paper and physical prices indicates severe supply dislocation. Pre-conflict Brent was ~$83/bbl. The current price reflects both war risk premium and actual supply loss from Hormuz closure.",
+    "description": "Brent crude benchmark price as of 23 August 2026. Observed path: pre-war ~$70–83; March peak prints of $118–$139; $71.57 on 1 July as the MoU briefly de-risked the market; $100.69 on 23 July during the 13-night campaign; $91.62 settle on 19 August (WTI $85.83). The panic premium of March is gone; a structural Hormuz premium remains. Paper-physical dislocation is smaller than in March because Gulf producers have rerouted some barrels (Saudi East-West pipeline, Fujairah STS) and because demand destruction plus SPR releases filled the first months. The default distribution is now centered near $92, not $120.",
     "parents": ["escalation_ladder_position", "strait_of_hormuz_closure", "energy_infrastructure_targeting"],
     "cpt": [
       {
@@ -36,12 +36,12 @@
         "distribution": { "type": "normal", "params": [105, 12] }
       }
     ],
-    "defaultDistribution": { "type": "normal", "params": [120, 15] },
+    "defaultDistribution": { "type": "normal", "params": [92, 12] },
     "unit": "$/barrel",
-    "min": 80,
+    "min": 65,
     "max": 200,
     "source": {
-      "citation": "ICE Brent futures March 28, 2026; Dubai Mercantile Exchange physical crude settlement; Bloomberg Energy 'Gulf War Premium Analysis' March 2026; Reuters 'Oil markets react to Iran conflict' tracking",
+      "citation": "Reuters 'Oil prices settle near 4-week high' 19 August 2026 (Brent $91.62, WTI $85.83); Wikipedia energy section (Brent $71.57 on 1 July, $100.69 on 23 July); Reuters 'Oil market starts pricing in a prolonged Hormuz crisis' 18 August 2026",
       "url": "https://www.reuters.com/business/energy/",
       "confidence": "high"
     }
@@ -51,7 +51,7 @@
     "phase": 4,
     "type": "categorical",
     "label": "Strait of Hormuz Closure Status",
-    "description": "Current operational status of the Strait of Hormuz for commercial shipping. Observed: the strait has been effectively closed since March 4, 2026. Near-zero tanker traffic through the main shipping lanes. Some limited negotiated transits for non-combatant-flagged vessels (primarily Chinese and Indian) have been reported but at vastly reduced volume (<5% of normal). Iran deployed mines in the navigable channels; US MCM operations are ongoing but clearing is slow under contested conditions.",
+    "description": "Current operational status of the Strait of Hormuz for commercial shipping. Observed as of 23 August 2026: not fully open and not a literal zero. Pre-war throughput was ~130 vessels/day and ~18 million bpd. Kpler counted ~13 crossings/day in mid-August and 7 on 21 August, the lowest daily print of the war. Trump says the strait is 'open and operating' and 'all water mines have been removed'; Ghalibaf says it stays shut until US conditions are met. The accurate state is closed_selective_passage — a handful of hulls (some dark, some on the UN/Omani southern route, occasional Iraqi tankers Iran allows as a concession that preserves Iranian management claims) against a collapsed commercial baseline.",
     "parents": ["strait_of_hormuz_closure", "escalation_ladder_position"],
     "categories": ["open", "partial", "closed_selective_passage", "fully_closed"],
     "cpt": [
@@ -78,12 +78,12 @@
     ],
     "defaultProbabilities": {
       "open": 0.01,
-      "partial": 0.04,
-      "closed_selective_passage": 0.92,
-      "fully_closed": 0.03
+      "partial": 0.08,
+      "closed_selective_passage": 0.82,
+      "fully_closed": 0.09
     },
     "source": {
-      "citation": "MarineTraffic AIS data Strait of Hormuz March 2026; Lloyd's List 'Hormuz transit tracker' daily updates; CENTCOM maritime corridor advisories; Reuters 'Strait of Hormuz effectively closed since March 4'",
+      "citation": "Kpler / Reuters Hormuz crossing counts 13–21 August 2026 (7–13/day vs ~130 pre-war); Forbes 18 August 2026 (Ghalibaf); Crisis Group trigger list 18 August 2026 (Trump 'open and operating'); Lloyd's List",
       "url": "https://www.lloydslist.com/",
       "confidence": "high"
     }
@@ -93,7 +93,7 @@
     "phase": 4,
     "type": "categorical",
     "label": "Global Oil Production Loss",
-    "description": "Net reduction in global oil production/supply reaching market due to the conflict. Observed: over 10 million barrels per day lost as of March 12 — comprising Iran's own ~3.2 Mb/d (fully offline), plus ~7-8 Mb/d of Gulf state exports trapped behind Hormuz closure (Saudi, UAE, Kuwait, Qatar, Iraq southern exports). IEA has called this the 'greatest global energy security challenge in history.' SPR releases from the US (announced 30M barrel drawdown) and IEA coordinated releases partially offset but cover only weeks of the shortfall.",
+    "description": "Net reduction in global oil supply reaching market due to the conflict. The March 'over 10 million bpd' emergency print is no longer the whole story. Kpler: Hormuz crude+products averaged 4.8 million bpd in July and ~2 million bpd so far in August, versus ~18 million bpd pre-war — a 13–16 million bpd hole through the strait — but substitution is real. Saudi East-West pipeline and Fujairah ship-to-ship transfers, plus demand destruction and SPR barrels, mean the net market shortfall is smaller than the strait hole. UAE crude exports in August were actually slightly above 2025. The modal bin therefore moves from over_10m_bpd toward 7_10m_bpd, with a fat tail still in over_10m if ADNOC-linked attacks and Economic D-Day collapse the workarounds.",
     "parents": ["hormuz_closure_status", "escalation_ladder_position"],
     "categories": ["under_3m_bpd", "3_7m_bpd", "7_10m_bpd", "over_10m_bpd"],
     "cpt": [
@@ -119,13 +119,13 @@
       }
     ],
     "defaultProbabilities": {
-      "under_3m_bpd": 0.01,
-      "3_7m_bpd": 0.04,
-      "7_10m_bpd": 0.05,
-      "over_10m_bpd": 0.90
+      "under_3m_bpd": 0.05,
+      "3_7m_bpd": 0.25,
+      "7_10m_bpd": 0.45,
+      "over_10m_bpd": 0.25
     },
     "source": {
-      "citation": "IEA Oil Market Report March 2026 emergency edition; EIA 'Global Oil Supply Disruption Assessment' March 12, 2026; OPEC+ emergency meeting communique; Bloomberg 'Over 10M bpd lost from global market'",
+      "citation": "Reuters / Kpler 18 August 2026 (Hormuz 4.8 mb/d July, ~2 mb/d August vs 18 mb/d pre-war; UAE August exports 3.38 mb/d); IEA Oil Market Report; EIA",
       "url": "https://www.iea.org/reports/oil-market-report",
       "confidence": "high"
     }
@@ -219,7 +219,7 @@
     "phase": 4,
     "type": "categorical",
     "label": "Hormuz Reopening Timeline",
-    "description": "Projected timeline for resumption of commercial shipping through the Strait of Hormuz. Key variables: (1) Trump's April 6 energy-strike deadline — if the pause is lifted and US strikes Iranian oil infrastructure, the conflict widens and reopening delays further; (2) mine-clearing timeline — the USN's 4 Avenger-class MCM ships plus allied MCM assets need weeks-to-months to clear Iranian mines under contested conditions; (3) ceasefire negotiations — a deal could enable faster reopening; (4) Iranian willingness to permit transit under duress.",
+    "description": "Projected timeline for resumption of commercial shipping through the Strait of Hormuz, measured from 23 August 2026. The April Dallas Fed / Baker Hughes consensus that the strait would not fully reopen until H2 2026 is now a miss — August is H2 and daily crossings are in the single digits. The 17 June MoU was supposed to reopen the strait toll-free for 60 days; Iran re-closed it on 20 June over Lebanon, and the window lapsed on 17 August. A 4 August Iran–Oman dual-lane framework (zero tolls, 30-day mine clearance) never started. Ghalibaf's 18 August conditions — lift the blockade, release frozen assets, remove oil sanctions — are a negotiated outcome, not a minesweeping problem. 'Indefinite' is now the modal bin.",
     "parents": ["hormuz_closure_status", "conflict_duration_projection", "ceasefire_window"],
     "categories": ["within_weeks", "1_3_months", "3_6_months", "indefinite"],
     "cpt": [
@@ -249,13 +249,13 @@
       }
     ],
     "defaultProbabilities": {
-      "within_weeks": 0.05,
-      "1_3_months": 0.30,
-      "3_6_months": 0.42,
-      "indefinite": 0.23
+      "within_weeks": 0.03,
+      "1_3_months": 0.12,
+      "3_6_months": 0.30,
+      "indefinite": 0.55
     },
     "source": {
-      "citation": "CENTCOM MCM operational timeline estimates; Trump April 6 deadline statement; historical mine-clearing timelines (Persian Gulf 1988: 3+ months, Red Sea 2024: ongoing); IEA 'Hormuz Reopening Scenarios' March 2026",
+      "citation": "Kpler '60 days of a broken US-Iran MoU' 19 August 2026; Forbes 18 August 2026; Dallas Fed Energy survey April 2026 (H2 reopen call, now missed); CENTCOM MCM reporting",
       "url": "https://www.centcom.mil/",
       "confidence": "low"
     }
@@ -265,7 +265,7 @@
     "phase": 4,
     "type": "continuous",
     "label": "Oil Price 6-Month Forward Trajectory ($/barrel)",
-    "description": "Projected Brent crude price 6 months forward (approximately September 2026). This captures the medium-term equilibrium after initial panic subsides but structural supply disruption persists. Key drivers: Hormuz reopening timeline, SPR/IEA reserve drawdown rates (US SPR at ~350M barrels, enough for ~50 days of shortfall at current loss rates), demand destruction in Asia and Europe, Saudi/UAE ability to reroute exports via Red Sea pipelines (East-West Pipeline: 5 Mb/d capacity, ADNOC pipeline bypassing Hormuz: 1.5 Mb/d), and global recession effects dampening demand.",
+    "description": "Projected Brent crude price 6 months forward from 23 August 2026 (approximately February 2027). The March default centered at $140 assumed the panic premium would persist. It did not: the market learned to live with a half-closed strait, and Brent spent early July in the $70s before repricing the MoU collapse back into the $90s. The forward question is whether Economic D-Day, ADNOC-tanker attacks, and a 1.8 mb/d Q3 deficit (IEA August revision) push prices back to three digits, or whether substitution and demand destruction cap them near $90–110. The default is now centered near $98, not $140.",
     "parents": ["hormuz_reopening_timeline", "oil_production_loss", "oil_price_current"],
     "cpt": [
       {
@@ -293,12 +293,12 @@
         "distribution": { "type": "normal", "params": [88, 10] }
       }
     ],
-    "defaultDistribution": { "type": "normal", "params": [140, 28] },
+    "defaultDistribution": { "type": "normal", "params": [98, 18] },
     "unit": "$/barrel",
-    "min": 80,
+    "min": 65,
     "max": 250,
     "source": {
-      "citation": "ICE Brent futures curve March 28, 2026; Goldman Sachs 'Oil price scenarios under sustained Gulf disruption' March 2026; IEA 'Medium-term Oil Market Outlook' emergency update; historical 1973/1979/1990 oil shock recovery trajectories",
+      "citation": "Reuters 18–19 August 2026; IEA August 2026 Oil Market Report (Q3 deficit revised to 1.8 mb/d); ICE Brent; Goldman Sachs Gulf-disruption scenarios",
       "url": "https://www.iea.org/",
       "confidence": "low"
     }
@@ -431,7 +431,7 @@
     "phase": 4,
     "type": "categorical",
     "label": "Iranian Economic Collapse",
-    "description": "Severity of Iran's economic collapse. Iran's economy is being crushed from both sides: US strikes are destroying military and dual-use infrastructure, while Hormuz closure has cut off Iran's own oil exports (its primary revenue source — ~60% of government revenue). The rial has collapsed on unofficial markets. Food and medicine shortages are reported in major cities. Iran's pre-war GDP was ~$400B; current trajectory suggests catastrophic contraction. Humanitarian crisis is developing in urban centers.",
+    "description": "Severity of Iran's economic collapse as of 23 August 2026. Reuters/Kpler: Iranian crude exports have fallen to 294,000 bpd this month from 1.7 million bpd in 2025. ISNA: inflation exceeded 80% year-on-year in July. The US blockade, reimposed 15 July, and the 20 August 'Economic D-Day' threat (secondary sanctions on any country trading with Iran) are the current squeeze, not just strike damage. The regime is not a failed state: it signed a presidential MoU in June, the SNSC still issues Hormuz conditions, and parliament still legislates. That is 'near_total' economic pain with a functioning wartime state, not 'failed_state.'",
     "parents": ["conflict_duration_projection", "hormuz_closure_status", "us_air_campaign_scale"],
     "categories": ["managed", "severe", "near_total", "failed_state"],
     "cpt": [
@@ -457,13 +457,13 @@
       }
     ],
     "defaultProbabilities": {
-      "managed": 0.03,
-      "severe": 0.32,
-      "near_total": 0.48,
-      "failed_state": 0.17
+      "managed": 0.02,
+      "severe": 0.38,
+      "near_total": 0.50,
+      "failed_state": 0.10
     },
     "source": {
-      "citation": "World Bank 'Iran Economic Monitor' emergency update March 2026; IMF Article IV consultation data; Tehran Times reporting on rial collapse; OCHA humanitarian situation reports; historical precedent: Iraq 1991 post-war economic collapse",
+      "citation": "Reuters 18 August 2026 (exports 294k bpd vs 1.7 mb/d; inflation >80% YoY July per ISNA); Wikipedia 'Economic D-Day' 20 August 2026; World Bank Iran Economic Monitor",
       "url": "https://www.worldbank.org/en/country/iran",
       "confidence": "medium"
     }
