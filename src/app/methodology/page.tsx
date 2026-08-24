@@ -17,26 +17,25 @@ export default function MethodologyPage() {
         </p>
 
         <section className="mt-10">
-          <h2 className="text-lg font-semibold text-text-primary">What This Is</h2>
+          <h2 className="text-lg font-semibold text-text-primary">What this is</h2>
           <div className="mt-3 space-y-3 text-sm leading-relaxed text-text-secondary">
             <p>
-              This is a Monte Carlo simulation — a technique that runs thousands of randomized
+              This is a Monte Carlo simulation, a technique that runs thousands of randomized
               scenarios through a mathematical model and shows you the distribution of outcomes.
-              Instead of predicting a single future, it shows you the range of possibilities and
-              how likely each one is.
+              It shows the range of possibilities and how likely each one is.
             </p>
             <p>
               The model behind this simulation is a Bayesian network: a directed graph of 107
               interconnected variables spanning 8 phases of a potential US-Iran military conflict.
               Each variable has a probability distribution that depends on its parent variables.
-              When you change an input — like selecting a crisis trigger scenario — the effects
+              When you change an input, like selecting a crisis trigger scenario, the effects
               cascade through every connected variable in the network.
             </p>
           </div>
         </section>
 
         <section className="mt-10">
-          <h2 className="text-lg font-semibold text-text-primary">How the Model Works</h2>
+          <h2 className="text-lg font-semibold text-text-primary">How the model works</h2>
           <div className="mt-3 space-y-3 text-sm leading-relaxed text-text-secondary">
             <p>
               Each variable in the network (called a &ldquo;node&rdquo;) has a conditional probability table
@@ -47,7 +46,7 @@ export default function MethodologyPage() {
             </p>
             <p>
               When the CPT doesn&apos;t have an exact match for the current combination of parent states
-              (which happens frequently with sparse data), the engine uses weighted interpolation —
+              (which happens frequently with sparse data), the engine uses weighted interpolation,
               blending the closest matching CPT entries proportional to how many parent values they
               match. This ensures that parent-child relationships always influence outcomes, even
               when the data is incomplete.
@@ -62,13 +61,12 @@ export default function MethodologyPage() {
         </section>
 
         <section className="mt-10">
-          <h2 className="text-lg font-semibold text-text-primary">Theoretical Framework: Pape&apos;s Coercion Theory</h2>
+          <h2 className="text-lg font-semibold text-text-primary">Theoretical framework: Pape&apos;s coercion theory</h2>
           <div className="mt-3 space-y-3 text-sm leading-relaxed text-text-secondary">
             <p>
               This simulation&apos;s conflict dynamics are informed by Robert Pape&apos;s empirical research
-              on strategic coercion, the most comprehensive scholarly analysis of airpower&apos;s
-              political effectiveness. Pape analyzed every strategic air campaign from 1917 to 1991
-              (33 cases) and found a striking pattern: airpower almost always succeeds tactically
+              on strategic coercion. Pape analyzed every strategic air campaign from 1917 to 1991
+              (33 cases) and found that airpower almost always succeeds tactically
               but almost never achieves its political objectives.
             </p>
             <p>
@@ -77,7 +75,7 @@ export default function MethodologyPage() {
               force capitulation) failed in all 8 cases where it was the dominant approach.
               Decapitation (killing leaders) has never worked independently against states. Only
               denial (threatening the enemy&apos;s ability to achieve military objectives) produced
-              success — and only 15% of the time (5 of 33 cases), always requiring ground forces
+              success, and only 15% of the time (5 of 33 cases), always requiring ground forces
               to create what Pape calls a &ldquo;hammer and anvil&rdquo; effect.
             </p>
             <p>
@@ -86,12 +84,12 @@ export default function MethodologyPage() {
               strikes achieve tactical success but fail to eliminate dispersed nuclear knowledge.
               Stage 2: strategic disappointment drives escalation to regime-change bombing. Stage 3:
               air coercion fails to produce political compliance, creating structural pressure for
-              ground forces (~75% probability by Pape&apos;s estimate). The core logic is recursive:
-              failure generates fear, fear justifies escalation, escalation produces new failure.
+              ground forces (~75% probability by Pape&apos;s estimate). Each failed round of strikes
+              is then used to justify the next.
             </p>
             <p>
-              <strong className="text-text-primary">Nationalist backlash.</strong> Pape&apos;s most
-              counterintuitive finding: bombing consistently <em>strengthens</em> defender resolve
+              <strong className="text-text-primary">Nationalist backlash.</strong> Pape&apos;s
+              finding: bombing consistently <em>strengthens</em> defender resolve
               rather than degrading it. This is the inverse of what punishment theory predicts.
               Authoritarian regimes suppress internal revolt under external pressure, and civilian
               casualties trigger rally-around-the-flag effects. Iran absorbed hundreds of thousands
@@ -104,7 +102,7 @@ export default function MethodologyPage() {
               directly encode Pape&apos;s parameters: escalation trap stage (Phase 3), Iranian
               nationalist resolve (Phase 6), coercive success probability (Phase 7), and ground
               escalation probability (Phase 7). Resolution outcomes are calibrated against Pape&apos;s
-              empirical success rates — &ldquo;decisive US victory&rdquo; through airpower alone is set
+              empirical success rates: &ldquo;decisive US victory&rdquo; through airpower alone is set
               near 5%, consistent with the 0-15% historical range for punishment and denial strategies.
             </p>
             <p>
@@ -114,8 +112,8 @@ export default function MethodologyPage() {
               concession. A 14-point presidential memorandum was signed on June 17 and declared
               &ldquo;over&rdquo; on July 8; its 60-day final-deal clock lapsed on August 17 with no
               extension. A 13-night July air campaign did not reopen the strait or move the
-              enrichment file. Iran has converted Hormuz from a casualty of war into a negotiated
-              hostage — Pape&apos;s &ldquo;counterproductive&rdquo; bin in operational form, on top
+              enrichment file. Hormuz stays closed unless one side accepts the other&apos;s terms:
+              Pape&apos;s &ldquo;counterproductive&rdquo; bin in operational form, on top
               of Lavrov&apos;s spring warning that the campaign pushes Tehran toward a bomb. Stage 3
               has not arrived. The United States substituted a reimposed naval blockade and
               August 20 &ldquo;Economic D-Day&rdquo; secondary sanctions for ground forces, against
@@ -145,12 +143,12 @@ export default function MethodologyPage() {
         </section>
 
         <section className="mt-10">
-          <h2 className="text-lg font-semibold text-text-primary">What the Confidence Badges Mean</h2>
+          <h2 className="text-lg font-semibold text-text-primary">What the confidence badges mean</h2>
           <div className="mt-3 space-y-3 text-sm leading-relaxed text-text-secondary">
             <p>
-              Each result card shows a confidence badge — <span className="font-mono text-success">high</span>,{' '}
+              Each result card shows a confidence badge: <span className="font-mono text-success">high</span>,{' '}
               <span className="font-mono text-warning">medium</span>, or{' '}
-              <span className="font-mono text-danger">low</span> — computed from three factors:
+              <span className="font-mono text-danger">low</span>, computed from three factors:
             </p>
             <ul className="space-y-2 pl-4">
               <li>
@@ -174,17 +172,17 @@ export default function MethodologyPage() {
             </p>
             <p>
               <strong className="text-text-primary">Medium confidence:</strong> Directional
-              estimate — trust the trend but not the exact percentages.
+              estimate: trust the trend but not the exact percentages.
             </p>
             <p>
-              <strong className="text-text-primary">Low confidence:</strong> Speculative — the model
+              <strong className="text-text-primary">Low confidence:</strong> Speculative: the model
               is making educated guesses. Treat as hypothesis generation, not forecasting.
             </p>
           </div>
         </section>
 
         <section className="mt-10">
-          <h2 className="text-lg font-semibold text-text-primary">Known Limitations</h2>
+          <h2 className="text-lg font-semibold text-text-primary">Known limitations</h2>
           <ul className="mt-3 space-y-2 text-sm leading-relaxed text-text-secondary list-disc pl-5">
             <li>
               <strong className="text-text-primary">Sparse conditional probability tables</strong> mean
@@ -207,12 +205,12 @@ export default function MethodologyPage() {
               when sourced from respected institutions, carry expert disagreement.
             </li>
             <li>
-              <strong className="text-text-primary">Snapshot-in-time model</strong> — parameters
+              <strong className="text-text-primary">Snapshot-in-time model:</strong> parameters
               reflect conditions as of our last manual update (August 23, 2026). The simulation is updated
-              manually as significant developments unfold in the ongoing conflict, ensuring readers see a structured timeline rather than stale information.
+              manually as significant developments unfold.
             </li>
             <li>
-              <strong className="text-text-primary">Phases 1–2 are locked to observed data</strong> —
+              <strong className="text-text-primary">Phases 1–2 are locked to observed data:</strong>
               the February 28 strike and the Feb 28 – Mar 10 retaliation period are historical
               record, not projections. Phases 3–7 are now mixed (partially observed, partially
               projected) as the conflict has progressed through ceasefire and negotiations.
