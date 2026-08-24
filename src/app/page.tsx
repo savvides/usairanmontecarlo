@@ -24,7 +24,7 @@ export default function Home() {
         <p className="mt-6 text-sm leading-relaxed text-text-secondary max-w-lg mx-auto">
           The war began February 28, 2026. US and Israeli forces struck Iran in a surprise
           12-hour campaign, killing Supreme Leader Khamenei and destroying the nuclear program.
-          This simulation models what happens next — tracing the conflict through retaliation,
+          This simulation models what happens next, tracing the conflict through retaliation,
           active fighting, economic shockwaves, and the paths to resolution.
         </p>
 

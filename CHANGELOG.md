@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.7.0] - 2026-08-23
+
+### Changed
+- Phase cards, landing page, and methodology now say the same August 23 facts in plainer sentences: fewer "it's not X, it's Y" pivots, fewer em dashes, and less inflated labeling (no "diplomatic fact that matters," no "negotiating hostage")
+
 ## [1.0.6.0] - 2026-08-23
 
 ### Added
